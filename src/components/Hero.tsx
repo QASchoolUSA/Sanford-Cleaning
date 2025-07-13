@@ -9,6 +9,13 @@ const Hero = () => {
     }
   };
 
+  const scrollToCalculator = () => {
+    const element = document.getElementById('price-calculator');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-white">
       <div className="container mx-auto px-4 py-32">
@@ -26,10 +33,10 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
-                onClick={scrollToContact}
+                onClick={scrollToCalculator}
                 className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
               >
-                Get Free Quote
+                Book Cleaning
               </button>
               <button 
                 onClick={scrollToContact}

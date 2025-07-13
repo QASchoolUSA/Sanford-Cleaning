@@ -63,9 +63,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-blue-600 transition-colors">About</button>
-            <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-blue-600 transition-colors">Reviews</button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors">Contact</button>
+            <Link to="/booking" className="text-gray-700 hover:text-blue-600 transition-colors">Book Now</Link>
           </nav>
 
           {/* Contact Info */}
@@ -74,12 +72,12 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>(555) 123-4567</span>
             </div>
-            <button 
-              onClick={handleContactClick}
+            <Link 
+              to="/booking"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
               Get Quote
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,6 +100,7 @@ const Header = () => {
                 <Link to="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Commercial Cleaning</Link>
                 <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Deep Cleaning</Link>
               </div>
+              <Link to="/booking" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Book Now</Link>
               <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">About</button>
               <button onClick={() => scrollToSection('testimonials')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Reviews</button>
               <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Contact</button>

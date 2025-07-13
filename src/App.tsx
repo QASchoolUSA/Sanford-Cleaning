@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import ResidentialCleaning from './pages/ResidentialCleaning';
 import CommercialCleaning from './pages/CommercialCleaning';
 import DeepCleaning from './pages/DeepCleaning';
+import BookingPage from './pages/BookingPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/residential-cleaning" element={<ResidentialCleaning />} />
           <Route path="/commercial-cleaning" element={<CommercialCleaning />} />
           <Route path="/deep-cleaning" element={<DeepCleaning />} />
+          <Route path="/booking" element={<BookingPage />} />
         </Routes>
         <Footer />
       </div>
