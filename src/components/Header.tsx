@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/sanford-cleaning-logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,16 +39,11 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
-    }`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
-            <span className="text-xl md:text-2xl font-bold text-gray-800">Sanford Cleaning</span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Sanford Cleaning Logo" className="max-h-24 object-contain" />
           </Link>
 
           {/* Desktop Navigation */}
