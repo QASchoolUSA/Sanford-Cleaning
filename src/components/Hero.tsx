@@ -79,11 +79,11 @@ const Hero = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl transform rotate-3"></div>
+            <div className="absolute inset-0 max-w-lg mx-auto bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl transform rotate-3"></div>
             <img
-              src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/sanford-cleaning-homepage.webp"
               alt="Professional cleaning service"
-              className="relative w-full h-96 md:h-[500px] object-cover rounded-2xl shadow-2xl"
+              className="relative w-full max-w-lg mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-center space-x-3">

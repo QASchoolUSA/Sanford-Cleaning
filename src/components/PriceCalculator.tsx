@@ -20,7 +20,7 @@ interface FormData {
   extraQuantities: { [key: string]: number };
   
   // Step 3: Tell Us More
-  houseCondition: number;
+  houseCondition: string;
   peopleCount: string;
   lastCleaning: Date | undefined;
   wasProfessional: boolean;
@@ -56,7 +56,7 @@ const PriceCalculator = () => {
     excludedAreas: [],
     extras: [],
     extraQuantities: {},
-    houseCondition: 5,
+    houseCondition: 'Very clean',
     peopleCount: '1',
     lastCleaning: undefined,
     wasProfessional: false,
@@ -109,6 +109,8 @@ const PriceCalculator = () => {
     { name: 'Carpet Cleaning', price: 20, hasQuantity: true, unit: 'area' }
   ];
 
+  const conditionOptions = ['Very clean', 'Pretty clean', 'Average', 'Pretty dirty', 'Very dirty'];
+  
   const peopleOptions = ['1', '2', '3', '4', '5+'];
   
   const keyInfoOptions = [
@@ -125,9 +127,53 @@ const PriceCalculator = () => {
     let maintenanceRecurringPrice = 0;
     
     if (formData.service === 'Hourly') {
-      // Hourly service: $50/hour, no sqft/bed/bath modifiers
+      // Hourly service: $55/hour, no sqft/bed/bath modifiers
       const totalMinutes = (formData.hours || 0) * 60 + (formData.minutes || 0);
-      finalPrice = (totalMinutes / 60) * 50;
+      finalPrice = (totalMinutes / 60) * 55;
+    } else if (formData.service === 'Moving Out/In') {
+      // Moving Out/In service: special pricing with house condition modifiers
+      let basePrice = 277; // Base price for <1000sqft, 1 bedroom, 1 bathroom
+      
+      const sqft = parseInt(formData.squareFootage) || 0;
+      const bedrooms = parseInt(formData.bedrooms) || 0;
+      const bathrooms = parseFloat(formData.bathrooms) || 0;
+      
+      // For every 1000 sqft above 1000, add $10
+      if (sqft > 1000) {
+        const additionalThousands = Math.ceil((sqft - 1000) / 1000);
+        basePrice += additionalThousands * 10;
+      }
+      
+      // For bedrooms above 1, add $10 each
+      if (bedrooms > 1) {
+        basePrice += (bedrooms - 1) * 10;
+      }
+      
+      // For bathrooms above 1, add $6.50 each
+      if (bathrooms > 1) {
+        basePrice += (bathrooms - 1) * 6.5;
+      }
+      
+      // Add house condition modifier
+      switch (formData.houseCondition) {
+        case 'Very clean':
+          // No additional charge
+          break;
+        case 'Pretty clean':
+          basePrice += 25;
+          break;
+        case 'Average':
+          basePrice += 55;
+          break;
+        case 'Pretty dirty':
+          basePrice += 115;
+          break;
+        case 'Very dirty':
+          basePrice += 195;
+          break;
+      }
+      
+      finalPrice = basePrice;
     } else {
       // All other services start with base price calculation
       let basePrice = 157;
@@ -198,33 +244,35 @@ const PriceCalculator = () => {
       }
     }
     
-    // Add extras pricing
-     let extrasTotal = 0;
-     let maintenanceExtrasTotal = 0;
-     
-     // Extras that apply to both initial and maintenance cleaning
-     const maintenanceIncludedExtras = ['Inside oven', 'Dishes', 'Laundry & Folding'];
-     
-     formData.extras.forEach(extra => {
-       const extraOption = extraOptions.find(opt => opt.name === extra.name);
-       if (extraOption) {
-         const quantity = extra.quantity || 1;
-         const extraCost = extraOption.price * quantity;
-         
-         // Add to initial cleaning price
-         extrasTotal += extraCost;
-         
-         // Add to maintenance price if it's in the included list
-         if (maintenanceIncludedExtras.includes(extra.name)) {
-           maintenanceExtrasTotal += extraCost;
+    // Add extras pricing (only for non-hourly services)
+     if (formData.service !== 'Hourly') {
+       let extrasTotal = 0;
+       let maintenanceExtrasTotal = 0;
+       
+       // Extras that apply to both initial and maintenance cleaning
+       const maintenanceIncludedExtras = ['Inside oven', 'Dishes', 'Laundry & Folding'];
+       
+       formData.extras.forEach(extra => {
+         const extraOption = extraOptions.find(opt => opt.name === extra.name);
+         if (extraOption) {
+           const quantity = extra.quantity || 1;
+           const extraCost = extraOption.price * quantity;
+           
+           // Add to initial cleaning price
+           extrasTotal += extraCost;
+           
+           // Add to maintenance price if it's in the included list
+           if (maintenanceIncludedExtras.includes(extra.name)) {
+             maintenanceExtrasTotal += extraCost;
+           }
          }
+       });
+       
+       finalPrice += extrasTotal;
+       // Add specific extras to maintenance recurring price
+       if (formData.service === 'Maintenance Cleaning') {
+         maintenanceRecurringPrice += maintenanceExtrasTotal;
        }
-     });
-     
-     finalPrice += extrasTotal;
-     // Add specific extras to maintenance recurring price
-     if (formData.service === 'Maintenance Cleaning') {
-       maintenanceRecurringPrice += maintenanceExtrasTotal;
      }
     
     // Auto-suggest Heavy Duty if last cleaning was over 90 days ago
@@ -517,23 +565,17 @@ const PriceCalculator = () => {
     <div className="space-y-6">
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-3">
-          What is the current condition of your house? (1 = dirty, 10 = clean)
+          What is the current condition of your house?
         </label>
-        <div className="px-3">
-          <input
-            type="range"
-            min="1"
-            max="10"
-            value={formData.houseCondition}
-            onChange={(e) => updateFormData('houseCondition', parseInt(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-          />
-          <div className="flex justify-between text-sm text-gray-500 mt-1">
-            <span>1 (Dirty)</span>
-            <span className="font-semibold text-blue-600">{formData.houseCondition}</span>
-            <span>10 (Clean)</span>
-          </div>
-        </div>
+        <select
+          value={formData.houseCondition}
+          onChange={(e) => updateFormData('houseCondition', e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        >
+          {conditionOptions.map(option => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -771,15 +813,15 @@ const PriceCalculator = () => {
   };
 
   return (
-    <section id="price-calculator" className="py-20 bg-gray-50">
+    <section id="price-calculator" className="bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Get Your Instant Quote
+              Book Your Cleaning Service
             </h2>
             <p className="text-lg text-gray-600">
-              Complete our simple form to get an accurate price estimate for your cleaning service.
+              Complete our simple form to schedule cleaning service for your needs.
             </p>
           </div>
 

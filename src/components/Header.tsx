@@ -59,7 +59,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <Link to="/booking" className="text-gray-700 hover:text-blue-600 transition-colors">Book Now</Link>
+
             <Link to="/get-hired" className="text-gray-700 hover:text-blue-600 transition-colors">Get Hired</Link>
           </nav>
 
@@ -67,13 +67,13 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Phone className="w-4 h-4" />
-              <span>(555) 123-4567</span>
+              <span>(321) 236-0618</span>
             </div>
             <Link 
               to="/booking"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Get Quote
+              Book Now
             </Link>
           </div>
 
@@ -97,14 +97,14 @@ const Header = () => {
                 <Link to="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Commercial Cleaning</Link>
                 <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Deep Cleaning</Link>
               </div>
-              <Link to="/booking" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Book Now</Link>
+
               <Link to="/get-hired" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Get Hired</Link>
               <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">About</button>
               <button onClick={() => scrollToSection('testimonials')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Reviews</button>
               <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Contact</button>
               <div className="flex items-center space-x-2 text-sm text-gray-600 pt-2 border-t">
                 <Phone className="w-4 h-4" />
-                <span>(555) 123-4567</span>
+                <span>(321) 236-0618</span>
               </div>
             </nav>
           </div>

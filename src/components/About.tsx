@@ -56,11 +56,11 @@ const About = () => {
 
           <div className="relative">
             <img
-              src="https://images.pexels.com/photos/4239140/pexels-photo-4239140.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/sanford-cleaning-about-us.webp"
               alt="Professional cleaning team"
-              className="w-full h-96 object-cover rounded-xl shadow-lg"
+              className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
             />
-            <div className="absolute -bottom-8 -right-8 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
+            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
               <div className="text-2xl font-bold">4.9★</div>
               <div className="text-sm">Customer Rating</div>
             </div>

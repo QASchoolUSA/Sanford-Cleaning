@@ -62,13 +62,13 @@ const ResidentialCleaning = () => {
       name: 'Jennifer Walsh',
       rating: 5,
       text: 'Sanford Cleaning transformed my home! Their attention to detail is incredible and the team is so professional.',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150'
+      image: '/sanford-residential-cleaning.webp'
     },
     {
       name: 'Mark Stevens',
       rating: 5,
       text: 'I\'ve been using their bi-weekly service for 6 months. My house has never been cleaner!',
-      image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'
+      image: '/sanford-residential-cleaning-2.webp'
     }
   ];
 
@@ -113,9 +113,9 @@ const ResidentialCleaning = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/4239119/pexels-photo-4239119.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/sanford-residential-cleaning.webp"
                 alt="Clean modern home interior"
-                className="w-full h-96 md:h-[500px] object-cover rounded-2xl shadow-2xl"
+                className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
               />
             </div>
           </div>
@@ -228,9 +228,9 @@ const ResidentialCleaning = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/4239037/pexels-photo-4239037.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/sanford-residential-cleaning-2.webp"
                 alt="Professional cleaner at work"
-                className="w-full h-96 object-cover rounded-xl shadow-lg"
+                className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
               />
             </div>
           </div>
@@ -290,10 +290,10 @@ const ResidentialCleaning = () => {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <a 
-              href="tel:(555)123-4567"
+              href="tel:(321)236-0618"
               className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200"
             >
-              Call (555) 123-4567
+              Call (321) 236-0618
             </a>
           </div>
         </div>

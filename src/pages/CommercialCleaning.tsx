@@ -1,13 +1,12 @@
-import React from 'react';
 import { Building, Clock, Shield, Users, CheckCircle, Star, ArrowRight, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const CommercialCleaning = () => {
   const services = [
     {
-      name: 'Office Cleaning',
-      description: 'Daily, weekly, or monthly office maintenance',
-      price: 'Starting at $150/visit',
+      name: 'Professional Office Cleaning Sanford',
+      description: 'Complete office cleaning services with flexible scheduling options',
+      price: 'Request Quote',
       duration: '2-6 hours',
       includes: [
         'Desk and workstation cleaning',
@@ -19,8 +18,8 @@ const CommercialCleaning = () => {
       ]
     },
     {
-      name: 'Medical Facility Cleaning',
-      description: 'Specialized cleaning for healthcare environments',
+      name: 'Medical Facility Cleaning Services',
+      description: 'HIPAA-compliant medical cleaning with specialized disinfection protocols',
       price: 'Custom pricing',
       duration: 'Varies',
       includes: [
@@ -33,9 +32,9 @@ const CommercialCleaning = () => {
       ]
     },
     {
-      name: 'Retail Space Cleaning',
-      description: 'Keep your retail environment pristine for customers',
-      price: 'Starting at $200/visit',
+      name: 'Retail Commercial Cleaning Sanford',
+      description: 'Customer-focused retail cleaning to enhance shopping experience',
+      price: 'Custom Pricing',
       duration: '3-8 hours',
       includes: [
         'Sales floor maintenance',
@@ -52,22 +51,22 @@ const CommercialCleaning = () => {
     {
       icon: Briefcase,
       name: 'Corporate Offices',
-      description: 'Professional cleaning for business environments'
+      description: 'Expert office cleaning services in Sanford for professional business environments'
     },
     {
       icon: Users,
       name: 'Medical Facilities',
-      description: 'Specialized healthcare cleaning services'
+      description: 'Medical-grade commercial cleaning service Sanford with HIPAA compliance'
     },
     {
       icon: Building,
       name: 'Retail Stores',
-      description: 'Customer-focused retail space maintenance'
+      description: 'Professional retail cleaning services to enhance customer experience'
     },
     {
       icon: Shield,
       name: 'Educational Facilities',
-      description: 'Safe and clean learning environments'
+      description: 'Comprehensive school and educational facility cleaning in Sanford'
     }
   ];
 
@@ -77,14 +76,14 @@ const CommercialCleaning = () => {
       company: 'TechStart Solutions',
       rating: 5,
       text: 'Sanford Cleaning has been maintaining our office for 2 years. Professional, reliable, and always exceeds expectations.',
-      image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'
+      image: '/commercial-cleaning-sanford.webp'
     },
     {
       name: 'Dr. Sarah Williams',
       company: 'Central Medical Clinic',
       rating: 5,
       text: 'Their medical facility cleaning is exceptional. They understand our strict hygiene requirements perfectly.',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150'
+      image: '/commercial-cleaning-sanford-florida.webp'
     }
   ];
 
@@ -107,10 +106,10 @@ const CommercialCleaning = () => {
                 <span className="text-blue-600 font-semibold">Commercial Cleaning</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Professional Commercial Cleaning Services
+                #1 Commercial Cleaning Service Sanford - Professional Business Cleaning
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Maintain a professional, healthy work environment with our comprehensive commercial cleaning services. From offices to medical facilities, we ensure your business space reflects your commitment to excellence.
+                Sanford's premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive cleaning services that enhance your business image and create healthier work environments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
@@ -129,9 +128,9 @@ const CommercialCleaning = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/commercial-cleaning-sanford-florida.webp"
                 alt="Clean modern office space"
-                className="w-full h-96 md:h-[500px] object-cover rounded-2xl shadow-2xl"
+                className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
               />
             </div>
           </div>
@@ -143,10 +142,10 @@ const CommercialCleaning = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Industries We Serve
+              Trusted Commercial Cleaning Service in Sanford for All Industries
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We provide specialized cleaning services tailored to the unique needs of various industries.
+              Our commercial cleaning service Sanford specializes in industry-specific cleaning solutions. We understand that different businesses have unique cleaning requirements, and our experienced team delivers customized commercial cleaning services tailored to your industry's standards and regulations.
             </p>
           </div>
 
@@ -169,10 +168,10 @@ const CommercialCleaning = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Commercial Services
+              Comprehensive Commercial Cleaning Services Sanford Businesses Trust
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive cleaning solutions designed for business environments.
+              Our commercial cleaning service in Sanford offers complete business cleaning solutions. From daily office maintenance to specialized facility cleaning, we provide reliable, professional services that keep your business running smoothly and looking its best.
             </p>
           </div>
 
@@ -217,44 +216,44 @@ const CommercialCleaning = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Why Businesses Choose Us
+                Why Sanford Businesses Choose Our Commercial Cleaning Service
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <Shield className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Fully Licensed & Insured</h3>
-                    <p className="text-gray-600">Complete business insurance coverage and all required licenses for commercial cleaning.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Licensed Commercial Cleaning Service Sanford</h3>
+                    <p className="text-gray-600">Fully licensed and insured commercial cleaning service in Sanford with comprehensive liability coverage and bonding for your peace of mind.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Clock className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Flexible Scheduling</h3>
-                    <p className="text-gray-600">After-hours, weekend, and holiday cleaning available to minimize business disruption.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Flexible Commercial Cleaning Schedules</h3>
+                    <p className="text-gray-600">Our commercial cleaning service Sanford offers 24/7 availability with after-hours, weekend, and holiday cleaning to fit your business schedule without disruption.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Users className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Trained Professionals</h3>
-                    <p className="text-gray-600">Background-checked staff trained in commercial cleaning protocols and safety procedures.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Certified Commercial Cleaning Professionals</h3>
+                    <p className="text-gray-600">Our Sanford commercial cleaning team consists of background-checked, trained professionals certified in advanced cleaning protocols and safety standards.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Briefcase className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Industry Expertise</h3>
-                    <p className="text-gray-600">Specialized knowledge of industry-specific cleaning requirements and regulations.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Local Sanford Commercial Cleaning Expertise</h3>
+                    <p className="text-gray-600">Years of experience providing commercial cleaning service in Sanford with deep understanding of local business needs and industry-specific requirements.</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/commercial-cleaning-sanford.webp"
                 alt="Professional commercial cleaning"
-                className="w-full h-96 object-cover rounded-xl shadow-lg"
+                className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
               />
             </div>
           </div>
@@ -266,10 +265,10 @@ const CommercialCleaning = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              What Our Business Clients Say
+              Sanford Business Reviews - Commercial Cleaning Service Testimonials
             </h2>
             <p className="text-lg text-gray-600">
-              Trusted by businesses across Sanford and surrounding areas.
+              See why Sanford businesses consistently choose our commercial cleaning service for their facility maintenance needs.
             </p>
           </div>
 
@@ -299,14 +298,75 @@ const CommercialCleaning = () => {
         </div>
       </section>
 
+      {/* Service Areas & Benefits */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                Commercial Cleaning Service Areas in Sanford
+              </h2>
+              <p className="text-lg text-gray-600 mb-6">
+                Our commercial cleaning service Sanford extends throughout the greater Sanford area, providing reliable business cleaning solutions to companies of all sizes. We serve office buildings, medical facilities, retail stores, educational institutions, and industrial facilities.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <span className="text-gray-700">Downtown Sanford commercial districts</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <span className="text-gray-700">Sanford business parks and office complexes</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <span className="text-gray-700">Medical facilities and healthcare centers</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <span className="text-gray-700">Retail shopping centers and stores</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <span className="text-gray-700">Educational facilities and schools</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Benefits of Professional Commercial Cleaning in Sanford
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Enhanced Professional Image</h4>
+                  <p className="text-gray-600">A clean business environment creates positive first impressions and reflects your company's attention to detail and professionalism.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Healthier Work Environment</h4>
+                  <p className="text-gray-600">Regular commercial cleaning reduces germs, allergens, and contaminants, leading to fewer sick days and increased productivity.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Cost-Effective Solution</h4>
+                  <p className="text-gray-600">Professional commercial cleaning service in Sanford is more cost-effective than hiring in-house cleaning staff, with no employee benefits or equipment costs.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Compliance & Safety</h4>
+                  <p className="text-gray-600">We ensure your facility meets health and safety regulations specific to your industry, reducing liability and compliance risks.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="contact" className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Elevate Your Business Environment?
+            Get Your Free Commercial Cleaning Quote in Sanford Today
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contact us today for a custom commercial cleaning solution tailored to your business needs.
+            Ready to experience the best commercial cleaning service Sanford has to offer? Contact our team for a free, customized quote and discover why local businesses trust us for their commercial cleaning needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -317,10 +377,10 @@ const CommercialCleaning = () => {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <a 
-              href="tel:(555)123-4567"
+              href="tel:(321)236-0618"
               className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200"
             >
-              Call (555) 123-4567
+              Call (321) 236-0618
             </a>
           </div>
         </div>

@@ -1,18 +1,21 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import ResidentialCleaning from './pages/ResidentialCleaning';
 import CommercialCleaning from './pages/CommercialCleaning';
 import DeepCleaning from './pages/DeepCleaning';
 import BookingPage from './pages/BookingPage';
 import GetHired from './pages/GetHired';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import FAQ from './pages/FAQ';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen">
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,6 +24,8 @@ function App() {
           <Route path="/deep-cleaning" element={<DeepCleaning />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/get-hired" element={<GetHired />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
         <Footer />
       </div>
