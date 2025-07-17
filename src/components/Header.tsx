@@ -60,6 +60,7 @@ const Header = () => {
               </div>
             </div>
             <Link to="/booking" className="text-gray-700 hover:text-blue-600 transition-colors">Book Now</Link>
+            <Link to="/get-hired" className="text-gray-700 hover:text-blue-600 transition-colors">Get Hired</Link>
           </nav>
 
           {/* Contact Info */}
@@ -97,6 +98,7 @@ const Header = () => {
                 <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Deep Cleaning</Link>
               </div>
               <Link to="/booking" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Book Now</Link>
+              <Link to="/get-hired" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Get Hired</Link>
               <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">About</button>
               <button onClick={() => scrollToSection('testimonials')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Reviews</button>
               <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Contact</button>
