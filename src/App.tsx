@@ -7,6 +7,8 @@ import ResidentialCleaning from './pages/ResidentialCleaning';
 import CommercialCleaning from './pages/CommercialCleaning';
 import DeepCleaning from './pages/DeepCleaning';
 import BookingPage from './pages/BookingPage';
+import StripePayment from './pages/StripePayment';
+import BookingSuccess from './pages/BookingSuccess';
 import GetHired from './pages/GetHired';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import FAQ from './pages/FAQ';
@@ -23,6 +25,8 @@ function App() {
           <Route path="/commercial-cleaning" element={<CommercialCleaning />} />
           <Route path="/deep-cleaning" element={<DeepCleaning />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route path="/payment" element={<StripePayment />} />
+          <Route path="/booking-success" element={<BookingSuccess />} />
           <Route path="/get-hired" element={<GetHired />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/faq" element={<FAQ />} />

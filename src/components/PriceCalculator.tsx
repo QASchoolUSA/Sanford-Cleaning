@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Calendar, Clock, MapPin, CreditCard, Check } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
@@ -43,6 +44,7 @@ interface FormData {
 }
 
 const PriceCalculator = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [maintenancePrice, setMaintenancePrice] = useState(0);
@@ -345,9 +347,27 @@ const PriceCalculator = () => {
   };
 
   const handleSubmit = () => {
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    alert('Booking submitted successfully! We will contact you shortly.');
+    // Prepare booking data for Stripe payment page
+    const bookingData = {
+      service: formData.service,
+      frequency: formData.frequency,
+      squareFootage: formData.squareFootage,
+      bedrooms: formData.bedrooms,
+      bathrooms: formData.bathrooms,
+      extras: formData.extras,
+      scheduledDate: formData.scheduledDate,
+      scheduledTime: formData.scheduledTime,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      estimatedPrice: estimatedPrice,
+      maintenancePrice: maintenancePrice > 0 ? maintenancePrice : undefined
+    };
+
+    // Navigate to Stripe payment page with booking data
+    navigate('/payment', { state: { bookingData } });
   };
 
   const renderStep1 = () => (
