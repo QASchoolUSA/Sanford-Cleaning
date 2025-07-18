@@ -16,6 +16,45 @@ const corsOptions = {
   optionsSuccessStatus: 204
 };
 app.use(cors(corsOptions));
+
+// Webhook endpoint for Stripe events (must be before express.json())
+app.post('/api/webhook', express.raw({type: 'application/json'}), (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+  } catch (err) {
+    console.error('Webhook signature verification failed:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Handle the event
+  switch (event.type) {
+    case 'checkout.session.completed':
+      const session = event.data.object;
+      console.log('Payment successful for session:', session.id);
+      console.log('Booking metadata:', session.metadata);
+      
+      // Here you would typically:
+      // 1. Save the booking to your database
+      // 2. Send confirmation email to customer
+      // 3. Send notification to your team
+      // 4. Update your booking system
+      
+      break;
+    case 'payment_intent.succeeded':
+      const paymentIntent = event.data.object;
+      console.log('PaymentIntent was successful:', paymentIntent.id);
+      break;
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
+
+  res.json({received: true});
+});
+
+// Apply JSON middleware after webhook
 app.use(express.json());
 
 // Health check endpoint
@@ -95,42 +134,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
-// Webhook endpoint for Stripe events
-app.post('/api/webhook', express.raw({type: 'application/json'}), (req, res) => {
-  const sig = req.headers['stripe-signature'];
-  let event;
 
-  try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    console.error('Webhook signature verification failed:', err.message);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
-  }
-
-  // Handle the event
-  switch (event.type) {
-    case 'checkout.session.completed':
-      const session = event.data.object;
-      console.log('Payment successful for session:', session.id);
-      console.log('Booking metadata:', session.metadata);
-      
-      // Here you would typically:
-      // 1. Save the booking to your database
-      // 2. Send confirmation email to customer
-      // 3. Send notification to your team
-      // 4. Update your booking system
-      
-      break;
-    case 'payment_intent.succeeded':
-      const paymentIntent = event.data.object;
-      console.log('PaymentIntent was successful:', paymentIntent.id);
-      break;
-    default:
-      console.log(`Unhandled event type ${event.type}`);
-  }
-
-  res.json({received: true});
-});
 
 // Get session details (for success page)
 app.get('/api/session/:sessionId', async (req, res) => {
