@@ -43,8 +43,8 @@ const BookingSuccess: React.FC = () => {
     const fetchSessionData = async () => {
       try {
         const apiUrl = process.env.NODE_ENV === 'production' 
-        ? `/api/session/${sessionId}` 
-        : `http://localhost:3001/session/${sessionId}`;
+          ? `/api/session/${sessionId}` 
+          : `http://localhost:3001/api/session/${sessionId}`;
       
       const response = await fetch(apiUrl);
         if (!response.ok) {

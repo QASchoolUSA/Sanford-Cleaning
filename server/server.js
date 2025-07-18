@@ -19,12 +19,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/api/health', (req, res) => {
   res.json({ status: 'Server is running', timestamp: new Date().toISOString() });
 });
 
 // Create Stripe Checkout Session
-app.post('/create-checkout-session', async (req, res) => {
+app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const { bookingData } = req.body;
     
@@ -96,7 +96,7 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // Webhook endpoint for Stripe events
-app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
+app.post('/api/webhook', express.raw({type: 'application/json'}), (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
 
@@ -133,7 +133,7 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
 });
 
 // Get session details (for success page)
-app.get('/session/:sessionId', async (req, res) => {
+app.get('/api/session/:sessionId', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.retrieve(req.params.sessionId);
     res.json({

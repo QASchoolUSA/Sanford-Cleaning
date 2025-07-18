@@ -33,7 +33,7 @@ const CheckoutComponent: React.FC<{ bookingData: BookingData }> = ({ bookingData
       // Call your backend to create a Stripe Checkout session
       const apiUrl = process.env.NODE_ENV === 'production' 
         ? '/api/create-checkout-session' 
-        : 'http://localhost:3001/create-checkout-session';
+        : 'http://localhost:3001/api/create-checkout-session';
       
       const response = await fetch(apiUrl, {
         method: 'POST',
