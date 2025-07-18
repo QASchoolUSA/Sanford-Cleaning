@@ -9,14 +9,39 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    alert('Thank you for your message! We\'ll get back to you soon.');
+    setIsSubmitting(true);
+    
+    try {
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? '/api/quote-request'
+        : 'http://localhost:3001/api/quote-request';
+      
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        // Reset form
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        alert('Thank you for your message! We\'ll get back to you soon.');
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error || 'Failed to send message'}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again or call us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -196,10 +221,15 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+                disabled={isSubmitting}
+                className={`w-full px-8 py-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-blue-600 hover:bg-blue-700'
+                } text-white`}
               >
                 <Send className="w-5 h-5" />
-                <span>Send Message</span>
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               </button>
             </form>
           </div>
