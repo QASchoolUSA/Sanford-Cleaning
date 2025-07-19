@@ -20,6 +20,19 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+// Function to get full service name
+const getFullServiceName = (serviceValue) => {
+  const serviceMap = {
+    'residential': 'Residential Cleaning',
+    'commercial': 'Commercial Cleaning',
+    'deep': 'Deep Cleaning',
+    'carpet': 'Carpet Cleaning',
+    'construction': 'Post-Construction',
+    'senior': 'Senior Care Cleaning'
+  };
+  return serviceMap[serviceValue] || serviceValue || 'General Inquiry';
+};
+
 // Email template for booking confirmation
 const createBookingEmailTemplate = (session) => {
   const metadata = session.metadata;
@@ -60,7 +73,7 @@ const createBookingEmailTemplate = (session) => {
             </div>
             <div class="field">
               <span class="label">Service:</span>
-              <span class="value">${metadata.service}${metadata.frequency ? ` (${metadata.frequency})` : ''}</span>
+              <span class="value">${getFullServiceName(metadata.service)}${metadata.frequency ? ` (${metadata.frequency})` : ''}</span>
             </div>
             <div class="field">
               <span class="label">Property Size:</span>
@@ -209,8 +222,8 @@ const createQuoteEmailTemplate = (quoteData) => {
               <span class="value">${quoteData.phone || 'Not provided'}</span>
             </div>
             <div class="field">
-              <span class="label">Service Interest:</span>
-              <span class="value">${quoteData.service || 'General Inquiry'}</span>
+              <span class="label">Service:</span>
+              <span class="value">${getFullServiceName(quoteData.service)}</span>
             </div>
           </div>
           
@@ -248,6 +261,107 @@ const sendQuoteRequest = async (quoteData) => {
     console.log('Quote request email sent successfully');
   } catch (error) {
     console.error('Error sending quote request email:', error);
+  }
+};
+
+// Email template for customer confirmation
+const createCustomerConfirmationTemplate = (customerData) => {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #059669; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { background: #f0fdf4; padding: 30px; border-radius: 0 0 8px 8px; }
+        .section { background: white; margin: 20px 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .field { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
+        .field:last-child { border-bottom: none; }
+        .label { font-weight: bold; color: #475569; }
+        .value { color: #1e293b; }
+        .message-box { background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #059669; }
+        .footer { text-align: center; margin-top: 30px; color: #64748b; font-size: 14px; }
+        .cta-section { background: #059669; color: white; padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0; }
+        .contact-info { background: #e0f2fe; padding: 15px; border-radius: 8px; margin: 15px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>✨ Thank You for Your Inquiry!</h1>
+          <p>We've received your request and will respond promptly</p>
+        </div>
+        
+        <div class="content">
+          <div class="section">
+            <h2>Dear ${customerData.name},</h2>
+            <p>Thank you for reaching out to Sanford Cleaning Company. We have successfully received your inquiry and truly appreciate your interest in our professional cleaning services.</p>
+            
+            <div class="message-box">
+              <h3>📋 Your Request Summary:</h3>
+              <div class="field">
+                <span class="label">Service:</span>
+                <span class="value">${getFullServiceName(customerData.service)}</span>
+              </div>
+              <div class="field">
+                <span class="label">Submitted:</span>
+                <span class="value">${new Date().toLocaleString()}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cta-section">
+            <h3>🚀 What Happens Next?</h3>
+            <p>Our team will review your request and contact you within <strong>24 hours</strong> to discuss your cleaning needs and provide a personalized quote.</p>
+          </div>
+          
+          <div class="section">
+            <h3>🏆 Why Choose Sanford Cleaning?</h3>
+            <ul style="padding-left: 20px; color: #475569;">
+              <li>✅ Licensed, bonded, and insured professionals</li>
+              <li>✅ Eco-friendly cleaning products available</li>
+              <li>✅ Flexible scheduling to fit your needs</li>
+              <li>✅ 100% satisfaction guarantee</li>
+              <li>✅ Competitive pricing with no hidden fees</li>
+            </ul>
+          </div>
+          
+          <div class="contact-info">
+            <h3>📞 Need Immediate Assistance?</h3>
+            <p><strong>Phone:</strong> (321) 236-0618</p>
+            <p><strong>Email:</strong> info@sanfordcleaning.com</p>
+            <p><strong>Service Area:</strong> Sanford, FL and surrounding areas</p>
+          </div>
+          
+          <div class="footer">
+            <p>Thank you for choosing Sanford Cleaning Company!</p>
+            <p>We look forward to serving you and exceeding your expectations.</p>
+            <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+              This is an automated confirmation email. Please do not reply to this message.
+            </p>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+};
+
+// Function to send customer confirmation email
+const sendCustomerConfirmation = async (customerData) => {
+  try {
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: customerData.email,
+      subject: `✨ Thank You for Your Inquiry - Sanford Cleaning Company`,
+      html: createCustomerConfirmationTemplate(customerData)
+    };
+    
+    await transporter.sendMail(mailOptions);
+    console.log('Customer confirmation email sent successfully');
+  } catch (error) {
+    console.error('Error sending customer confirmation email:', error);
   }
 };
 
@@ -418,8 +532,11 @@ app.post('/api/quote-request', async (req, res) => {
       message
     };
     
-    // Send quote request email
+    // Send quote request email to business owner
     await sendQuoteRequest(quoteData);
+    
+    // Send confirmation email to customer
+    await sendCustomerConfirmation(quoteData);
     
     res.json({ success: true, message: 'Quote request sent successfully' });
   } catch (error) {
