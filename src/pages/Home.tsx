@@ -12,7 +12,7 @@ const Home = () => {
       <Helmet>
         <title>Professional Cleaning Services in Sanford, FL | Sanford Cleaning Services</title>
         <meta name="description" content="Professional residential and commercial cleaning services in Sanford, Florida near me." />
-        <meta name="keywords" content="cleaning services sanford, sanford cleaning services, residential cleaning, commercial cleaning, house cleaning, office cleaning, deep cleaning, carpet cleaning" />
+        <meta name="keywords" content="cleaning services sanford, sanford cleaning services, residential cleaning, commercial cleaning, house cleaning, office cleaning, deep cleaning, carpet cleaning, cleaning services near me" />
         <meta property="og:title" content="Professional Cleaning Services in Sanford, FL | Sanford Cleaning Services" />
         <meta property="og:description" content="Professional residential and commercial cleaning services in Sanford, Florida." />
         <meta property="og:type" content="website" />

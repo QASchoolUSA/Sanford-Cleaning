@@ -83,8 +83,8 @@ const ResidentialCleaning = () => {
     <div className="pt-20">
       <Helmet>
         <title>Residential House Cleaning Services in Sanford, FL | Home Cleaning</title>
-        <meta name="description" content="Professional residential house cleaning services in Sanford, FL. Regular cleaning, one-time cleaning, move-in/out cleaning. Licensed, bonded, and insured. Free estimates." />
-        <meta name="keywords" content="residential cleaning Sanford FL, house cleaning, home cleaning services, regular cleaning, one-time cleaning, move-in cleaning, move-out cleaning" />
+        <meta name="description" content="Professional residential house cleaning services in Sanford, FL. Regular cleaning, one-time cleaning, move-in/out cleaning. Free estimates. Fast Booking." />
+        <meta name="keywords" content="residential cleaning sanford, house cleaning, home cleaning services, regular cleaning, one-time cleaning, move-in cleaning, move-out cleaning" />
         <meta property="og:title" content="Residential House Cleaning Services in Sanford, FL" />
         <meta property="og:description" content="Professional residential house cleaning services in Sanford, FL. Regular cleaning, one-time cleaning, move-in/out cleaning." />
         <meta property="og:type" content="website" />

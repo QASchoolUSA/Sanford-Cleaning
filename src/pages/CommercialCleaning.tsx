@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Building, Clock, Shield, Users, CheckCircle, Star, ArrowRight, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -100,7 +99,7 @@ const CommercialCleaning = () => {
     <div className="pt-20">
       <Helmet>
         <title>Commercial Cleaning Service Sanford FL | Professional Business Cleaning</title>
-        <meta name="description" content="#1 Commercial cleaning service in Sanford, FL. Professional office cleaning, medical facility cleaning, retail cleaning. Licensed, bonded, insured. Custom quotes available." />
+        <meta name="description" content="#1 Commercial cleaning service in Sanford, FL. Professional office cleaning, medical facility cleaning, retail cleaning. Custom quotes available." />
         <meta name="keywords" content="commercial cleaning Sanford FL, office cleaning, business cleaning, medical facility cleaning, retail cleaning, professional cleaning service" />
         <meta property="og:title" content="Commercial Cleaning Service Sanford FL | Professional Business Cleaning" />
         <meta property="og:description" content="#1 Commercial cleaning service in Sanford, FL. Professional office cleaning, medical facility cleaning, retail cleaning." />
