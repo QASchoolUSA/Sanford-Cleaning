@@ -99,7 +99,10 @@ const Services = () => {
                     to={service.link}
                     className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    Learn More
+                    {service.title === 'Residential Cleaning' ? 'View Home Cleaning Services' :
+                     service.title === 'Commercial Cleaning' ? 'View Office Cleaning Services' :
+                     service.title === 'Deep Cleaning' ? 'View Deep Cleaning Services' :
+                     'Learn More'}
                   </Link>
                 ) : (
                   <button 
