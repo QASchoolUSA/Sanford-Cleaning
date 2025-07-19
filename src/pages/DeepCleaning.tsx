@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -142,6 +143,15 @@ const DeepCleaning = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Deep Cleaning Services Sanford FL | Comprehensive House Deep Cleaning</title>
+        <meta name="description" content="Professional deep cleaning services in Sanford, FL. Comprehensive deep house cleaning for spring cleaning, special events, and thorough home sanitization. Get a free estimate." />
+        <meta name="keywords" content="deep cleaning Sanford FL, house deep cleaning, spring cleaning, comprehensive cleaning, thorough cleaning, deep house cleaning service" />
+        <meta property="og:title" content="Deep Cleaning Services Sanford FL | Comprehensive House Deep Cleaning" />
+        <meta property="og:description" content="Professional deep cleaning services in Sanford, FL. Comprehensive deep house cleaning for spring cleaning and special events." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://sanfordcleaning.com/deep-cleaning" />
+      </Helmet>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">
         <div className="container mx-auto px-4">

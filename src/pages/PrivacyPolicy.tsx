@@ -1,10 +1,20 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Shield, Lock, Eye, Users, FileText, Mail } from 'lucide-react';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
+      <Helmet>
+        <title>Privacy Policy | Sanford Cleaning - Your Privacy Matters</title>
+        <meta name="description" content="Read Sanford Cleaning's privacy policy to understand how we collect, use, and protect your personal information. Your privacy and data security are our priority." />
+        <meta name="keywords" content="privacy policy, data protection, Sanford cleaning privacy, personal information security" />
+        <meta property="og:title" content="Privacy Policy | Sanford Cleaning" />
+        <meta property="og:description" content="Learn how Sanford Cleaning protects your privacy and handles your personal information securely." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://sanfordcleaning.com/privacy-policy" />
+      </Helmet>
       {/* Header */}
       <div className="bg-blue-600 text-white py-16">
         <div className="container mx-auto px-4">

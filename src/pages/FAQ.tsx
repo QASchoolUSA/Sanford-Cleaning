@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -63,6 +64,15 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
+      <Helmet>
+        <title>Frequently Asked Questions | Sanford Cleaning Services FAQ</title>
+        <meta name="description" content="Find answers to common questions about our cleaning services in Sanford, FL. Learn about booking, pricing, preparation, and our satisfaction guarantee." />
+        <meta name="keywords" content="cleaning service FAQ, Sanford cleaning questions, house cleaning FAQ, cleaning service answers, cleaning preparation" />
+        <meta property="og:title" content="Frequently Asked Questions | Sanford Cleaning Services" />
+        <meta property="og:description" content="Find answers to common questions about our cleaning services in Sanford, FL." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://sanfordcleaning.com/faq" />
+      </Helmet>
       {/* Header */}
       <div className="bg-blue-600 text-white py-16">
         <div className="container mx-auto px-4">

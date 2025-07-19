@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Check, Calendar, Mail, Phone, Home, ArrowRight } from 'lucide-react';
 
@@ -118,6 +119,15 @@ const BookingSuccess: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-12">
+      <Helmet>
+        <title>Booking Confirmed | Sanford Cleaning - Thank You!</title>
+        <meta name="description" content="Your cleaning service booking has been confirmed! Thank you for choosing Sanford Cleaning. Check your email for booking details and confirmation." />
+        <meta name="keywords" content="booking confirmed, cleaning service booked, Sanford cleaning confirmation" />
+        <meta property="og:title" content="Booking Confirmed | Sanford Cleaning" />
+        <meta property="og:description" content="Your cleaning service booking has been confirmed! Thank you for choosing Sanford Cleaning." />
+        <meta property="og:type" content="website" />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Success Header */}
         <div className="text-center mb-8">

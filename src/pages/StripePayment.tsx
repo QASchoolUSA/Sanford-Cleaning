@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft, CreditCard, ExternalLink, Check, AlertCircle } from 'lucide-react';
 
@@ -21,7 +22,6 @@ interface BookingData {
 }
 
 const CheckoutComponent: React.FC<{ bookingData: BookingData }> = ({ bookingData }) => {
-  const navigate = useNavigate();
   const [isCreatingSession, setIsCreatingSession] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -174,6 +174,15 @@ const StripePayment: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
+      <Helmet>
+        <title>Secure Payment | Sanford Cleaning - Complete Your Booking</title>
+        <meta name="description" content="Complete your cleaning service booking with secure Stripe payment. Safe, encrypted payment processing for your Sanford cleaning appointment." />
+        <meta name="keywords" content="secure payment, cleaning service payment, Stripe payment, book cleaning Sanford" />
+        <meta property="og:title" content="Secure Payment | Sanford Cleaning" />
+        <meta property="og:description" content="Complete your cleaning service booking with secure payment processing." />
+        <meta property="og:type" content="website" />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">

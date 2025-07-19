@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Home, Clock, Shield, Sparkles, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -81,6 +82,15 @@ const ResidentialCleaning = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Residential House Cleaning Services in Sanford, FL | Home Cleaning</title>
+        <meta name="description" content="Professional residential house cleaning services in Sanford, FL. Regular cleaning, one-time cleaning, move-in/out cleaning. Licensed, bonded, and insured. Free estimates." />
+        <meta name="keywords" content="residential cleaning Sanford FL, house cleaning, home cleaning services, regular cleaning, one-time cleaning, move-in cleaning, move-out cleaning" />
+        <meta property="og:title" content="Residential House Cleaning Services in Sanford, FL" />
+        <meta property="og:description" content="Professional residential house cleaning services in Sanford, FL. Regular cleaning, one-time cleaning, move-in/out cleaning." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://sanfordcleaning.com/residential-cleaning" />
+      </Helmet>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">
         <div className="container mx-auto px-4">
