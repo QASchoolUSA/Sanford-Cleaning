@@ -144,7 +144,7 @@ const DeepCleaning = () => {
     <div className="pt-20">
       <Helmet>
         <title>Deep Cleaning Services Sanford FL | Comprehensive House Deep Cleaning</title>
-        <meta name="description" content="Professional deep cleaning services in Sanford, FL. Comprehensive deep house cleaning for spring cleaning, special events, and thorough home sanitization. Get a free estimate." />
+        <meta name="description" content="Professional deep cleaning services in Sanford. Comprehensive deep house cleaning for spring cleaning, special events, and thorough home sanitization. Get a free estimate." />
         <meta name="keywords" content="deep cleaning sanford, house deep cleaning, spring cleaning, comprehensive cleaning, thorough cleaning, deep house cleaning service" />
         <meta property="og:title" content="Deep Cleaning Services Sanford FL | Comprehensive House Deep Cleaning" />
         <meta property="og:description" content="Professional deep cleaning services in Sanford, FL. Comprehensive deep house cleaning for spring cleaning and special events." />
