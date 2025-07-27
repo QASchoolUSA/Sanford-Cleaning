@@ -3,7 +3,7 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import PriceCalculator from '../components/PriceCalculator';
 import About from '../components/About';
-import Testimonials from '../components/Testimonials';
+import Map from '../components/Map';
 import Contact from '../components/Contact';
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
       <Services />
       <PriceCalculator />
       <About />
-      <Testimonials />
+      <Map />
       <Contact />
     </>
   );

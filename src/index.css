@@ -66,3 +66,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+.map-container {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.map-container iframe {
+  filter: none;
+  image-rendering: auto;
+}
