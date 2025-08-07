@@ -56,10 +56,12 @@ const Header = () => {
                   <Link to="/residential-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Residential Cleaning</Link>
                   <Link to="/commercial-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Commercial Cleaning</Link>
                   <Link to="/deep-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Deep Cleaning</Link>
+                   <Link to="/senior-care-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Senior Care Cleaning</Link>
                 </div>
               </div>
             </div>
 
+            <Link to="/blog" className="text-gray-700 hover:text-blue-600 transition-colors">Blog</Link>
             <Link to="/get-hired" className="text-gray-700 hover:text-blue-600 transition-colors">Get Hired</Link>
           </nav>
 
@@ -96,8 +98,10 @@ const Header = () => {
                 <Link to="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Residential Cleaning</Link>
                 <Link to="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Commercial Cleaning</Link>
                 <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Deep Cleaning</Link>
+                <Link to="/senior-care-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Senior Care Cleaning</Link>
               </div>
 
+              <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Blog</Link>
               <Link to="/get-hired" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Get Hired</Link>
               <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">About</button>
               <button onClick={() => scrollToSection('testimonials')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Reviews</button>
