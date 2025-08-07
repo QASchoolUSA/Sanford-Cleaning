@@ -57,21 +57,6 @@ const SeniorCareCleaning = () => {
     { name: 'Medication Reminder Setup', price: '$15' },
   ];
 
-  const testimonials = [
-    {
-      name: 'Doris M. (resident at a 55+ community)',
-      rating: 5,
-      text: 'The team is so kind and patient. They not only clean my home beautifully but also take the time to ensure everything is safe for me. It\'s a huge relief.',
-      image: '/sanford-residential-cleaning.webp'
-    },
-    {
-      name: 'Frank P.',
-      rating: 5,
-      text: 'I hired Sanford Cleaning for my father. Their companion cleaning service has been a blessing. The house is tidy, and my dad enjoys the company. Highly recommend.',
-      image: '/sanford-residential-cleaning-2.webp'
-    }
-  ];
-
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -242,41 +227,6 @@ const SeniorCareCleaning = () => {
                 className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              What Our Senior Clients Say
-            </h2>
-            <p className="text-lg text-gray-600">
-              We are proud to serve the seniors in our community.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg">
-                <div className="flex space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.text}"</p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

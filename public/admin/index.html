@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+  <!--
+    This is for authentication with Netlify Identity.
+    You will need to set up a site on Netlify and enable Identity and Git Gateway.
+    See: https://decapcms.org/docs/authentication-backends/#git-gateway-with-netlify-identity
+  -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Link to your config file
+    CMS.init({ configUrl: "/admin/config.yml" });
+  </script>
+</body>
+</html>
