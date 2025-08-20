@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/sanford-cleaning-logo.png';
 
@@ -48,7 +48,6 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors">Home</Link>
             <div className="relative group">
               <button className="text-gray-700 hover:text-blue-600 transition-colors">Services</button>
               <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
@@ -69,6 +68,15 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>(321) 236-0618</span>
             </div>
+            <a 
+              href="https://t.me/sanfordcleaning"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Chat with Us</span>
+            </a>
             <Link 
               to="/booking"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
@@ -90,7 +98,6 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <nav className="flex flex-col space-y-4 p-4">
-              <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Home</Link>
               <div className="space-y-2 pl-4">
                 <div className="text-sm font-semibold text-gray-500">Services:</div>
                 <Link to="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Residential Cleaning</Link>
