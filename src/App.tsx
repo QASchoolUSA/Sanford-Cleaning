@@ -13,6 +13,7 @@ import BookingSuccess from './pages/BookingSuccess';
 import GetHired from './pages/GetHired';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import FAQ from './pages/FAQ';
+import PostConstructionCleaning from './pages/PostConstructionCleaning';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/get-hired" element={<GetHired />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/post-construction-cleaning" element={<PostConstructionCleaning />} />
         </Routes>
         <Footer />
       </div>
