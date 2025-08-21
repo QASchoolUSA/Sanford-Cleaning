@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import FloatingChatButton from './components/FloatingChatButton';
 import Home from './pages/Home';
 import ResidentialCleaning from './pages/ResidentialCleaning';
 import CommercialCleaning from './pages/CommercialCleaning';
@@ -21,7 +21,6 @@ function App() {
       <div className="min-h-screen">
         <ScrollToTop />
         <Header />
-        <FloatingChatButton />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/residential-cleaning" element={<ResidentialCleaning />} />
@@ -36,6 +35,10 @@ function App() {
           <Route path="/post-construction-cleaning" element={<PostConstructionCleaning />} />
         </Routes>
         <Footer />
+        <TawkMessengerReact
+          propertyId="68a64afc4ebc491927e0d78f"
+          widgetId="1j34p9qkd"
+        />
       </div>
     </Router>
   );
