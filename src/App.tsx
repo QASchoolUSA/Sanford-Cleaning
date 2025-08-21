@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -35,10 +34,6 @@ function App() {
           <Route path="/post-construction-cleaning" element={<PostConstructionCleaning />} />
         </Routes>
         <Footer />
-        <TawkMessengerReact
-          propertyId="68a64afc4ebc491927e0d78f"
-          widgetId="1j34p9qkd"
-        />
       </div>
     </Router>
   );
