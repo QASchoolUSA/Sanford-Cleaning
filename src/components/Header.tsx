@@ -70,7 +70,7 @@ const Header = () => {
               <span>(321) 236-0618</span>
             </div>
             <a 
-              href="https://t.me/sanfordcleaning"
+              href="https://tawk.to/chat/68a64afc4ebc491927e0d78f/1j34p9qkd"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
