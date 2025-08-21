@@ -50,14 +50,8 @@
     {
       "source": "/api/(.*)",
       "destination": "/server/server.js"
-    },
-    {
-      "source": "/assets/(.*)",
-      "destination": "/assets/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
-  ]
+  ],
+  "cleanUrls": false,
+  "trailingSlash": false
 }
