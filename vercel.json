@@ -20,41 +20,48 @@
         {
           "key": "Content-Security-Policy",
           "value": "style-src 'self' 'unsafe-inline' *.tawk.to fonts.googleapis.com cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.tawk.to cdn.jsdelivr.net; frame-src 'self' *.tawk.to; font-src 'self' *.tawk.to fonts.gstatic.com; img-src 'self' data: *.tawk.to cdn.jsdelivr.net tawk.link s3.amazonaws.com; connect-src 'self' *.tawk.to wss://*.tawk.to; form-action 'self' *.tawk.to;"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/html"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
         }
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server/server.js",
-      "methods": ["GET", "POST", "PUT", "DELETE"]
+      "source": "/api/(.*)",
+      "destination": "/server/server.js"
     },
     {
-      "src": "/robots.txt",
-      "dest": "/robots.txt",
-      "headers": {
-        "Content-Type": "text/plain"
-      }
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
     },
     {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml",
-      "headers": {
-        "Content-Type": "application/xml"
-      }
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp))",
+      "destination": "/$1"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
