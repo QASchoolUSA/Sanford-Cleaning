@@ -56,10 +56,6 @@
       "destination": "/assets/$1"
     },
     {
-        "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp))",
-        "destination": "/$1"
-      },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
