@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import MicrosoftClarity from './components/MicrosoftClarity';
 import Home from './pages/Home';
 import ResidentialCleaning from './pages/ResidentialCleaning';
 import CommercialCleaning from './pages/CommercialCleaning';
@@ -18,6 +19,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen">
+        <MicrosoftClarity />
         <ScrollToTop />
         <Header />
         <Routes>
