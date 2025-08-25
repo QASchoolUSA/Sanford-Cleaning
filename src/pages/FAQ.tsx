@@ -132,7 +132,7 @@ const FAQ = () => {
                 Book a Service
               </Link>
               <a 
-                href="tel:(321) 236-0618"
+                href="tel:321-236-0618"
                 className="inline-flex items-center px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
               >
                 Call Us: (321) 236-0618
