@@ -44,11 +44,6 @@ export function TimeSlotPicker({
           )
         })}
       </div>
-      {selectedTime && (
-        <p className="text-sm text-gray-600">
-          Selected time: <span className="font-medium">{selectedTime}</span>
-        </p>
-      )}
     </div>
   )
 }

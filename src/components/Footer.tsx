@@ -57,7 +57,7 @@ const Footer = () => {
               <li><Link to="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</Link></li>
               <li><button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors">About Us</button></li>
               <li><button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-blue-600 transition-colors">Services</button></li>
-              <li><button onClick={() => scrollToSection('testimonials')} className="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</button></li>
+
               <li><button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors">Contact</button></li>
               <li><Link to="/faq" className="text-gray-600 hover:text-blue-600 transition-colors">FAQ</Link></li>
               <li><Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
@@ -69,11 +69,11 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-600" />
-                <span className="text-gray-600">(321) 236-0618</span>
+                <a href="tel:321-236-0618" className="text-gray-600 hover:text-blue-600 transition-colors">(321) 236-0618</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-600" />
-                <span className="text-gray-600">info@sanfordcleaning.com</span>
+                <a href="mailto:info@sanfordcleaning.com" className="text-gray-600 hover:text-blue-600 transition-colors">info@sanfordcleaning.com</a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-600 mt-1" />
@@ -100,7 +100,7 @@ const Footer = () => {
             <div className="flex space-x-6 text-sm">
               <Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</Link>
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Cookie Policy</a>
+
             </div>
           </div>
         </div>

@@ -38,6 +38,7 @@ const createBookingEmailTemplate = (session) => {
   const metadata = session.metadata;
   const customerDetails = session.customer_details;
   const amount = (session.amount_total / 100).toFixed(2);
+  const isNonStripePayment = metadata.paymentType && metadata.paymentType !== 'Credit Card';
   
   return `
     <!DOCTYPE html>
@@ -61,7 +62,7 @@ const createBookingEmailTemplate = (session) => {
       <div class="container">
         <div class="header">
           <h1>🎉 New Booking Confirmed!</h1>
-          <p>Payment Successfully Processed</p>
+          <p>${isNonStripePayment ? 'Booking Received - Payment Pending' : 'Payment Successfully Processed'}</p>
         </div>
         
         <div class="content">
@@ -125,16 +126,30 @@ const createBookingEmailTemplate = (session) => {
               <span class="label">Address:</span>
               <span class="value">${metadata.customerAddress}</span>
             </div>
+            ${!isNonStripePayment && customerDetails.address ? `
             <div class="field">
               <span class="label">Billing Address:</span>
               <span class="value">${customerDetails.address.line1}${customerDetails.address.line2 ? ', ' + customerDetails.address.line2 : ''}, ${customerDetails.address.city}, ${customerDetails.address.state} ${customerDetails.address.postal_code}</span>
             </div>
+            ` : ''}
+            ${metadata.keyInfo ? `
+            <div class="field">
+              <span class="label">Key Information:</span>
+              <span class="value">${metadata.keyInfo}</span>
+            </div>
+            ` : ''}
+            ${metadata.customerNote ? `
+            <div class="field">
+              <span class="label">Customer Note:</span>
+              <span class="value">${metadata.customerNote}</span>
+            </div>
+            ` : ''}
           </div>
           
           <div class="section">
             <h2>💳 Payment Information</h2>
             <div class="field">
-              <span class="label">Session ID:</span>
+              <span class="label">${isNonStripePayment ? 'Booking ID:' : 'Session ID:'}</span>
               <span class="value">${session.id}</span>
             </div>
             <div class="field">
@@ -143,12 +158,25 @@ const createBookingEmailTemplate = (session) => {
             </div>
             <div class="field">
               <span class="label">Payment Method:</span>
-              <span class="value">Card</span>
+              <span class="value">${metadata.paymentType || 'Card'}</span>
             </div>
+            ${metadata.paymentComment ? `
+            <div class="field">
+              <span class="label">Payment Notes:</span>
+              <span class="value">${metadata.paymentComment}</span>
+            </div>
+            ` : ''}
           </div>
           
+          ${isNonStripePayment ? `
+          <div class="section" style="background: #fef3c7; border: 1px solid #f59e0b;">
+            <h3 style="color: #92400e; margin-top: 0;">⚠️ Payment Instructions</h3>
+            <p style="color: #92400e; margin-bottom: 0;">This booking uses <strong>${metadata.paymentType}</strong> payment method. Our team will contact you within 24 hours to arrange payment details and confirm your booking schedule.</p>
+          </div>
+          ` : ''}
+          
           <div class="total">
-            💰 Total Amount: $${amount}
+            💰 ${isNonStripePayment ? 'Estimated' : 'Total'} Amount: $${amount}
           </div>
           
           <div class="footer">
@@ -512,6 +540,55 @@ app.get('/api/session/:sessionId', async (req, res) => {
   } catch (error) {
     console.error('Error retrieving session:', error);
     res.status(500).json({ error: 'Failed to retrieve session' });
+  }
+});
+
+// Non-Stripe booking confirmation endpoint
+app.post('/api/confirm-booking', async (req, res) => {
+  try {
+    const { bookingData, bookingId } = req.body;
+    
+    if (!bookingData || !bookingId) {
+      return res.status(400).json({ error: 'Booking data and booking ID are required' });
+    }
+    
+    // Create a mock session object for email template compatibility
+    const mockSession = {
+      id: bookingId,
+      payment_status: 'pending',
+      customer_email: bookingData.email,
+      amount_total: bookingData.estimatedPrice * 100, // Convert to cents
+      metadata: {
+        bookingId: bookingId,
+        service: bookingData.service,
+        frequency: bookingData.frequency || '',
+        squareFootage: bookingData.squareFootage,
+        bedrooms: bookingData.bedrooms,
+        bathrooms: bookingData.bathrooms,
+        customerName: `${bookingData.firstName} ${bookingData.lastName}`,
+        customerPhone: bookingData.phone,
+        customerAddress: `${bookingData.address}${bookingData.aptUnit ? `, ${bookingData.aptUnit}` : ''}`,
+        scheduledDate: bookingData.scheduledDate ? new Date(bookingData.scheduledDate).toISOString() : '',
+        scheduledTime: bookingData.scheduledTime || '',
+        extras: JSON.stringify(bookingData.extras || []),
+        maintenancePrice: bookingData.maintenancePrice || '',
+        paymentType: bookingData.paymentType,
+        paymentComment: bookingData.paymentComment || '',
+        keyInfo: bookingData.keyInfo || '',
+        customerNote: bookingData.customerNote || ''
+      }
+    };
+    
+    // Send booking confirmation email
+    await sendBookingConfirmation(mockSession);
+    
+    console.log('Non-Stripe booking confirmed:', bookingId);
+    console.log('Booking metadata:', mockSession.metadata);
+    
+    res.json({ success: true, message: 'Booking confirmed successfully', bookingId });
+  } catch (error) {
+    console.error('Error confirming booking:', error);
+    res.status(500).json({ error: 'Failed to confirm booking' });
   }
 });
 

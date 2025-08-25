@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Calendar, Clock, MapPin, CreditCard, Check } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
+import AddressAutocomplete from '@/components/ui/address-autocomplete';
 
 interface FormData {
   // Step 1: Service Selection
@@ -28,11 +29,9 @@ interface FormData {
   scheduledDate: Date | undefined;
   scheduledTime: string;
   
-  // Step 4: Contact & Payment
   firstName: string;
   lastName: string;
   email: string;
-  secondaryEmail: string;
   phone: string;
   secondaryPhone: string;
   address: string;
@@ -40,15 +39,18 @@ interface FormData {
   keyInfo: string;
   customerNote: string;
   paymentType: string;
-  paymentComment: string;
 }
 
 const PriceCalculator = () => {
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState(1);
+  const location = useLocation();
+  const calculatorRef = useRef<HTMLDivElement>(null);
+  const [currentStep, setCurrentStep] = useState(location.state?.returnToStep || 1);
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [maintenancePrice, setMaintenancePrice] = useState(0);
   const [showExtras, setShowExtras] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [secondaryPhoneError, setSecondaryPhoneError] = useState('');
   const [formData, setFormData] = useState<FormData>({
     service: '',
     squareFootage: '',
@@ -67,15 +69,13 @@ const PriceCalculator = () => {
     firstName: '',
     lastName: '',
     email: '',
-    secondaryEmail: '',
     phone: '',
     secondaryPhone: '',
     address: '',
     aptUnit: '',
     keyInfo: '',
     customerNote: '',
-    paymentType: '',
-    paymentComment: ''
+    paymentType: ''
   });
 
   const serviceOptions = [
@@ -122,6 +122,97 @@ const PriceCalculator = () => {
   ];
   
   const paymentOptions = ['Zelle', 'Cash', 'Check', 'Credit Card'];
+
+  // Phone number formatting and validation functions
+  const formatPhoneNumber = (value: string): string => {
+    // Remove all non-numeric characters
+    const phoneNumber = value.replace(/\D/g, '');
+    
+    // Limit to 10 digits
+    const limitedPhoneNumber = phoneNumber.substring(0, 10);
+    
+    // Format as (XXX) XXX-XXXX
+    if (limitedPhoneNumber.length >= 6) {
+      return `(${limitedPhoneNumber.substring(0, 3)}) ${limitedPhoneNumber.substring(3, 6)}-${limitedPhoneNumber.substring(6)}`;
+    } else if (limitedPhoneNumber.length >= 3) {
+      return `(${limitedPhoneNumber.substring(0, 3)}) ${limitedPhoneNumber.substring(3)}`;
+    } else if (limitedPhoneNumber.length > 0) {
+      return `(${limitedPhoneNumber}`;
+    }
+    return limitedPhoneNumber;
+  };
+
+  const validatePhoneNumber = (phoneNumber: string): boolean => {
+    // Remove all non-numeric characters and check if it's exactly 10 digits
+    const cleanPhone = phoneNumber.replace(/\D/g, '');
+    return cleanPhone.length === 10;
+  };
+
+  const handlePhoneChange = (value: string, field: 'phone' | 'secondaryPhone') => {
+    // Extract only numeric characters
+    const numericValue = value.replace(/\D/g, '');
+    
+    // Limit to 10 digits
+    if (numericValue.length <= 10) {
+      const formattedValue = formatPhoneNumber(numericValue);
+      updateFormData(field, formattedValue);
+      
+      // Validate and set error messages
+      if (field === 'phone') {
+        if (numericValue.length > 0 && !validatePhoneNumber(formattedValue)) {
+          setPhoneError('Please enter a valid 10-digit phone number');
+        } else {
+          setPhoneError('');
+        }
+      } else {
+        if (numericValue.length > 0 && !validatePhoneNumber(formattedValue)) {
+          setSecondaryPhoneError('Please enter a valid 10-digit phone number');
+        } else {
+          setSecondaryPhoneError('');
+        }
+      }
+    }
+  };
+
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, field: 'phone' | 'secondaryPhone') => {
+    const target = e.target as HTMLInputElement;
+    const currentValue = target.value;
+    
+    // Handle backspace and delete keys
+    if (e.key === 'Backspace' || e.key === 'Delete') {
+      const cursorPosition = target.selectionStart || 0;
+      
+      // If backspace is pressed and cursor is at a formatting character, move cursor back
+      if (e.key === 'Backspace' && cursorPosition > 0) {
+        const charBeforeCursor = currentValue[cursorPosition - 1];
+        if (charBeforeCursor === '(' || charBeforeCursor === ')' || charBeforeCursor === ' ' || charBeforeCursor === '-') {
+          e.preventDefault();
+          // Find the previous numeric character and remove it
+          const numericValue = currentValue.replace(/\D/g, '');
+          if (numericValue.length > 0) {
+            const newNumericValue = numericValue.slice(0, -1);
+            const newFormattedValue = formatPhoneNumber(newNumericValue);
+            updateFormData(field, newFormattedValue);
+            
+            // Update validation
+            if (field === 'phone') {
+              if (newNumericValue.length > 0 && !validatePhoneNumber(newFormattedValue)) {
+                setPhoneError('Please enter a valid 10-digit phone number');
+              } else {
+                setPhoneError('');
+              }
+            } else {
+              if (newNumericValue.length > 0 && !validatePhoneNumber(newFormattedValue)) {
+                setSecondaryPhoneError('Please enter a valid 10-digit phone number');
+              } else {
+                setSecondaryPhoneError('');
+              }
+            }
+          }
+        }
+      }
+    }
+  };
 
   // Calculate estimated price based on form data
   useEffect(() => {
@@ -338,16 +429,56 @@ const PriceCalculator = () => {
     }));
   };
 
+  const scrollToCalculatorTop = () => {
+    if (calculatorRef.current) {
+      // Get the calculator container position
+      const rect = calculatorRef.current.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Calculate position to include some padding above the progress bar
+      const targetPosition = rect.top + scrollTop - 100; // 100px padding above
+      
+      window.scrollTo({
+        top: Math.max(0, targetPosition),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handle return to specific step and scroll position
+  useEffect(() => {
+    if (location.state?.returnToStep) {
+      // Clear the state to prevent unwanted step changes on subsequent visits
+      window.history.replaceState({}, document.title);
+      // Scroll to calculator top after a brief delay
+      setTimeout(() => {
+        scrollToCalculatorTop();
+      }, 100);
+    }
+  }, []);
+
   const nextStep = () => {
-    if (currentStep < 4) setCurrentStep(currentStep + 1);
+    if (currentStep < 4) {
+      setCurrentStep(currentStep + 1);
+      // Scroll to top of calculator form after state update
+      setTimeout(() => {
+        scrollToCalculatorTop();
+      }, 100);
+    }
   };
 
   const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+      // Scroll to top of calculator form after state update
+      setTimeout(() => {
+        scrollToCalculatorTop();
+      }, 100);
+    }
   };
 
   const handleSubmit = () => {
-    // Prepare booking data for Stripe payment page
+    // Prepare booking data
     const bookingData = {
       service: formData.service,
       frequency: formData.frequency,
@@ -360,14 +491,21 @@ const PriceCalculator = () => {
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
-      phone: formData.phone,
+        phone: formData.phone,
       address: formData.address,
+      aptUnit: formData.aptUnit,
+      keyInfo: formData.keyInfo,
+      customerNote: formData.customerNote,
+      paymentType: formData.paymentType,
       estimatedPrice: estimatedPrice,
       maintenancePrice: maintenancePrice > 0 ? maintenancePrice : undefined
     };
 
-    // Navigate to Stripe payment page with booking data
-    navigate('/payment', { state: { bookingData } });
+    if (formData.paymentType === 'Credit Card') {
+      navigate('/payment', { state: { bookingData } });
+    } else {
+      navigate('/booking-summary', { state: { bookingData, fromStep: currentStep } });
+    }
   };
 
   const renderStep1 = () => (
@@ -583,84 +721,83 @@ const PriceCalculator = () => {
 
   const renderStep3 = () => (
     <div className="space-y-6">
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">
-          What is the current condition of your house?
-        </label>
-        <select
-          value={formData.houseCondition}
-          onChange={(e) => updateFormData('houseCondition', e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        >
-          {conditionOptions.map(option => (
-            <option key={option} value={option}>{option}</option>
-          ))}
-        </select>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">How many people live in the house?</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            House condition?
+          </label>
+          <select
+            value={formData.houseCondition}
+            onChange={(e) => updateFormData('houseCondition', e.target.value)}
+            className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            {conditionOptions.map(option => (
+              <option key={option} value={option}>{option}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">How many people live in a house?</label>
           <select
             value={formData.peopleCount}
             onChange={(e) => updateFormData('peopleCount', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             {peopleOptions.map(option => (
               <option key={option} value={option}>{option}</option>
             ))}
           </select>
         </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">When was the last cleaning?</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Last cleaning?</label>
           <DatePicker
             date={formData.lastCleaning}
             onDateChange={(date) => updateFormData('lastCleaning', date)}
-            placeholder="Select last cleaning date"
-            className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Select date"
+            maxDate={new Date()}
+            className="p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
-      </div>
-
-      <div>
-        <label className="flex items-center space-x-3 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={formData.wasProfessional}
-            onChange={(e) => updateFormData('wasProfessional', e.target.checked)}
-            className="w-4 h-4 text-blue-600 rounded"
-          />
-          <span className="text-gray-700">It was a professional cleaning</span>
-        </label>
-      </div>
-
-      <div className="space-y-6">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Select Date</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Select date for Service</label>
           <DatePicker
             date={formData.scheduledDate}
             onDateChange={(date) => {
               updateFormData('scheduledDate', date);
-              // Clear selected time when date changes
               if (formData.scheduledTime) {
                 updateFormData('scheduledTime', '');
               }
             }}
             placeholder="Select service date"
             minDate={new Date()}
-            className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
-        {formData.scheduledDate && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">Select Time</label>
-            <TimeSlotPicker
-              selectedTime={formData.scheduledTime}
-              onTimeChange={(time) => updateFormData('scheduledTime', time)}
-            />
-          </div>
-        )}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Was it professional?</label>
+          <select
+            value={formData.wasProfessional ? 'YES' : 'NO'}
+            onChange={(e) => updateFormData('wasProfessional', e.target.value === 'YES')}
+            className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option value="NO">NO</option>
+            <option value="YES">YES</option>
+          </select>
+        </div>
       </div>
+
+      {formData.scheduledDate && (
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Select Time</label>
+          <TimeSlotPicker
+            selectedTime={formData.scheduledTime}
+            onTimeChange={(time) => updateFormData('scheduledTime', time)}
+          />
+        </div>
+      )}
     </div>
   );
 
@@ -689,26 +826,15 @@ const PriceCalculator = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Email *</label>
-          <input
-            type="email"
-            value={formData.email}
-            onChange={(e) => updateFormData('email', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Secondary Email</label>
-          <input
-            type="email"
-            value={formData.secondaryEmail}
-            onChange={(e) => updateFormData('secondaryEmail', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          />
-        </div>
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-3">Email *</label>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(e) => updateFormData('email', e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          required
+        />
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -716,31 +842,51 @@ const PriceCalculator = () => {
           <label className="block text-sm font-semibold text-gray-700 mb-3">Phone Number *</label>
           <input
             type="tel"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={formData.phone}
-            onChange={(e) => updateFormData('phone', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            onChange={(e) => handlePhoneChange(e.target.value, 'phone')}
+            onKeyDown={(e) => handlePhoneKeyDown(e, 'phone')}
+            className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+              phoneError ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder="(555) 123-4567"
+            maxLength={14}
             required
           />
+          {phoneError && (
+            <p className="mt-1 text-sm text-red-600">{phoneError}</p>
+          )}
         </div>
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-3">Secondary Phone</label>
           <input
             type="tel"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={formData.secondaryPhone}
-            onChange={(e) => updateFormData('secondaryPhone', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            onChange={(e) => handlePhoneChange(e.target.value, 'secondaryPhone')}
+            onKeyDown={(e) => handlePhoneKeyDown(e, 'secondaryPhone')}
+            className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+              secondaryPhoneError ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder="(555) 123-4567"
+            maxLength={14}
           />
+          {secondaryPhoneError && (
+            <p className="mt-1 text-sm text-red-600">{secondaryPhoneError}</p>
+          )}
         </div>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4">
         <div className="md:col-span-2">
           <label className="block text-sm font-semibold text-gray-700 mb-3">Address *</label>
-          <input
-            type="text"
+          <AddressAutocomplete
             value={formData.address}
-            onChange={(e) => updateFormData('address', e.target.value)}
+            onChange={(value) => updateFormData('address', value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Start typing your address..."
             required
           />
         </div>
@@ -756,22 +902,18 @@ const PriceCalculator = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">Key Information</label>
-        <div className="space-y-3">
+        <label className="block text-sm font-semibold text-gray-700 mb-3">Key Information *</label>
+        <select
+          value={formData.keyInfo}
+          onChange={(e) => updateFormData('keyInfo', e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          required
+        >
+          <option value="">Select key arrangement</option>
           {keyInfoOptions.map(option => (
-            <label key={option} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
-              <input
-                type="radio"
-                name="keyInfo"
-                value={option}
-                checked={formData.keyInfo === option}
-                onChange={(e) => updateFormData('keyInfo', e.target.value)}
-                className="w-4 h-4 text-blue-600 mr-3"
-              />
-              <span className="text-gray-700">{option}</span>
-            </label>
+            <option key={option} value={option}>{option}</option>
           ))}
-        </div>
+        </select>
       </div>
 
       <div>
@@ -803,17 +945,6 @@ const PriceCalculator = () => {
           ))}
         </div>
       </div>
-
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">Comment for Payment</label>
-        <textarea
-          value={formData.paymentComment}
-          onChange={(e) => updateFormData('paymentComment', e.target.value)}
-          rows={3}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="Any payment-related notes..."
-        />
-      </div>
     </div>
   );
 
@@ -826,7 +957,7 @@ const PriceCalculator = () => {
       case 3:
         return formData.scheduledDate !== undefined && formData.scheduledTime !== '';
       case 4:
-        return formData.firstName !== '' && formData.lastName !== '' && formData.email !== '' && formData.phone !== '' && formData.address !== '';
+        return formData.firstName !== '' && formData.lastName !== '' && formData.email !== '' && formData.phone !== '' && formData.address !== '' && formData.keyInfo !== '' && validatePhoneNumber(formData.phone) && (formData.secondaryPhone === '' || validatePhoneNumber(formData.secondaryPhone));
       default:
         return false;
     }
@@ -845,7 +976,7 @@ const PriceCalculator = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div ref={calculatorRef} className="bg-white rounded-xl shadow-lg overflow-hidden">
             {/* Progress Bar */}
             <div className="bg-blue-50 p-6">
               {/* Overall Progress Bar */}
@@ -1043,8 +1174,17 @@ const PriceCalculator = () => {
                       : 'bg-green-600 text-white hover:bg-green-700'
                   }`}
                 >
-                  <CreditCard className="w-4 h-4" />
-                  <span>Proceed to Payment/Confirm Booking</span>
+                  {formData.paymentType === 'Credit Card' ? (
+                    <>
+                      <CreditCard className="w-4 h-4" />
+                      <span>Proceed to Payment</span>
+                    </>
+                  ) : (
+                    <>
+                      <Check className="w-4 h-4" />
+                      <span>Review Booking</span>
+                    </>
+                  )}
                 </button>
               )}
             </div>

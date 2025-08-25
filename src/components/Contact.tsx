@@ -74,7 +74,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">(321) 236-0618</p>
+                    <p className="text-gray-600">
+                      <a href="tel:321-236-0618" className="hover:text-blue-600 transition-colors">(321) 236-0618</a>
+                    </p>
                     <p className="text-sm text-gray-500">Available 24/7 for emergencies</p>
                   </div>
                 </div>
@@ -85,7 +87,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">info@sanfordcleaning.com</p>
+                    <p className="text-gray-600">
+                      <a href="mailto:info@sanfordcleaning.com" className="hover:text-blue-600 transition-colors">info@sanfordcleaning.com</a>
+                    </p>
                     <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X, Phone, Mail, Calendar } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/sanford-cleaning-logo.png';
 
@@ -8,6 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,22 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
@@ -65,10 +82,10 @@ const Header = () => {
           </nav>
 
           {/* Contact Info */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Phone className="w-4 h-4" />
-              <span>(321) 236-0618</span>
+              <a href="tel:321-236-0618" className="hover:text-blue-600 transition-colors">(321) 236-0618</a>
             </div>
 
             <Link 
@@ -90,23 +107,52 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <nav className="flex flex-col space-y-4 p-4">
-              <div className="space-y-2 pl-4">
-                <div className="text-sm font-semibold text-gray-500">Services:</div>
-                <Link to="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Residential Cleaning</Link>
-                <Link to="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Commercial Cleaning</Link>
-                <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Deep Cleaning</Link>
-                <Link to="/post-construction-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Post-Construction Cleaning</Link>
+          <div ref={menuRef} className="md:hidden bg-white">
+            <nav className="flex flex-col p-4">
+              {/* Navigation Links */}
+              <div className="space-y-6 mb-6">
+                <div className="space-y-2 pl-4">
+                  <div className="text-sm font-semibold text-gray-500">Services:</div>
+                  <Link to="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Residential Cleaning</Link>
+                  <Link to="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Commercial Cleaning</Link>
+                  <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Deep Cleaning</Link>
+                  <Link to="/post-construction-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Post-Construction Cleaning</Link>
+                </div>
+
+                <div className="flex flex-row gap-6">
+                  <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors py-3">About</button>
+                  <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors py-3">Contact</button>
+                </div>
               </div>
 
-              <Link to="/get-hired" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Get Hired</Link>
-              <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">About</button>
-              <button onClick={() => scrollToSection('testimonials')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Reviews</button>
-              <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Contact</button>
-              <div className="flex items-center space-x-2 text-sm text-gray-600 pt-2 border-t">
-                <Phone className="w-4 h-4" />
-                <span>(321) 236-0618</span>
+              {/* Action Buttons Section */}
+              <div className="space-y-3">
+                {/* Get Hired Button */}
+                <Link 
+                  to="/get-hired" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="flex items-center justify-center w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+                >
+                  Get Hired
+                </Link>
+                {/* Call Now */}
+                <a 
+                  href="tel:321-236-0618" 
+                  className="flex items-center justify-center space-x-2 w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span className="font-medium">Call Now</span>
+                </a>
+
+                {/* Book Now Button */}
+                <Link 
+                  to="/booking"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-center space-x-2 w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <Calendar className="w-5 h-5" />
+                  <span className="font-medium">Book Now</span>
+                </Link>
               </div>
             </nav>
           </div>
