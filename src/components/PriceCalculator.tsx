@@ -721,7 +721,7 @@ const PriceCalculator = () => {
 
   const renderStep3 = () => (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             House condition?
@@ -729,7 +729,7 @@ const PriceCalculator = () => {
           <select
             value={formData.houseCondition}
             onChange={(e) => updateFormData('houseCondition', e.target.value)}
-            className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             {conditionOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -741,7 +741,7 @@ const PriceCalculator = () => {
           <select
             value={formData.peopleCount}
             onChange={(e) => updateFormData('peopleCount', e.target.value)}
-            className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             {peopleOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -750,7 +750,7 @@ const PriceCalculator = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Last cleaning?</label>
           <DatePicker
@@ -758,7 +758,7 @@ const PriceCalculator = () => {
             onDateChange={(date) => updateFormData('lastCleaning', date)}
             placeholder="Select date"
             maxDate={new Date()}
-            className="p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div>
@@ -773,7 +773,7 @@ const PriceCalculator = () => {
             }}
             placeholder="Select service date"
             minDate={new Date()}
-            className="p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div>
@@ -781,7 +781,7 @@ const PriceCalculator = () => {
           <select
             value={formData.wasProfessional ? 'YES' : 'NO'}
             onChange={(e) => updateFormData('wasProfessional', e.target.value === 'YES')}
-            className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="NO">NO</option>
             <option value="YES">YES</option>
@@ -791,10 +791,11 @@ const PriceCalculator = () => {
 
       {formData.scheduledDate && (
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Select Time</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Select Time</label>
           <TimeSlotPicker
             selectedTime={formData.scheduledTime}
             onTimeChange={(time) => updateFormData('scheduledTime', time)}
+            className="mt-1"
           />
         </div>
       )}
@@ -1182,7 +1183,7 @@ const PriceCalculator = () => {
                   ) : (
                     <>
                       <Check className="w-4 h-4" />
-                      <span>Review Booking</span>
+                      <span>Continue</span>
                     </>
                   )}
                 </button>
