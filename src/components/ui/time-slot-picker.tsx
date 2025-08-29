@@ -35,7 +35,7 @@ export function TimeSlotPicker({
               onClick={() => onTimeChange(time)}
               disabled={disabled}
               className={cn(
-                "text-xs",
+                "text-sm py-3 h-auto",
                 isSelected && "bg-blue-600 hover:bg-blue-700"
               )}
             >
