@@ -98,13 +98,40 @@ const CommercialCleaning = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Commercial Cleaning Service Sanford FL | Professional Business Cleaning</title>
-        <meta name="description" content="#1 Commercial cleaning service in Sanford, FL. Professional office cleaning, medical facility cleaning, retail cleaning. Custom quotes available." />
-        <meta name="keywords" content="commercial cleaning Sanford FL, office cleaning, business cleaning, medical facility cleaning, retail cleaning, professional cleaning service" />
-        <meta property="og:title" content="Commercial Cleaning Service Sanford FL | Professional Business Cleaning" />
-        <meta property="og:description" content="#1 Commercial cleaning service in Sanford, FL. Professional office cleaning, medical facility cleaning, retail cleaning." />
+        <title>Top-Rated Commercial Cleaning in Sanford, FL | Office & Business</title>
+        <meta name="description" content="Keep your business pristine with Sanford's trusted commercial cleaning service. We specialize in office, medical, and retail cleaning. Get a free, customized quote today!" />
+        <meta name="keywords" content="commercial cleaning sanford fl, office cleaning sanford, business cleaning services sanford, janitorial services sanford fl, medical office cleaning sanford, retail cleaning sanford" />
+        <meta property="og:title" content="Top-Rated Commercial Cleaning in Sanford, FL | Office & Business" />
+        <meta property="og:description" content="Keep your business pristine with Sanford's trusted commercial cleaning service. We specialize in office, medical, and retail cleaning. Get a free, customized quote today!" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://sanfordcleaning.com/commercial-cleaning" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Sanford Cleaning - Commercial Services",
+              "image": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
+              "@id": "https://sanfordcleaning.com/commercial-cleaning",
+              "url": "https://sanfordcleaning.com/commercial-cleaning",
+              "telephone": "(321) 236-0618",
+              "priceRange": "$$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Sanford",
+                "addressLocality": "Sanford",
+                "addressRegion": "FL",
+                "postalCode": "32771",
+                "addressCountry": "US"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "87"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">
