@@ -20,6 +20,7 @@ const GetHired = React.lazy(() => import('./pages/GetHired'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = React.lazy(() => import('./pages/TermsOfService'));
 const FAQ = React.lazy(() => import('./pages/FAQ'));
+const PostConstructionCleaning = React.lazy(() => import('./pages/PostConstructionCleaning'));
 const GetHiredSuccess = React.lazy(() => import('./pages/GetHiredSuccess'));
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/post-construction-cleaning" element={<PostConstructionCleaning />} />
             <Route path="/get-hired-success" element={<GetHiredSuccess />} />
           </Routes>
         </Suspense>
