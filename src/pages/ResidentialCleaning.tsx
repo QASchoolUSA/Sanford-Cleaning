@@ -105,19 +105,13 @@ const ResidentialCleaning = () => {
               <p className="text-lg text-gray-600 leading-relaxed">
                 Transform your home into a spotless sanctuary with our comprehensive residential cleaning services. From regular maintenance to deep cleaning, we handle it all so you can focus on what matters most.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={scrollToContact}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+              <div className="flex justify-start">
+                <Link 
+                  to="/booking"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block"
                 >
-                  Book Now
-                </button>
-                <button 
-                  onClick={scrollToContact}
-                  className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
-                >
-                  Get Free Quote
-                </button>
+                  Get Free Quote and Book
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -166,12 +160,7 @@ const ResidentialCleaning = () => {
                   ))}
                 </div>
                 
-                <button 
-                  onClick={scrollToContact}
-                  className="w-full mt-6 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  Select This Package
-                </button>
+
               </div>
             ))}
           </div>

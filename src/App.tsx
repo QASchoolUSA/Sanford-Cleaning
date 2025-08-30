@@ -9,6 +9,7 @@ import MicrosoftClarity from './components/MicrosoftClarity';
 const Home = React.lazy(() => import('./pages/Home'));
 const ResidentialCleaning = React.lazy(() => import('./pages/ResidentialCleaning'));
 const CommercialCleaning = React.lazy(() => import('./pages/CommercialCleaning'));
+const CommercialQuote = React.lazy(() => import('./pages/CommercialQuote'));
 const DeepCleaning = React.lazy(() => import('./pages/DeepCleaning'));
 const BookingPage = React.lazy(() => import('./pages/BookingPage'));
 const BookingSummary = React.lazy(() => import('./components/BookingSummary'));
@@ -32,6 +33,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/residential-cleaning" element={<ResidentialCleaning />} />
             <Route path="/commercial-cleaning" element={<CommercialCleaning />} />
+            <Route path="/commercial-quote" element={<CommercialQuote />} />
             <Route path="/deep-cleaning" element={<DeepCleaning />} />
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/booking-summary" element={<BookingSummary />} />

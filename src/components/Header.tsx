@@ -72,6 +72,7 @@ const Header = () => {
                 <div className="py-2">
                   <Link to="/residential-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Residential Cleaning</Link>
                   <Link to="/commercial-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Commercial Cleaning</Link>
+                  <Link to="/commercial-quote" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Commercial Quote</Link>
                   <Link to="/deep-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Deep Cleaning</Link>
                   <Link to="/post-construction-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Post-Construction Cleaning</Link>
                 </div>
@@ -115,6 +116,7 @@ const Header = () => {
                   <div className="text-sm font-semibold text-gray-500">Services:</div>
                   <Link to="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Residential Cleaning</Link>
                   <Link to="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Commercial Cleaning</Link>
+                  <Link to="/commercial-quote" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Commercial Quote</Link>
                   <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Deep Cleaning</Link>
                   <Link to="/post-construction-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors">Post-Construction Cleaning</Link>
                 </div>

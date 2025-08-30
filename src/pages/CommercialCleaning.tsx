@@ -122,18 +122,12 @@ const CommercialCleaning = () => {
                 Sanford's premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive cleaning services that enhance your business image and create healthier work environments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={scrollToContact}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                <a 
+                  href="/commercial-quote"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block text-center"
                 >
                   Get Custom Quote
-                </button>
-                <button 
-                  onClick={scrollToContact}
-                  className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
-                >
-                  Schedule Consultation
-                </button>
+                </a>
               </div>
             </div>
             <div className="relative">
@@ -380,7 +374,7 @@ const CommercialCleaning = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              to="/#contact"
+              to="/commercial-quote"
               className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
             >
               Get Custom Quote
