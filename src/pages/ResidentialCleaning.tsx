@@ -278,10 +278,13 @@ const ResidentialCleaning = () => {
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Book your residential cleaning service today and experience the difference professional cleaning makes.
-          </p>
+   </p>
+<p className="text-lg text-blue-200 mb-8 max-w-2xl mx-auto">
+              Provide your home details and get an instant estimate. No waiting required!
+            </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              to="/#contact"
+              to="/booking"
               className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
             >
               Get Free Quote

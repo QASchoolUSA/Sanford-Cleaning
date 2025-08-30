@@ -88,13 +88,13 @@ const PostConstructionCleaning = () => {
                 <Phone className="w-5 h-5 mr-2" />
                 Call (321) 236-0618
               </a>
-              <button
-                onClick={() => scrollToSection('contact')}
+              <Link
+                to="/booking"
                 className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors inline-flex items-center justify-center"
               >
                 Get Free Quote
                 <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -308,6 +308,9 @@ const PostConstructionCleaning = () => {
             <p className="text-xl mb-8 text-blue-100">
               Don't let construction cleanup delay your project completion. Contact Sanford Cleaning today for fast, professional post-construction cleaning services.
             </p>
+            <p className="text-lg text-blue-200 mb-8 max-w-2xl mx-auto">
+              Provide your home details and get an instant estimate. No waiting required!
+            </p>
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="flex items-center justify-center">
                 <Phone className="w-6 h-6 mr-3" />
@@ -332,20 +335,14 @@ const PostConstructionCleaning = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+13212360618"
+              <Link
+                to="/booking"
                 className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Call for Free Quote
-              </a>
-              <Link
-                to="/"
-                className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors inline-flex items-center justify-center"
-              >
-                View All Services
-                <ArrowRight className="w-5 h-5 ml-2" />
+                Get a Free Quote
               </Link>
+              
             </div>
           </div>
         </div>
