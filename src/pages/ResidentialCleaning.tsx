@@ -82,11 +82,11 @@ const ResidentialCleaning = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Trusted House Cleaning Services in Sanford, FL | Book Online</title>
-        <meta name="description" content="Need a reliable house cleaner in Sanford, FL? We offer weekly, bi-weekly, and one-time deep cleaning services. Get your instant free estimate and book online today!" />
+        <title>5-Star House Cleaning in Sanford, FL | Instant Online Booking</title>
+        <meta name="description" content="Tired of cleaning? Reclaim your weekend! Sanford Cleaning offers 5-star rated house cleaning from just $80. Get your free, instant quote & book online in 60 seconds!" />
         <meta name="keywords" content="house cleaning sanford fl, residential cleaning sanford, home cleaning services sanford, maid service sanford fl, move-in cleaning sanford, move-out cleaning sanford fl" />
-        <meta property="og:title" content="Trusted House Cleaning Services in Sanford, FL | Book Online" />
-        <meta property="og:description" content="Need a reliable house cleaner in Sanford, FL? We offer weekly, bi-weekly, and one-time deep cleaning services. Get your instant free estimate and book online today!" />
+        <meta property="og:title" content="5-Star House Cleaning in Sanford, FL | Instant Online Booking" />
+        <meta property="og:description" content="Tired of cleaning? Reclaim your weekend! Sanford Cleaning offers 5-star rated house cleaning from just $80. Get your free, instant quote & book online in 60 seconds!" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://sanfordcleaning.com/residential-cleaning" />
         <script type="application/ld+json">
@@ -113,6 +113,36 @@ const ResidentialCleaning = () => {
                 "ratingValue": "4.9",
                 "reviewCount": "87"
               }
+            }
+          `}
+        </script>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [{
+                "@type": "Question",
+                "name": "How much does your house cleaning service cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our pricing is transparent and based on your home's size and needs. Standard cleaning services start at just $80, and you can get a free, no-obligation quote instantly on our website."
+                }
+              },{
+                "@type": "Question",
+                "name": "Are your cleaners insured and background-checked?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely. For your peace of mind, every member of our team is fully vetted, background-checked, bonded, and insured."
+                }
+              },{
+                "@type": "Question",
+                "name": "How long does a cleaning service take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A standard cleaning for a medium-sized home typically takes 2-4 hours. We also offer more comprehensive deep cleaning services."
+                }
+              }]
             }
           `}
         </script>
@@ -297,6 +327,43 @@ const ResidentialCleaning = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <div className="space-y-8">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                How much does your house cleaning service cost?
+              </h3>
+              <p className="text-gray-600">
+                Our pricing is transparent and based on your home's size and needs. Standard cleaning services start at just $80, and you can get a free, no-obligation quote instantly on our website.
+              </p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Are your cleaners insured and background-checked?
+              </h3>
+              <p className="text-gray-600">
+                Absolutely. For your peace of mind, every member of our team is fully vetted, background-checked, bonded, and insured.
+              </p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                How long does a cleaning service take?
+              </h3>
+              <p className="text-gray-600">
+                A standard cleaning for a medium-sized home typically takes 2-4 hours. We also offer more comprehensive deep cleaning services.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* CTA Section */}
       <section id="contact" className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
