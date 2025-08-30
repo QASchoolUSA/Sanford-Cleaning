@@ -28,30 +28,16 @@ const Services = () => {
       price: 'Starting at $150',
       link: '/deep-cleaning'
     },
-    {
-      icon: Car,
-      title: 'Carpet Cleaning',
-      description: 'Professional carpet and upholstery cleaning using advanced equipment and eco-friendly solutions.',
-      features: ['Steam cleaning', 'Stain removal', 'Pet odor treatment', 'Fabric protection'],
-      price: 'Starting at $100',
-      link: '#contact'
-    },
+    
     {
       icon: Wrench,
       title: 'Post-Construction',
       description: 'Specialized cleaning for newly constructed or renovated spaces to remove construction debris.',
       features: ['Dust removal', 'Paint splatter cleanup', 'Fixture cleaning', 'Final inspection'],
       price: 'Custom pricing',
-      link: '#contact'
+      link: '/post-construction-cleaning'
     },
-    {
-      icon: Heart,
-      title: 'Senior Care Cleaning',
-      description: 'Gentle and thorough cleaning services designed specifically for senior living spaces.',
-      features: ['Medication organization', 'Safety-focused cleaning', 'Compassionate service', 'Flexible scheduling'],
-      price: 'Starting at $90',
-      link: '#contact'
-    }
+    
   ];
 
   const scrollToContact = () => {
@@ -99,18 +85,18 @@ const Services = () => {
                     to={service.link}
                     className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    {service.title === 'Residential Cleaning' ? 'View Home Cleaning Services' :
-                     service.title === 'Commercial Cleaning' ? 'View Office Cleaning Services' :
-                     service.title === 'Deep Cleaning' ? 'View Deep Cleaning Services' :
+                    {service.title === 'Residential Cleaning' ? 'House Cleaning Services' :
+                     service.title === 'Commercial Cleaning' ? 'Commercial Cleaning Services' :
+                     service.title === 'Deep Cleaning' ? 'Deep Cleaning Services' :
                      'Learn More'}
                   </Link>
                 ) : (
-                  <button 
-                    onClick={scrollToContact}
+                  <Link
+                    to="/post-construction-cleaning"
                     className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    Book Now
-                  </button>
+                    Post Construction Cleaning Services
+                  </Link>
                 )}
               </div>
             </div>
@@ -119,12 +105,12 @@ const Services = () => {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-6">Need a custom cleaning solution?</p>
-          <button 
-            onClick={scrollToContact}
+          <Link 
+            to="/free-custom-quote"
             className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Request Custom Quote
-          </button>
+          </Link>
         </div>
       </div>
     </section>

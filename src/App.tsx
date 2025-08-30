@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ChatNotification from './components/ChatNotification';
 import MicrosoftClarity from './components/MicrosoftClarity';
 
 // Lazy load page components for code splitting
 const Home = React.lazy(() => import('./pages/Home'));
 const ResidentialCleaning = React.lazy(() => import('./pages/ResidentialCleaning'));
 const CommercialCleaning = React.lazy(() => import('./pages/CommercialCleaning'));
-const CommercialQuote = React.lazy(() => import('./pages/CommercialQuote'));
+const CustomQuote = React.lazy(() => import('./pages/CustomQuote'));
 const DeepCleaning = React.lazy(() => import('./pages/DeepCleaning'));
 const BookingPage = React.lazy(() => import('./pages/BookingPage'));
 const BookingSummary = React.lazy(() => import('./components/BookingSummary'));
@@ -19,7 +20,7 @@ const GetHired = React.lazy(() => import('./pages/GetHired'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = React.lazy(() => import('./pages/TermsOfService'));
 const FAQ = React.lazy(() => import('./pages/FAQ'));
-const PostConstructionCleaning = React.lazy(() => import('./pages/PostConstructionCleaning'));
+const GetHiredSuccess = React.lazy(() => import('./pages/GetHiredSuccess'));
 
 function App() {
   return (
@@ -27,13 +28,14 @@ function App() {
       <div className="min-h-screen">
         <MicrosoftClarity />
         <ScrollToTop />
+        <ChatNotification />
         <Header />
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="text-lg">Loading...</div></div>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/residential-cleaning" element={<ResidentialCleaning />} />
             <Route path="/commercial-cleaning" element={<CommercialCleaning />} />
-            <Route path="/commercial-quote" element={<CommercialQuote />} />
+            <Route path="/free-custom-quote" element={<CustomQuote />} />
             <Route path="/deep-cleaning" element={<DeepCleaning />} />
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/booking-summary" element={<BookingSummary />} />
@@ -43,7 +45,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/post-construction-cleaning" element={<PostConstructionCleaning />} />
+            <Route path="/get-hired-success" element={<GetHiredSuccess />} />
           </Routes>
         </Suspense>
         <Footer />

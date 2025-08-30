@@ -167,18 +167,13 @@ const DeepCleaning = () => {
                 Go beyond surface cleaning with our thorough deep cleaning services. Perfect for spring cleaning, special occasions, or when your home needs that extra level of care and attention.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={scrollToContact}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                <Link 
+                  to="/booking"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center"
                 >
-                  Book Deep Clean
-                </button>
-                <button 
-                  onClick={scrollToContact}
-                  className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
-                >
-                  Get Free Estimate
-                </button>
+                  Get Free Quote and Book
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -371,9 +366,12 @@ const DeepCleaning = () => {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Transform your home with our comprehensive deep cleaning service. Book today and experience the difference.
           </p>
+          <p className="text-lg text-blue-200 mb-8 max-w-2xl mx-auto">
+              Provide your home details and get an instant estimate. No waiting required!
+            </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              to="/#contact"
+              to="/booking"
               className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
             >
               Book Deep Clean

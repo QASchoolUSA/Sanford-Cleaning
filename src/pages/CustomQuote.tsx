@@ -1,57 +1,69 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MessageSquare } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 import QuoteForm from '../components/QuoteForm';
 import ContactInfo from '../components/ContactInfo';
 
-const CommercialQuote: React.FC = () => {
-  const [showChatNotification, setShowChatNotification] = useState(false);
-
-  useEffect(() => {
-    // Show chat notification after 5 seconds
-    const timer = setTimeout(() => {
-      setShowChatNotification(true);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const openChat = () => {
-    // Access Chatwoot's global object to open the widget
-    if ((window as any).chatwootSDK) {
-      (window as any).chatwootSDK.toggle();
+const CustomQuote: React.FC = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-    setShowChatNotification(false);
   };
 
+
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pt-20">
       <Helmet>
-        <title>Free Commercial Cleaning Quote | Sanford Business Cleaning Services</title>
-        <meta name="description" content="Get a free, no-obligation quote for professional commercial cleaning services in Sanford, FL. Customized cleaning solutions for offices, retail spaces, medical facilities, and more." />
-        <meta name="keywords" content="commercial cleaning quote, business cleaning estimate, office cleaning services Sanford, commercial cleaning cost, janitorial service quote" />
-        <meta property="og:title" content="Free Commercial Cleaning Quote | Sanford Business Cleaning Services" />
-        <meta property="og:description" content="Get a free, no-obligation quote for professional commercial cleaning services in Sanford, FL. Customized solutions for your business." />
+        <title>Free Custom Quote | Sanford Business Cleaning Services</title>
+        <meta name="description" content="Get a free, no-obligation custom quote for professional cleaning services in Sanford, FL. Customized cleaning solutions for residential and commercial properties." />
+        <meta name="keywords" content="free custom quote, professional cleaning estimate, cleaning services Sanford, customized cleaning cost, free cleaning quote" />
+        <meta property="og:title" content="Free Custom Quote | Sanford Cleaning Services" />
+        <meta property="og:description" content="Get a free, no-obligation custom quote for professional cleaning services in Sanford, FL. Customized solutions for your property." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://sanfordcleaning.com/commercial-quote" />
+        <link rel="canonical" href="https://sanfordcleaning.com/free-custom-quote" />
       </Helmet>
 
-      <main className="pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Get Your Free Commercial Cleaning Quote
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Get Your Free Custom Quote
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Receive a customized quote for your business cleaning needs. Our commercial cleaning services are tailored to your specific requirements and budget.
+            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              Professional cleaning quotes tailored to your specific needs. Residential and commercial cleaning services in Sanford, Florida.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:+13212360618"
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Call (321) 236-0618
+              </a>
+              <button
+                onClick={() => scrollToSection('quote-form')}
+                className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors inline-flex items-center justify-center"
+              >
+                Request Custom Quote
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <main className="bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="bg-white rounded-xl shadow-md overflow-hidden mb-12">
             <div className="p-6 md:p-8 lg:p-10">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Our Commercial Cleaning Services</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Our Cleaning Services</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
@@ -86,7 +98,7 @@ const CommercialQuote: React.FC = () => {
                   </ul>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Businesses We Serve</h2>
+                  <h3 className="font-semibold text-gray-900 mb-2">Businesses & Homes We Serve</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <h3 className="font-semibold text-gray-900 mb-2">Office Buildings</h3>
@@ -109,8 +121,8 @@ const CommercialQuote: React.FC = () => {
                       <p className="text-sm text-gray-600">Clean learning spaces</p>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-gray-900 mb-2">Churches</h3>
-                      <p className="text-sm text-gray-600">Pristine worship areas</p>
+                      <h3 className="font-semibold text-gray-900 mb-2">Homes</h3>
+                      <p className="text-sm text-gray-600">Perfect residential cleaning</p>
                     </div>
                   </div>
                 </div>
@@ -143,26 +155,8 @@ const CommercialQuote: React.FC = () => {
           </div>
         </div>
       </main>
-
-      {/* Chat Notification */}
-      {showChatNotification && (
-        <div className="fixed bottom-24 right-4 max-w-xs bg-white rounded-lg shadow-lg p-4 border border-blue-100 animate-bounce-slow z-50">
-          <button 
-            onClick={openChat}
-            className="flex items-center space-x-3 w-full"
-          >
-            <div className="flex-shrink-0 bg-blue-100 rounded-full p-2">
-              <MessageSquare className="h-6 w-6 text-blue-600" />
-            </div>
-            <div className="flex-1 text-left">
-              <p className="text-sm font-medium text-gray-900">Need immediate assistance?</p>
-              <p className="text-xs text-gray-600">Chat with our team now!</p>
-            </div>
-          </button>
-        </div>
-      )}
     </div>
   );
 };
 
-export default CommercialQuote;
+export default CustomQuote;
