@@ -4,6 +4,7 @@ Allow: /
 # Disallow private pages
 Disallow: /payment
 Disallow: /booking-success
+Disallow: /get-hired-success
 
 # Sitemap location
 Sitemap: https://sanfordcleaning.com/sitemap.xml
