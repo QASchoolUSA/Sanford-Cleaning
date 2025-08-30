@@ -143,13 +143,40 @@ const DeepCleaning = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Deep Cleaning Services Sanford FL | Comprehensive House Deep Cleaning</title>
-        <meta name="description" content="Professional deep cleaning services in Sanford. Comprehensive deep house cleaning for spring cleaning, special events, and thorough home sanitization. Get a free estimate." />
-        <meta name="keywords" content="deep cleaning sanford, house deep cleaning, spring cleaning, comprehensive cleaning, thorough cleaning, deep house cleaning service" />
-        <meta property="og:title" content="Deep Cleaning Services Sanford FL | Comprehensive House Deep Cleaning" />
-        <meta property="og:description" content="Professional deep cleaning services in Sanford, FL. Comprehensive deep house cleaning for spring cleaning and special events." />
+        <title>Deep Cleaning Services in Sanford, FL | Spring & Move-Out Cleaning</title>
+        <meta name="description" content="Restore your home's freshness with our thorough deep cleaning services in Sanford, FL. Perfect for spring cleaning, move-outs, and special occasions. Get an instant quote online!" />
+        <meta name="keywords" content="deep cleaning sanford fl, spring cleaning sanford, move out cleaning sanford fl, apartment deep cleaning sanford, thorough house cleaning, home sanitization sanford" />
+        <meta property="og:title" content="Deep Cleaning Services in Sanford, FL | Spring & Move-Out Cleaning" />
+        <meta property="og:description" content="Restore your home's freshness with our thorough deep cleaning services in Sanford, FL. Perfect for spring cleaning, move-outs, and special occasions. Get an instant quote online!" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://sanfordcleaning.com/deep-cleaning" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Sanford Cleaning - Deep Cleaning Services",
+              "image": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
+              "@id": "https://sanfordcleaning.com/deep-cleaning",
+              "url": "https://sanfordcleaning.com/deep-cleaning",
+              "telephone": "(321) 236-0618",
+              "priceRange": "$$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Sanford",
+                "addressLocality": "Sanford",
+                "addressRegion": "FL",
+                "postalCode": "32771",
+                "addressCountry": "US"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "87"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">

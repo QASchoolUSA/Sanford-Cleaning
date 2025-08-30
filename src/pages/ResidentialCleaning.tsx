@@ -82,13 +82,40 @@ const ResidentialCleaning = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Residential House Cleaning Services in Sanford, FL | Home Cleaning</title>
-        <meta name="description" content="Professional residential house cleaning services in Sanford, FL. Regular cleaning, one-time cleaning, move-in/out cleaning. Free estimates. Fast Booking." />
-        <meta name="keywords" content="residential cleaning sanford, house cleaning, home cleaning services, regular cleaning, one-time cleaning, move-in cleaning, move-out cleaning" />
-        <meta property="og:title" content="Residential House Cleaning Services in Sanford, FL" />
-        <meta property="og:description" content="Professional residential house cleaning services in Sanford, FL. Regular cleaning, one-time cleaning, move-in/out cleaning." />
+        <title>Trusted House Cleaning Services in Sanford, FL | Book Online</title>
+        <meta name="description" content="Need a reliable house cleaner in Sanford, FL? We offer weekly, bi-weekly, and one-time deep cleaning services. Get your instant free estimate and book online today!" />
+        <meta name="keywords" content="house cleaning sanford fl, residential cleaning sanford, home cleaning services sanford, maid service sanford fl, move-in cleaning sanford, move-out cleaning sanford fl" />
+        <meta property="og:title" content="Trusted House Cleaning Services in Sanford, FL | Book Online" />
+        <meta property="og:description" content="Need a reliable house cleaner in Sanford, FL? We offer weekly, bi-weekly, and one-time deep cleaning services. Get your instant free estimate and book online today!" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://sanfordcleaning.com/residential-cleaning" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Sanford Cleaning - Residential Services",
+              "image": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
+              "@id": "https://sanfordcleaning.com/residential-cleaning",
+              "url": "https://sanfordcleaning.com/residential-cleaning",
+              "telephone": "(321) 236-0618",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Sanford",
+                "addressLocality": "Sanford",
+                "addressRegion": "FL",
+                "postalCode": "32771",
+                "addressCountry": "US"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "87"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">
