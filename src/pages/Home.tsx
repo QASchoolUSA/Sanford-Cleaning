@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Top-Rated Home & Commercial Cleaning in Sanford, FL | Sanford Cleaning</title>
-        <meta name="description" content="Get a sparkling clean home or office with Sanford Cleaning's top-rated services. We offer reliable residential, commercial, and deep cleaning in Sanford, FL. Book online in 60 seconds!" />
+        <title>#1 Rated Cleaning Service in Sanford, FL | Sanford Cleaning</title>
+        <meta name="description" content="Sanford's #1 rated cleaning service for home & office. Get an instant, free quote online and book in 60 seconds. We're your trusted local cleaners for a spotless space!" />
         <meta name="keywords" content="house cleaning sanford fl, commercial cleaning sanford fl, office cleaning sanford, deep cleaning services sanford, sanford cleaning company, move-in cleaning sanford" />
         <meta property="og:title" content="Top-Rated Home & Commercial Cleaning in Sanford, FL | Sanford Cleaning" />
         <meta property="og:description" content="Get a sparkling clean home or office with Sanford Cleaning's top-rated services. We offer reliable residential, commercial, and deep cleaning in Sanford, FL. Book online in 60 seconds!" />

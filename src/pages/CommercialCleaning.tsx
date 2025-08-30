@@ -98,11 +98,11 @@ const CommercialCleaning = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Top-Rated Commercial Cleaning in Sanford, FL | Office & Business</title>
-        <meta name="description" content="Keep your business pristine with Sanford's trusted commercial cleaning service. We specialize in office, medical, and retail cleaning. Get a free, customized quote today!" />
+        <title>#1 Office Cleaning Service in Sanford, FL | Free Quote</title>
+        <meta name="description" content="Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!" />
         <meta name="keywords" content="commercial cleaning sanford fl, office cleaning sanford, business cleaning services sanford, janitorial services sanford fl, medical office cleaning sanford, retail cleaning sanford" />
-        <meta property="og:title" content="Top-Rated Commercial Cleaning in Sanford, FL | Office & Business" />
-        <meta property="og:description" content="Keep your business pristine with Sanford's trusted commercial cleaning service. We specialize in office, medical, and retail cleaning. Get a free, customized quote today!" />
+        <meta property="og:title" content="#1 Office Cleaning Service in Sanford, FL | Free Quote" />
+        <meta property="og:description" content="Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://sanfordcleaning.com/commercial-cleaning" />
         <script type="application/ld+json">

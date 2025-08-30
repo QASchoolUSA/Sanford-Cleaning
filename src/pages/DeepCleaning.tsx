@@ -143,11 +143,11 @@ const DeepCleaning = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Deep Cleaning Services in Sanford, FL | Spring & Move-Out Cleaning</title>
-        <meta name="description" content="Restore your home's freshness with our thorough deep cleaning services in Sanford, FL. Perfect for spring cleaning, move-outs, and special occasions. Get an instant quote online!" />
+        <title>Deep Cleaning Experts in Sanford, FL | Get a Free Quote</title>
+        <meta name="description" content="Need a deep clean? Our top-rated team handles everything from spring cleaning to move-outs. Make your home feel brand new. Get an instant, free quote online!" />
         <meta name="keywords" content="deep cleaning sanford fl, spring cleaning sanford, move out cleaning sanford fl, apartment deep cleaning sanford, thorough house cleaning, home sanitization sanford" />
-        <meta property="og:title" content="Deep Cleaning Services in Sanford, FL | Spring & Move-Out Cleaning" />
-        <meta property="og:description" content="Restore your home's freshness with our thorough deep cleaning services in Sanford, FL. Perfect for spring cleaning, move-outs, and special occasions. Get an instant quote online!" />
+        <meta property="og:title" content="Deep Cleaning Experts in Sanford, FL | Get a Free Quote" />
+        <meta property="og:description" content="Need a deep clean? Our top-rated team handles everything from spring cleaning to move-outs. Make your home feel brand new. Get an instant, free quote online!" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://sanfordcleaning.com/deep-cleaning" />
         <script type="application/ld+json">
