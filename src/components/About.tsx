@@ -41,17 +41,6 @@ const About = () => {
                 Our team of trained professionals uses the latest cleaning techniques and eco-friendly products to deliver exceptional results. We understand that every space is unique, which is why we customize our services to meet your specific needs and budget.
               </p>
             </div>
-
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-6 bg-blue-50 rounded-lg">
-                <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
-                <div className="text-gray-700">Happy Customers</div>
-              </div>
-              <div className="text-center p-6 bg-blue-50 rounded-lg">
-                <div className="text-3xl font-bold text-blue-600 mb-2">10+</div>
-                <div className="text-gray-700">Years Experience</div>
-              </div>
-            </div>
           </div>
 
           <div className="relative">
@@ -60,10 +49,6 @@ const About = () => {
               alt="Professional cleaning team"
               className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
             />
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
-              <div className="text-2xl font-bold">4.9★</div>
-              <div className="text-sm">Customer Rating</div>
-            </div>
           </div>
         </div>
 
