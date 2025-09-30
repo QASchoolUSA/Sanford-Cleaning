@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Award, Users, Clock } from 'lucide-react';
+import { Award, Clock, Zap } from 'lucide-react';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -46,27 +46,13 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
-              <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
-                  <Star className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900">4.9</div>
-                <div className="text-sm text-gray-600">Rating</div>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
-                  <Users className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900">500+</div>
-                <div className="text-sm text-gray-600">Happy Clients</div>
-              </div>
+            <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
                 <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
                   <Award className="w-6 h-6 text-blue-600" />
                 </div>
                 <div className="text-2xl font-bold text-gray-900">10+</div>
-                <div className="text-sm text-gray-600">Years</div>
+                <div className="text-sm text-gray-600">Years in Business</div>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
@@ -74,6 +60,13 @@ const Hero = () => {
                 </div>
                 <div className="text-2xl font-bold text-gray-900">24/7</div>
                 <div className="text-sm text-gray-600">Available</div>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
+                  <Zap className="w-6 h-6 text-blue-600" />
+                </div>
+                <div className="text-2xl font-bold text-gray-900">&lt;60s</div>
+                <div className="text-sm text-gray-600">Quick Booking</div>
               </div>
             </div>
           </div>
