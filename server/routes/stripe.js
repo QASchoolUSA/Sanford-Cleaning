@@ -47,7 +47,7 @@ router.post('/webhook', express.raw({type: 'application/json'}), async (req, res
 });
 
 // Create Stripe Checkout Session
-router.post('/create-checkout-session', async (req, res) => {
+router.post('/create-checkout-session', express.json(), async (req, res) => {
   try {
     const { bookingData } = req.body;
     
@@ -107,7 +107,7 @@ router.post('/create-checkout-session', async (req, res) => {
 });
 
 // Get session details
-router.get('/session/:sessionId', async (req, res) => {
+router.get('/session/:sessionId', express.json(), async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.retrieve(req.params.sessionId);
     res.json({
