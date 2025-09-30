@@ -16,9 +16,9 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const apiUrl = process.env.NODE_ENV === 'production' 
-        ? '/api/quote-request'
-        : 'http://localhost:3001/api/quote-request';
+      const apiUrl = process.env.NODE_ENV === 'production'
+    ? '/api/emails/quote-request'
+    : 'http://localhost:3001/api/emails/quote-request';
       
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -31,14 +31,19 @@ const Contact = () => {
       if (response.ok) {
         // Reset form
         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-        alert('Thank you for your message! We\'ll get back to you soon.');
+        alert('✅ Thank you for your message! We\'ll get back to you within 24 hours with a custom quote.');
       } else {
         const errorData = await response.json();
-        alert(`Error: ${errorData.error || 'Failed to send message'}`);
+        console.error('Server error response:', errorData);
+        alert(`❌ Error: ${errorData.error || 'Failed to send message. Please try again or call us at (321) 236-0618.'}`);
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Failed to send message. Please try again or call us directly.');
+      console.error('Network error submitting form:', error);
+      if (error instanceof Error && error.name === 'TypeError' && error.message.includes('fetch')) {
+        alert('❌ Connection error. Please check your internet connection and try again, or call us at (321) 236-0618.');
+      } else {
+        alert('❌ Failed to send message. Please try again or call us directly at (321) 236-0618.');
+      }
     } finally {
       setIsSubmitting(false);
     }
