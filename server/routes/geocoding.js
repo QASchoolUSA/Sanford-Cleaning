@@ -10,10 +10,10 @@ router.get('/autocomplete', async (req, res) => {
       return res.json({ results: [] });
     }
 
-    const apiKey = process.env.GEOAPIFY_API_KEY;
+    const apiKey = process.env.VITE_GEOAPIFY_API_KEY || process.env.GEOAPIFY_API_KEY;
     
     if (!apiKey) {
-      console.error('GEOAPIFY_API_KEY environment variable is not set');
+      console.error('VITE_GEOAPIFY_API_KEY or GEOAPIFY_API_KEY environment variable is not set');
       return res.status(500).json({ error: 'Geocoding service configuration error' });
     }
     const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(text)}&limit=${limit}&apiKey=${apiKey}&filter=countrycode:us&format=json`;
