@@ -197,11 +197,11 @@ const BookingSuccess: React.FC = () => {
           <div className="p-4 md:p-6 text-center">
             <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4 md:mb-6">Booking Details</h2>
             
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 text-left max-w-3xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 text-center max-w-3xl mx-auto">
               {/* Service Information */}
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <Home className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Service Type</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">
                     {sessionData.metadata.service}
@@ -210,75 +210,75 @@ const BookingSuccess: React.FC = () => {
               </div>
               
               {sessionData.metadata.frequency && (
-                <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+                <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                   <RotateCcw className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                  <div className="text-center md:text-left">
+                  <div className="text-center">
                     <p className="text-xs md:text-sm text-gray-600">Frequency</p>
                     <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.frequency}</p>
                   </div>
                 </div>
               )}
               
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <Ruler className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Square Footage</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.squareFootage} sq ft</p>
                 </div>
               </div>
               
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <Bed className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Bedrooms</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.bedrooms}</p>
                 </div>
               </div>
               
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <Bath className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Bathrooms</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.bathrooms}</p>
                 </div>
               </div>
               
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <User className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Customer Name</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.customerName}</p>
                 </div>
               </div>
               
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <Mail className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Email</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.customer_email}</p>
                 </div>
               </div>
               
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <Phone className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Phone</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.customerPhone}</p>
                 </div>
               </div>
               
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <MapPin className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Service Address</p>
                   <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.customerAddress}</p>
                 </div>
               </div>
               
               {sessionData.metadata.scheduledDate && (
-                <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+                <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                   <Calendar className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                  <div className="text-center md:text-left">
+                  <div className="text-center">
                     <p className="text-xs md:text-sm text-gray-600">Scheduled Date</p>
                     <p className="font-medium text-gray-900 text-sm md:text-base">{formatDate(sessionData.metadata.scheduledDate)}</p>
                   </div>
@@ -286,9 +286,9 @@ const BookingSuccess: React.FC = () => {
               )}
               
               {sessionData.metadata.scheduledTime && (
-                <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+                <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                   <Clock className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                  <div className="text-center md:text-left">
+                  <div className="text-center">
                     <p className="text-xs md:text-sm text-gray-600">Scheduled Time</p>
                     <p className="font-medium text-gray-900 text-sm md:text-base">{sessionData.metadata.scheduledTime}</p>
                   </div>
@@ -317,9 +317,9 @@ const BookingSuccess: React.FC = () => {
             <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">Payment Summary</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 max-w-2xl mx-auto">
-              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-start space-y-2 md:space-y-0 md:space-x-2">
+              <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
                 <CreditCard className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs md:text-sm text-gray-600">Payment Status</p>
                   <p className={`font-medium capitalize text-sm md:text-base ${
                     sessionData.payment_status === 'paid' ? 'text-green-600' : 
@@ -330,7 +330,7 @@ const BookingSuccess: React.FC = () => {
                 </div>
               </div>
               
-              <div className="text-center md:text-left">
+              <div className="text-center">
                 <p className="text-xs md:text-sm text-gray-600">Amount Paid</p>
                 <p className="text-lg md:text-xl font-bold text-green-600">${formatAmount(sessionData.amount_total)}</p>
               </div>
