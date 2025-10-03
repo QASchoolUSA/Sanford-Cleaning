@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './address-autocomplete.css';
 
 interface AddressAutocompleteProps {
@@ -9,33 +9,23 @@ interface AddressAutocompleteProps {
   required?: boolean;
 }
 
-interface AddressComponents {
-  street_number?: string;
-  route?: string;
-  locality?: string;
-  administrative_area_level_1?: string;
-  postal_code?: string;
-  country?: string;
-}
-
-// Type for Google Maps Autocomplete
-type GoogleAutocomplete = {
-  addListener: (event: string, handler: () => void) => void;
-  getPlace: () => {
-    address_components?: Array<{
-      long_name: string;
-      short_name: string;
-      types: string[];
-    }>;
-    formatted_address?: string;
-    geometry?: {
-      location: {
-        lat: () => number;
-        lng: () => number;
-      };
-    };
+// Geoapify API response types
+interface GeoapifySuggestion {
+  properties: {
+    formatted: string;
+    address_line1?: string;
+    address_line2?: string;
+    city?: string;
+    state?: string;
+    postcode?: string;
+    country?: string;
+    lat?: number;
+    lon?: number;
   };
-};
+  geometry?: {
+    coordinates: [number, number];
+  };
+}
 
 const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
   value,
@@ -45,230 +35,198 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
   required = false
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<GoogleAutocomplete | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isUserTyping, setIsUserTyping] = useState(false);
-  const [lastAutocompleteValue, setLastAutocompleteValue] = useState('');
-  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [suggestions, setSuggestions] = useState<GeoapifySuggestion[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
-  useEffect(() => {
-    // Load Google Maps API script dynamically
-    const loadGoogleMapsAPI = () => {
-      const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-      
-      if (!apiKey || apiKey === 'YOUR_GOOGLE_MAPS_API_KEY') {
-        console.warn('Google Maps API key not configured. Address autocomplete will not work.');
-        return;
-      }
-
-      // Check if Google Maps API is already loaded
-      if ((window as any).google && (window as any).google.maps && (window as any).google.maps.places) {
-        setIsLoaded(true);
-        return;
-      }
-
-      // Check if script is already being loaded
-      if (document.querySelector('script[src*="maps.googleapis.com"]')) {
-        // Script is loading, wait for it
-        const checkGoogleMaps = () => {
-          if ((window as any).google && (window as any).google.maps && (window as any).google.maps.places) {
-            setIsLoaded(true);
-          } else {
-            setTimeout(checkGoogleMaps, 100);
-          }
-        };
-        checkGoogleMaps();
-        return;
-      }
-
-      // Load the script
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
-      script.async = true;
-      script.defer = true;
-      
-      script.onload = () => {
-        setIsLoaded(true);
-      };
-      
-      script.onerror = () => {
-        console.error('Failed to load Google Maps API');
-      };
-      
-      document.head.appendChild(script);
-    };
-
-    loadGoogleMapsAPI();
-  }, []);
-
-  // Store onChange in a ref to avoid recreating autocomplete on every change
-  const onChangeRef = useRef(onChange);
-  onChangeRef.current = onChange;
-
-  useEffect(() => {
-    if (!isLoaded || !inputRef.current) return;
-
-    // Initialize Google Places Autocomplete only once
-    const google = (window as any).google;
-    
-    if (!google || !google.maps || !google.maps.places) {
+  // Debounced search function
+  const searchAddresses = async (query: string) => {
+    if (query.length < 2) {
+      setSuggestions([]);
+      setShowDropdown(false);
       return;
     }
 
-    // Only create autocomplete if it doesn't exist
-    if (!autocompleteRef.current) {
-      autocompleteRef.current = new google.maps.places.Autocomplete(
-        inputRef.current,
-        {
-          types: ['address'],
-          componentRestrictions: { country: 'us' },
-          fields: ['formatted_address']
-        }
-      );
+    // Cancel previous request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
 
-      // Handle place selection
-      const handlePlaceSelect = () => {
-        if (autocompleteRef.current) {
-          const place = autocompleteRef.current.getPlace();
-          if (place && place.formatted_address) {
-            console.log('Address selected from autocomplete:', place.formatted_address);
-            setIsUserTyping(false);
-            setLastAutocompleteValue(place.formatted_address);
-            onChangeRef.current(place.formatted_address);
-          }
-        }
-      };
+    // Create new abort controller
+    abortControllerRef.current = new AbortController();
 
-      if (autocompleteRef.current) {
-         autocompleteRef.current.addListener('place_changed', handlePlaceSelect);
-       }
-     }
-
-     // Cleanup
-     return () => {
-       if (autocompleteRef.current && (window as any).google) {
-         const google = (window as any).google;
-         google.maps.event.clearInstanceListeners(autocompleteRef.current);
-         autocompleteRef.current = null;
-       }
-     };
-  }, [isLoaded]); // Remove onChange from dependencies
-
-  // Effect to handle potential Google Places interference with user input
-  useEffect(() => {
-    if (!inputRef.current || !isUserTyping) return;
-
-    const inputElement = inputRef.current;
+    setIsLoading(true);
     
-    // Less aggressive protection to avoid interfering with autocomplete dropdown
-    const protectUserInput = () => {
-      // Only protect if user is actively typing and the value differs significantly
-      if (isUserTyping && inputElement.value !== value && Math.abs(inputElement.value.length - value.length) > 1) {
-        console.log('Detected significant interference! Restoring user input:', value, 'from:', inputElement.value);
-        inputElement.value = value;
+    try {
+      const apiKey = import.meta.env.VITE_GEOAPIFY_API_KEY || '15fa9bcbf42d4beb9af335c51886b984';
+      const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(query)}&limit=5&apiKey=${apiKey}&filter=countrycode:us&format=json`;
+      
+      const response = await fetch(url, {
+        signal: abortControllerRef.current.signal
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      if (data.results && Array.isArray(data.results)) {
+        setSuggestions(data.results);
+        setShowDropdown(true);
+        setSelectedIndex(-1);
+      } else {
+        setSuggestions([]);
+        setShowDropdown(false);
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name !== 'AbortError') {
+        console.error('Error fetching address suggestions:', error);
+        setSuggestions([]);
+        setShowDropdown(false);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Handle input changes with debouncing
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    onChange(newValue);
+    
+    // Clear existing timeout
+    if (debounceTimeoutRef.current) {
+      clearTimeout(debounceTimeoutRef.current);
+    }
+    
+    // Set new timeout for debounced search
+    debounceTimeoutRef.current = setTimeout(() => {
+      searchAddresses(newValue);
+    }, 300);
+  };
+
+  // Handle suggestion selection
+  const handleSuggestionSelect = (suggestion: GeoapifySuggestion) => {
+    const formattedAddress = suggestion.properties.formatted;
+    onChange(formattedAddress);
+    setShowDropdown(false);
+    setSuggestions([]);
+    setSelectedIndex(-1);
+    
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+  };
+
+  // Handle keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!showDropdown || suggestions.length === 0) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setSelectedIndex(prev => 
+          prev < suggestions.length - 1 ? prev + 1 : prev
+        );
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setSelectedIndex(prev => prev > 0 ? prev - 1 : -1);
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (selectedIndex >= 0 && selectedIndex < suggestions.length) {
+          handleSuggestionSelect(suggestions[selectedIndex]);
+        }
+        break;
+      case 'Escape':
+        setShowDropdown(false);
+        setSelectedIndex(-1);
+        break;
+    }
+  };
+
+  // Handle clicks outside dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current && 
+        !dropdownRef.current.contains(event.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+        setSelectedIndex(-1);
       }
     };
 
-    // Use less frequent checking to avoid interfering with dropdown selection
-    const intervalId = setInterval(protectUserInput, 200); // Less frequent checking
-
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      clearInterval(intervalId);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [value, isUserTyping]);
+  }, []);
 
-  // Cleanup timeout on unmount
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
-      if (typingTimeoutRef.current) {
-        clearTimeout(typingTimeoutRef.current);
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
+      }
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
       }
     };
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    
-    console.log('User typing address:', newValue, 'Previous autocomplete:', lastAutocompleteValue);
-    
-    // Only set typing state if this is actual user input (not autocomplete selection)
-    if (e.nativeEvent && (e.nativeEvent as InputEvent).inputType !== 'insertReplacementText') {
-      setIsUserTyping(true);
-    }
-    
-    // Always update the value
-    onChangeRef.current(newValue);
-    
-    // If user clears the field completely, reset autocomplete tracking
-    if (newValue.length === 0) {
-      setLastAutocompleteValue('');
-      setIsUserTyping(false);
-      console.log('Field cleared, reset autocomplete tracking');
-    }
-    // Only reset autocomplete tracking if user significantly modifies the address
-    // (removes more than half of the original autocomplete value)
-    else if (lastAutocompleteValue && lastAutocompleteValue.length > 10) {
-      const significantPortion = lastAutocompleteValue.substring(0, Math.floor(lastAutocompleteValue.length / 2));
-      if (!newValue.toLowerCase().includes(significantPortion.toLowerCase())) {
-        setLastAutocompleteValue('');
-        console.log('Reset autocomplete tracking due to significant change');
-      }
-    }
-    
-    // Clear any existing timeout to debounce the typing state reset
-    if (typingTimeoutRef.current) {
-      clearTimeout(typingTimeoutRef.current);
-    }
-    
-    // Set a new timeout to clear the typing state (shorter delay for better UX)
-    typingTimeoutRef.current = setTimeout(() => {
-      if (inputRef.current && inputRef.current.value === newValue) {
-        setIsUserTyping(false);
-        console.log('User stopped typing, final address value:', newValue);
-      }
-      typingTimeoutRef.current = null;
-    }, 1000); // Reduced to 1 second delay
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    // Prevent form submission when Enter is pressed on autocomplete suggestions
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      // If user pressed Enter while typing, stop the typing state after a delay
-      setTimeout(() => setIsUserTyping(false), 500);
-    }
-  };
-
-  const handleFocus = () => {
-    // Don't immediately set typing state on focus to allow autocomplete dropdown to work
-    console.log('Address field focused');
-  };
-
-  const handleBlur = () => {
-    // Stop tracking user typing when input loses focus, with delay to allow autocomplete selection
-    setTimeout(() => {
-      setIsUserTyping(false);
-      console.log('Address field blurred, stopped typing tracking');
-    }, 500); // Increased delay to allow autocomplete selection
-  };
-
   return (
-    <div className="address-autocomplete-container">
-      <input
-        ref={inputRef}
-        type="text"
-        value={value}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        className={`address-autocomplete-input ${!isLoaded ? 'address-autocomplete-loading' : ''} ${className}`}
-        placeholder={placeholder}
-        required={required}
-      />
-      <div className="address-autocomplete-icon">
-        📍
-      </div>
+    <div className="address-autocomplete-container" ref={dropdownRef}>
+      <div className="address-autocomplete-input-wrapper">
+        <input
+          ref={inputRef}
+          type="text"
+          value={value}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          placeholder={placeholder}
+          className="address-autocomplete-input"
+          autoComplete="off"
+        />
+        <span className="address-autocomplete-icon">📍</span>
+       </div>
+       
+       {showDropdown && suggestions.length > 0 && (
+         <div className="address-autocomplete-dropdown">
+           {suggestions.map((suggestion, index) => (
+             <div
+               key={`${suggestion.properties.formatted}-${index}`}
+               className={`address-autocomplete-suggestion ${
+                 index === selectedIndex ? 'selected' : ''
+               }`}
+               onClick={() => handleSuggestionSelect(suggestion)}
+               onMouseEnter={() => setSelectedIndex(index)}
+             >
+              <div className="suggestion-main">
+                {suggestion.properties.formatted}
+              </div>
+              {suggestion.properties.address_line2 && (
+                <div className="suggestion-secondary">
+                  {suggestion.properties.address_line2}
+                </div>
+              )}
+            </div>
+          ))}
+          {isLoading && (
+            <div className="address-autocomplete-loading">
+              Searching...
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

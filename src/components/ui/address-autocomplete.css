@@ -1,33 +1,86 @@
-/* Minimal Address Autocomplete Styling - Performance Optimized */
+/* Address Autocomplete Styling - Geoapify Support */
 
 .address-autocomplete-container {
   position: relative;
   width: 100%;
 }
 
+.address-autocomplete-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .address-autocomplete-input {
   width: 100%;
   padding: 12px 40px 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #000000;
-  font-size: 14px;
-  outline: none;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  transition: border-color 0.2s ease;
 }
 
 .address-autocomplete-input:focus {
+  outline: none;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 1px #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .address-autocomplete-icon {
   position: absolute;
   right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #6b7280;
+  color: #64748b;
   pointer-events: none;
+  font-size: 18px;
+}
+
+.address-autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.address-autocomplete-suggestion {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+.address-autocomplete-suggestion:hover,
+.address-autocomplete-suggestion.selected {
+  background-color: #f8fafc;
+}
+
+.address-autocomplete-suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestion-main {
+  font-weight: 500;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.suggestion-secondary {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.address-autocomplete-loading {
+  padding: 12px 16px;
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
 }
 
 /* Google Places Dropdown - Minimal Styling */
