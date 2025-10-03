@@ -106,7 +106,7 @@ const BookingSummary = () => {
             <div className="flex items-center justify-center space-x-3">
               <CheckCircle className="w-6 h-6 md:w-8 md:h-8" />
               <div className="text-center">
-                <h1 className="text-xl md:text-2xl font-bold">Booking Summary</h1>
+                <h2 data-cy="booking-summary-title" className="text-2xl font-bold text-gray-900 mb-6">Booking Summary</h2>
                 <p className="text-blue-100 text-sm md:text-base">Please review your booking details</p>
               </div>
             </div>

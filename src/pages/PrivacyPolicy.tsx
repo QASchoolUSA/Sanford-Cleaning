@@ -19,7 +19,9 @@ const PrivacyPolicy = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Shield className="w-16 h-16 mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
+            <h1 data-cy="privacy-policy-title" className="text-4xl md:text-5xl font-bold mb-4">
+              Privacy Policy
+            </h1>
             <p className="text-xl text-blue-100">
               Your privacy is important to us. Learn how we protect and handle your personal information.
             </p>

@@ -31,8 +31,8 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                About Sanford Cleaning
+              <h2 data-cy="about-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                About Topaz West LLC
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 With over 10 years of experience in the cleaning industry, Sanford Cleaning has built a reputation for excellence, reliability, and customer satisfaction. We're not just a cleaning company – we're your partners in creating healthier, more comfortable living and working spaces.

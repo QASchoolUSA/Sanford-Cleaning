@@ -22,7 +22,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 data-cy="hero-title" className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Professional Cleaning Services You Can
                 <span className="text-blue-600 block">Trust</span>
               </h1>

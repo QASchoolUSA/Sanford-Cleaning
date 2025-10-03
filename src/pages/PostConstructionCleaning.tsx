@@ -74,8 +74,8 @@ const PostConstructionCleaning = () => {
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Post-Construction Cleaning Services in Sanford, FL
+            <h1 data-cy="post-construction-title" className="text-4xl md:text-5xl font-bold mb-6">
+              Post-Construction Cleaning Services
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
               Professional construction cleanup and debris removal for residential and commercial properties in Sanford, Florida and surrounding areas
@@ -147,8 +147,8 @@ const PostConstructionCleaning = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Comprehensive Post-Construction Cleaning Services
+              <h2 data-cy="post-construction-services-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Our Post-Construction Services
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Our post-construction cleaning services in Sanford, FL, cover every aspect of construction cleanup, ensuring your newly built or renovated space is pristine and ready for occupancy.
@@ -174,8 +174,8 @@ const PostConstructionCleaning = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Sanford Cleaning for Post-Construction Cleanup?
+              <h2 data-cy="construction-phases-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Construction Cleaning Phases
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 When it comes to post-construction cleaning in Sanford, FL, experience and attention to detail matter. Here's why property owners throughout Seminole County trust us with their construction cleanup needs.
@@ -230,7 +230,7 @@ const PostConstructionCleaning = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 data-cy="construction-service-areas-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Post-Construction Cleaning Service Areas
             </h2>
             <p className="text-lg text-gray-600 mb-8">
@@ -258,8 +258,8 @@ const PostConstructionCleaning = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Post-Construction Cleaning Process
+              <h2 data-cy="construction-process-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Our Construction Cleaning Process
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Our systematic approach ensures thorough and efficient post-construction cleanup for your Sanford, FL property.
@@ -302,8 +302,8 @@ const PostConstructionCleaning = () => {
       <section id="contact" className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready for Professional Post-Construction Cleaning in Sanford, FL?
+            <h2 data-cy="construction-cta-title" className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Transform Your Construction Site?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
               Don't let construction cleanup delay your project completion. Contact Sanford Cleaning today for fast, professional post-construction cleaning services.
@@ -352,8 +352,8 @@ const PostConstructionCleaning = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
-              Frequently Asked Questions About Post-Construction Cleaning in Sanford, FL
+            <h2 data-cy="construction-testimonials-title" className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+              What Our Construction Clients Say
             </h2>
             <div className="space-y-8">
               <div className="bg-white p-6 rounded-lg shadow-md">

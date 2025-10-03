@@ -187,8 +187,8 @@ const DeepCleaning = () => {
                 <Sparkles className="w-8 h-8 text-blue-600" />
                 <span className="text-blue-600 font-semibold">Deep Cleaning</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Comprehensive Deep Cleaning Services
+              <h1 data-cy="deep-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                Deep Cleaning Services
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Go beyond surface cleaning with our thorough deep cleaning services. Perfect for spring cleaning, special occasions, or when your home needs that extra level of care and attention.
@@ -218,8 +218,8 @@ const DeepCleaning = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              When to Book Deep Cleaning
+            <h2 data-cy="when-deep-clean-title" className="text-3xl font-bold text-gray-900 mb-4">
+              When Do You Need Deep Cleaning?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Deep cleaning is perfect for various situations when your home needs extra attention.
@@ -244,8 +244,8 @@ const DeepCleaning = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Deep Cleaning Packages
+            <h2 data-cy="deep-cleaning-includes-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What's Included in Deep Cleaning
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Choose the deep cleaning package that best fits your needs and budget.
@@ -291,8 +291,8 @@ const DeepCleaning = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              What We Deep Clean
+            <h2 data-cy="deep-cleaning-benefits-title" className="text-3xl font-bold text-gray-900 mb-4">
+              Benefits of Professional Deep Cleaning
             </h2>
             <p className="text-lg text-gray-600">
               Our deep cleaning service covers every area of your home with meticulous attention to detail.
@@ -321,7 +321,7 @@ const DeepCleaning = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 data-cy="deep-cleaning-process-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Deep Cleaning Process
             </h2>
             <p className="text-lg text-gray-600">
@@ -353,8 +353,8 @@ const DeepCleaning = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Deep Clean Success Stories
+            <h2 data-cy="deep-cleaning-testimonials-title" className="text-3xl font-bold text-gray-900 mb-4">
+              What Our Customers Say
             </h2>
             <p className="text-lg text-gray-600">
               See what our customers say about our deep cleaning services.
@@ -387,7 +387,7 @@ const DeepCleaning = () => {
       {/* CTA Section */}
       <section id="contact" className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 data-cy="deep-cleaning-ready-title" className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready for a Deep Clean?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">

@@ -78,7 +78,7 @@ const FAQ = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <HelpCircle className="w-16 h-16 mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
+            <h1 data-cy="faq-main-title" className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
             <p className="text-xl text-blue-100">
               Find answers to common questions about our cleaning services.
             </p>
@@ -119,7 +119,7 @@ const FAQ = () => {
 
           {/* Contact Section */}
           <div className="mt-12 bg-blue-50 rounded-lg p-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            <h2 data-cy="faq-contact-title" className="text-2xl font-bold text-gray-800 mb-4">
               Still Have Questions?
             </h2>
             <p className="text-gray-700 mb-6">

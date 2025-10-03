@@ -195,13 +195,13 @@ const StripePayment: React.FC = () => {
             <ArrowLeft className="w-4 h-4 mr-1" />
             Back to Booking
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">Complete Your Payment</h1>
+          <h1 data-cy="payment-title" className="text-3xl font-bold text-gray-900">Complete Your Payment</h1>
           <p className="text-gray-600 mt-2">Secure payment powered by Stripe</p>
         </div>
 
         {/* Booking Summary */}
         <div className="bg-white rounded-lg shadow-sm border mb-6 p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Booking Summary</h2>
+          <h2 data-cy="booking-summary-title" className="text-xl font-semibold text-gray-900 mb-4">Booking Summary</h2>
           
           <div className="space-y-3">
             <div className="flex justify-between">

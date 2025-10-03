@@ -156,7 +156,7 @@ const ResidentialCleaning = () => {
                 <Home className="w-8 h-8 text-blue-600" />
                 <span className="text-blue-600 font-semibold">Residential Cleaning</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h1 data-cy="residential-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 Professional Home Cleaning Services
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -186,7 +186,7 @@ const ResidentialCleaning = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 data-cy="residential-services-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Residential Services
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -228,7 +228,7 @@ const ResidentialCleaning = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 data-cy="additional-services-title" className="text-3xl font-bold text-gray-900 mb-4">
               Additional Services
             </h2>
             <p className="text-lg text-gray-600">
@@ -254,7 +254,7 @@ const ResidentialCleaning = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              <h2 data-cy="why-choose-us-title" className="text-3xl font-bold text-gray-900 mb-8">
                 Why Choose Our Residential Cleaning?
               </h2>
               <div className="space-y-6">
@@ -296,7 +296,7 @@ const ResidentialCleaning = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 data-cy="testimonials-title" className="text-3xl font-bold text-gray-900 mb-4">
               Happy Homeowners
             </h2>
             <p className="text-lg text-gray-600">
@@ -331,7 +331,7 @@ const ResidentialCleaning = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 data-cy="faq-title" className="text-3xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
             </h2>
           </div>
@@ -367,7 +367,7 @@ const ResidentialCleaning = () => {
       {/* CTA Section */}
       <section id="contact" className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 data-cy="ready-to-book-title" className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready for a Spotless Home?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">

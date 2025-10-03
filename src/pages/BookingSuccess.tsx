@@ -133,7 +133,7 @@ const BookingSuccess: React.FC = () => {
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-red-600 text-2xl">✕</span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Booking Error</h1>
+          <h1 data-cy="booking-error-title" className="text-2xl font-bold text-gray-900 mb-2">Booking Error</h1>
           <p className="text-gray-600 mb-6">{error || 'Unable to load booking details'}</p>
           <button
             onClick={() => navigate('/booking')}
@@ -186,7 +186,7 @@ const BookingSuccess: React.FC = () => {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <Check className="w-10 h-10 text-green-600" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Booking Confirmed!</h1>
+          <h1 data-cy="booking-confirmed-title" className="text-3xl font-bold text-gray-900 mb-2">Booking Confirmed!</h1>
           <p className="text-lg text-gray-600">
             {sessionData.payment_status === 'paid' ? 'Payment successful' : 'Booking received'}
           </p>
@@ -195,7 +195,7 @@ const BookingSuccess: React.FC = () => {
         {/* Booking Details */}
         <div className="bg-white rounded-lg shadow-sm border mb-4 md:mb-6">
           <div className="p-4 md:p-6 text-center">
-            <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4 md:mb-6">Booking Details</h2>
+            <h2 data-cy="booking-details-title" className="text-lg md:text-xl font-semibold text-gray-900 mb-4 md:mb-6">Booking Details</h2>
             
             <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 text-center max-w-3xl mx-auto">
               {/* Service Information */}
@@ -314,7 +314,7 @@ const BookingSuccess: React.FC = () => {
         {/* Payment Summary */}
         <div className="bg-white rounded-lg shadow-sm border mb-4 md:mb-6">
           <div className="p-4 md:p-6 text-center">
-            <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">Payment Summary</h2>
+            <h2 data-cy="payment-summary-title" className="text-lg md:text-xl font-semibold text-gray-900 mb-4">Payment Summary</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 max-w-2xl mx-auto">
               <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-2 md:space-y-0 md:space-x-2">
@@ -346,7 +346,7 @@ const BookingSuccess: React.FC = () => {
 
         {/* Next Steps */}
         <div className="bg-blue-50 rounded-lg border border-blue-200 p-4 md:p-6 mb-4 md:mb-6">
-          <h2 className="text-base md:text-lg font-semibold text-blue-900 mb-3 text-center md:text-left">What's Next?</h2>
+          <h2 data-cy="whats-next-title" className="text-base md:text-lg font-semibold text-blue-900 mb-3 text-center md:text-left">What's Next?</h2>
           <div className="space-y-2 text-blue-800">
             <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left space-y-1 md:space-y-0">
               <Mail className="w-4 h-4 md:mr-2 text-blue-600" />
