@@ -58,8 +58,8 @@ const BookingSummary = () => {
       
       // Send booking data to backend for confirmation and email sending
       const apiUrl = process.env.NODE_ENV === 'production' 
-        ? '/api/email/confirm-booking' 
-        : 'http://localhost:3001/api/email/confirm-booking';
+        ? '/api/emails/confirm-booking' 
+        : 'http://localhost:3001/api/emails/confirm-booking';
       
       const response = await fetch(apiUrl, {
         method: 'POST',
