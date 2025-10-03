@@ -11,20 +11,18 @@ interface AddressAutocompleteProps {
 
 // Geoapify API response types
 interface GeoapifySuggestion {
-  properties: {
-    formatted: string;
-    address_line1?: string;
-    address_line2?: string;
-    city?: string;
-    state?: string;
-    postcode?: string;
-    country?: string;
-    lat?: number;
-    lon?: number;
-  };
-  geometry?: {
-    coordinates: [number, number];
-  };
+  formatted: string;
+  address_line1?: string;
+  address_line2?: string;
+  city?: string;
+  state?: string;
+  postcode?: string;
+  country?: string;
+  lat?: number;
+  lon?: number;
+  housenumber?: string;
+  street?: string;
+  place_id?: string;
 }
 
 const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
@@ -43,15 +41,15 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  // Debounced search function
+  // Search for addresses using server proxy
   const searchAddresses = async (query: string) => {
-    if (query.length < 2) {
+    if (!query.trim() || query.length < 3) {
       setSuggestions([]);
       setShowDropdown(false);
       return;
     }
 
-    // Cancel previous request
+    // Abort previous request if it exists
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
@@ -62,27 +60,35 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
     setIsLoading(true);
     
     try {
-      const apiKey = import.meta.env.VITE_GEOAPIFY_API_KEY || '15fa9bcbf42d4beb9af335c51886b984';
-      const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(query)}&limit=5&apiKey=${apiKey}&filter=countrycode:us&format=json`;
+      // Use our server proxy instead of direct Geoapify API call
+      const url = `/api/geocoding/autocomplete?text=${encodeURIComponent(query)}&limit=10`;
+      
+      console.log('Fetching from proxy:', url); // Debug log
       
       const response = await fetch(url, {
-        signal: abortControllerRef.current.signal
+        signal: abortControllerRef.current.signal,
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
       });
+      
+      console.log('Response status:', response.status); // Debug log
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
       const data = await response.json();
+      console.log('API response:', data); // Debug log
       
-      if (data.results && Array.isArray(data.results)) {
-        setSuggestions(data.results);
-        setShowDropdown(true);
-        setSelectedIndex(-1);
-      } else {
-        setSuggestions([]);
-        setShowDropdown(false);
-      }
+      // The server already filters the results, so we can use them directly
+      const filteredResults = data.results || [];
+      console.log('Filtered results:', filteredResults); // Debug log
+      
+      setSuggestions(filteredResults);
+      setShowDropdown(filteredResults.length > 0);
+      setSelectedIndex(-1);
     } catch (error) {
       if (error instanceof Error && error.name !== 'AbortError') {
         console.error('Error fetching address suggestions:', error);
@@ -112,7 +118,7 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
 
   // Handle suggestion selection
   const handleSuggestionSelect = (suggestion: GeoapifySuggestion) => {
-    const formattedAddress = suggestion.properties.formatted;
+    const formattedAddress = suggestion.formatted;
     onChange(formattedAddress);
     setShowDropdown(false);
     setSuggestions([]);
@@ -203,23 +209,23 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
          <div className="address-autocomplete-dropdown">
            {suggestions.map((suggestion, index) => (
              <div
-               key={`${suggestion.properties.formatted}-${index}`}
+               key={`${suggestion.formatted}-${index}`}
                className={`address-autocomplete-suggestion ${
                  index === selectedIndex ? 'selected' : ''
                }`}
                onClick={() => handleSuggestionSelect(suggestion)}
                onMouseEnter={() => setSelectedIndex(index)}
              >
-              <div className="suggestion-main">
-                {suggestion.properties.formatted}
-              </div>
-              {suggestion.properties.address_line2 && (
-                <div className="suggestion-secondary">
-                  {suggestion.properties.address_line2}
-                </div>
-              )}
-            </div>
-          ))}
+               <div className="suggestion-main">
+                 {suggestion.formatted}
+               </div>
+               {suggestion.address_line2 && (
+                 <div className="suggestion-secondary">
+                   {suggestion.address_line2}
+                 </div>
+               )}
+             </div>
+           ))}
           {isLoading && (
             <div className="address-autocomplete-loading">
               Searching...

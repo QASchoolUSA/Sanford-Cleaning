@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const stripeRoutes = require('./routes/stripe');
 const emailRoutes = require('./routes/emails');
+const geocodingRoutes = require('./routes/geocoding');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/api/stripe', stripeRoutes);
 app.use(express.json());
 
 app.use('/api/emails', emailRoutes);
+app.use('/api/geocoding', geocodingRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'Server is running', timestamp: new Date().toISOString() });
