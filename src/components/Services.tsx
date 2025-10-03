@@ -84,6 +84,7 @@ const Services = () => {
                   <Link 
                     to={service.link}
                     className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    data-cy={`service-${service.title.toLowerCase().replace(/\s+/g, '-')}-link`}
                   >
                     {service.title === 'Residential Cleaning' ? 'House Cleaning Services' :
                      service.title === 'Commercial Cleaning' ? 'Commercial Cleaning Services' :
@@ -94,6 +95,7 @@ const Services = () => {
                   <Link
                     to="/post-construction-cleaning"
                     className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    data-cy="service-post-construction-link"
                   >
                     Post Construction Cleaning Services
                   </Link>
@@ -108,6 +110,7 @@ const Services = () => {
           <Link 
             to="/free-custom-quote"
             className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            data-cy="services-custom-quote-button"
           >
             Request Custom Quote
           </Link>

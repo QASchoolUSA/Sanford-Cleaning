@@ -40,6 +40,7 @@ const CustomQuote: React.FC = () => {
               <a
                 href="tel:+13212360618"
                 className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
+                data-cy="custom-quote-call-button"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Call (321) 236-0618
@@ -47,6 +48,7 @@ const CustomQuote: React.FC = () => {
               <button
                 onClick={() => scrollToSection('quote-form')}
                 className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors inline-flex items-center justify-center"
+                data-cy="custom-quote-request-button"
               >
                 Request Custom Quote
                 <ArrowRight className="w-5 h-5 ml-2" />

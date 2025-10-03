@@ -95,6 +95,7 @@ const FAQ = () => {
                 <button
                   onClick={() => toggleItem(index)}
                   className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  data-cy={`faq-question-${index}`}
                 >
                   <h3 className="text-lg font-semibold text-gray-800 pr-4">
                     {item.question}
@@ -128,12 +129,14 @@ const FAQ = () => {
               <Link 
                 to="/booking"
                 className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                data-cy="faq-book-service-button"
               >
                 Book a Service
               </Link>
               <a 
                 href="tel:321-236-0618"
                 className="inline-flex items-center px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                data-cy="faq-call-us-button"
               >
                 Call Us: (321) 236-0618
               </a>
@@ -145,6 +148,7 @@ const FAQ = () => {
             <Link 
               to="/" 
               className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              data-cy="faq-back-to-home-button"
             >
               Back to Home
             </Link>

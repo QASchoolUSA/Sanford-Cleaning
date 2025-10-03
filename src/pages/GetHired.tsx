@@ -117,6 +117,7 @@ const GetHired: React.FC = () => {
             <button
               onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
+              data-cy="get-hired-apply-now-button"
             >
               Apply Now
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -176,7 +177,7 @@ const GetHired: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Application Form</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" data-cy="get-hired-application-form">
               {/* Personal Information */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -188,6 +189,7 @@ const GetHired: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    data-cy="get-hired-first-name-input"
                   />
                 </div>
                 <div>
@@ -199,6 +201,7 @@ const GetHired: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    data-cy="get-hired-last-name-input"
                   />
                 </div>
               </div>
@@ -213,6 +216,7 @@ const GetHired: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    data-cy="get-hired-phone-input"
                   />
                 </div>
                 <div>
@@ -224,6 +228,7 @@ const GetHired: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    data-cy="get-hired-email-input"
                   />
                 </div>
               </div>
@@ -236,6 +241,7 @@ const GetHired: React.FC = () => {
                     value={formData.gender}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    data-cy="get-hired-gender-select"
                   >
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
@@ -253,6 +259,7 @@ const GetHired: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    data-cy="get-hired-zipcode-input"
                   />
                 </div>
               </div>
@@ -269,6 +276,7 @@ const GetHired: React.FC = () => {
                       checked={formData.eligibleToWork === 'yes'}
                       onChange={handleInputChange}
                       className="mr-2"
+                      data-cy="get-hired-eligible-work-yes"
                     />
                     Yes
                   </label>
@@ -280,6 +288,7 @@ const GetHired: React.FC = () => {
                       checked={formData.eligibleToWork === 'no'}
                       onChange={handleInputChange}
                       className="mr-2"
+                      data-cy="get-hired-eligible-work-no"
                     />
                     No
                   </label>
@@ -294,6 +303,7 @@ const GetHired: React.FC = () => {
                   value={formData.travelDistance}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  data-cy="get-hired-travel-distance-select"
                 >
                   <option value="">Select distance</option>
                   <option value="5-miles">Up to 5 miles</option>
@@ -313,6 +323,7 @@ const GetHired: React.FC = () => {
                   value={formData.hoursPerWeek}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  data-cy="get-hired-hours-per-week-select"
                 >
                   <option value="">Select hours</option>
                   <option value="0-10">0-10 hours</option>
@@ -335,6 +346,7 @@ const GetHired: React.FC = () => {
                         checked={formData.workDays.includes(day)}
                         onChange={(e) => handleCheckboxChange(e, 'workDays')}
                         className="mr-2"
+                        data-cy={`get-hired-work-day-${day.toLowerCase()}`}
                       />
                       {day}
                     </label>
@@ -354,6 +366,7 @@ const GetHired: React.FC = () => {
                         checked={formData.timeOfDay.includes(time)}
                         onChange={(e) => handleCheckboxChange(e, 'timeOfDay')}
                         className="mr-2"
+                        data-cy={`get-hired-time-of-day-${time.toLowerCase()}`}
                       />
                       {time}
                     </label>
@@ -369,6 +382,7 @@ const GetHired: React.FC = () => {
                   value={formData.englishLevel}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  data-cy="get-hired-english-level-select"
                 >
                   <option value="">Select level</option>
                   <option value="fluent">I speak English</option>
@@ -390,6 +404,7 @@ const GetHired: React.FC = () => {
                         checked={formData.otherLanguages.includes(lang)}
                         onChange={(e) => handleCheckboxChange(e, 'otherLanguages')}
                         className="mr-2"
+                        data-cy={`get-hired-other-language-${lang.toLowerCase()}`}
                       />
                       {lang}
                     </label>
@@ -401,6 +416,7 @@ const GetHired: React.FC = () => {
                       checked={formData.otherLanguages.includes('other')}
                       onChange={(e) => handleCheckboxChange(e, 'otherLanguages')}
                       className="mr-2"
+                      data-cy="get-hired-other-language-other"
                     />
                     Other
                   </label>
@@ -413,6 +429,7 @@ const GetHired: React.FC = () => {
                     onChange={handleInputChange}
                     placeholder="Please specify which language"
                     className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    data-cy="get-hired-other-language-text-input"
                   />
                 )}
               </div>
@@ -430,6 +447,7 @@ const GetHired: React.FC = () => {
                         checked={formData.hasVehicle === 'yes'}
                         onChange={handleInputChange}
                         className="mr-2"
+                        data-cy="get-hired-has-vehicle-yes"
                       />
                       I have
                     </label>
@@ -441,6 +459,7 @@ const GetHired: React.FC = () => {
                         checked={formData.hasVehicle === 'no'}
                         onChange={handleInputChange}
                         className="mr-2"
+                        data-cy="get-hired-has-vehicle-no"
                       />
                       I do not have
                     </label>
@@ -457,6 +476,7 @@ const GetHired: React.FC = () => {
                         checked={formData.hasLicense === 'yes'}
                         onChange={handleInputChange}
                         className="mr-2"
+                        data-cy="get-hired-has-license-yes"
                       />
                       I have
                     </label>
@@ -468,6 +488,7 @@ const GetHired: React.FC = () => {
                         checked={formData.hasLicense === 'no'}
                         onChange={handleInputChange}
                         className="mr-2"
+                        data-cy="get-hired-has-license-no"
                       />
                       I do NOT have
                     </label>
@@ -487,6 +508,7 @@ const GetHired: React.FC = () => {
                       checked={formData.criminalRecord === 'yes'}
                       onChange={handleInputChange}
                       className="mr-2"
+                      data-cy="get-hired-criminal-record-yes"
                     />
                     I have
                   </label>
@@ -498,6 +520,7 @@ const GetHired: React.FC = () => {
                       checked={formData.criminalRecord === 'no'}
                       onChange={handleInputChange}
                       className="mr-2"
+                      data-cy="get-hired-criminal-record-no"
                     />
                     I have NOT
                   </label>
@@ -514,6 +537,7 @@ const GetHired: React.FC = () => {
                   rows={4}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Describe your cleaning experience..."
+                  data-cy="get-hired-experience-textarea"
                 />
               </div>
 
@@ -525,6 +549,7 @@ const GetHired: React.FC = () => {
                   value={formData.techProficiency}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  data-cy="get-hired-tech-proficiency-select"
                 >
                   <option value="">Select proficiency level</option>
                   <option value="expert">Expert - I'm very comfortable with technology</option>
@@ -542,6 +567,7 @@ const GetHired: React.FC = () => {
                   value={formData.howDidYouHear}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  data-cy="get-hired-how-did-you-hear-select"
                 >
                   <option value="">Select option</option>
                   <option value="facebook">Facebook</option>
@@ -557,6 +583,7 @@ const GetHired: React.FC = () => {
                   type="submit"
                   disabled={isLoading}
                   className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300 font-semibold text-lg disabled:bg-blue-400"
+                  data-cy="get-hired-submit-button"
                 >
                   {isLoading ? (
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mx-auto"></div>

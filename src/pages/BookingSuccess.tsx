@@ -138,6 +138,7 @@ const BookingSuccess: React.FC = () => {
           <button
             onClick={() => navigate('/booking')}
             className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            data-cy="booking-success-return-to-booking-button"
           >
             Return to Booking
           </button>
@@ -367,6 +368,7 @@ const BookingSuccess: React.FC = () => {
           <button
             onClick={() => navigate('/')}
             className="flex items-center justify-center px-4 md:px-6 py-2.5 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm md:text-base"
+            data-cy="booking-success-return-to-homepage-button"
           >
             <Home className="w-4 h-4 mr-2" />
             Return to Homepage
@@ -375,6 +377,7 @@ const BookingSuccess: React.FC = () => {
           <button
             onClick={() => navigate('/booking')}
             className="flex items-center justify-center px-4 md:px-6 py-2.5 md:py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm md:text-base"
+            data-cy="booking-success-book-another-service-button"
           >
             Book Another Service
             <ArrowRight className="w-4 h-4 ml-2" />
@@ -385,7 +388,7 @@ const BookingSuccess: React.FC = () => {
         <div className="text-center mt-6 md:mt-8 text-xs md:text-sm text-gray-500">
           <p>Questions about your booking? Contact us at:</p>
         <p className="font-medium text-gray-700">
-          <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a> • <a href="tel:321-236-0618" className="text-blue-600 hover:underline">321-236-0618</a>
+          <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline" data-cy="booking-success-email-link">info@sanfordcleaning.com</a> • <a href="tel:321-236-0618" className="text-blue-600 hover:underline" data-cy="booking-success-phone-link">321-236-0618</a>
         </p>
         </div>
       </div>

@@ -522,6 +522,7 @@ const PriceCalculator = () => {
                 checked={formData.service === option}
                 onChange={(e) => updateFormData('service', e.target.value)}
                 className="w-4 h-4 text-blue-600 mr-3"
+                data-cy={`service-option-${option.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}`}
               />
               <span className="text-gray-700">{option}</span>
             </label>
@@ -536,6 +537,7 @@ const PriceCalculator = () => {
             value={formData.frequency || ''}
             onChange={(e) => updateFormData('frequency', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="frequency-select"
           >
             <option value="">Select frequency</option>
             {frequencyOptions.map(option => (
@@ -557,6 +559,7 @@ const PriceCalculator = () => {
               onChange={(e) => updateFormData('hours', parseInt(e.target.value) || 0)}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="0"
+              data-cy="hours-input"
             />
           </div>
           <div>
@@ -570,6 +573,7 @@ const PriceCalculator = () => {
               onChange={(e) => updateFormData('minutes', parseInt(e.target.value) || 0)}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="0"
+              data-cy="minutes-input"
             />
           </div>
         </div>
@@ -588,6 +592,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('squareFootage', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="e.g. 1500"
+            data-cy="square-footage-input"
           />
         </div>
         <div>
@@ -596,6 +601,7 @@ const PriceCalculator = () => {
             value={formData.bedrooms}
             onChange={(e) => updateFormData('bedrooms', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="bedrooms-select"
           >
             {bedroomOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -608,6 +614,7 @@ const PriceCalculator = () => {
             value={formData.bathrooms}
             onChange={(e) => updateFormData('bathrooms', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="bathrooms-select"
           >
             {bathroomOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -623,6 +630,7 @@ const PriceCalculator = () => {
             checked={formData.excludeAreas}
             onChange={(e) => updateFormData('excludeAreas', e.target.checked)}
             className="w-4 h-4 text-blue-600 rounded"
+            data-cy="exclude-areas-checkbox"
           />
           <span className="text-gray-700">I do NOT need my entire home cleaned</span>
         </label>
@@ -639,6 +647,7 @@ const PriceCalculator = () => {
                   checked={formData.excludedAreas.includes(area)}
                   onChange={() => handleArrayToggle('excludedAreas', area)}
                   className="w-4 h-4 text-blue-600 rounded"
+                  data-cy={`exclude-area-${area.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}`}
                 />
                 <span className="text-gray-700">{area}</span>
               </label>
@@ -657,6 +666,7 @@ const PriceCalculator = () => {
               type="button"
               onClick={() => setShowExtras(!showExtras)}
               className="flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+              data-cy="toggle-extras-button"
             >
               {showExtras ? (
                 <>
@@ -687,6 +697,7 @@ const PriceCalculator = () => {
                           checked={isSelected}
                           onChange={() => handleExtraToggle(extra.name)}
                           className="w-4 h-4 text-blue-600 rounded"
+                          data-cy={`extra-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
                         />
                         <span className="text-gray-700">{extra.name}</span>
                       </label>
@@ -706,6 +717,7 @@ const PriceCalculator = () => {
                           value={selectedExtra?.quantity || 1}
                           onChange={(e) => updateExtraQuantity(extra.name, parseInt(e.target.value) || 1)}
                           className="w-20 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          data-cy={`extra-quantity-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
                         />
                         <span className="text-sm text-gray-500">{extra.unit}(s)</span>
                       </div>
@@ -730,6 +742,7 @@ const PriceCalculator = () => {
             value={formData.houseCondition}
             onChange={(e) => updateFormData('houseCondition', e.target.value)}
             className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="house-condition-select"
           >
             {conditionOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -742,6 +755,7 @@ const PriceCalculator = () => {
             value={formData.peopleCount}
             onChange={(e) => updateFormData('peopleCount', e.target.value)}
             className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="people-count-select"
           >
             {peopleOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -759,6 +773,7 @@ const PriceCalculator = () => {
             placeholder="Select date"
             maxDate={new Date()}
             className="p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="last-cleaning-date"
           />
         </div>
         <div>
@@ -774,6 +789,7 @@ const PriceCalculator = () => {
             placeholder="Select service date"
             minDate={new Date()}
             className="p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="scheduled-date"
           />
         </div>
         <div>
@@ -782,6 +798,7 @@ const PriceCalculator = () => {
             value={formData.wasProfessional ? 'YES' : 'NO'}
             onChange={(e) => updateFormData('wasProfessional', e.target.value === 'YES')}
             className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="was-professional-select"
           >
             <option value="NO">NO</option>
             <option value="YES">YES</option>
@@ -796,6 +813,7 @@ const PriceCalculator = () => {
             selectedTime={formData.scheduledTime}
             onTimeChange={(time) => updateFormData('scheduledTime', time)}
             className="mt-1"
+            data-cy="time-slot-picker"
           />
         </div>
       )}
@@ -813,6 +831,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('firstName', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             required
+            data-cy="first-name-input"
           />
         </div>
         <div>
@@ -823,6 +842,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('lastName', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             required
+            data-cy="last-name-input"
           />
         </div>
       </div>
@@ -835,6 +855,7 @@ const PriceCalculator = () => {
           onChange={(e) => updateFormData('email', e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           required
+          data-cy="email-input"
         />
       </div>
 
@@ -854,6 +875,7 @@ const PriceCalculator = () => {
             placeholder="(555) 123-4567"
             maxLength={14}
             required
+            data-cy="phone-input"
           />
           {phoneError && (
             <p className="mt-1 text-sm text-red-600">{phoneError}</p>
@@ -873,6 +895,7 @@ const PriceCalculator = () => {
             }`}
             placeholder="(555) 123-4567"
             maxLength={14}
+            data-cy="secondary-phone-input"
           />
           {secondaryPhoneError && (
             <p className="mt-1 text-sm text-red-600">{secondaryPhoneError}</p>
@@ -889,6 +912,7 @@ const PriceCalculator = () => {
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Start typing your address..."
             required
+            data-cy="address-input"
           />
         </div>
         <div>
@@ -898,6 +922,7 @@ const PriceCalculator = () => {
             value={formData.aptUnit}
             onChange={(e) => updateFormData('aptUnit', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            data-cy="apt-unit-input"
           />
         </div>
       </div>
@@ -909,6 +934,7 @@ const PriceCalculator = () => {
           onChange={(e) => updateFormData('keyInfo', e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           required
+          data-cy="key-info-select"
         >
           <option value="">Select key arrangement</option>
           {keyInfoOptions.map(option => (
@@ -925,6 +951,7 @@ const PriceCalculator = () => {
           rows={4}
           className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Any special instructions or requests..."
+          data-cy="customer-note-textarea"
         />
       </div>
 
@@ -940,6 +967,7 @@ const PriceCalculator = () => {
                 checked={formData.paymentType === option}
                 onChange={(e) => updateFormData('paymentType', e.target.value)}
                 className="w-4 h-4 text-blue-600 mr-3"
+                data-cy={`payment-type-${option.toLowerCase().replace(/\s+/g, '-')}`}
               />
               <span className="text-gray-700">{option}</span>
             </label>
@@ -1147,6 +1175,7 @@ const PriceCalculator = () => {
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-gray-600 text-white hover:bg-gray-700'
                 }`}
+                data-cy="previous-step-button"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Previous</span>
@@ -1161,6 +1190,7 @@ const PriceCalculator = () => {
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                       : 'bg-blue-600 text-white hover:bg-blue-700'
                   }`}
+                  data-cy="next-step-button"
                 >
                   <span>Next</span>
                   <ChevronRight className="w-4 h-4" />
@@ -1174,6 +1204,7 @@ const PriceCalculator = () => {
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                       : 'bg-green-600 text-white hover:bg-green-700'
                   }`}
+                  data-cy="submit-button"
                 >
                   {formData.paymentType === 'Credit Card' ? (
                     <>

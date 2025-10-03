@@ -124,6 +124,7 @@ const CheckoutComponent: React.FC<{ bookingData: BookingData }> = ({ bookingData
             ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
             : 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg'
         }`}
+        data-cy="stripe-payment-button"
       >
         {isCreatingSession ? (
           <>
@@ -189,6 +190,7 @@ const StripePayment: React.FC = () => {
           <button
             onClick={() => navigate('/booking')}
             className="flex items-center text-blue-600 hover:text-blue-700 mb-4"
+            data-cy="back-to-booking-button"
           >
             <ArrowLeft className="w-4 h-4 mr-1" />
             Back to Booking

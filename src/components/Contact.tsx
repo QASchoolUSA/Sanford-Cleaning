@@ -80,7 +80,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
                     <p className="text-gray-600">
-                      <a href="tel:321-236-0618" className="hover:text-blue-600 transition-colors">(321) 236-0618</a>
+                      <a href="tel:321-236-0618" className="hover:text-blue-600 transition-colors" data-cy="contact-phone-link">(321) 236-0618</a>
                     </p>
                     <p className="text-sm text-gray-500">Available 24/7 for emergencies</p>
                   </div>
@@ -93,7 +93,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
                     <p className="text-gray-600">
-                      <a href="mailto:info@sanfordcleaning.com" className="hover:text-blue-600 transition-colors">info@sanfordcleaning.com</a>
+                      <a href="mailto:info@sanfordcleaning.com" className="hover:text-blue-600 transition-colors" data-cy="contact-email-link">info@sanfordcleaning.com</a>
                     </p>
                     <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
                   </div>
@@ -142,7 +142,7 @@ const Contact = () => {
 
           <div className="bg-gray-50 p-8 rounded-xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Request a Quote</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" data-cy="contact-form">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -157,6 +157,7 @@ const Contact = () => {
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Your full name"
+                    data-cy="contact-form-name-input"
                   />
                 </div>
                 <div>
@@ -172,6 +173,7 @@ const Contact = () => {
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="your@email.com"
+                    data-cy="contact-form-email-input"
                   />
                 </div>
               </div>
@@ -189,6 +191,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="(321) 236-0618"
+                    data-cy="contact-form-phone-input"
                   />
                 </div>
                 <div>
@@ -201,6 +204,7 @@ const Contact = () => {
                     value={formData.service}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    data-cy="contact-form-service-select"
                   >
                     <option value="">Select a service</option>
                     <option value="residential">Residential Cleaning</option>
@@ -225,6 +229,7 @@ const Contact = () => {
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Tell us about your cleaning needs..."
+                  data-cy="contact-form-message-textarea"
                 ></textarea>
               </div>
 
@@ -236,6 +241,7 @@ const Contact = () => {
                     ? 'bg-gray-400 cursor-not-allowed' 
                     : 'bg-blue-600 hover:bg-blue-700'
                 } text-white`}
+                data-cy="contact-form-submit-button"
               >
                 <Send className="w-5 h-5" />
                 <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>

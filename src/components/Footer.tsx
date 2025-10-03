@@ -23,17 +23,17 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-6">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" data-cy="footer-logo-link">
               <img src={logo} alt="Sanford Cleaning Logo" className="max-h-32 object-contain" />
             </Link>
             <p className="text-gray-600 leading-relaxed">
               Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=61579618588193" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61579618588193" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/sanfordcleaning" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+              <a href="https://www.instagram.com/sanfordcleaning" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-instagram-link">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -42,11 +42,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><Link to="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors">Residential Cleaning</Link></li>
-              <li><Link to="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors">Commercial Cleaning</Link></li>
-              <li><Link to="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors">Deep Cleaning</Link></li>
+              <li><Link to="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">Residential Cleaning</Link></li>
+              <li><Link to="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Commercial Cleaning</Link></li>
+              <li><Link to="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-deep-cleaning-link">Deep Cleaning</Link></li>
               
-              <li><Link to="/post-construction-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors">Post-Construction Cleaning</Link></li>
+              <li><Link to="/post-construction-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-post-construction-cleaning-link">Post-Construction Cleaning</Link></li>
               
             </ul>
           </div>
@@ -54,13 +54,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link to="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</Link></li>
-              <li><button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors">About Us</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-blue-600 transition-colors">Services</button></li>
+              <li><Link to="/" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-home-link">Home</Link></li>
+              <li><button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-about-button">About Us</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-services-button">Services</button></li>
 
-              <li><button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors">Contact</button></li>
-              <li><Link to="/faq" className="text-gray-600 hover:text-blue-600 transition-colors">FAQ</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
+              <li><button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-contact-button">Contact</button></li>
+              <li><Link to="/faq" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-faq-link">FAQ</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-privacy-policy-link">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -69,11 +69,11 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-600" />
-                <a href="tel:321-236-0618" className="text-gray-600 hover:text-blue-600 transition-colors">(321) 236-0618</a>
+                <a href="tel:321-236-0618" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-phone-link">(321) 236-0618</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-600" />
-                <a href="mailto:info@sanfordcleaning.com" className="text-gray-600 hover:text-blue-600 transition-colors">info@sanfordcleaning.com</a>
+                <a href="mailto:info@sanfordcleaning.com" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-email-link">info@sanfordcleaning.com</a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-600 mt-1" />
@@ -98,8 +98,8 @@ const Footer = () => {
               &copy; {currentYear} Sanford Cleaning. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</Link>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Terms of Service</a>
+              <Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-bottom-privacy-policy-link">Privacy Policy</Link>
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-terms-of-service-link">Terms of Service</a>
 
             </div>
           </div>

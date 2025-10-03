@@ -59,7 +59,7 @@ const QuoteForm = () => {
   return (
     <div className="bg-gray-50 p-8 rounded-xl">
       <h3 className="text-2xl font-bold text-gray-900 mb-6">Request a Quote</h3>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6" data-cy="quote-form">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -74,6 +74,7 @@ const QuoteForm = () => {
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Your full name"
+              data-cy="quote-form-name-input"
             />
           </div>
           <div>
@@ -89,6 +90,7 @@ const QuoteForm = () => {
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="your@email.com"
+              data-cy="quote-form-email-input"
             />
           </div>
         </div>
@@ -106,6 +108,7 @@ const QuoteForm = () => {
               onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="(321) 236-0618"
+              data-cy="quote-form-phone-input"
             />
           </div>
           <div>
@@ -118,6 +121,7 @@ const QuoteForm = () => {
               value={formData.service}
               onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              data-cy="quote-form-service-select"
             >
               <option value="">Select a service</option>
               <option value="residential">Residential Cleaning</option>
@@ -142,6 +146,7 @@ const QuoteForm = () => {
             rows={4}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Tell us about your cleaning needs..."
+            data-cy="quote-form-message-textarea"
           ></textarea>
         </div>
 
@@ -153,6 +158,7 @@ const QuoteForm = () => {
               ? 'bg-gray-400 cursor-not-allowed' 
               : 'bg-blue-600 hover:bg-blue-700'
           } text-white`}
+          data-cy="quote-form-submit-button"
         >
           <Send className="w-5 h-5" />
           <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
