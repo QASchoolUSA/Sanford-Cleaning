@@ -7,6 +7,7 @@ interface AddressAutocompleteProps {
   className?: string;
   placeholder?: string;
   required?: boolean;
+  'data-cy'?: string;
 }
 
 // Geoapify API response types
@@ -30,7 +31,8 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
   onChange,
   className = '',
   placeholder = 'Enter your address',
-  required = false
+  required = false,
+  'data-cy': dataCy
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -201,12 +203,13 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
           placeholder={placeholder}
           className="address-autocomplete-input"
           autoComplete="off"
+          data-cy={dataCy}
         />
         <span className="address-autocomplete-icon">📍</span>
        </div>
        
        {showDropdown && suggestions.length > 0 && (
-         <div className="address-autocomplete-dropdown">
+         <div className="address-autocomplete-dropdown" data-cy="address-dropdown">
            {suggestions.map((suggestion, index) => (
              <div
                key={`${suggestion.formatted}-${index}`}
@@ -215,6 +218,7 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
                }`}
                onClick={() => handleSuggestionSelect(suggestion)}
                onMouseEnter={() => setSelectedIndex(index)}
+               data-cy={`address-suggestion-${index}`}
              >
                <div className="suggestion-main">
                  {suggestion.formatted}
@@ -227,7 +231,7 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
              </div>
            ))}
           {isLoading && (
-            <div className="address-autocomplete-loading">
+            <div className="address-autocomplete-loading" data-cy="address-loading">
               Searching...
             </div>
           )}
