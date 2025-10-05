@@ -73,6 +73,7 @@ const Header = () => {
                   <Link to="/residential-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-residential-cleaning-link">Residential Cleaning</Link>
                   <Link to="/commercial-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-commercial-cleaning-link">Commercial Cleaning</Link>
                   <Link to="/deep-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-deep-cleaning-link">Deep Cleaning</Link>
+                  <Link to="/move-in-move-out-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link>
                   <Link to="/post-construction-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-post-construction-cleaning-link">Post-Construction Cleaning</Link>
                 </div>
               </div>
@@ -119,6 +120,7 @@ const Header = () => {
                   <Link to="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-residential-cleaning-link">Residential Cleaning</Link>
                   <Link to="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-commercial-cleaning-link">Commercial Cleaning</Link>
                   <Link to="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-deep-cleaning-link">Deep Cleaning</Link>
+                  <Link to="/move-in-move-out-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link>
                   <Link to="/post-construction-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-post-construction-cleaning-link">Post-Construction Cleaning</Link>
                 </div>
 

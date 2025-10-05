@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Building, Sparkles, Car, Wrench, Heart } from 'lucide-react';
+import { Home, Building, Sparkles, Car, Wrench, Heart, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
@@ -28,7 +28,14 @@ const Services = () => {
       price: 'Starting at $150',
       link: '/deep-cleaning'
     },
-    
+    {
+      icon: Truck,
+      title: 'Move In/Move Out',
+      description: 'Comprehensive cleaning services for moving transitions, perfect for tenants and property owners.',
+      features: ['Deep sanitization', 'Deposit protection', 'Property turnover', 'Rental ready cleaning'],
+      price: 'Starting at $120',
+      link: '/move-in-move-out-cleaning'
+    },
     {
       icon: Wrench,
       title: 'Post-Construction',
@@ -61,7 +68,12 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <Link 
+              key={index} 
+              to={service.link}
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer"
+              data-cy={`service-${service.title.toLowerCase().replace(/\s+/g, '-')}-card`}
+            >
               <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-6">
                 <service.icon className="w-8 h-8 text-blue-600" />
               </div>
@@ -78,30 +90,10 @@ const Services = () => {
                 ))}
               </ul>
               
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100">
                 <span className="text-lg font-bold text-blue-600">{service.price}</span>
-                {service.link.startsWith('/') ? (
-                  <Link 
-                    to={service.link}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                    data-cy={`service-${service.title.toLowerCase().replace(/\s+/g, '-')}-link`}
-                  >
-                    {service.title === 'Residential Cleaning' ? 'House Cleaning Services' :
-                     service.title === 'Commercial Cleaning' ? 'Commercial Cleaning Services' :
-                     service.title === 'Deep Cleaning' ? 'Deep Cleaning Services' :
-                     'Learn More'}
-                  </Link>
-                ) : (
-                  <Link
-                    to="/post-construction-cleaning"
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                    data-cy="service-post-construction-link"
-                  >
-                    Post Construction Cleaning Services
-                  </Link>
-                )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

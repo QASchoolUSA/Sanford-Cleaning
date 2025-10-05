@@ -80,10 +80,10 @@ const PriceCalculator = () => {
 
   const serviceOptions = [
     'Maintenance Cleaning',
-    'One-time Deep Cleaning',
-    'Hourly',
-    'Moving Out/In',
-    'Post-construction'
+    'Deep Cleaning',
+    'Move In / Move Out Cleaning',
+    'Post-construction Cleaning',
+    'Hourly Cleaning'
   ];
 
   const frequencyOptions = ['Weekly', 'Every Other Week', 'Every 4 Weeks'];
@@ -219,12 +219,12 @@ const PriceCalculator = () => {
     let finalPrice = 0;
     let maintenanceRecurringPrice = 0;
     
-    if (formData.service === 'Hourly') {
-      // Hourly service: $55/hour, no sqft/bed/bath modifiers
+    if (formData.service === 'Hourly Cleaning') {
+      // Hourly Cleaning service: $55/hour, no sqft/bed/bath modifiers
       const totalMinutes = (formData.hours || 0) * 60 + (formData.minutes || 0);
       finalPrice = (totalMinutes / 60) * 55;
-    } else if (formData.service === 'Moving Out/In') {
-      // Moving Out/In service: special pricing with house condition modifiers
+    } else if (formData.service === 'Move In / Move Out Cleaning') {
+      // Move In / Move Out service: special pricing with house condition modifiers
       let basePrice = 277; // Base price for <1000sqft, 1 bedroom, 1 bathroom
       
       const sqft = parseInt(formData.squareFootage) || 0;
@@ -337,8 +337,8 @@ const PriceCalculator = () => {
       }
     }
     
-    // Add extras pricing (only for non-hourly services)
-     if (formData.service !== 'Hourly') {
+    // Add extras pricing (only for non-Hourly Cleaning services)
+    if (formData.service !== 'Hourly Cleaning') {
        let extrasTotal = 0;
        let maintenanceExtrasTotal = 0;
        
@@ -547,7 +547,7 @@ const PriceCalculator = () => {
         </div>
       )}
 
-      {formData.service === 'Hourly' && (
+      {formData.service === 'Hourly Cleaning' && (
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-3">Hours</label>
