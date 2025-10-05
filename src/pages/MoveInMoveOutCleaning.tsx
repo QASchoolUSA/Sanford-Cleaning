@@ -87,7 +87,6 @@ const MoveInMoveOutCleaning: React.FC = () => {
           name="description" 
           content="Sanford Cleaning offers the most reliable move in & move out cleaning services in Sanford FL, and surrounding areas. Perfect for rental property owners and residents moving homes." 
         />
-        <meta name="keywords" content="move in cleaning sanford fl, move out cleaning sanford fl, cleaning services sanford fl, rental property cleaning, moving cleaning services" />
         <link rel="canonical" href="https://sanfordcleaning.com/move-in-move-out-cleaning" />
       </Helmet>
 

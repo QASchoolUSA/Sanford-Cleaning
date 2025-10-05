@@ -8,7 +8,6 @@ const PrivacyPolicy = () => {
       <Helmet>
         <title>Privacy Policy | Topaz West LLC - Your Privacy Matters</title>
         <meta name="description" content="Read Topaz West LLC's privacy policy to understand how we collect, use, and protect your personal information. Your privacy and data security are our priority." />
-        <meta name="keywords" content="privacy policy, data protection, Topaz West LLC privacy, personal information security, cleaning services" />
         <meta property="og:title" content="Privacy Policy | Topaz West LLC" />
         <meta property="og:description" content="Learn how Topaz West LLC protects your privacy and handles your personal information securely." />
         <meta property="og:type" content="website" />

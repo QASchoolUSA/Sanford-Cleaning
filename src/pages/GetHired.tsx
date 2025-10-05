@@ -97,7 +97,6 @@ const GetHired: React.FC = () => {
       <Helmet>
         <title>Join Our Cleaning Team | Careers at Sanford Cleaning - Apply Now</title>
         <meta name="description" content="Join our professional cleaning team in Sanford, FL. Great pay ($20+ per hour), flexible hours, weekly pay. Apply now for cleaning jobs and start your career with us." />
-        <meta name="keywords" content="cleaning jobs Sanford FL, house cleaner jobs, cleaning careers, flexible work, part-time cleaning jobs, full-time cleaning jobs" />
         <meta property="og:title" content="Join Our Cleaning Team | Careers at Sanford Cleaning" />
         <meta property="og:description" content="Join our professional cleaning team in Sanford, FL. Great pay, flexible hours, weekly pay. Apply now!" />
         <meta property="og:type" content="website" />

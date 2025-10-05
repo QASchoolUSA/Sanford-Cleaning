@@ -19,7 +19,6 @@ const CustomQuote: React.FC = () => {
       <Helmet>
         <title>Free Custom Quote | Sanford Business Cleaning Services</title>
         <meta name="description" content="Get a free, no-obligation custom quote for professional cleaning services in Sanford, FL. Customized cleaning solutions for residential and commercial properties." />
-        <meta name="keywords" content="free custom quote, professional cleaning estimate, cleaning services Sanford, customized cleaning cost, free cleaning quote" />
         <meta property="og:title" content="Free Custom Quote | Sanford Cleaning Services" />
         <meta property="og:description" content="Get a free, no-obligation custom quote for professional cleaning services in Sanford, FL. Customized solutions for your property." />
         <meta property="og:type" content="website" />

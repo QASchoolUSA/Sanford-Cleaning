@@ -63,7 +63,6 @@ const PostConstructionCleaning = () => {
       <Helmet>
         <title>Post-Construction Cleaning Services in Sanford, FL | Sanford Cleaning</title>
         <meta name="description" content="Professional post-construction cleaning services in Sanford, FL. Expert construction cleanup, debris removal, and deep cleaning." />
-        <meta name="keywords" content="post construction cleaning Sanford FL, construction cleanup Sanford, post construction cleaning near me, construction debris removal Sanford, post renovation cleaning Sanford Florida, construction site cleaning Sanford" />
         <meta property="og:title" content="Post-Construction Cleaning Services in Sanford, FL | Professional Construction Cleanup" />
         <meta property="og:description" content="Professional post-construction cleaning services in Sanford, FL. Expert construction cleanup and debris removal for residential and commercial properties." />
         <meta property="og:type" content="website" />

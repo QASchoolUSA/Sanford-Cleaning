@@ -100,7 +100,6 @@ const CommercialCleaning = () => {
       <Helmet>
         <title>#1 Office Cleaning Service in Sanford, FL | Free Quote</title>
         <meta name="description" content="Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!" />
-        <meta name="keywords" content="commercial cleaning sanford fl, office cleaning sanford, business cleaning services sanford, janitorial services sanford fl, medical office cleaning sanford, retail cleaning sanford" />
         <meta property="og:title" content="#1 Office Cleaning Service in Sanford, FL | Free Quote" />
         <meta property="og:description" content="Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!" />
         <meta property="og:type" content="website" />

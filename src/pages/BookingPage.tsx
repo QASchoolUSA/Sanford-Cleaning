@@ -8,7 +8,6 @@ const BookingPage: React.FC = () => {
       <Helmet>
         <title>Book Cleaning Service Online | Sanford Cleaning - Instant Price & Booking</title>
         <meta name="description" content="Book your cleaning service online in Sanford, FL. Get instant quotes, choose your services, and schedule your cleaning appointment. Easy online booking system." />
-        <meta name="keywords" content="book cleaning service Sanford, sanford cleaning service appointment, cleaning service booking sanford" />
         <meta property="og:title" content="Book Cleaning Service Online | Sanford Cleaning" />
         <meta property="og:description" content="Book your cleaning service online in Sanford, FL. Get instant quotes and schedule your appointment." />
         <meta property="og:type" content="website" />

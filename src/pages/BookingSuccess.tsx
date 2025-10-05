@@ -174,7 +174,6 @@ const BookingSuccess: React.FC = () => {
       <Helmet>
         <title>Booking Confirmed | Sanford Cleaning - Thank You!</title>
         <meta name="description" content="Your cleaning service booking has been confirmed! Thank you for choosing Sanford Cleaning. Check your email for booking details and confirmation." />
-        <meta name="keywords" content="booking confirmed, cleaning service booked, Sanford cleaning confirmation" />
         <meta property="og:title" content="Booking Confirmed | Sanford Cleaning" />
         <meta property="og:description" content="Your cleaning service booking has been confirmed! Thank you for choosing Sanford Cleaning." />
         <meta property="og:type" content="website" />

@@ -8,7 +8,6 @@ const TermsOfService = () => {
       <Helmet>
         <title>Terms of Service | Topaz West LLC - Cleaning Service Agreement</title>
         <meta name="description" content="Read Topaz West LLC's terms of service for our residential, commercial, maintenance, deep, and post-construction cleaning services. Understand our policies and your rights." />
-        <meta name="keywords" content="terms of service, cleaning service agreement, Topaz West LLC terms, cleaning contract, service policies" />
         <meta property="og:title" content="Terms of Service | Topaz West LLC" />
         <meta property="og:description" content="Comprehensive terms of service for Topaz West LLC's professional cleaning services in Sanford, Florida." />
         <meta property="og:type" content="website" />

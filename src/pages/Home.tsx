@@ -11,7 +11,6 @@ const Home = () => {
       <Helmet>
         <title>House Cleaning Services Sanford, FL | Sanford Cleaning</title>
         <meta name="description" content="Sanford's #1 rated cleaning service for home & office. Get an instant, free quote online and book in 60 seconds. We're your trusted local cleaners for a spotless space!" />
-        <meta name="keywords" content="cleaning services sanford fl, house cleaning sanford fl, commercial cleaning sanford fl, deep cleaning services sanford fl, sanford cleaning company" />
         <meta property="og:title" content="Sanford Cleaning | Top-Rated Home & Commercial Cleaning in Sanford, FL" />
         <meta property="og:description" content="Get a sparkling clean home or office with Sanford Cleaning's top-rated services. We offer reliable residential, commercial, and deep cleaning in Sanford, FL. Book online in 60 seconds!" />
         <meta property="og:type" content="website" />

@@ -67,7 +67,6 @@ const FAQ = () => {
       <Helmet>
         <title>Frequently Asked Questions | Sanford Cleaning Services FAQ</title>
         <meta name="description" content="Find answers to common questions about our cleaning services in Sanford, FL. Learn about booking, pricing, preparation, and our satisfaction guarantee." />
-        <meta name="keywords" content="cleaning service FAQ, Sanford cleaning questions, house cleaning FAQ, cleaning service answers, cleaning preparation" />
         <meta property="og:title" content="Frequently Asked Questions | Sanford Cleaning Services" />
         <meta property="og:description" content="Find answers to common questions about our cleaning services in Sanford, FL." />
         <meta property="og:type" content="website" />

@@ -84,7 +84,6 @@ const ResidentialCleaning = () => {
       <Helmet>
         <title>5-Star House Cleaning in Sanford, FL | Instant Online Booking</title>
         <meta name="description" content="Tired of cleaning? Reclaim your weekend! Sanford Cleaning offers 5-star rated house cleaning from just $80. Get your free, instant quote & book online in 60 seconds!" />
-        <meta name="keywords" content="house cleaning sanford fl, residential cleaning sanford, home cleaning services sanford, maid service sanford fl, move-in cleaning sanford, move-out cleaning sanford fl" />
         <meta property="og:title" content="5-Star House Cleaning in Sanford, FL | Instant Online Booking" />
         <meta property="og:description" content="Tired of cleaning? Reclaim your weekend! Sanford Cleaning offers 5-star rated house cleaning from just $80. Get your free, instant quote & book online in 60 seconds!" />
         <meta property="og:type" content="website" />
