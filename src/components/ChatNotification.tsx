@@ -3,13 +3,23 @@ import { MessageSquare, ChevronDown } from 'lucide-react';
 
 const ChatNotification = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    // Check if notification was previously hidden
+    const hiddenState = localStorage.getItem('chatNotificationHidden');
+    if (hiddenState === 'true') {
+      setIsHidden(true);
+      return;
+    }
+
     const showNotification = () => {
-      setIsVisible(true);
-      setTimeout(() => {
-        setIsVisible(false);
-      }, 10000); // Hide after 10 seconds
+      if (!isHidden) {
+        setIsVisible(true);
+        setTimeout(() => {
+          setIsVisible(false);
+        }, 10000); // Hide after 10 seconds
+      }
     };
 
     // Initial delay before the first appearance
@@ -25,7 +35,7 @@ const ChatNotification = () => {
       clearTimeout(initialTimeout);
       clearInterval(interval);
     };
-  }, []);
+  }, [isHidden]);
 
   const openChat = () => {
     if ((window as any).chatwootSDK) {
@@ -34,7 +44,13 @@ const ChatNotification = () => {
     setIsVisible(false); // Hide notification when chat is opened
   };
 
-  if (!isVisible) {
+  const hideNotification = () => {
+    setIsVisible(false);
+    setIsHidden(true);
+    localStorage.setItem('chatNotificationHidden', 'true');
+  };
+
+  if (!isVisible || isHidden) {
     return null;
   }
 
@@ -54,9 +70,13 @@ const ChatNotification = () => {
               <p className="text-xs text-gray-600">Start a chat with our team</p>
             </div>
           </button>
-          <div className="ml-3 flex-shrink-0">
+          <button 
+            onClick={hideNotification}
+            className="ml-3 flex-shrink-0 p-1 hover:bg-gray-100 rounded-full transition-colors"
+            aria-label="Hide notification"
+          >
             <ChevronDown className="h-7 w-7 text-blue-600" />
-          </div>
+          </button>
         </div>
       </div>
     </div>

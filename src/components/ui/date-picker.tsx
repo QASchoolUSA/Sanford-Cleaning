@@ -33,8 +33,11 @@ export function DatePicker({
   const [open, setOpen] = React.useState(false)
 
   const handleDateSelect = (selectedDate: Date | undefined) => {
-    onDateChange(selectedDate)
-    setOpen(false) // Close the popover when a date is selected
+    // Add a small delay to ensure proper touch handling
+    setTimeout(() => {
+      onDateChange(selectedDate)
+      setOpen(false) // Close the popover when a date is selected
+    }, 50)
   }
 
   return (
@@ -53,7 +56,7 @@ export function DatePicker({
           {date ? format(date, "PPP") : <span>{placeholder}</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0 max-w-[95vw]" align="start">
+      <PopoverContent className="w-auto p-0 max-w-[95vw] touch-manipulation" align="start">
         <Calendar
           mode="single"
           selected={date}
@@ -64,6 +67,7 @@ export function DatePicker({
             return false;
           }}
           initialFocus
+          className="touch-manipulation"
         />
       </PopoverContent>
     </Popover>
