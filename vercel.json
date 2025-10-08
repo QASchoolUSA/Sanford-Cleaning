@@ -9,7 +9,8 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist",
+        "buildCommand": "npm run vercel-build"
       }
     }
   ],
@@ -40,6 +41,46 @@
     {
       "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp))",
       "dest": "/$1"
+    },
+    {
+      "src": "/residential-cleaning",
+      "dest": "/residential-cleaning.html"
+    },
+    {
+      "src": "/commercial-cleaning",
+      "dest": "/commercial-cleaning.html"
+    },
+    {
+      "src": "/deep-cleaning",
+      "dest": "/deep-cleaning.html"
+    },
+    {
+      "src": "/move-in-move-out-cleaning",
+      "dest": "/move-in-move-out-cleaning.html"
+    },
+    {
+      "src": "/post-construction-cleaning",
+      "dest": "/post-construction-cleaning.html"
+    },
+    {
+      "src": "/booking",
+      "dest": "/booking.html"
+    },
+    {
+      "src": "/get-hired",
+      "dest": "/get-hired.html"
+    },
+    {
+      "src": "/free-custom-quote",
+      "dest": "/free-custom-quote.html"
+    },
+    {
+      "src": "/faq",
+      "dest": "/faq.html"
+    },
+    {
+      "src": "/privacy-policy",
+      "dest": "/privacy-policy.html"
     },
     {
       "src": "/(.*)",
