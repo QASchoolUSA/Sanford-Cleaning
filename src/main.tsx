@@ -11,3 +11,13 @@ createRoot(document.getElementById('root')!).render(
     </HelmetProvider>
   </StrictMode>
 );
+
+// Dispatch render event for pre-rendering
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', () => {
+    // Give React time to fully render
+    setTimeout(() => {
+      document.dispatchEvent(new Event('render-event'));
+    }, 1000);
+  });
+}
