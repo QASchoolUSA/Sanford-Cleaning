@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
@@ -17,33 +16,30 @@ const routes = [
   '/move-in-move-out-cleaning',
 ];
 
-const baseUrl = 'http://localhost:4173'; // Vite preview server
+const baseUrl = process.env.PRERENDER_BASE_URL || 'http://localhost:4173'; // Configurable base URL
 const distDir = path.join(__dirname, '..', 'dist');
+
+async function fetchPageContent(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.text();
+  } catch (error) {
+    throw new Error(`Failed to fetch ${url}: ${error.message}`);
+  }
+}
 
 async function prerender() {
   console.log('Starting pre-rendering process...');
-  
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-  
-  const page = await browser.newPage();
   
   for (const route of routes) {
     try {
       console.log(`Pre-rendering: ${route}`);
       
-      await page.goto(`${baseUrl}${route}`, {
-        waitUntil: 'networkidle2',
-        timeout: 10000
-      });
-      
-      // Wait for React to render using a simple delay
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      
-      // Get the rendered HTML
-      const html = await page.content();
+      const url = `${baseUrl}${route}`;
+      const html = await fetchPageContent(url);
       
       // Create directory structure if needed
       const routePath = route === '/' ? '/index' : route;
@@ -63,7 +59,6 @@ async function prerender() {
     }
   }
   
-  await browser.close();
   console.log('Pre-rendering complete!');
 }
 
