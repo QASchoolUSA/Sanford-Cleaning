@@ -23,6 +23,7 @@ const FAQ = React.lazy(() => import('./pages/FAQ'));
 const PostConstructionCleaning = React.lazy(() => import('./pages/PostConstructionCleaning'));
 const MoveInMoveOutCleaning = React.lazy(() => import('./pages/MoveInMoveOutCleaning'));
 const GetHiredSuccess = React.lazy(() => import('./pages/GetHiredSuccess'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             <Route path="/post-construction-cleaning" element={<PostConstructionCleaning />} />
             <Route path="/move-in-move-out-cleaning" element={<MoveInMoveOutCleaning />} />
             <Route path="/get-hired-success" element={<GetHiredSuccess />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         <Footer />
