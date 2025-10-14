@@ -83,7 +83,23 @@
       "dest": "/privacy-policy.html"
     },
     {
-      "src": "/(.*)",
+      "src": "/terms-of-service",
+      "dest": "/terms-of-service.html"
+    },
+    {
+      "src": "/booking-summary",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/payment",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/booking-success",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/get-hired-success",
       "dest": "/index.html"
     }
   ]
