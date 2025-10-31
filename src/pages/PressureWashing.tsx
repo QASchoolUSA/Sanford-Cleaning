@@ -49,11 +49,11 @@ const PressureWashing: React.FC = () => {
         <title>Pressure Washing in Sanford, FL | Sanford Cleaning</title>
         <meta name="description" content="Sanford Cleaning provides professional pressure washing and exterior washing services in Sanford, FL. House siding, driveways, patios, gutters—expert soft-wash options available." />
         <meta name="keywords" content="pressure washing, exterior washing, professional pressure washing, house washing, Sanford FL, Sanford Florida" />
-        <link rel="canonical" href="https://www.sanfordcleaning.com/pressure-washing" />
+        <link rel="canonical" href="https://sanfordcleaning.com/pressure-washing" />
         <meta property="og:title" content="Pressure Washing in Sanford, FL | Sanford Cleaning" />
         <meta property="og:description" content="Professional pressure washing and exterior washing in Sanford, Florida—siding, concrete, patios, and more. Full-service cleaning inside and out." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.sanfordcleaning.com/pressure-washing" />
+        <meta property="og:url" content="https://sanfordcleaning.com/pressure-washing" />
         <meta property="og:image" content="/sanford-cleaning-homepage.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>

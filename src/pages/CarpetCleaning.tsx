@@ -57,11 +57,11 @@ const CarpetCleaning: React.FC = () => {
         <title>Carpet Cleaning in Sanford, FL | Sanford Cleaning</title>
         <meta name="description" content="Professional carpet cleaning in Sanford, FL. Steam cleaning, pet stain and odor removal, high-traffic restoration, and spot treatment for homes and businesses." />
         <meta name="keywords" content="carpet cleaning sanford, fl, carpet cleaning in sanford fl, sanford carpet cleaning, professional carpet cleaning, steam cleaning sanford fl, pet odor removal, carpet stain removal, residential carpet cleaning, commercial carpet cleaning" />
-        <link rel="canonical" href="https://www.sanfordcleaning.com/carpet-cleaning" />
+        <link rel="canonical" href="https://sanfordcleaning.com/carpet-cleaning" />
         <meta property="og:title" content="Carpet Cleaning in Sanford, FL | Sanford Cleaning" />
         <meta property="og:description" content="Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.sanfordcleaning.com/carpet-cleaning" />
+        <meta property="og:url" content="https://sanfordcleaning.com/carpet-cleaning" />
         <meta property="og:image" content="/sanford-cleaning-homepage.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>

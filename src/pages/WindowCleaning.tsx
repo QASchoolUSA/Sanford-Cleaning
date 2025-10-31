@@ -49,11 +49,11 @@ const WindowCleaning: React.FC = () => {
         <title>Windows Cleaning in Sanford, FL | Sanford Cleaning</title>
         <meta name="description" content="Sanford Cleaning provides outside and inside window cleaning in Sanford Florida for residential and commercial properties. Streak-free glass, tracks, sills, and screens." />
         <meta name="keywords" content="windows cleaning sanford, fl, windows cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning" />
-        <link rel="canonical" href="https://www.sanfordcleaning.com/window-cleaning" />
+        <link rel="canonical" href="https://sanfordcleaning.com/window-cleaning" />
         <meta property="og:title" content="Windows Cleaning in Sanford, FL | Sanford Cleaning" />
         <meta property="og:description" content="Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.sanfordcleaning.com/window-cleaning" />
+        <meta property="og:url" content="https://sanfordcleaning.com/window-cleaning" />
         <meta property="og:image" content="/sanford-cleaning-homepage.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
