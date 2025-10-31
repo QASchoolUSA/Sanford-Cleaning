@@ -54,7 +54,7 @@ const WindowCleaning: React.FC = () => {
         <meta property="og:description" content="Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sanfordcleaning.com/window-cleaning" />
-        <meta property="og:image" content="/sanford-cleaning-homepage.webp" />
+        <meta property="og:image" content="https://sanfordcleaning.com/sanford-cleaning-homepage.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 

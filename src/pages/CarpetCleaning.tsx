@@ -62,7 +62,7 @@ const CarpetCleaning: React.FC = () => {
         <meta property="og:description" content="Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sanfordcleaning.com/carpet-cleaning" />
-        <meta property="og:image" content="/sanford-cleaning-homepage.webp" />
+        <meta property="og:image" content="https://sanfordcleaning.com/sanford-cleaning-homepage.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 

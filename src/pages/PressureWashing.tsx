@@ -54,7 +54,7 @@ const PressureWashing: React.FC = () => {
         <meta property="og:description" content="Professional pressure washing and exterior washing in Sanford, Florida—siding, concrete, patios, and more. Full-service cleaning inside and out." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sanfordcleaning.com/pressure-washing" />
-        <meta property="og:image" content="/sanford-cleaning-homepage.webp" />
+        <meta property="og:image" content="https://sanfordcleaning.com/sanford-cleaning-homepage.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 

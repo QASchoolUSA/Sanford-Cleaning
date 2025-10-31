@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home, Building, Sparkles, Car, Wrench, Heart, Truck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -78,6 +78,8 @@ const Services = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -92,10 +94,13 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Link 
-              key={index} 
-              to={service.link}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer"
+            <div
+              key={index}
+              role="link"
+              tabIndex={0}
+              onClick={() => navigate(service.link)}
+              onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.link); }}
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
               data-cy={`service-${service.title.toLowerCase().replace(/\s+/g, '-')}-card`}
             >
               <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-6">
@@ -143,7 +148,7 @@ const Services = () => {
               <div className="pt-4 border-t border-gray-100">
                 <span className="text-lg font-bold text-blue-600">{service.price}</span>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 
