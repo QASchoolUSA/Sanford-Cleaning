@@ -29,6 +29,30 @@ const Services = () => {
       link: '/deep-cleaning'
     },
     {
+      icon: Car,
+      title: 'Carpet Cleaning',
+      description: 'Professional carpet cleaning in Sanford, FL including pet stain and odor treatment.',
+      features: ['Hot water extraction', 'Pet stain treatment', 'Odor removal', 'Fast drying'],
+      price: 'Custom pricing',
+      link: '/carpet-cleaning'
+    },
+    {
+      icon: Truck,
+      title: 'Pressure Washing',
+      description: 'Professional exterior washing for siding, driveways, patios, and more in Sanford, FL.',
+      features: ['Soft-wash options', 'Concrete & paver cleaning', 'Gutters & soffits', 'Fences & decks'],
+      price: 'Custom pricing',
+      link: '/pressure-washing'
+    },
+    {
+      icon: Sparkles,
+      title: 'Window Cleaning',
+      description: 'Outside and inside window cleaning for residential and commercial in Sanford, FL.',
+      features: ['Exterior glass', 'Interior glass', 'Tracks & sills', 'Screens'],
+      price: 'Custom pricing',
+      link: '/window-cleaning'
+    },
+    {
       icon: Truck,
       title: 'Move In/Move Out',
       description: 'Comprehensive cleaning services for moving transitions, perfect for tenants and property owners.',
@@ -79,7 +103,33 @@ const Services = () => {
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-6">{service.description}</p>
+              <p className="text-gray-600 mb-6">
+                {service.description}
+                {service.title === 'Residential Cleaning' && (
+                  <> {' '}Explore <Link to="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link>, <Link to="/move-in-move-out-cleaning" className="text-blue-600 hover:underline">Move In/Move Out</Link>, or refresh fibers with <Link to="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>.</>
+                )}
+                {service.title === 'Deep Cleaning' && (
+                  <> {' '}Planning a move? See <Link to="/move-in-move-out-cleaning" className="text-blue-600 hover:underline">Move In/Move Out</Link>. Want maintenance? Visit <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>. Stubborn fibers? Try <Link to="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>.</>
+                )}
+                {service.title === 'Pressure Washing' && (
+                  <> {' '}Pair with <Link to="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> for spotless glass.</>
+                )}
+                {service.title === 'Window Cleaning' && (
+                  <> {' '}After exterior washes, consider <Link to="/pressure-washing" className="text-blue-600 hover:underline">Pressure Washing</Link>.</>
+                )}
+                {service.title === 'Commercial Cleaning' && (
+                  <> {' '}Renovating? See <Link to="/post-construction-cleaning" className="text-blue-600 hover:underline">Post-Construction</Link>. Need glass care? Try <Link to="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link>. Have carpeted areas? Check <Link to="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>.</>
+                )}
+                {service.title === 'Post-Construction' && (
+                  <> {' '}Set ongoing care with <Link to="/commercial-cleaning" className="text-blue-600 hover:underline">Commercial Cleaning</Link> or <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>.</>
+                )}
+                {service.title === 'Move In/Move Out' && (
+                  <> {' '}Add detailing with <Link to="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link>, refresh fibers with <Link to="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>, or set routine <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>.</>
+                )}
+                {service.title === 'Carpet Cleaning' && (
+                  <> {' '}Bundle with <Link to="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> or maintain with <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>.</>
+                )}
+              </p>
               
               <ul className="space-y-2 mb-6">
                 {service.features.map((feature, featureIndex) => (
