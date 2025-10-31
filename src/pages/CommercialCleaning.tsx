@@ -389,6 +389,18 @@ const CommercialCleaning = () => {
         </div>
       </section>
 
+      {/* Related Services */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Related Services</h3>
+          <div className="flex flex-wrap gap-3">
+            <Link to="/window-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Window Cleaning</Link>
+            <Link to="/post-construction-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Post-Construction Cleaning</Link>
+            <Link to="/pressure-washing" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Pressure Washing</Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="contact" className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
@@ -397,6 +409,9 @@ const CommercialCleaning = () => {
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Ready to experience the best commercial cleaning service Sanford has to offer? Contact our team for a free, customized quote and discover why local businesses trust us for their commercial cleaning needs.
+          </p>
+          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+            Need sparkling glass maintenance? Visit our <Link to="/window-cleaning" className="text-white underline decoration-white/60 hover:decoration-white">Window Cleaning</Link> page. Planning renovations? See <Link to="/post-construction-cleaning" className="text-white underline decoration-white/60 hover:decoration-white">Post-Construction Cleaning</Link>.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 

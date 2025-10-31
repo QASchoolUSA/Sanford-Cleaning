@@ -23,6 +23,9 @@ const FAQ = React.lazy(() => import('./pages/FAQ'));
 const PostConstructionCleaning = React.lazy(() => import('./pages/PostConstructionCleaning'));
 const MoveInMoveOutCleaning = React.lazy(() => import('./pages/MoveInMoveOutCleaning'));
 const GetHiredSuccess = React.lazy(() => import('./pages/GetHiredSuccess'));
+const PressureWashing = React.lazy(() => import('./pages/PressureWashing'));
+const WindowCleaning = React.lazy(() => import('./pages/WindowCleaning'));
+const CarpetCleaning = React.lazy(() => import('./pages/CarpetCleaning'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -50,6 +53,9 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/post-construction-cleaning" element={<PostConstructionCleaning />} />
             <Route path="/move-in-move-out-cleaning" element={<MoveInMoveOutCleaning />} />
+            <Route path="/pressure-washing" element={<PressureWashing />} />
+            <Route path="/window-cleaning" element={<WindowCleaning />} />
+            <Route path="/carpet-cleaning" element={<CarpetCleaning />} />
             <Route path="/get-hired-success" element={<GetHiredSuccess />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

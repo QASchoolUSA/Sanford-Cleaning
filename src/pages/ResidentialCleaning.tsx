@@ -194,31 +194,41 @@ const ResidentialCleaning = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <div className="text-2xl font-bold text-blue-600 mb-1">{service.price}</div>
-                  <div className="text-sm text-gray-500 flex items-center justify-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {service.duration}
+            {services.map((service, index) => {
+              const cardContent = (
+                <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <div className="text-2xl font-bold text-blue-600 mb-1">{service.price}</div>
+                    <div className="text-sm text-gray-500 flex items-center justify-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      {service.duration}
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900">Includes:</h4>
+                    {service.includes.map((item, itemIndex) => (
+                      <div key={itemIndex} className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+                        {item}
+                      </div>
+                    ))}
                   </div>
                 </div>
-                
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900">Includes:</h4>
-                  {service.includes.map((item, itemIndex) => (
-                    <div key={itemIndex} className="flex items-center text-sm text-gray-700">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-                
+              );
 
-              </div>
-            ))}
+              // Make the entire Move-In/Move-Out card clickable and redirect to the page
+              return service.name === 'Move-In/Move-Out' ? (
+                <Link to="/move-in-move-out-cleaning" className="block" key={index}>
+                  {cardContent}
+                </Link>
+              ) : (
+                <div key={index}>
+                  {cardContent}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -326,6 +336,18 @@ const ResidentialCleaning = () => {
         </div>
       </section>
 
+      {/* Related Services */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Related Services</h3>
+          <div className="flex flex-wrap gap-3">
+            <Link to="/deep-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Deep Cleaning</Link>
+            <Link to="/move-in-move-out-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Move In/Move Out</Link>
+            <Link to="/window-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Window Cleaning</Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -372,8 +394,11 @@ const ResidentialCleaning = () => {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Book your residential cleaning service today and experience the difference professional cleaning makes.
    </p>
-<p className="text-lg text-blue-200 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-blue-200 mb-8 max-w-2xl mx-auto">
               Provide your home details and get an instant estimate. No waiting required!
+            </p>
+            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+              Looking for specialized help? Explore our <Link to="/deep-cleaning" className="text-white underline decoration-white/60 hover:decoration-white">Deep Cleaning</Link>, <Link to="/move-in-move-out-cleaning" className="text-white underline decoration-white/60 hover:decoration-white">Move In/Move Out</Link>, and <Link to="/window-cleaning" className="text-white underline decoration-white/60 hover:decoration-white">Window Cleaning</Link> services.
             </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 

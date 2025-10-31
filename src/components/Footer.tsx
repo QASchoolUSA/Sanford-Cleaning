@@ -27,7 +27,7 @@ const Footer = () => {
               <img src={logo} alt="Sanford Cleaning Logo" className="max-h-32 object-contain" />
             </Link>
             <p className="text-gray-600 leading-relaxed">
-              Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business.
+              Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business. Explore our <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link> and <Link to="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61579618588193" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link">

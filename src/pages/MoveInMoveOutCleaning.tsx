@@ -221,7 +221,7 @@ const MoveInMoveOutCleaning: React.FC = () => {
               Why Choose Our Move Cleaning Services?
             </h2>
             <p className="text-lg text-gray-600">
-              Trusted by property owners and residents throughout Sanford FL for reliable, professional cleaning services.
+              Trusted by property owners and residents throughout Sanford FL for reliable, professional cleaning services. Pair move cleaning with our <Link to="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> for a spotless reset, or explore <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link> for ongoing maintenance.
             </p>
           </div>
 
@@ -278,6 +278,9 @@ const MoveInMoveOutCleaning: React.FC = () => {
             <h2 data-cy="service-areas-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Service Areas: Sanford & Surrounding Communities
             </h2>
+            <p className="text-gray-600 mb-6">
+              Looking for routine service after move-in? Check our <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link> plans. Need extra detailing before listing or move-out? See our <Link to="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> options.
+            </p>
             <p className="text-lg text-gray-600 mb-12">
               We proudly serve Sanford FL and surrounding areas with professional move in and move out cleaning services.
             </p>
@@ -289,6 +292,16 @@ const MoveInMoveOutCleaning: React.FC = () => {
                 </div>
               ))}
             </div>
+
+            {/* Related Services */}
+            <section className="py-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Related Services</h3>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/deep-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Deep Cleaning</Link>
+                <Link to="/residential-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Residential Cleaning</Link>
+                <Link to="/window-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Window Cleaning</Link>
+              </div>
+            </section>
 
             <div className="bg-blue-600 text-white rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-4">Ready to Schedule Your Move Cleaning?</h3>
