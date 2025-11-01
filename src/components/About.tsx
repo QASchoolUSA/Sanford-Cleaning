@@ -46,7 +46,7 @@ const About = () => {
           <div className="relative">
             <img
               src="/sanford-cleaning-about-us.webp"
-              alt="Professional cleaning team"
+              alt="Sanford Cleaning - Professional Cleaning Team"
               className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
             />
           </div>

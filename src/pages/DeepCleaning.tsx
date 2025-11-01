@@ -205,7 +205,7 @@ const DeepCleaning = () => {
             <div className="relative">
               <img
                 src="https://images.pexels.com/photos/4239088/pexels-photo-4239088.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Deep cleaning in progress"
+                alt="Sanford Cleaning - Deep Cleaning in Sanford, FL"
                 className="w-full h-96 md:h-[500px] object-cover rounded-2xl shadow-2xl"
               />
             </div>
