@@ -100,7 +100,7 @@ const Hero = () => {
             </div>
             
             {/* Calculator Content */}
-            <div id="price-calculator" className="p-6 lg:p-8">
+            <div id="price-calculator" className="p-2 lg:p-8">
               <PriceCalculator />
             </div>
           </div>

@@ -948,7 +948,7 @@ const PriceCalculator = () => {
   };
 
   return (
-    <section id="price-calculator" className="pt-0 pb-14 bg-gray-50">
+    <section id="price-calculator" className="pt-0 pb-2 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Removed duplicate header; handled by parent section/card header */}
