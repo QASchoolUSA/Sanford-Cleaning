@@ -55,6 +55,18 @@
       "dest": "/deep-cleaning.html"
     },
     {
+      "src": "/carpet-cleaning",
+      "dest": "/carpet-cleaning.html"
+    },
+    {
+      "src": "/pressure-washing",
+      "dest": "/pressure-washing.html"
+    },
+    {
+      "src": "/window-cleaning",
+      "dest": "/window-cleaning.html"
+    },
+    {
       "src": "/move-in-move-out-cleaning",
       "dest": "/move-in-move-out-cleaning.html"
     },
