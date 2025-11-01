@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
-import PriceCalculator from '../components/PriceCalculator';
 import About from '../components/About';
 import Contact from '../components/Contact';
 
@@ -111,7 +110,6 @@ const Home = () => {
       </Helmet>
       <Hero />
       <Services />
-      <PriceCalculator />
       <About />
       <Contact />
     </>
