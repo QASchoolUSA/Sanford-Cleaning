@@ -35,11 +35,11 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a 
-              href="tel:+14077474555" 
+              href="tel:321-236-0618" 
               className="inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
-              Call (407) 747-4555
+              Call (321) 236-0618
             </a>
             <button 
               onClick={() => document.getElementById('price-calculator')?.scrollIntoView({ behavior: 'smooth' })}
