@@ -159,7 +159,7 @@ const CommercialCleaning = () => {
             <div className="relative">
               <img
                 src="/commercial-cleaning-sanford-florida.webp"
-                alt="Clean modern office space"
+                alt="Sanford Cleaning - Office Cleaning in Sanford, FL"
                 className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
               />
             </div>
@@ -282,7 +282,7 @@ const CommercialCleaning = () => {
             <div className="relative">
               <img
                 src="/commercial-cleaning-sanford.webp"
-                alt="Professional commercial cleaning"
+                alt="Professional commercial cleaning in Sanford, FL"
                 className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
               />
             </div>
