@@ -33,7 +33,6 @@ interface FormData {
   lastName: string;
   email: string;
   phone: string;
-  secondaryPhone: string;
   address: string;
   aptUnit: string;
   keyInfo: string;
@@ -50,7 +49,6 @@ const PriceCalculator = () => {
   const [maintenancePrice, setMaintenancePrice] = useState(0);
   const [showExtras, setShowExtras] = useState(false);
   const [phoneError, setPhoneError] = useState('');
-  const [secondaryPhoneError, setSecondaryPhoneError] = useState('');
   const [formData, setFormData] = useState<FormData>({
     service: '',
     squareFootage: '',
@@ -70,7 +68,6 @@ const PriceCalculator = () => {
     lastName: '',
     email: '',
     phone: '',
-    secondaryPhone: '',
     address: '',
     aptUnit: '',
     keyInfo: '',
@@ -148,7 +145,7 @@ const PriceCalculator = () => {
     return cleanPhone.length === 10;
   };
 
-  const handlePhoneChange = (value: string, field: 'phone' | 'secondaryPhone') => {
+  const handlePhoneChange = (value: string, field: 'phone') => {
     // Extract only numeric characters
     const numericValue = value.replace(/\D/g, '');
     
@@ -158,23 +155,15 @@ const PriceCalculator = () => {
       updateFormData(field, formattedValue);
       
       // Validate and set error messages
-      if (field === 'phone') {
-        if (numericValue.length > 0 && !validatePhoneNumber(formattedValue)) {
-          setPhoneError('Please enter a valid 10-digit phone number');
-        } else {
-          setPhoneError('');
-        }
+      if (numericValue.length > 0 && !validatePhoneNumber(formattedValue)) {
+        setPhoneError('Please enter a valid 10-digit phone number');
       } else {
-        if (numericValue.length > 0 && !validatePhoneNumber(formattedValue)) {
-          setSecondaryPhoneError('Please enter a valid 10-digit phone number');
-        } else {
-          setSecondaryPhoneError('');
-        }
+        setPhoneError('');
       }
     }
   };
 
-  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, field: 'phone' | 'secondaryPhone') => {
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, field: 'phone') => {
     const target = e.target as HTMLInputElement;
     const currentValue = target.value;
     
@@ -195,18 +184,10 @@ const PriceCalculator = () => {
             updateFormData(field, newFormattedValue);
             
             // Update validation
-            if (field === 'phone') {
-              if (newNumericValue.length > 0 && !validatePhoneNumber(newFormattedValue)) {
-                setPhoneError('Please enter a valid 10-digit phone number');
-              } else {
-                setPhoneError('');
-              }
+            if (newNumericValue.length > 0 && !validatePhoneNumber(newFormattedValue)) {
+              setPhoneError('Please enter a valid 10-digit phone number');
             } else {
-              if (newNumericValue.length > 0 && !validatePhoneNumber(newFormattedValue)) {
-                setSecondaryPhoneError('Please enter a valid 10-digit phone number');
-              } else {
-                setSecondaryPhoneError('');
-              }
+              setPhoneError('');
             }
           }
         }
@@ -512,22 +493,17 @@ const PriceCalculator = () => {
     <div className="space-y-6">
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-3">Choose Your Service</label>
-        <div className="space-y-3">
+        <select
+          value={formData.service}
+          onChange={(e) => updateFormData('service', e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          data-cy="service-select"
+        >
+          <option value="">Select service</option>
           {serviceOptions.map(option => (
-            <label key={option} className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
-              <input
-                type="radio"
-                name="service"
-                value={option}
-                checked={formData.service === option}
-                onChange={(e) => updateFormData('service', e.target.value)}
-                className="w-4 h-4 text-blue-600 mr-3"
-                data-cy={`service-option-${option.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}`}
-              />
-              <span className="text-gray-700">{option}</span>
-            </label>
+            <option key={option} value={option}>{option}</option>
           ))}
-        </div>
+        </select>
       </div>
 
       {formData.service === 'Maintenance Cleaning' && (
@@ -583,20 +559,20 @@ const PriceCalculator = () => {
 
   const renderStep2 = () => (
     <div className="space-y-6">
-      <div className="grid md:grid-cols-3 gap-4">
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-3">Total Square Footage</label>
+        <input
+          type="number"
+          value={formData.squareFootage}
+          onChange={(e) => updateFormData('squareFootage', e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="e.g. 1500"
+          data-cy="square-footage-input"
+        />
+      </div>
+      <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Total Square Footage</label>
-          <input
-            type="number"
-            value={formData.squareFootage}
-            onChange={(e) => updateFormData('squareFootage', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="e.g. 1500"
-            data-cy="square-footage-input"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Total Bedrooms/Offices</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Bedrooms</label>
           <select
             value={formData.bedrooms}
             onChange={(e) => updateFormData('bedrooms', e.target.value)}
@@ -609,7 +585,7 @@ const PriceCalculator = () => {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Total Bathrooms</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Bathrooms</label>
           <select
             value={formData.bathrooms}
             onChange={(e) => updateFormData('bathrooms', e.target.value)}
@@ -822,7 +798,7 @@ const PriceCalculator = () => {
 
   const renderStep4 = () => (
     <div className="space-y-6">
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-3">First Name *</label>
           <input
@@ -847,19 +823,18 @@ const PriceCalculator = () => {
         </div>
       </div>
 
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">Email *</label>
-        <input
-          type="email"
-          value={formData.email}
-          onChange={(e) => updateFormData('email', e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          required
-          data-cy="email-input"
-        />
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Email *</label>
+          <input
+            type="email"
+            value={formData.email}
+            onChange={(e) => updateFormData('email', e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            required
+            data-cy="email-input"
+          />
+        </div>
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-3">Phone Number *</label>
           <input
@@ -879,26 +854,6 @@ const PriceCalculator = () => {
           />
           {phoneError && (
             <p className="mt-1 text-sm text-red-600">{phoneError}</p>
-          )}
-        </div>
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Secondary Phone</label>
-          <input
-            type="tel"
-            inputMode="numeric"
-            pattern="[0-9]*"
-            value={formData.secondaryPhone}
-            onChange={(e) => handlePhoneChange(e.target.value, 'secondaryPhone')}
-            onKeyDown={(e) => handlePhoneKeyDown(e, 'secondaryPhone')}
-            className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-              secondaryPhoneError ? 'border-red-500' : 'border-gray-300'
-            }`}
-            placeholder="(555) 123-4567"
-            maxLength={14}
-            data-cy="secondary-phone-input"
-          />
-          {secondaryPhoneError && (
-            <p className="mt-1 text-sm text-red-600">{secondaryPhoneError}</p>
           )}
         </div>
       </div>
@@ -986,24 +941,17 @@ const PriceCalculator = () => {
       case 3:
         return formData.scheduledDate !== undefined && formData.scheduledTime !== '';
       case 4:
-        return formData.firstName !== '' && formData.lastName !== '' && formData.email !== '' && formData.phone !== '' && formData.address !== '' && formData.keyInfo !== '' && validatePhoneNumber(formData.phone) && (formData.secondaryPhone === '' || validatePhoneNumber(formData.secondaryPhone));
+        return formData.firstName !== '' && formData.lastName !== '' && formData.email !== '' && formData.phone !== '' && formData.address !== '' && formData.keyInfo !== '' && validatePhoneNumber(formData.phone);
       default:
         return false;
     }
   };
 
   return (
-    <section id="price-calculator" className="py-20 bg-gray-50">
+    <section id="price-calculator" className="pt-0 pb-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 data-cy="price-calculator-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Get Your Instant Quote
-            </h2>
-            <p className="text-lg text-gray-600">
-              Complete our simple form to schedule cleaning service for your needs.
-            </p>
-          </div>
+          {/* Removed duplicate header; handled by parent section/card header */}
 
           <div ref={calculatorRef} className="bg-white rounded-xl shadow-lg overflow-hidden">
             {/* Progress Bar */}
