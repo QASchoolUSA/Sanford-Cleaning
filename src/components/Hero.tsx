@@ -14,7 +14,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Content Section */}
-        <div className="text-center mb-14 max-w-4xl mx-auto">
+        <div className="text-center mb-8 max-w-4xl mx-auto">
 
           {/* Main Headline */}
           <div className="space-y-6 mb-10">
@@ -66,21 +66,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-6 max-w-md mx-auto">
-            <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-blue-600">500+</div>
-              <div className="text-sm text-gray-600">Happy Customers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-blue-600">5★</div>
-              <div className="text-sm text-gray-600">Average Rating</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-blue-600">24h</div>
-              <div className="text-sm text-gray-600">Response Time</div>
-            </div>
-          </div>
+          {/* Quick Stats removed as requested */}
         </div>
 
         {/* Full-Width Calculator Section */}
