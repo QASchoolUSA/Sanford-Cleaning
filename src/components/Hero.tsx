@@ -14,11 +14,11 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Content Section */}
-        <div className="text-center mb-20 max-w-4xl mx-auto">
+        <div className="text-center mb-14 max-w-4xl mx-auto">
 
           {/* Main Headline */}
           <div className="space-y-6 mb-10">
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mt-4">
               Professional
               <span className="block text-blue-600">Cleaning Services</span>
               <span className="block text-2xl lg:text-3xl xl:text-4xl font-normal text-gray-600 mt-2">
@@ -84,7 +84,7 @@ const Hero = () => {
         </div>
 
         {/* Full-Width Calculator Section */}
-        <div className="max-w-4xl mx-auto mt-16">
+        <div className="max-w-4xl mx-auto mt-8">
           <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
             {/* Calculator Header */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 lg:px-8 py-6">
