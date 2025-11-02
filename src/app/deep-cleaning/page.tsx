@@ -161,7 +161,13 @@ export default function DeepCleaningPage() {
               </div>
             </div>
             <div className="relative">
-              <img src="/sanford-cleaning-homepage.webp" alt="Deep cleaning in Sanford, FL" className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl" />
+          <img
+            src="/sanford-cleaning-homepage.webp"
+            alt="Deep cleaning in Sanford, FL"
+            width="800"
+            height="800"
+            className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
+          />
             </div>
           </div>
         </div>

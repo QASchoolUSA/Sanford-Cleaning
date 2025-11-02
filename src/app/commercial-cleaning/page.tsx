@@ -103,13 +103,19 @@ export default function CommercialCleaningPage() {
                 <span className="text-blue-600 font-semibold">Commercial Cleaning</span>
               </div>
               <h1 data-cy="commercial-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Commercial Cleaning Services in Sanford, FL</h1>
-              <p className="text-lg text-gray-600 leading-relaxed">Sanford's premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive cleaning services that enhance your business image and create healthier work environments.</p>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose">Sanford's premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive cleaning services that enhance your business image and create healthier work environments.</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="/free-custom-quote" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block text-center">Get Custom Quote</a>
               </div>
             </div>
             <div className="relative">
-              <img src="/commercial-cleaning-sanford-florida.webp" alt="Sanford Cleaning - Office Cleaning in Sanford, FL" className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl" />
+              <img
+                src="/commercial-cleaning-sanford-florida.webp"
+                alt="Sanford Cleaning - Office Cleaning in Sanford, FL"
+                width="800"
+                height="800"
+                className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
+              />
             </div>
           </div>
         </div>
@@ -119,17 +125,17 @@ export default function CommercialCleaningPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 data-cy="industries-served-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Our commercial cleaning service Sanford specializes in industry-specific cleaning solutions. We understand that different businesses have unique cleaning requirements, and our experienced team delivers customized commercial cleaning services tailored to your industry's standards and regulations.</p>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Our commercial cleaning service Sanford specializes in industry-specific cleaning solutions. We understand that different businesses have unique cleaning requirements, and our experienced team delivers customized commercial cleaning services tailored to your industry's standards and regulations.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {industries.map((industry, index) => (
-              <div key={index} className="text-center p-6 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors">
+              <div key={index} className="text-center p-8 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors">
                 <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-4 mx-auto">
                   <industry.icon className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{industry.name}</h3>
-                <p className="text-gray-600">{industry.description}</p>
+                <p className="text-gray-700 leading-relaxed">{industry.description}</p>
               </div>
             ))}
           </div>
@@ -140,15 +146,15 @@ export default function CommercialCleaningPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 data-cy="commercial-services-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Office Cleaning Service & Janitorial Services</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Our commercial cleaning service in Sanford offers complete business cleaning solutions. From daily office maintenance to specialized facility cleaning, we provide reliable, professional services that keep your business running smoothly and looking its best.</p>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Our commercial cleaning service in Sanford offers complete business cleaning solutions. From daily office maintenance to specialized facility cleaning, we provide reliable, professional services that keep your business running smoothly and looking its best.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, index) => (
-              <div key={index} className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+              <div key={index} className="bg-white border-2 border-gray-100 rounded-xl p-10 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <p className="text-gray-700 leading-relaxed mb-4">{service.description}</p>
                   <div className="text-2xl font-bold text-blue-600 mb-1">{service.price}</div>
                   <div className="text-sm text-gray-500 flex items-center justify-center">
                     <Clock className="w-4 h-4 mr-1" />
@@ -159,7 +165,7 @@ export default function CommercialCleaningPage() {
                 <div className="space-y-3">
                   <h4 className="font-semibold text-gray-900">Includes:</h4>
                   {service.includes.map((item, itemIndex) => (
-                    <div key={itemIndex} className="flex items-center text-sm text-gray-700">
+                    <div key={itemIndex} className="flex items-center text-sm text-gray-700 leading-relaxed">
                       <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
                       {item}
                     </div>

@@ -144,7 +144,13 @@ export default function ResidentialCleaningPage() {
               </div>
             </div>
             <div className="relative">
-              <img src="/sanford-residential-cleaning.webp" alt="Sanford Cleaning - Residential Cleaning in Sanford, FL" className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl" />
+            <img
+              src="/sanford-residential-cleaning.webp"
+              alt="Sanford Cleaning - Residential Cleaning in Sanford, FL"
+              width="800"
+              height="800"
+              className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
+            />
             </div>
           </div>
         </div>
