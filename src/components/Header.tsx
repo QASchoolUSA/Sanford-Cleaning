@@ -78,7 +78,7 @@ const Header = () => {
               <button className="text-gray-700 hover:text-blue-600 transition-colors" data-cy="desktop-services-dropdown-button">Services</button>
               <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
-                  <Link href="/residential-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-residential-cleaning-link">House Cleaning Services</Link>
+                  <Link href="/house-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-residential-cleaning-link">House Cleaning Services</Link>
                   <Link href="/commercial-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-commercial-cleaning-link">Office Cleaning Service</Link>
                   <Link href="/deep-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-deep-cleaning-link">Deep Cleaning Services</Link>
                   <Link href="/carpet-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-carpet-cleaning-link">Carpet Cleaning</Link>
@@ -128,7 +128,7 @@ const Header = () => {
               <div className="space-y-6 mb-6">
                 <div className="space-y-2 pl-4">
                   <div className="text-sm font-semibold text-gray-500">Services:</div>
-                  <Link href="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-residential-cleaning-link">House Cleaning Services</Link>
+                  <Link href="/house-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-residential-cleaning-link">House Cleaning Services</Link>
                   <Link href="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-commercial-cleaning-link">Office Cleaning Service</Link>
                   <Link href="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-deep-cleaning-link">Deep Cleaning Services</Link>
                   <Link href="/carpet-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-carpet-cleaning-link">Carpet Cleaning</Link>

@@ -116,7 +116,7 @@ const Services = () => {
                   <> {' '}Explore <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link>, <Link href="/move-in-move-out-cleaning" className="text-blue-600 hover:underline">Move In/Move Out</Link>, or refresh fibers with <Link href="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>.</>
                 )}
                 {service.title === 'Deep Cleaning' && (
-                  <> {' '}Planning a move? See <Link href="/move-in-move-out-cleaning" className="text-blue-600 hover:underline">Move In/Move Out</Link>. Want maintenance? Visit <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>. Stubborn fibers? Try <Link href="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>.</>
+                  <> {' '}Planning a move? See <Link href="/move-in-move-out-cleaning" className="text-blue-600 hover:underline">Move In/Move Out</Link>. Want maintenance? Visit <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link>. Stubborn fibers? Try <Link href="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>.</>
                 )}
                 {service.title === 'Pressure Washing' && (
                   <> {' '}Pair with <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> for spotless glass.</>
@@ -128,13 +128,13 @@ const Services = () => {
                   <> {' '}Renovating? See <Link href="/post-construction-cleaning" className="text-blue-600 hover:underline">Post-Construction</Link>. Need glass care? Try <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link>. Have carpeted areas? Check <Link href="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>.</>
                 )}
                 {service.title === 'Post-Construction' && (
-                  <> {' '}Set ongoing care with <Link href="/commercial-cleaning" className="text-blue-600 hover:underline">Commercial Cleaning</Link> or <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>.</>
+                  <> {' '}Set ongoing care with <Link href="/commercial-cleaning" className="text-blue-600 hover:underline">Commercial Cleaning</Link> or <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link>.</>
                 )}
                 {service.title === 'Move In/Move Out' && (
-                  <> {' '}Add detailing with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link>, refresh fibers with <Link href="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>, or set routine <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>.</>
+                  <> {' '}Add detailing with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link>, refresh fibers with <Link href="/carpet-cleaning" className="text-blue-600 hover:underline">Carpet Cleaning</Link>, or set routine <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link>.</>
                 )}
                 {service.title === 'Carpet Cleaning' && (
-                  <> {' '}Bundle with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> or maintain with <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>.</>
+                  <> {' '}Bundle with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> or maintain with <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link>.</>
                 )}
               </p>
               
