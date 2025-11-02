@@ -51,7 +51,7 @@ export default function CarpetCleaningPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Professional Carpet Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Fresh, clean carpets improve your home’s comfort and air quality. We provide professional <strong>carpet cleaning in Sanford, FL</strong> using hot water extraction and fiber-safe treatments to remove dirt, allergens, and odors. From <strong>pet stain removal</strong> to <strong>high-traffic area restoration</strong>, we deliver reliable results for homes and businesses. For a full-home refresh, consider pairing carpet cleaning with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> or routine <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link>.
+  Fresh, clean carpets improve your home’s comfort and air quality. We provide professional <strong>carpet cleaning in Sanford, FL</strong> using hot water extraction and fiber-safe treatments to remove dirt, allergens, and odors. From <strong>pet stain removal</strong> to <strong>high-traffic area restoration</strong>, we deliver reliable results for homes and businesses. For a full-home refresh, consider pairing carpet cleaning with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> or routine <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link>.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">

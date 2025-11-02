@@ -6,13 +6,13 @@ export const metadata = {
   title: '5-Star House Cleaning in Sanford, FL | Instant Online Booking',
   description:
     '5-star house cleaning services in Sanford, FL. From $80. Get your free instant quote and book online in 60 seconds.',
-  alternates: { canonical: 'https://sanfordcleaning.com/residential-cleaning' },
+  alternates: { canonical: 'https://sanfordcleaning.com/house-cleaning' },
   openGraph: {
     title: '5-Star House Cleaning in Sanford, FL | Instant Online Booking',
     description:
       'Tired of cleaning? Reclaim your weekend! Sanford Cleaning offers 5-star rated house cleaning from just $80. Get your free, instant quote & book online in 60 seconds!',
     type: 'website',
-    url: 'https://sanfordcleaning.com/residential-cleaning',
+    url: 'https://sanfordcleaning.com/house-cleaning',
     images: [{ url: 'https://sanfordcleaning.com/sanford-residential-cleaning.webp', width: 1200, height: 630 }],
   },
 };
@@ -31,8 +31,8 @@ export default function ResidentialCleaningPage() {
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Residential Cleaning",
-        "item": "https://sanfordcleaning.com/residential-cleaning"
+        "name": "House Cleaning",
+        "item": "https://sanfordcleaning.com/house-cleaning"
       }
     ]
   }`;
@@ -135,7 +135,7 @@ export default function ResidentialCleaningPage() {
             <div className="space-y-8">
               <div className="flex items-center space-x-3">
                 <HomeIcon className="w-8 h-8 text-blue-600" />
-                <span className="text-blue-600 font-semibold">Residential Cleaning</span>
+                <span className="text-blue-600 font-semibold">House Cleaning</span>
               </div>
   <h1 data-cy="residential-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">House Cleaning Services in Sanford, FL</h1>
               <p className="text-lg text-gray-600 leading-relaxed">Transform your house into a spotless sanctuary with our comprehensive residential cleaning services. From regular maintenance to deep cleaning, we handle it all so you can focus on what matters most.</p>
@@ -146,7 +146,7 @@ export default function ResidentialCleaningPage() {
             <div className="relative">
             <img
               src="/sanford-residential-cleaning.webp"
-              alt="Sanford Cleaning - Residential Cleaning in Sanford, FL"
+              alt="Sanford Cleaning - House Cleaning in Sanford, FL"
               width="800"
               height="800"
               className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"

@@ -81,7 +81,7 @@ export default function WindowCleaningPage() {
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Outside & Inside Window Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
                 Crystal-clear windows brighten your space and improve curb appeal. Sanford Cleaning offers professional windows cleaning in Sanford Florida—outside and inside service for
-                <Link href="/residential-cleaning" className="text-blue-600 hover:underline"> residential</Link> and
+                <Link href="/house-cleaning" className="text-blue-600 hover:underline"> residential</Link> and
                 <Link href="/commercial-cleaning" className="text-blue-600 hover:underline"> commercial</Link> properties. We detail tracks, sills, frames, and screens for a complete finish.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -161,7 +161,7 @@ export default function WindowCleaningPage() {
             <Link href="/pressure-washing" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
               Pressure Washing
             </Link>
-            <Link href="/residential-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
+            <Link href="/house-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
               Residential Cleaning
             </Link>
             <Link href="/commercial-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">

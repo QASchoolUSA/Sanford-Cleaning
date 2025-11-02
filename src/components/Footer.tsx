@@ -35,7 +35,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-gray-600 leading-relaxed">
-              Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.
+              Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61579618588193" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link">
@@ -50,12 +50,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">House Cleaning Services</Link></li>
+              <li><Link href="/house-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">House Cleaning Services</Link></li>
               <li><Link href="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Office Cleaning Service</Link></li>
               <li><Link href="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-deep-cleaning-link">Deep Cleaning Services</Link></li>
-              
+              <li><Link href="/move-in-move-out-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link></li>
               <li><Link href="/post-construction-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-post-construction-cleaning-link">Post-Construction Cleaning</Link></li>
-              
+              <li><Link href="/carpet-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-carpet-cleaning-link">Carpet Cleaning</Link></li>
+              <li><Link href="/pressure-washing" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-pressure-washing-link">Pressure Washing</Link></li>
+              <li><Link href="/window-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-window-cleaning-link">Window Cleaning</Link></li>
             </ul>
           </div>
 
