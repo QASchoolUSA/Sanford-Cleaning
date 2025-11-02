@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Script from "next/script";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks } from "lucide-react";
 
 export const metadata = {
@@ -125,27 +125,7 @@ export default function DeepCleaningPage() {
 
   return (
     <div className="pt-20">
-      <Script id="deep-cleaning-jsonld" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Sanford Cleaning - Deep Cleaning Services",
-          image: "https://sanfordcleaning.com/sanford-cleaning-logo.png",
-          "@id": "https://sanfordcleaning.com/deep-cleaning",
-          url: "https://sanfordcleaning.com/deep-cleaning",
-          telephone: "(321) 236-0618",
-          priceRange: "$$$",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Sanford",
-            addressLocality: "Sanford",
-            addressRegion: "FL",
-            postalCode: "32771",
-            addressCountry: "US",
-          },
-          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "87" },
-        })}
-      </Script>
+      <LocalBusinessSchema id="https://sanfordcleaning.com/deep-cleaning#localbusiness" name="Sanford Cleaning - Deep Cleaning Services" url="https://sanfordcleaning.com/deep-cleaning" priceRange="$$$" />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">

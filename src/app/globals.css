@@ -1,6 +1,4 @@
-@import "tailwindcss";
-
-/* Imported from original index.css */
+/* Global Tailwind setup */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

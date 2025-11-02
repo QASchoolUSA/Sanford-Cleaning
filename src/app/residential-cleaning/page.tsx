@@ -1,4 +1,4 @@
-import Script from 'next/script';
+import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import Link from 'next/link';
 import { Home as HomeIcon, Clock, Shield, Sparkles, CheckCircle, Star, ArrowRight } from 'lucide-react';
 
@@ -90,29 +90,7 @@ export default function ResidentialCleaningPage() {
     { name: 'Laundry Service', price: '$15 per load' },
   ];
 
-  const jsonLdBusiness = `{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Sanford Cleaning - Residential Services",
-    "image": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
-    "@id": "https://sanfordcleaning.com/residential-cleaning",
-    "url": "https://sanfordcleaning.com/residential-cleaning",
-    "telephone": "(321) 236-0618",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Sanford",
-      "addressLocality": "Sanford",
-      "addressRegion": "FL",
-      "postalCode": "32771",
-      "addressCountry": "US"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "87"
-    }
-  }`;
+  
 
   const jsonLdFaq = `{
     "@context": "https://schema.org",
@@ -147,9 +125,9 @@ export default function ResidentialCleaningPage() {
 
   return (
     <div className="pt-20">
-      <Script id="residential-jsonld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
-      <Script id="residential-jsonld-business" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLdBusiness }} />
-      <Script id="residential-jsonld-faq" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
+      <script id="residential-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
+      <LocalBusinessSchema id="https://sanfordcleaning.com/residential-cleaning#localbusiness" name="Sanford Cleaning - Residential Services" url="https://sanfordcleaning.com/residential-cleaning" image="https://sanfordcleaning.com/sanford-residential-cleaning.webp" priceRange="$$" />
+      <script id="residential-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
 
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">
         <div className="container mx-auto px-4">

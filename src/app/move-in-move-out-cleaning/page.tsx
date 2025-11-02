@@ -1,13 +1,14 @@
 import Link from "next/link";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sparkles, Key, Truck } from "lucide-react";
 
 export const metadata = {
-  title: "Move In & Move Out Cleaning Services Sanford FL | Sanford Cleaning",
+  title: "Move In & Move Out Cleaning Services Sanford FL",
   description:
     "Reliable move-in and move-out cleaning in Sanford, FL. Ideal for renters, owners, and property managers. Get a free quote today.",
   alternates: { canonical: "https://sanfordcleaning.com/move-in-move-out-cleaning" },
   openGraph: {
-    title: "Move In & Move Out Cleaning Services Sanford FL | Sanford Cleaning",
+    title: "Move In & Move Out Cleaning Services Sanford FL",
     description:
       "Sanford Cleaning offers the most reliable move in & move out cleaning services in Sanford FL, and surrounding areas. Perfect for rental property owners and residents moving homes.",
     type: "website",
@@ -16,7 +17,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Move In & Move Out Cleaning Services Sanford FL | Sanford Cleaning",
+    title: "Move In & Move Out Cleaning Services Sanford FL",
     description:
       "Sanford Cleaning offers the most reliable move in & move out cleaning services in Sanford FL, and surrounding areas. Perfect for rental property owners and residents moving homes.",
   },
@@ -100,6 +101,7 @@ export default function MoveInMoveOutPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <LocalBusinessSchema id="https://sanfordcleaning.com/move-in-move-out-cleaning#localbusiness" name="Sanford Cleaning - Move In & Move Out Cleaning" url="https://sanfordcleaning.com/move-in-move-out-cleaning" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4">

@@ -1,15 +1,16 @@
 import Link from "next/link";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, CheckCircle, Shield, Clock, MapPin, Droplets, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Carpet Cleaning in Sanford, FL | Sanford Cleaning",
+  title: "Carpet Cleaning in Sanford, FL",
   description:
     "Professional carpet cleaning in Sanford, FL: steam extraction, pet odor removal, and spot treatment for homes and businesses.",
   keywords:
     "carpet cleaning sanford fl, sanford carpet cleaning, professional carpet cleaning, steam cleaning sanford fl, pet odor removal, carpet stain removal, residential carpet cleaning, commercial carpet cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/carpet-cleaning" },
   openGraph: {
-    title: "Carpet Cleaning in Sanford, FL | Sanford Cleaning",
+    title: "Carpet Cleaning in Sanford, FL",
     description:
       "Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets.",
     type: "website",
@@ -38,6 +39,7 @@ export default function CarpetCleaningPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <LocalBusinessSchema id="https://sanfordcleaning.com/carpet-cleaning#localbusiness" name="Sanford Cleaning - Carpet Cleaning" url="https://sanfordcleaning.com/carpet-cleaning" />
       {/* Hero */}
       <section className="bg-white border-b">
         <div className="container mx-auto px-4 py-12">
