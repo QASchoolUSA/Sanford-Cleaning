@@ -1,13 +1,15 @@
+"use client";
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/sanford-cleaning-logo.png';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+// Use public asset path for Next.js
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const location = useLocation();
+  const pathname = usePathname();
 
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
+    if (pathname !== '/') {
       window.location.href = `/#${sectionId}`;
       return;
     }
@@ -23,11 +25,11 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-6">
-            <Link to="/" className="flex items-center" data-cy="footer-logo-link">
-              <img src={logo} alt="Sanford Cleaning Logo" className="max-h-32 object-contain" />
+            <Link href="/" className="flex items-center" data-cy="footer-logo-link">
+              <img src="/sanford-cleaning-logo.png" alt="Sanford Cleaning Logo" className="max-h-32 object-contain" />
             </Link>
             <p className="text-gray-600 leading-relaxed">
-              Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business. Explore our <Link to="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link> and <Link to="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.
+              Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61579618588193" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link">
@@ -42,11 +44,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><Link to="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">Residential Cleaning</Link></li>
-              <li><Link to="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Commercial Cleaning</Link></li>
-              <li><Link to="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-deep-cleaning-link">Deep Cleaning</Link></li>
+              <li><Link href="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">House Cleaning Services</Link></li>
+              <li><Link href="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Office Cleaning Service</Link></li>
+              <li><Link href="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-deep-cleaning-link">Deep Cleaning Services</Link></li>
               
-              <li><Link to="/post-construction-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-post-construction-cleaning-link">Post-Construction Cleaning</Link></li>
+              <li><Link href="/post-construction-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-post-construction-cleaning-link">Post-Construction Cleaning</Link></li>
               
             </ul>
           </div>
@@ -54,13 +56,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link to="/" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-home-link">Home</Link></li>
+              <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-home-link">Home</Link></li>
               <li><button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-about-button">About Us</button></li>
               <li><button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-services-button">Services</button></li>
 
               <li><button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-contact-button">Contact</button></li>
-              <li><Link to="/faq" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-faq-link">FAQ</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-privacy-policy-link">Privacy Policy</Link></li>
+              <li><Link href="/faq" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-faq-link">FAQ</Link></li>
+              <li><Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-privacy-policy-link">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -98,8 +100,8 @@ const Footer = () => {
               &copy; {currentYear} Sanford Cleaning. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-bottom-privacy-policy-link">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-bottom-terms-of-service-link">Terms of Service</Link>
+              <Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-bottom-privacy-policy-link">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-bottom-terms-of-service-link">Terms of Service</Link>
 
             </div>
           </div>

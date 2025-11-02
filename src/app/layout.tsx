@@ -1,0 +1,44 @@
+export const metadata = {
+  title: "Sanford Cleaning",
+  description: "Professional residential and commercial cleaning in Sanford, FL.",
+  twitter: {
+    card: "summary_large_image",
+    creator: "@SanfordCleaning",
+    site: "@SanfordCleaning",
+  },
+};
+
+import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import MicrosoftClarity from "@/components/MicrosoftClarity";
+import Analytics from "@/components/Analytics";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <MicrosoftClarity />
+        <Analytics />
+        <ScrollToTop />
+        <Header />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
+        {pixelId && (
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+              alt=""
+            />
+          </noscript>
+        )}
+      </body>
+    </html>
+  );
+}

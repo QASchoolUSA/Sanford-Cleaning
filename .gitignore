@@ -10,6 +10,8 @@ node_modules
 # Build outputs
 dist
 build
+.next
+out
 
 # IDE files
 .vscode
@@ -18,3 +20,8 @@ build
 # OS files
 .DS_Store
 Thumbs.db
+
+# Next.js
+.vercel
+*.tsbuildinfo
+next-env.d.ts

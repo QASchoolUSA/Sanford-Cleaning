@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from 'react';
 
 // Extend window interface for TypeScript
@@ -11,10 +12,10 @@ declare global {
 
 const MicrosoftClarity = () => {
   useEffect(() => {
-    const clarityProjectId = import.meta.env.VITE_CLARITY_PROJECT_ID;
+    const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
     
     if (!clarityProjectId || clarityProjectId === 'YOUR_PROJECT_ID') {
-      console.warn('Microsoft Clarity Project ID not configured. Please set VITE_CLARITY_PROJECT_ID in your .env file.');
+      console.warn('Microsoft Clarity Project ID not configured. Please set NEXT_PUBLIC_CLARITY_PROJECT_ID in your .env file.');
       return;
     }
 
