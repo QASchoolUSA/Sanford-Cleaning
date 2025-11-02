@@ -43,6 +43,10 @@
       "dest": "/$1"
     },
     {
+      "src": "^/(residential-cleaning|commercial-cleaning|deep-cleaning|carpet-cleaning|pressure-washing|window-cleaning|move-in-move-out-cleaning|post-construction-cleaning|booking|get-hired|free-custom-quote|faq|privacy-policy|terms-of-service)/?$",
+      "dest": "/$1.html"
+    },
+    {
       "src": "/residential-cleaning",
       "dest": "/residential-cleaning.html"
     },

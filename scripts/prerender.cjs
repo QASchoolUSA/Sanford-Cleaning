@@ -83,9 +83,20 @@ async function prerender() {
         fs.mkdirSync(dirPath, { recursive: true });
       }
       
-      // Write the pre-rendered HTML
+      // Write the pre-rendered HTML (flat .html)
       fs.writeFileSync(filePath, html);
       console.log(`✓ Pre-rendered: ${route} -> ${filePath}`);
+
+      // Also write to /route/index.html for static servers without rewrites
+      if (route !== '/') {
+        const folderIndexPath = path.join(distDir, route, 'index.html');
+        const folderDirPath = path.dirname(folderIndexPath);
+        if (!fs.existsSync(folderDirPath)) {
+          fs.mkdirSync(folderDirPath, { recursive: true });
+        }
+        fs.writeFileSync(folderIndexPath, html);
+        console.log(`✓ Pre-rendered (folder index): ${route} -> ${folderIndexPath}`);
+      }
       
     } catch (error) {
       console.error(`✗ Failed to pre-render ${route}:`, error.message);
