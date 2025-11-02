@@ -1,5 +1,6 @@
+"use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Calendar, Clock, MapPin, CreditCard, Check } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
@@ -41,10 +42,14 @@ interface FormData {
 }
 
 const PriceCalculator = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const calculatorRef = useRef<HTMLDivElement>(null);
-  const [currentStep, setCurrentStep] = useState(location.state?.returnToStep || 1);
+  const [currentStep, setCurrentStep] = useState(() => {
+    const param = searchParams.get('returnToStep');
+    const parsed = param ? Number(param) : NaN;
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+  });
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [maintenancePrice, setMaintenancePrice] = useState(0);
   const [showExtras, setShowExtras] = useState(false);
@@ -426,17 +431,15 @@ const PriceCalculator = () => {
     }
   };
 
-  // Handle return to specific step and scroll position
+  // Handle return to specific step via query param and scroll position
   useEffect(() => {
-    if (location.state?.returnToStep) {
-      // Clear the state to prevent unwanted step changes on subsequent visits
-      window.history.replaceState({}, document.title);
-      // Scroll to calculator top after a brief delay
+    const returnToStep = searchParams.get('returnToStep');
+    if (returnToStep) {
       setTimeout(() => {
         scrollToCalculatorTop();
       }, 100);
     }
-  }, []);
+  }, [searchParams]);
 
   const nextStep = () => {
     if (currentStep < 4) {
@@ -483,9 +486,9 @@ const PriceCalculator = () => {
     };
 
     if (formData.paymentType === 'Credit Card') {
-      navigate('/payment', { state: { bookingData } });
+      router.push('/stripe-payment');
     } else {
-      navigate('/booking-summary', { state: { bookingData, fromStep: currentStep } });
+      router.push('/booking-success');
     }
   };
 

@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { Suspense } from 'react';
 import { Phone, Star, Clock, Shield, Calculator } from 'lucide-react';
 import PriceCalculator from './PriceCalculator';
 
@@ -87,7 +88,9 @@ const Hero = () => {
             
             {/* Calculator Content */}
             <div id="price-calculator" className="p-2 lg:p-8">
-              <PriceCalculator />
+              <Suspense fallback={<div className="py-12 text-center text-gray-500">Loading calculator…</div>}>
+                <PriceCalculator />
+              </Suspense>
             </div>
           </div>
         </div>

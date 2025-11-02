@@ -1,5 +1,6 @@
+"use client";
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Calendar, Clock, MapPin, User, Phone, Mail, CreditCard, CheckCircle, Home, RotateCcw, Ruler, Bed, Bath } from 'lucide-react';
 
 interface BookingData {
@@ -25,13 +26,23 @@ interface BookingData {
   maintenancePrice?: number;
 }
 
-const BookingSummary = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const bookingData = location.state?.bookingData as BookingData;
+const BookingSummary = ({ bookingData: bookingDataProp }: { bookingData?: BookingData }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  let bookingData = bookingDataProp;
+
+  // Optional: attempt to read booking data from querystring if provided
+  if (!bookingData) {
+    const encoded = searchParams.get('bookingData');
+    if (encoded) {
+      try {
+        bookingData = JSON.parse(decodeURIComponent(encoded));
+      } catch {}
+    }
+  }
 
   if (!bookingData) {
-    navigate('/');
+    router.push('/booking');
     return null;
   }
 
@@ -77,23 +88,12 @@ const BookingSummary = () => {
       console.log('Booking confirmed:', result);
       
       // Navigate to success page
-      navigate('/booking-success', { 
-        state: { 
-          bookingData,
-          bookingId: bookingId
-        } 
-      });
+      router.push('/booking-success');
     } catch (error) {
       console.error('Error confirming booking:', error);
       // Still navigate to success page but show a warning about email
       const bookingId = `BK${Date.now()}`;
-      navigate('/booking-success', { 
-        state: { 
-          bookingData,
-          bookingId: bookingId,
-          emailError: true
-        } 
-      });
+      router.push('/booking-success');
     }
   };
 
@@ -293,7 +293,7 @@ const BookingSummary = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 md:pt-5 max-w-md mx-auto">
               <button
-                onClick={() => navigate('/booking', { state: { returnToStep: 4 } })}
+                onClick={() => router.push('/booking?returnToStep=4')}
                 className="flex-1 px-4 md:px-6 py-2.5 md:py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm md:text-base"
               >
                 Back to Edit
