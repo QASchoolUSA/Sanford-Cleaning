@@ -1,15 +1,16 @@
 import Link from "next/link";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Phone, Mail, MapPin, CheckCircle, Clock, Shield, Star, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Post-Construction Cleaning in Sanford, FL | Sanford Cleaning",
+  title: "Post-Construction Cleaning in Sanford, FL",
   description:
     "Post-construction cleaning in Sanford, FL: debris and dust removal, windows, floors, fixtures, and sanitization to prepare your space.",
   keywords:
     "post construction cleaning sanford fl, renovation cleanup, construction dust removal, contractor cleanup, commercial post construction cleaning, residential post construction cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/post-construction-cleaning" },
   openGraph: {
-    title: "Post-Construction Cleaning in Sanford, FL | Sanford Cleaning",
+    title: "Post-Construction Cleaning in Sanford, FL",
     description:
       "Detailed post-construction cleanup: debris and dust removal, windows, floors, fixtures, and sanitization with insured professionals in Sanford, FL.",
     type: "website",
@@ -68,6 +69,7 @@ export default function PostConstructionCleaningPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <LocalBusinessSchema id="https://sanfordcleaning.com/post-construction-cleaning#localbusiness" name="Sanford Cleaning - Post-Construction Cleaning" url="https://sanfordcleaning.com/post-construction-cleaning" />
       {/* Hero */}
       <section className="bg-white border-b">
         <div className="container mx-auto px-4 py-12">

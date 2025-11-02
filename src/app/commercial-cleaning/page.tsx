@@ -1,4 +1,4 @@
-import Script from 'next/script';
+import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import { Building, Clock, Shield, Users, CheckCircle, Star, ArrowRight, Briefcase } from 'lucide-react';
 
 export const metadata = {
@@ -87,34 +87,12 @@ export default function CommercialCleaningPage() {
     { icon: Shield, name: 'Educational Facilities', description: 'Comprehensive school and educational facility cleaning in Sanford' },
   ];
 
-  const jsonLdBusiness = `{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Sanford Cleaning - Commercial Services",
-    "image": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
-    "@id": "https://sanfordcleaning.com/commercial-cleaning",
-    "url": "https://sanfordcleaning.com/commercial-cleaning",
-    "telephone": "(321) 236-0618",
-    "priceRange": "$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Sanford",
-      "addressLocality": "Sanford",
-      "addressRegion": "FL",
-      "postalCode": "32771",
-      "addressCountry": "US"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "87"
-    }
-  }`;
+  
 
   return (
     <div className="pt-20">
-      <Script id="commercial-jsonld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
-      <Script id="commercial-jsonld-business" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLdBusiness }} />
+      <script id="commercial-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
+      <LocalBusinessSchema id="https://sanfordcleaning.com/commercial-cleaning#localbusiness" name="Sanford Cleaning - Commercial Services" url="https://sanfordcleaning.com/commercial-cleaning" image="https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp" priceRange="$$$" />
 
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">
         <div className="container mx-auto px-4">

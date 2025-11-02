@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Join Our Cleaning Team | Careers at Sanford Cleaning - Apply Now",
+  title: "Join Our Cleaning Team | Careers - Apply Now",
   description:
     "Join our cleaning team in Sanford, FL. Great pay, flexible hours, weekly pay. Apply now to start your career.",
   alternates: { canonical: "https://sanfordcleaning.com/get-hired" },
   openGraph: {
-    title: "Join Our Cleaning Team | Careers at Sanford Cleaning",
+    title: "Join Our Cleaning Team | Careers",
     description: "Join our professional cleaning team in Sanford, FL. Great pay, flexible hours, weekly pay. Apply now!",
     type: "website",
     url: "https://sanfordcleaning.com/get-hired",
@@ -13,7 +13,7 @@ export const metadata = {
   twitter: {
     card: "summary",
     site: "@SanfordCleaning",
-    title: "Join Our Cleaning Team | Careers at Sanford Cleaning",
+    title: "Join Our Cleaning Team | Careers",
     description: "Great pay ($20+), flexible hours, weekly pay. Apply today!",
   },
 };

@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
@@ -119,7 +118,7 @@ export default function HomePage() {
 
   return (
     <main>
-      <Script id="homepage-jsonld" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <script id="homepage-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Hero />
       <Services />
       <About />

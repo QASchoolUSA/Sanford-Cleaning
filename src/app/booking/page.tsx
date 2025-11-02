@@ -2,12 +2,12 @@ import { Suspense } from 'react';
 import PriceCalculator from '@/components/PriceCalculator';
 
 export const metadata = {
-  title: 'Book Cleaning Service Online | Sanford Cleaning - Instant Price & Booking',
+  title: 'Book Cleaning Service Online | Instant Price & Booking',
   description:
     'Book cleaning online in Sanford, FL. Get instant quotes, choose services, and schedule your appointment.',
   alternates: { canonical: 'https://sanfordcleaning.com/booking' },
   openGraph: {
-    title: 'Book Cleaning Service Online | Sanford Cleaning',
+    title: 'Book Cleaning Service Online',
     description:
       'Book your cleaning service online in Sanford, FL. Get instant quotes and schedule your appointment.',
     type: 'website',
@@ -15,7 +15,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Book Cleaning Service Online | Sanford Cleaning',
+    title: 'Book Cleaning Service Online',
     description:
       'Book your cleaning service online in Sanford, FL. Get instant quotes and schedule your appointment.',
   },

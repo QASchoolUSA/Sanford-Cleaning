@@ -1,16 +1,16 @@
 import Link from "next/link";
-import Script from "next/script";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 
 export const metadata = {
-  title: "Windows Cleaning in Sanford, FL | Sanford Cleaning",
+  title: "Windows Cleaning in Sanford, FL",
   description:
     "Inside and outside window cleaning in Sanford, FL for homes and businesses. Streak-free glass, tracks, sills, and screens.",
   keywords:
     "windows cleaning sanford, fl, windows cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/window-cleaning" },
   openGraph: {
-    title: "Windows Cleaning in Sanford, FL | Sanford Cleaning",
+    title: "Windows Cleaning in Sanford, FL",
     description:
       "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
     type: "website",
@@ -71,8 +71,8 @@ export default function WindowCleaningPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      <Script id="window-cleaning-jsonld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
-      <Script id="window-cleaning-jsonld-business" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLdBusiness }} />
+      <script id="window-cleaning-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
+      <LocalBusinessSchema id="https://sanfordcleaning.com/window-cleaning#localbusiness" name="Sanford Cleaning - Window Cleaning" url="https://sanfordcleaning.com/window-cleaning" />
       {/* Hero */}
       <section className="bg-white border-b">
         <div className="container mx-auto px-4 py-12">

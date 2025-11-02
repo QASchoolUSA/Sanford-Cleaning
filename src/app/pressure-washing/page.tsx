@@ -1,8 +1,9 @@
 import Link from "next/link";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, Droplets, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 
 export const metadata = {
-  title: "Pressure Washing in Sanford, FL | Sanford Cleaning",
+  title: "Pressure Washing in Sanford, FL",
   description:
     "Professional pressure washing in Sanford, FL. House siding, driveways, patios, and gutters with safe soft-wash options.",
   keywords: [
@@ -15,7 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://sanfordcleaning.com/pressure-washing" },
   openGraph: {
-    title: "Pressure Washing in Sanford, FL | Sanford Cleaning",
+    title: "Pressure Washing in Sanford, FL",
     description:
       "Professional pressure washing and exterior washing in Sanford, Florida—siding, concrete, patios, and more. Full-service cleaning inside and out.",
     type: "website",
@@ -44,6 +45,7 @@ export default function PressureWashingPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <LocalBusinessSchema id="https://sanfordcleaning.com/pressure-washing#localbusiness" name="Sanford Cleaning - Pressure Washing" url="https://sanfordcleaning.com/pressure-washing" />
       {/* Hero */}
       <section className="bg-white border-b">
         <div className="container mx-auto px-4 py-12">

@@ -1,10 +1,27 @@
 export const metadata = {
-  title: "Sanford Cleaning",
+  metadataBase: new URL("https://sanfordcleaning.com"),
+  title: {
+    default: "Sanford Cleaning",
+    template: "%s | Sanford Cleaning",
+  },
+  applicationName: "Sanford Cleaning",
   description: "Professional residential and commercial cleaning in Sanford, FL.",
+  alternates: {
+    canonical: "https://sanfordcleaning.com",
+  },
+  openGraph: {
+    siteName: "Sanford Cleaning",
+    type: "website",
+    url: "https://sanfordcleaning.com",
+  },
   twitter: {
     card: "summary_large_image",
     creator: "@SanfordCleaning",
     site: "@SanfordCleaning",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
