@@ -48,6 +48,8 @@ const About = () => {
             <img
               src="/sanford-cleaning-about-us.webp"
               alt="Sanford Cleaning - Professional Cleaning Team"
+              width="800"
+              height="800"
               className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
             />
           </div>

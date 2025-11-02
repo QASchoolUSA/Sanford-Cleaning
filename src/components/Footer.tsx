@@ -26,7 +26,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-6">
             <Link href="/" className="flex items-center" data-cy="footer-logo-link">
-              <img src="/sanford-cleaning-logo.png" alt="Sanford Cleaning Logo" className="max-h-32 object-contain" />
+              <img
+                src="/sanford-cleaning-logo.png"
+                alt="Sanford Cleaning Logo"
+                width="300"
+                height="100"
+                className="max-h-32 object-contain"
+              />
             </Link>
             <p className="text-gray-600 leading-relaxed">
               Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/residential-cleaning" className="text-blue-600 hover:underline">Residential Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.

@@ -63,7 +63,13 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center" data-cy="header-logo-link">
-            <img src="/sanford-cleaning-logo.png" alt="Sanford Cleaning Logo" className="max-h-24 object-contain" />
+            <img
+              src="/sanford-cleaning-logo.png"
+              alt="Sanford Cleaning Logo"
+              width="240"
+              height="80"
+              className="max-h-24 object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
