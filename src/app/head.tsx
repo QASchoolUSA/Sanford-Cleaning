@@ -39,6 +39,7 @@ export default function Head() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
       />
+      <meta name="msvalidate.01" content="7A3D763C07E2034E0C4C57B811BBE928" />
     </>
   );
 }
