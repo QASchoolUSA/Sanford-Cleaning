@@ -486,6 +486,20 @@ const PriceCalculator = () => {
     };
 
     if (formData.paymentType === 'Credit Card') {
+      // Persist latest payment details for fallback use on the Stripe page
+      try {
+        const lastStripePayment = {
+          amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
+          service: formData.service || 'Cleaning Service',
+          email: formData.email || undefined,
+        };
+        if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
+          localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
+        }
+      } catch (_) {
+        // ignore storage errors
+      }
+
       const params = new URLSearchParams({
         amount: String(estimatedPrice),
         service: formData.service || 'Cleaning Service',
@@ -493,6 +507,19 @@ const PriceCalculator = () => {
       if (formData.email) params.set('email', formData.email);
       router.push(`/stripe-payment?${params.toString()}`);
     } else {
+      // Persist latest booking details so user can still pay later from booking success
+      try {
+        const lastStripePayment = {
+          amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
+          service: formData.service || 'Cleaning Service',
+          email: formData.email || undefined,
+        };
+        if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
+          localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
+        }
+      } catch (_) {
+        // ignore storage errors
+      }
       router.push('/booking-success');
     }
   };
