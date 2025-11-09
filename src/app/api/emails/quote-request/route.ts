@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import type { SentMessageInfo } from 'nodemailer';
+import { quoteRequestAdminHtml, quoteRequestCustomerHtml } from '@/lib/emailTemplates';
 
 type QuoteRequest = {
   name: string;
@@ -51,11 +52,13 @@ Message: ${body.message || 'N/A'}
     const results: Array<{ to: string; ok: boolean; id?: string }> = [];
 
     try {
+      const adminHtml = quoteRequestAdminHtml(body);
       const info: SentMessageInfo = await transporter.sendMail({
         from: EMAIL_FROM,
         to: EMAIL_TO,
         subject,
         text: plainText,
+        html: adminHtml,
         replyTo: body.email,
       });
       results.push({ to: EMAIL_TO, ok: true, id: info.messageId });
@@ -65,11 +68,13 @@ Message: ${body.message || 'N/A'}
     }
 
     try {
+      const customerHtml = quoteRequestCustomerHtml({ name: body.name, service: body.service, phone: body.phone });
       const info: SentMessageInfo = await transporter.sendMail({
         from: EMAIL_FROM,
         to: body.email,
         subject: 'We received your quote request',
         text: `Hi ${body.name},\n\nThanks for reaching out to Sanford Cleaning. We received your request and will contact you within 24 hours.\n\nSummary:\n- Service: ${body.service || 'N/A'}\n- Phone: ${body.phone || 'N/A'}\n\nIf this was not you, please ignore this email.\n\nBest,\nSanford Cleaning Team`,
+        html: customerHtml,
         replyTo: EMAIL_TO,
       });
       results.push({ to: body.email, ok: true, id: info.messageId });

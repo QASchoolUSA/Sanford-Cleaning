@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import type { SentMessageInfo } from 'nodemailer';
+import { adminBookingHtml, bookingConfirmationHtml } from '@/lib/emailTemplates';
 
 type BookingData = {
   firstName: string;
@@ -71,12 +72,13 @@ Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${book
       auth: { user: SMTP_USER, pass: SMTP_PASS },
     });
 
-    const sendEmail = async (to: string, text: string): Promise<SentMessageInfo> => {
+    const sendEmail = async (to: string, text: string, html?: string): Promise<SentMessageInfo> => {
       const info: SentMessageInfo = await transporter.sendMail({
         from: EMAIL_FROM,
         to,
         subject,
         text,
+        html,
         replyTo: EMAIL_TO,
       });
       return info;
@@ -86,7 +88,8 @@ Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${book
 
     // Send to business
     try {
-      const r = await sendEmail(EMAIL_TO, plainText);
+      const adminHtml = adminBookingHtml(bookingData, bookingId);
+      const r = await sendEmail(EMAIL_TO, plainText, adminHtml);
       results.push({ to: EMAIL_TO, ok: true, id: r.messageId });
     } catch (e) {
       console.error('Failed to send admin booking email:', e);
@@ -95,7 +98,8 @@ Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${book
 
     // Send to customer
     try {
-      const r = await sendEmail(bookingData.email, plainText);
+      const customerHtml = bookingConfirmationHtml(bookingData, bookingId);
+      const r = await sendEmail(bookingData.email, plainText, customerHtml);
       results.push({ to: bookingData.email, ok: true, id: r.messageId });
     } catch (e) {
       console.error('Failed to send customer booking email:', e);
