@@ -12,12 +12,46 @@ export default function StripeCheckout({ amount, service, email }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Resolve effective values: prefer props; otherwise fall back to localStorage
+  let effectiveAmount: number | null = amount && !isNaN(Number(amount)) ? Number(amount) : null;
+  let effectiveService: string = service;
+  let effectiveEmail: string | undefined = email;
+
+  if (!effectiveAmount || effectiveAmount <= 0 || !effectiveService) {
+    try {
+      const stored = localStorage.getItem('lastStripePayment');
+      if (stored) {
+        const parsed = JSON.parse(stored) as { amount?: number; service?: string; email?: string };
+        if (!effectiveAmount || effectiveAmount <= 0) {
+          const a = parsed?.amount;
+          if (typeof a === 'number' && !isNaN(a) && a > 0) {
+            effectiveAmount = a;
+          }
+        }
+        if (!effectiveService) {
+          const s = parsed?.service;
+          if (typeof s === 'string' && s.length > 0) {
+            effectiveService = s;
+          }
+        }
+        if (!effectiveEmail) {
+          const e = parsed?.email;
+          if (typeof e === 'string' && e.length > 0) {
+            effectiveEmail = e;
+          }
+        }
+      }
+    } catch (_) {
+      // ignore storage errors
+    }
+  }
+
   const startCheckout = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      if (!amount || isNaN(amount) || amount <= 0) {
+      if (!effectiveAmount || isNaN(effectiveAmount) || effectiveAmount <= 0) {
         setError("Missing or invalid amount. Please return and try again.");
         setLoading(false);
         return;
@@ -26,7 +60,7 @@ export default function StripeCheckout({ amount, service, email }: Props) {
       const resp = await fetch("/api/stripe/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount, service, customerEmail: email }),
+        body: JSON.stringify({ amount: effectiveAmount, service: effectiveService, customerEmail: effectiveEmail }),
       });
 
       if (!resp.ok) {
@@ -56,10 +90,10 @@ export default function StripeCheckout({ amount, service, email }: Props) {
             <p className="text-gray-600 mb-6">Secure payment via Stripe Checkout.</p>
 
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <p className="text-gray-700"><span className="font-semibold">Service:</span> {service || "Cleaning Service"}</p>
-              <p className="text-gray-700"><span className="font-semibold">Amount:</span> {amount && !isNaN(amount) ? `$${amount.toFixed(2)}` : "Not provided"}</p>
-              {email && (
-                <p className="text-gray-700"><span className="font-semibold">Email:</span> {email}</p>
+              <p className="text-gray-700"><span className="font-semibold">Service:</span> {effectiveService || "Cleaning Service"}</p>
+              <p className="text-gray-700"><span className="font-semibold">Amount:</span> {effectiveAmount && !isNaN(effectiveAmount) ? `$${effectiveAmount.toFixed(2)}` : "Not provided"}</p>
+              {effectiveEmail && (
+                <p className="text-gray-700"><span className="font-semibold">Email:</span> {effectiveEmail}</p>
               )}
             </div>
 
