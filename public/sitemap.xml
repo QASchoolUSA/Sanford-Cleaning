@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://sanfordcleaning.com/</loc>
-    <lastmod>2025-01-20</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- Main Service Pages -->
   <url>
     <loc>https://sanfordcleaning.com/house-cleaning</loc>
-    <lastmod>2025-01-20</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -23,7 +23,7 @@
   </url>
   <url>
     <loc>https://sanfordcleaning.com/deep-cleaning</loc>
-    <lastmod>2025-01-20</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -49,13 +49,27 @@
   </url>
   <url>
     <loc>https://sanfordcleaning.com/post-construction-cleaning</loc>
-    <lastmod>2025-01-20</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanfordcleaning.com/move-in-move-out-cleaning</loc>
-    <lastmod>2025-01-20</lastmod>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Newly Added Service Pages -->
+  <url>
+    <loc>https://sanfordcleaning.com/office-cleaning</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/airbnb-cleaning</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,6 +118,98 @@
   <url>
     <loc>https://sanfordcleaning.com/faq</loc>
     <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Guides (SEO Articles) -->
+  <url>
+    <loc>https://sanfordcleaning.com/guides</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/best-house-cleaning-services-sanford-fl</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/affordable-deep-cleaning-companies-sanford-fl</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/how-to-book-professional-house-cleaner-sanford-fl</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/top-rated-house-cleaning-companies-sanford-fl-reviews</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/eco-friendly-house-cleaning-options-sanford-fl</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/compare-house-cleaning-companies-sanford-fl-service-quality</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/sanford-fl-move-out-cleaning-services-costs</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/sanford-fl-weekly-biweekly-house-cleaning-providers</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/best-house-cleaning-deals-discounts-sanford-fl</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/apartment-deep-cleaning-sanford-fl</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/how-to-book-professional-house-cleaner-sanford-fl-customer-reviews</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-service-providers-quality</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sanfordcleaning.com/guides/how-to-book-house-cleaner-sanford-fl</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
