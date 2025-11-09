@@ -71,13 +71,18 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          PREVIEW_URL=$(npx vercel deploy --prebuilt --token "${{ secrets.VERCEL_TOKEN }}" | grep -Eo 'https://[^ ]+vercel\.app' | tail -n1)
+          PREVIEW_URL=$(npx vercel deploy --prebuilt --token "${{ secrets.VERCEL_TOKEN }}")
+          PREVIEW_URL=$(echo "$PREVIEW_URL" | tr -d '\n' | xargs)
           echo "preview_url=$PREVIEW_URL" >> $GITHUB_OUTPUT
 
       - name: Wait for preview to be reachable
         run: |
           PREVIEW_URL="${{ steps.deploy_preview.outputs.preview_url }}"
           echo "Preview: $PREVIEW_URL"
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "Preview URL is empty. Deployment may have failed or URL was not captured." >&2
+            exit 1
+          fi
           for i in {1..30}; do
             if curl -sSf "$PREVIEW_URL" >/dev/null; then
               echo "Preview is live"
