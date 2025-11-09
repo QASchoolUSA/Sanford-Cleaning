@@ -15,6 +15,8 @@ export async function POST(req: Request) {
     const amount = Number(body?.amount);
     const service = typeof body?.service === 'string' ? body.service : 'Cleaning Service';
     const customerEmail = typeof body?.customerEmail === 'string' ? body.customerEmail : undefined;
+    const address = typeof body?.address === 'string' ? body.address : undefined;
+    const squareFootage = typeof body?.squareFootage === 'string' ? body.squareFootage : undefined;
 
     if (!amount || isNaN(amount) || amount <= 0) {
       return NextResponse.json({ error: 'Invalid or missing amount' }, { status: 400 });
@@ -40,8 +42,19 @@ export async function POST(req: Request) {
       ],
       success_url: `${origin}/booking-success?paid=stripe`,
       cancel_url: `${origin}/booking?returnToStep=4`,
+      // Store business metadata on the PaymentIntent for later reconciliation
+      payment_intent_data: {
+        metadata: {
+          service,
+          address: address || '',
+          squareFootage: squareFootage || '',
+        },
+      },
+      // Also include on the session for quick retrieval if needed
       metadata: {
         service,
+        address: address || '',
+        squareFootage: squareFootage || '',
       },
     });
 

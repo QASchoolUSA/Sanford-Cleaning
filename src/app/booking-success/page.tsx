@@ -16,6 +16,8 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
+import PayWithStripeButton from "@/components/PayWithStripeButton";
+
 export default function BookingSuccessPage() {
   return (
     <div className="pt-20 bg-gray-50">
@@ -54,10 +56,7 @@ export default function BookingSuccessPage() {
                   <h3 className="font-semibold text-gray-900">Pay with Card</h3>
                 </div>
                 <p className="text-gray-700 text-sm mb-4">Secure online payment using Stripe. You can pay with Visa, MasterCard, American Express, or Discover.</p>
-                <a href="/stripe-payment" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  Pay with Card
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-5 h-5 ml-2 text-white"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
-                </a>
+                <PayWithStripeButton />
               </div>
 
               {/* Zelle */}

@@ -16,12 +16,14 @@ export default function StripeCheckout({ amount, service, email }: Props) {
   let effectiveAmount: number | null = amount && !isNaN(Number(amount)) ? Number(amount) : null;
   let effectiveService: string = service;
   let effectiveEmail: string | undefined = email;
+  let effectiveAddress: string | undefined = undefined;
+  let effectiveSquareFootage: string | undefined = undefined;
 
   if (!effectiveAmount || effectiveAmount <= 0 || !effectiveService) {
     try {
       const stored = localStorage.getItem('lastStripePayment');
       if (stored) {
-        const parsed = JSON.parse(stored) as { amount?: number; service?: string; email?: string };
+        const parsed = JSON.parse(stored) as { amount?: number; service?: string; email?: string; address?: string; squareFootage?: string };
         if (!effectiveAmount || effectiveAmount <= 0) {
           const a = parsed?.amount;
           if (typeof a === 'number' && !isNaN(a) && a > 0) {
@@ -38,6 +40,18 @@ export default function StripeCheckout({ amount, service, email }: Props) {
           const e = parsed?.email;
           if (typeof e === 'string' && e.length > 0) {
             effectiveEmail = e;
+          }
+        }
+        if (!effectiveAddress) {
+          const addr = parsed?.address;
+          if (typeof addr === 'string' && addr.length > 0) {
+            effectiveAddress = addr;
+          }
+        }
+        if (!effectiveSquareFootage) {
+          const sf = parsed?.squareFootage;
+          if (typeof sf === 'string' && sf.length > 0) {
+            effectiveSquareFootage = sf;
           }
         }
       }
@@ -60,7 +74,7 @@ export default function StripeCheckout({ amount, service, email }: Props) {
       const resp = await fetch("/api/stripe/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: effectiveAmount, service: effectiveService, customerEmail: effectiveEmail }),
+        body: JSON.stringify({ amount: effectiveAmount, service: effectiveService, customerEmail: effectiveEmail, address: effectiveAddress, squareFootage: effectiveSquareFootage }),
       });
 
       if (!resp.ok) {
@@ -92,6 +106,12 @@ export default function StripeCheckout({ amount, service, email }: Props) {
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <p className="text-gray-700"><span className="font-semibold">Service:</span> {effectiveService || "Cleaning Service"}</p>
               <p className="text-gray-700"><span className="font-semibold">Amount:</span> {effectiveAmount && !isNaN(effectiveAmount) ? `$${effectiveAmount.toFixed(2)}` : "Not provided"}</p>
+              {effectiveAddress && (
+                <p className="text-gray-700"><span className="font-semibold">Address:</span> {effectiveAddress}</p>
+              )}
+              {effectiveSquareFootage && (
+                <p className="text-gray-700"><span className="font-semibold">Square Footage:</span> {effectiveSquareFootage}</p>
+              )}
               {effectiveEmail && (
                 <p className="text-gray-700"><span className="font-semibold">Email:</span> {effectiveEmail}</p>
               )}
