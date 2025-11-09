@@ -30,7 +30,7 @@ export default function GetHiredPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Cleaning Team</h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              We're looking for passionate, reliable, and detail-oriented individuals to provide top-quality cleaning services in Sanford, FL.
+              We&apos;re looking for passionate, reliable, and detail-oriented individuals to provide top-quality cleaning services in Sanford, FL.
             </p>
             <a
               href="#application-form"

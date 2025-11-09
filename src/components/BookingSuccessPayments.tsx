@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PayWithStripeButton from "./PayWithStripeButton";
 
 type Props = {
@@ -8,16 +8,13 @@ type Props = {
 };
 
 export default function BookingSuccessPayments({ paidParam }: Props) {
-  const [paymentType, setPaymentType] = useState<string | null>(null);
-
-  useEffect(() => {
+  const [paymentType] = useState<string | null>(() => {
     try {
-      const stored = typeof window !== "undefined" ? localStorage.getItem("paymentType") : null;
-      setPaymentType(stored);
+      return typeof window !== "undefined" ? localStorage.getItem("paymentType") : null;
     } catch {
-      setPaymentType(null);
+      return null;
     }
-  }, []);
+  });
 
   const isStripePaidParam = Array.isArray(paidParam)
     ? paidParam.includes("stripe")

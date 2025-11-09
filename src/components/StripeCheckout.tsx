@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 type Props = {
   amount: number | null;
@@ -55,7 +55,7 @@ export default function StripeCheckout({ amount, service, email }: Props) {
           }
         }
       }
-    } catch (_) {
+    } catch {
       // ignore storage errors
     }
   }
@@ -88,8 +88,9 @@ export default function StripeCheckout({ amount, service, email }: Props) {
       }
 
       window.location.href = url;
-    } catch (err: any) {
-      setError(err?.message || "Something went wrong.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Something went wrong.";
+      setError(message);
     } finally {
       setLoading(false);
     }

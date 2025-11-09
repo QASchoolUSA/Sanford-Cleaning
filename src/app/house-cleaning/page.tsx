@@ -1,6 +1,7 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import Link from 'next/link';
-import { Home as HomeIcon, Clock, Shield, Sparkles, CheckCircle, Star, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { Home as HomeIcon, Clock, CheckCircle } from 'lucide-react';
 
 export const metadata = {
   title: '5-Star House Cleaning in Sanford, FL | Instant Online Booking',
@@ -144,13 +145,14 @@ export default function ResidentialCleaningPage() {
               </div>
             </div>
             <div className="relative">
-            <img
-              src="/sanford-residential-cleaning.webp"
-              alt="Sanford Cleaning - House Cleaning in Sanford, FL"
-              width="800"
-              height="800"
-              className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
-            />
+              <Image
+                src="/sanford-residential-cleaning.webp"
+                alt="Sanford Cleaning - House Cleaning in Sanford, FL"
+                width={800}
+                height={800}
+                priority
+                className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
+              />
             </div>
           </div>
         </div>

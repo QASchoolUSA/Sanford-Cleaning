@@ -297,7 +297,7 @@ const GetHiredForm = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="hasLicense" className="block text-sm font-medium text-gray-700 mb-2">Do you have a driver\'s license?</label>
+            <label htmlFor="hasLicense" className="block text-sm font-medium text-gray-700 mb-2">Do you have a driver&apos;s license?</label>
             <select id="hasLicense" name="hasLicense" value={formData.hasLicense} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
               <option value="">Select</option>
               <option value="yes">Yes</option>

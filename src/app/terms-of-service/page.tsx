@@ -1,4 +1,4 @@
-import { FileText, Scale, Shield, AlertTriangle, Clock, DollarSign, Users } from "lucide-react";
+import { FileText, Scale, Shield, Clock, DollarSign, Users } from "lucide-react";
 
 export const metadata = {
   title: "Terms of Service | Sanford Cleaning",
@@ -43,7 +43,7 @@ export default function TermsPage() {
                 <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                These Terms of Service ("Terms") govern your use of cleaning services provided by Topaz West LLC ("Company," "we," "our," or "us"). By booking our services, you ("Client," "you," or "your") agree to be bound by these Terms.
+                These Terms of Service (&quot;Terms&quot;) govern your use of cleaning services provided by Topaz West LLC (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). By booking our services, you (&quot;Client,&quot; &quot;you,&quot; or &quot;your&quot;) agree to be bound by these Terms.
               </p>
 
               <div className="bg-blue-50 p-4 rounded-lg mt-6">
@@ -187,7 +187,7 @@ export default function TermsPage() {
                   <ul className="list-disc list-inside text-green-700 text-sm space-y-1">
                     <li>General liability insurance up to $1,000,000</li>
                     <li>Bonded employees for theft protection</li>
-                    <li>Workers' compensation insurance for all employees</li>
+                    <li>Workers&apos; compensation insurance for all employees</li>
                     <li>Professional liability coverage for service-related issues</li>
                   </ul>
                 </div>

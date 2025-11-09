@@ -59,8 +59,9 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ id: session.id, url: session.url }, { status: 200 });
-  } catch (err: any) {
-    console.error('Stripe session error:', err?.message || err);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('Stripe session error:', message);
     return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 });
   }
 }

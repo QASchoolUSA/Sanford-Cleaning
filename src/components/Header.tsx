@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, Mail, Calendar } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, Phone, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 // Use public asset path for Next.js
 
 
@@ -50,24 +51,19 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const handleContactClick = () => {
-    if (pathname !== '/') {
-      window.location.href = '/#contact';
-    } else {
-      scrollToSection('contact');
-    }
-  };
+  // Removed unused handleContactClick to satisfy linter
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center" data-cy="header-logo-link">
-            <img
+            <Image
               src="/sanford-cleaning-logo.png"
               alt="Sanford Cleaning Logo"
-              width="240"
-              height="80"
+              width={240}
+              height={80}
+              priority
               className="max-h-24 object-contain"
             />
           </Link>

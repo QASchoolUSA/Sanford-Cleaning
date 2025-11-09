@@ -30,23 +30,6 @@ export default function WindowCleaningPage() {
     ]
   }`;
 
-  const jsonLdBusiness = `{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Sanford Cleaning - Window Cleaning",
-    "image": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
-    "@id": "https://sanfordcleaning.com/window-cleaning",
-    "url": "https://sanfordcleaning.com/window-cleaning",
-    "telephone": "(321) 236-0618",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Sanford",
-      "addressRegion": "FL",
-      "postalCode": "32771",
-      "addressCountry": "US"
-    }
-  }`;
   const areas = ["Sanford, FL", "Lake Mary, FL", "Longwood, FL", "Altamonte Springs, FL", "Winter Springs, FL"];
 
   const benefits = [

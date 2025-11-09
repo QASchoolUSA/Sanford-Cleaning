@@ -1,6 +1,6 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import { Phone, Mail, MapPin, CheckCircle, Clock, Shield, Star, ArrowRight } from "lucide-react";
+import { MapPin, CheckCircle, Clock, Shield, Star, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Post-Construction Cleaning in Sanford, FL",

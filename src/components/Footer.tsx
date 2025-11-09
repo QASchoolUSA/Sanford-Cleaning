@@ -1,6 +1,7 @@
 "use client";
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 // Use public asset path for Next.js
 
@@ -26,16 +27,17 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-6">
             <Link href="/" className="flex items-center" data-cy="footer-logo-link">
-              <img
+              <Image
                 src="/sanford-cleaning-logo.png"
                 alt="Sanford Cleaning Logo"
-                width="300"
-                height="100"
+                width={300}
+                height={100}
                 className="max-h-32 object-contain"
+                priority
               />
             </Link>
             <p className="text-gray-600 leading-relaxed">
-              Professional cleaning services you can trust. We're committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.
+              Professional cleaning services you can trust. We&apos;re committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 hover:underline">Window Cleaning</Link> services.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61579618588193" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link">

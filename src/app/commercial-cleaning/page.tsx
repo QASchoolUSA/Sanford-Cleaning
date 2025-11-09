@@ -1,5 +1,6 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
-import { Building, Clock, Shield, Users, CheckCircle, Star, ArrowRight, Briefcase } from 'lucide-react';
+import { Building, Clock, Shield, Users, CheckCircle, Briefcase } from 'lucide-react';
+import Image from 'next/image';
 
 export const metadata = {
   title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',
@@ -9,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',
     description:
-      "Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!",
+      "Sanford&apos;s top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!",
     type: 'website',
     url: 'https://sanfordcleaning.com/commercial-cleaning',
     images: [{ url: 'https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp', width: 1200, height: 630 }],
@@ -103,18 +104,19 @@ export default function CommercialCleaningPage() {
                 <span className="text-blue-600 font-semibold">Commercial Cleaning</span>
               </div>
               <h1 data-cy="commercial-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Commercial Cleaning Services in Sanford, FL</h1>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose">Sanford's premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive cleaning services that enhance your business image and create healthier work environments.</p>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose">Sanford&apos;s premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive cleaning services that enhance your business image and create healthier work environments.</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="/free-custom-quote" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block text-center">Get Custom Quote</a>
               </div>
             </div>
             <div className="relative">
-              <img
+              <Image
                 src="/commercial-cleaning-sanford-florida.webp"
                 alt="Sanford Cleaning - Office Cleaning in Sanford, FL"
-                width="800"
-                height="800"
+                width={800}
+                height={800}
                 className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
+                priority
               />
             </div>
           </div>
@@ -125,7 +127,7 @@ export default function CommercialCleaningPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 data-cy="industries-served-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Our commercial cleaning service Sanford specializes in industry-specific cleaning solutions. We understand that different businesses have unique cleaning requirements, and our experienced team delivers customized commercial cleaning services tailored to your industry's standards and regulations.</p>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Our commercial cleaning service Sanford specializes in industry-specific cleaning solutions. We understand that different businesses have unique cleaning requirements, and our experienced team delivers customized commercial cleaning services tailored to your industry&apos;s standards and regulations.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -187,7 +189,7 @@ export default function CommercialCleaningPage() {
           
           <div className="max-w-3xl mx-auto">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">What's the difference between office cleaning and janitorial services in Sanford, FL?</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">What&apos;s the difference between office cleaning and janitorial services in Sanford, FL?</h3>
               <p className="text-gray-600">Our comprehensive janitorial services in Sanford, FL go beyond basic office cleaning to include facility maintenance, supply management, and specialized cleaning protocols. While office cleaning focuses on daily tasks like dusting and vacuuming, our full janitorial services encompass everything from deep sanitization to maintenance coordination, ensuring your Sanford business operates in a pristine, professional environment.</p>
             </div>
           </div>

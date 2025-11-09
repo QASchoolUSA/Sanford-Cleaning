@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
     // Simulate success
     return NextResponse.json({ ok: true });
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
 }

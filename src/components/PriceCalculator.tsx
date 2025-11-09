@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Calendar, Clock, MapPin, CreditCard, Check } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
 import AddressAutocomplete from '@/components/ui/address-autocomplete';
@@ -96,7 +96,7 @@ const PriceCalculator = () => {
   
   const areaOptions = ['Bedroom', 'Full Bathroom', 'Kitchen', 'Living/Dining Room'];
   
-  const extraOptions = [
+  const extraOptions = useMemo(() => ([
     { name: 'Behind fridge', price: 20, hasQuantity: false },
     { name: 'Behind oven', price: 20, hasQuantity: false },
     { name: 'Inside oven', price: 35, hasQuantity: false },
@@ -111,7 +111,7 @@ const PriceCalculator = () => {
     { name: 'Dishes', price: 10, hasQuantity: false },
     { name: 'Laundry & Folding', price: 20, hasQuantity: false },
     { name: 'Carpet Cleaning', price: 20, hasQuantity: true, unit: 'area' }
-  ];
+  ]), []);
 
   const conditionOptions = ['Very clean', 'Pretty clean', 'Average', 'Pretty dirty', 'Very dirty'];
   
@@ -370,9 +370,9 @@ const PriceCalculator = () => {
     
     setEstimatedPrice(Math.round(finalPrice * 100) / 100); // Round to 2 decimal places
     setMaintenancePrice(Math.round(maintenanceRecurringPrice * 100) / 100);
-  }, [formData]);
+  }, [formData, extraOptions]);
 
-  const updateFormData = (field: keyof FormData, value: any) => {
+  const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
@@ -462,28 +462,6 @@ const PriceCalculator = () => {
   };
 
   const handleSubmit = () => {
-    // Prepare booking data
-    const bookingData = {
-      service: formData.service,
-      frequency: formData.frequency,
-      squareFootage: formData.squareFootage,
-      bedrooms: formData.bedrooms,
-      bathrooms: formData.bathrooms,
-      extras: formData.extras,
-      scheduledDate: formData.scheduledDate,
-      scheduledTime: formData.scheduledTime,
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-        phone: formData.phone,
-      address: formData.address,
-      aptUnit: formData.aptUnit,
-      keyInfo: formData.keyInfo,
-      customerNote: formData.customerNote,
-      paymentType: formData.paymentType,
-      estimatedPrice: estimatedPrice,
-      maintenancePrice: maintenancePrice > 0 ? maintenancePrice : undefined
-    };
 
     if (formData.paymentType === 'Credit Card') {
       // Persist latest payment details for fallback use on the Stripe page
@@ -498,7 +476,7 @@ const PriceCalculator = () => {
         if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
           localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
         }
-      } catch (_) {
+      } catch {
         // ignore storage errors
       }
 
@@ -525,8 +503,9 @@ const PriceCalculator = () => {
           const { url } = await resp.json();
           if (!url) throw new Error('No checkout URL returned.');
           window.location.href = url;
-        } catch (err: any) {
-          console.error('Stripe checkout error:', err?.message || err);
+        } catch (err: unknown) {
+          const message = err instanceof Error ? err.message : String(err);
+          console.error('Stripe checkout error:', message);
           alert('Unable to start Stripe checkout. Please try again or choose another payment method.');
         }
       })();
@@ -543,7 +522,7 @@ const PriceCalculator = () => {
         if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
           localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
         }
-      } catch (_) {
+      } catch {
         // ignore storage errors
       }
       router.push('/booking-success');
@@ -1158,7 +1137,7 @@ const PriceCalculator = () => {
                     </div>
                     
                     <div className="text-xs text-gray-500 text-center">
-                      💡 You'll pay the initial cleaning price for your first service, then the maintenance price for ongoing cleanings
+                      💡 You&apos;ll pay the initial cleaning price for your first service, then the maintenance price for ongoing cleanings
                     </div>
                   </div>
                 ) : (

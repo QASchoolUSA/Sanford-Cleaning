@@ -17,6 +17,7 @@ export const metadata = {
 };
 
 import BookingSuccessPayments from "@/components/BookingSuccessPayments";
+import Link from "next/link";
 
 export default function BookingSuccessPage({
   searchParams,
@@ -49,8 +50,8 @@ export default function BookingSuccessPage({
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-gray-700">Need to modify your booking or have questions? Call <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a> or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>.</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/booking" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Book Another Service</a>
-              <a href="/" className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">Go to Homepage</a>
+              <Link href="/booking" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Book Another Service</Link>
+              <Link href="/" className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">Go to Homepage</Link>
             </div>
           </div>
         </div>

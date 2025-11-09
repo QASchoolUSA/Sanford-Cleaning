@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks } from "lucide-react";
 
@@ -161,13 +162,14 @@ export default function DeepCleaningPage() {
               </div>
             </div>
             <div className="relative">
-          <img
-            src="/sanford-cleaning-homepage.webp"
-            alt="Deep cleaning in Sanford, FL"
-            width="800"
-            height="800"
-            className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
-          />
+              <Image
+                src="/sanford-cleaning-homepage.webp"
+                alt="Deep cleaning in Sanford, FL"
+                width={800}
+                height={800}
+                priority
+                className="w-full max-w-md mx-auto aspect-square object-cover rounded-2xl shadow-2xl"
+              />
             </div>
           </div>
         </div>

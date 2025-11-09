@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function PayWithStripeButton() {
   const [loading, setLoading] = useState(false);
@@ -42,7 +42,7 @@ export default function PayWithStripeButton() {
             squareFootage = parsed.squareFootage;
           }
         }
-      } catch (_) {
+      } catch {
         // ignore storage errors
       }
 
@@ -68,8 +68,9 @@ export default function PayWithStripeButton() {
       const { url } = await resp.json();
       if (!url) throw new Error("No checkout URL returned.");
       window.location.href = url;
-    } catch (err: any) {
-      console.error("Stripe checkout error:", err?.message || err);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      console.error("Stripe checkout error:", message);
       alert(
         "Unable to start Stripe checkout. Please try again or choose another payment method."
       );

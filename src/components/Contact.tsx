@@ -96,7 +96,7 @@ const Contact = () => {
                     <p className="text-gray-600">
                       <a href="mailto:info@sanfordcleaning.com" className="hover:text-blue-600 transition-colors" data-cy="contact-email-link">info@sanfordcleaning.com</a>
                     </p>
-                    <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
+                    <p className="text-sm text-gray-500">We&apos;ll respond within 24 hours</p>
                   </div>
                 </div>
 

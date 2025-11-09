@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { Shield, Leaf, Clock, Award } from 'lucide-react';
 
 const About = () => {
@@ -36,7 +37,7 @@ const About = () => {
                 About Topaz West LLC
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                With over 10 years of experience in the cleaning industry, Sanford Cleaning has built a reputation for excellence, reliability, and customer satisfaction. We're not just a cleaning company – we're your partners in creating healthier, more comfortable living and working spaces.
+                With over 10 years of experience in the cleaning industry, Sanford Cleaning has built a reputation for excellence, reliability, and customer satisfaction. We&apos;re not just a cleaning company – we&apos;re your partners in creating healthier, more comfortable living and working spaces.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Our team of trained professionals uses the latest cleaning techniques and eco-friendly products to deliver exceptional results. We understand that every space is unique, which is why we customize our services to meet your specific needs and budget.
@@ -45,12 +46,13 @@ const About = () => {
           </div>
 
           <div className="relative">
-            <img
+            <Image
               src="/sanford-cleaning-about-us.webp"
               alt="Sanford Cleaning - Professional Cleaning Team"
-              width="800"
-              height="800"
+              width={800}
+              height={800}
               className="w-full max-w-md mx-auto aspect-square object-cover rounded-xl shadow-lg"
+              priority
             />
           </div>
         </div>

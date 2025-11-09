@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
                 <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Topaz West LLC ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our residential, commercial, maintenance, deep, and post-construction cleaning services.
+                Topaz West LLC (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our residential, commercial, maintenance, deep, and post-construction cleaning services.
               </p>
 
               <div className="bg-blue-50 p-4 rounded-lg mt-6">
@@ -156,7 +156,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="bg-red-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-red-800 mb-2">What We DON'T Use Your Information For</h4>
+                <h4 className="font-semibold text-red-800 mb-2">What We DON&apos;T Use Your Information For</h4>
                 <ul className="list-disc list-inside text-red-700 text-sm space-y-1">
                   <li>Marketing to third parties or selling your information</li>
                   <li>Unsolicited promotional communications (unless you opt-in)</li>

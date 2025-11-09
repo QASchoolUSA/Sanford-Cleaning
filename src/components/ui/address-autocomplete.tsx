@@ -201,8 +201,9 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
-          className="address-autocomplete-input"
+          className={`${className ? className + ' ' : ''}address-autocomplete-input`}
           autoComplete="off"
+          required={required}
           data-cy={dataCy}
         />
         <span className="address-autocomplete-icon">📍</span>

@@ -1,6 +1,5 @@
 "use client";
-import React from 'react';
-import { Home, Building, Sparkles, Car, Wrench, Heart, Truck } from 'lucide-react';
+import { Home, Building, Sparkles, Car, Wrench, Truck } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -73,12 +72,7 @@ const Services = () => {
     
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Removed unused scrollToContact to satisfy linter
 
   const router = useRouter();
 

@@ -92,7 +92,6 @@ const BookingSummary = ({ bookingData: bookingDataProp }: { bookingData?: Bookin
     } catch (error) {
       console.error('Error confirming booking:', error);
       // Still navigate to success page but show a warning about email
-      const bookingId = `BK${Date.now()}`;
       router.push('/booking-success');
     }
   };
