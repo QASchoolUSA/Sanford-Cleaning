@@ -492,6 +492,8 @@ const PriceCalculator = () => {
           amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
           service: formData.service || 'Cleaning Service',
           email: formData.email || undefined,
+          address: formData.address || '',
+          squareFootage: formData.squareFootage || '',
         };
         if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
           localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
@@ -500,12 +502,34 @@ const PriceCalculator = () => {
         // ignore storage errors
       }
 
-      const params = new URLSearchParams({
-        amount: String(estimatedPrice),
-        service: formData.service || 'Cleaning Service',
-      });
-      if (formData.email) params.set('email', formData.email);
-      router.push(`/stripe-payment?${params.toString()}`);
+      // Directly create Stripe Checkout session and redirect
+      (async () => {
+        try {
+          const resp = await fetch('/api/stripe/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
+              service: formData.service || 'Cleaning Service',
+              customerEmail: formData.email || undefined,
+              address: formData.address || '',
+              squareFootage: formData.squareFootage || '',
+            }),
+          });
+
+          if (!resp.ok) {
+            const data = await resp.json().catch(() => ({}));
+            throw new Error(data?.error || 'Failed to create checkout session.');
+          }
+
+          const { url } = await resp.json();
+          if (!url) throw new Error('No checkout URL returned.');
+          window.location.href = url;
+        } catch (err: any) {
+          console.error('Stripe checkout error:', err?.message || err);
+          alert('Unable to start Stripe checkout. Please try again or choose another payment method.');
+        }
+      })();
     } else {
       // Persist latest booking details so user can still pay later from booking success
       try {
@@ -513,6 +537,8 @@ const PriceCalculator = () => {
           amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
           service: formData.service || 'Cleaning Service',
           email: formData.email || undefined,
+          address: formData.address || '',
+          squareFootage: formData.squareFootage || '',
         };
         if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
           localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
