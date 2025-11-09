@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PayWithStripeButton from "./PayWithStripeButton";
 
 type Props = {
@@ -8,20 +8,18 @@ type Props = {
 };
 
 export default function BookingSuccessPayments({ paidParam }: Props) {
-  // Delay rendering until client mounts to avoid SSR showing the section
-  // before we can evaluate the query string and localStorage.
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const [paymentType] = useState<string | null>(() => {
-    try {
-      return typeof window !== "undefined" ? localStorage.getItem("paymentType") : null;
-    } catch {
-      return null;
-    }
-  });
+  // Avoid SSR to prevent hydration mismatch when client-only data (URL/localStorage)
+  // affects whether this component renders.
+  if (typeof window === "undefined") {
+    return null;
+  }
+  // Read client-only value. No need to store in React state.
+  let paymentType: string | null = null;
+  try {
+    paymentType = localStorage.getItem("paymentType");
+  } catch {
+    paymentType = null;
+  }
 
   const isStripePaidParam = Array.isArray(paidParam)
     ? paidParam.includes("stripe")
@@ -29,13 +27,11 @@ export default function BookingSuccessPayments({ paidParam }: Props) {
 
   // Client-side fallback: read paid from the URL query to be robust when
   // SSR does not include searchParams in the initial HTML.
-  const isStripeFromLocation = typeof window !== "undefined"
-    ? new URLSearchParams(window.location.search).get("paid") === "stripe"
-    : false;
+  const isStripeFromLocation = new URLSearchParams(window.location.search).get("paid") === "stripe";
 
   const hidePayments = isStripePaidParam || isStripeFromLocation || paymentType === "Credit Card";
-  // Do not render on the server, and hide on client when appropriate.
-  if (!isClient || hidePayments) return null;
+  // Hide when appropriate.
+  if (hidePayments) return null;
 
   return (
     <section className="py-16 bg-white">
