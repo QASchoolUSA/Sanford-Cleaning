@@ -1,3 +1,6 @@
+import React from "react";
+import StripeCheckout from "@/components/StripeCheckout";
+
 export const metadata = {
   title: "Stripe Payment | Sanford Cleaning",
   description: "Secure payment processing for your cleaning services.",
@@ -16,11 +19,23 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function StripePaymentPage() {
+export default function StripePaymentPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const getParam = (key: string) => {
+    const value = searchParams?.[key];
+    if (Array.isArray(value)) return value[0];
+    return value ?? undefined;
+  };
+
+  const amountParam = getParam("amount");
+  const serviceParam = getParam("service") || "Cleaning Service";
+  const customerEmail = getParam("email") || undefined;
+  const amount = amountParam ? Number(amountParam) : null;
+
   return (
-    <main style={{ padding: 24 }}>
-      <h1>Payment</h1>
-      <p>Complete your payment securely via Stripe.</p>
-    </main>
+    <StripeCheckout amount={amount} service={serviceParam} email={customerEmail} />
   );
 }

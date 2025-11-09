@@ -486,7 +486,12 @@ const PriceCalculator = () => {
     };
 
     if (formData.paymentType === 'Credit Card') {
-      router.push('/stripe-payment');
+      const params = new URLSearchParams({
+        amount: String(estimatedPrice),
+        service: formData.service || 'Cleaning Service',
+      });
+      if (formData.email) params.set('email', formData.email);
+      router.push(`/stripe-payment?${params.toString()}`);
     } else {
       router.push('/booking-success');
     }
