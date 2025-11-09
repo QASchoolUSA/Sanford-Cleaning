@@ -1,7 +1,7 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home as HomeIcon, Clock, CheckCircle } from 'lucide-react';
+import { Home as HomeIcon, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 
 export const metadata = {
   title: '5-Star House Cleaning in Sanford, FL | Instant Online Booking',
@@ -120,6 +120,22 @@ export default function ResidentialCleaningPage() {
           "@type": "Answer",
           "text": "A standard cleaning for a medium-sized house typically takes 2-4 hours. We also offer more comprehensive deep cleaning services."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you clean on a schedule (weekly, bi-weekly, monthly) or just once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer both scheduled and one-time cleanings. Weekly, bi-weekly, or monthly plans are available and often qualify for discounted rates compared to one-off bookings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the ways to book cleaning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can book online on our website, call or text (321) 236-0618, or email info@sanfordcleaning.com."
+        }
       }
     ]
   }`;
@@ -219,6 +235,80 @@ export default function ResidentialCleaningPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Guide Content */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">House Cleaning Guide</h2>
+            <p className="text-gray-700 mb-4">
+              Searching for <strong>house cleaning near me</strong>? Our local team delivers professional, reliable results with flexible scheduling and clear checklists. We provide <strong>house cleaning services near me</strong> across Seminole County, tailored to your home&apos;s layout and priorities.
+            </p>
+            <p className="text-gray-700 mb-4">
+              For homeowners looking for <strong>house cleaning services in sanford fl</strong>, our <strong>sanford house cleaning</strong> covers kitchens, bathrooms, living areas, and bedrooms—plus add‑ons like appliance interiors and window sills. We also work with property managers and realtors who need consistent <strong>house cleaners in sanford fl</strong> for turn‑key results.
+            </p>
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">House Cleaning in Sanford, FL</h3>
+              <p className="text-gray-700 mb-3">
+                Our <strong>house cleaning sanford fl</strong> programs include weekly, bi‑weekly, monthly, and one‑time options. If you need dependable <strong>house cleaning services sanford</strong>, we can maintain your home on a schedule or complete a single deep refresh.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  Get a Free Quote
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+                <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
+                  Book House Cleaning
+                </Link>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-xl p-6 border">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning near me</strong> – recurring or one‑time appointments.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning services near me</strong> – customized checklists and reliable scheduling.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning services in sanford fl</strong> – local, insured professionals.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaners in sanford fl</strong> – consistent results for homeowners and property managers.</span></li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-xl p-6 border">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Ways to Book</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Book online at <Link href="/booking" className="text-blue-600 hover:underline">sanfordcleaning.com/booking</Link></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Call or text <a href="tel:+13212360618" className="text-blue-600 hover:underline">(321) 236-0618</a></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">House Cleaning FAQs</h2>
+            <div className="space-y-4">
+              <details className="bg-white rounded-xl p-6 border group">
+                <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
+                  Can you clean on a schedule (weekly, bi‑weekly, monthly) or just once?
+                  <span className="text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+                </summary>
+                <p className="text-gray-700 mt-3">Yes. We offer both scheduled and one‑time cleanings. Weekly, bi‑weekly, or monthly plans are available and often qualify for discounted rates compared to one‑off bookings.</p>
+              </details>
+              <details className="bg-white rounded-xl p-6 border group">
+                <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
+                  What are the ways to book cleaning?
+                  <span className="text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+                </summary>
+                <p className="text-gray-700 mt-3">You can book online on our website, call or text <a href="tel:+13212360618" className="text-blue-600 hover:underline">(321) 236-0618</a>, or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>.</p>
+              </details>
+            </div>
           </div>
         </div>
       </section>

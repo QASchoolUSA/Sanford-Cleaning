@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:e2e": "playwright test",
-    "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error"
+    "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error --skip '.*instagram.com.*'"
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.1.15",
