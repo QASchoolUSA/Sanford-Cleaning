@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PayWithStripeButton from "./PayWithStripeButton";
 
 type Props = {
@@ -8,6 +8,13 @@ type Props = {
 };
 
 export default function BookingSuccessPayments({ paidParam }: Props) {
+  // Delay rendering until client mounts to avoid SSR showing the section
+  // before we can evaluate the query string and localStorage.
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const [paymentType] = useState<string | null>(() => {
     try {
       return typeof window !== "undefined" ? localStorage.getItem("paymentType") : null;
@@ -20,9 +27,15 @@ export default function BookingSuccessPayments({ paidParam }: Props) {
     ? paidParam.includes("stripe")
     : paidParam === "stripe";
 
-  const hidePayments = isStripePaidParam || paymentType === "Credit Card";
+  // Client-side fallback: read paid from the URL query to be robust when
+  // SSR does not include searchParams in the initial HTML.
+  const isStripeFromLocation = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("paid") === "stripe"
+    : false;
 
-  if (hidePayments) return null;
+  const hidePayments = isStripePaidParam || isStripeFromLocation || paymentType === "Credit Card";
+  // Do not render on the server, and hide on client when appropriate.
+  if (!isClient || hidePayments) return null;
 
   return (
     <section className="py-16 bg-white">

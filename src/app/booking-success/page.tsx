@@ -16,6 +16,10 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
+// Ensure this page renders dynamically so query `searchParams` like `?paid=stripe`
+// are respected at request time in production builds.
+export const dynamic = 'force-dynamic';
+
 import BookingSuccessPayments from "@/components/BookingSuccessPayments";
 import Link from "next/link";
 
@@ -24,6 +28,10 @@ export default function BookingSuccessPage({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
+  const paidParam = searchParams?.paid;
+  const isStripePaidParam = Array.isArray(paidParam)
+    ? paidParam.includes('stripe')
+    : paidParam === 'stripe';
   return (
     <div className="pt-20 bg-gray-50">
       {/* Confirmation Hero */}
@@ -42,7 +50,9 @@ export default function BookingSuccessPage({
         </div>
       </section>
 
-      <BookingSuccessPayments paidParam={searchParams?.paid} />
+      {!isStripePaidParam && (
+        <BookingSuccessPayments paidParam={paidParam} />
+      )}
 
       {/* Help & Next Actions */}
       <section className="py-12 bg-gray-50">
