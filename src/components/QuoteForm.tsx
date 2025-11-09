@@ -17,9 +17,7 @@ const QuoteForm = () => {
     setIsSubmitting(true);
     
     try {
-      const apiUrl = process.env.NODE_ENV === 'production'
-    ? '/api/emails/quote-request'
-    : 'http://localhost:3001/api/emails/quote-request';
+      const apiUrl = '/api/emails/quote-request';
       
       const response = await fetch(apiUrl, {
         method: 'POST',

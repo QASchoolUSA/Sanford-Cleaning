@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from "react";
 import PayWithStripeButton from "./PayWithStripeButton";
 
 type Props = {

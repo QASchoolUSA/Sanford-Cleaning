@@ -68,9 +68,7 @@ const BookingSummary = ({ bookingData: bookingDataProp }: { bookingData?: Bookin
       const bookingId = `BK${Date.now()}`; // Generate a simple booking ID
       
       // Send booking data to backend for confirmation and email sending
-      const apiUrl = process.env.NODE_ENV === 'production' 
-        ? '/api/emails/confirm-booking' 
-        : 'http://localhost:3001/api/emails/confirm-booking';
+      const apiUrl = '/api/emails/confirm-booking';
       
       const response = await fetch(apiUrl, {
         method: 'POST',
