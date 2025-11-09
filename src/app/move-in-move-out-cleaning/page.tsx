@@ -253,6 +253,53 @@ export default function MoveInMoveOutPage() {
         </div>
       </section>
 
+      {/* SEO Guide Content */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Move-In and Move-Out Cleaning Guide</h2>
+            <p className="text-lg text-gray-700 mb-6">
+              Planning a move? Our <strong>move out cleaning services</strong> and <strong>move in cleaning service</strong> options are designed to make your transition effortless. Whether you need
+              <strong> move out cleaning services near me</strong> for a quick turnover or a detailed <strong>move in cleaning service near me</strong> to start fresh, Sanford Cleaning delivers professional results that meet property manager and landlord standards.
+            </p>
+            <p className="text-gray-700 mb-4">
+              For renters, a thorough <strong>move out cleaning</strong> helps protect your security deposit. Homeowners and property managers rely on our <strong>move in and out cleaning services</strong> to prepare homes and apartments between occupants. We tailor each visit to the unique needs of your space and timeline.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Popular Searches We Cover</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>move out cleaning near me</strong> – fast, thorough, and deposit-friendly.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>apartment move out cleaning near me</strong> – ideal for studios and multi-unit properties.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house move out cleaning near me</strong> – deep cleaning for single-family homes and townhomes.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>move in and out cleaning services</strong> – flexible scheduling for both ends of your move.</span></li>
+                </ul>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">What&apos;s Included</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><Sparkles className="w-4 h-4 text-blue-600 mr-2 mt-0.5" /> Kitchen: appliances inside/out, cabinets, counters, sinks, and floors.</li>
+                  <li className="flex items-start"><Sparkles className="w-4 h-4 text-blue-600 mr-2 mt-0.5" /> Bathrooms: tubs/showers, toilets, vanities, mirrors, tile, and fixtures.</li>
+                  <li className="flex items-start"><Sparkles className="w-4 h-4 text-blue-600 mr-2 mt-0.5" /> Living areas: dusting, baseboards, windowsills, light switches, and floors.</li>
+                  <li className="flex items-start"><Sparkles className="w-4 h-4 text-blue-600 mr-2 mt-0.5" /> Bedrooms: closets, doors, fan blades, and detailed vacuum/mop.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-10 bg-blue-50 border border-blue-200 rounded-xl p-6">
+              <p className="text-gray-700">
+                Ready to book <strong>move out cleaning services near me</strong> or a <strong>move in cleaning service</strong>? Click below to schedule your appointment in minutes.
+              </p>
+              <div className="mt-4 flex flex-col sm:flex-row gap-4">
+                <Link href="/booking" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-flex items-center">Book Move Cleaning <ArrowRight className="w-5 h-5 ml-2" /></Link>
+                <Link href="/free-custom-quote" className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 inline-flex items-center">Get a Free Quote <Sparkles className="w-5 h-5 ml-2" /></Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Areas */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">

@@ -264,6 +264,56 @@ export default function DeepCleaningPage() {
         </div>
       </section>
 
+      {/* SEO Guide Content */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Deep Cleaning Guide</h2>
+            <p className="text-gray-700 mb-4">
+              Looking for <strong>deep cleaning near me</strong>? Our professional team provides thorough <strong>deep cleaning</strong> for houses and apartments in Sanford and surrounding areas. We focus on high‑touch surfaces, kitchens, bathrooms, baseboards, vents, and under‑furniture areas to remove built‑up grime and hidden dust.
+            </p>
+            <p className="text-gray-700 mb-4">
+              We offer flexible <strong>deep cleaning services near me</strong>—from routine refreshes to move‑out projects and seasonal resets. Whether it’s <strong>deep cleaning house</strong> or <strong>apartment deep cleaning</strong>, we tailor the checklist to your home’s materials and specific needs, ensuring a spotless, healthy environment.
+            </p>
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Deep Cleaning in Sanford, FL</h3>
+              <p className="text-gray-700 mb-3">
+                Our <strong>deep cleaning sanford, fl</strong> program provides comprehensive detailing across kitchens, bathrooms, living spaces, and bedrooms. For local residents searching <strong>deep cleaning sanford</strong>, we deliver consistent results with clear checklists, reliable scheduling, and a final walkthrough.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  Get a Free Quote
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+                <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
+                  Book Deep Cleaning
+                </Link>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-xl p-6 border">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>deep cleaning near me</strong> – thorough cleaning for houses and apartments.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>deep cleaning services near me</strong> – flexible scheduling and detailed checklists.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>deep cleaning house</strong> – kitchens, bathrooms, floors, and hard‑to‑reach areas.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>apartment deep cleaning</strong> – studio to multi‑bedroom units, tailored to your layout.</span></li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-xl p-6 border">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Insured team and reliable scheduling</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Detailed checklists and final inspection</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Material‑appropriate methods for stone, tile, and wood</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Clear communication and transparent estimates</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section id="contact" className="py-16 bg-white">
         <div className="container mx-auto px-4">

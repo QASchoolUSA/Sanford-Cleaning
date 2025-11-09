@@ -167,6 +167,62 @@ export default function PostConstructionCleaningPage() {
         </div>
       </section>
 
+      {/* SEO Guide Content */}
+      <section className="py-12 bg-white border-t">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Post-Construction Cleaning Guide</h2>
+            <p className="text-gray-700 mb-4">
+              When a renovation or build wraps up, dust, debris, and residue can linger in every corner. Our professional <strong>post construction cleaning</strong> service prepares your space for move‑in with detailed attention to windows, fixtures, cabinets, floors, and high‑touch surfaces. Whether you need a comprehensive <strong>post construciton clean up service</strong> for a single room or an entire property, we tailor the checklist to the unique challenges of construction dust and contractor leftovers.
+            </p>
+            <p className="text-gray-700 mb-4">
+              We provide end‑to‑end <strong>post construciton cleaning services</strong>, including debris removal, fine dust capture, glass detailing, baseboard and vent cleaning, and sanitation of kitchens and bathrooms. For new builds, our <strong>new construciton cleaning service</strong> follows a multi‑stage approach that ensures surfaces are safe, clean, and camera‑ready for turnover or listing photos.
+            </p>
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">How Much Does Post‑Construction Cleaning Cost?</h3>
+              <p className="text-gray-700 mb-3">
+                If you&apos;re wondering <strong>how much does post construciton cleaning cost</strong>, pricing depends on several factors: property size, number of rooms and windows, floor type and condition, the density of dust, paint or adhesive residue, and turnaround timeline. We offer transparent quotes and can accommodate phased cleaning for multi‑stage projects.
+              </p>
+              <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                <li>Scope and complexity (final clean vs. rough + final)</li>
+                <li>Square footage and ceiling height</li>
+                <li>Material sensitivity (stone, hardwood, specialty glass)</li>
+                <li>Access and staging requirements</li>
+              </ul>
+              <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  Get a Free Quote
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+                <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
+                  Book Post‑Construction Cleaning
+                </Link>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-xl p-6 border">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>post construction cleaning near me</strong> – fast, thorough service for residential and commercial spaces.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>post construciton clean up service</strong> – debris removal, dust capture, and final detailing.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>post construciton cleaning services</strong> – tailored checklists for new builds and remodels.</span></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>new construciton cleaning service</strong> – multi‑stage cleaning ideal for turnkey delivery.</span></li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-xl p-6 border">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Specialized methods for construction dust and residue</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Insured, reliable team with flexible scheduling</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Final walkthrough to ensure a move‑in ready finish</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Transparent estimates and clear communication</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Related Services */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
