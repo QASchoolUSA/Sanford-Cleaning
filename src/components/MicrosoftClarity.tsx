@@ -11,8 +11,22 @@ declare global {
 const MicrosoftClarity = () => {
   useEffect(() => {
     const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
-    
-    if (!clarityProjectId || clarityProjectId === 'YOUR_PROJECT_ID') {
+    const isProd = process.env.NODE_ENV === 'production';
+
+    // Only run in production to avoid dev-time network errors/noise
+    if (!isProd) {
+      console.info('Skipping Microsoft Clarity in non-production environment.');
+      return;
+    }
+
+    // Guard against missing or placeholder IDs
+    const invalidPlaceholders = new Set([
+      'YOUR_PROJECT_ID',
+      'your_microsoft_clarity_project_id_here',
+      'CLARITY_PROJECT_ID',
+    ]);
+
+    if (!clarityProjectId || invalidPlaceholders.has(clarityProjectId)) {
       console.warn('Microsoft Clarity Project ID not configured. Please set NEXT_PUBLIC_CLARITY_PROJECT_ID in your .env file.');
       return;
     }

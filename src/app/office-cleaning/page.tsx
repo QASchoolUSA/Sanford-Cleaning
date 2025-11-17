@@ -17,7 +17,13 @@ export const metadata = {
     url: "https://sanfordcleaning.com/office-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Office Cleaning in Sanford, FL",
+    description:
+      "Reliable office cleaning service in Sanford, FL: routine maintenance, deep cleaning, and disinfection for professional workplaces.",
+    images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
+  },
 };
 
 export default function OfficeCleaningPage() {
@@ -59,6 +65,54 @@ export default function OfficeCleaningPage() {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <LocalBusinessSchema id="https://sanfordcleaning.com/office-cleaning#localbusiness" name="Sanford Cleaning - Office Cleaning" url="https://sanfordcleaning.com/office-cleaning" />
+      <script
+        id="office-jsonld-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What does an office cleaning service include?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Routine office cleaning covers lobbies, workstations, conference rooms, restrooms, and breakrooms: dusting, trash removal, surface wipe-downs, glass cleaning, floors, and high-touch disinfection. Deep cleaning is available.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can you accommodate daily, weekly, or custom schedules?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Yes. We offer flexible schedules—daily, weekly, biweekly, or custom—plus after-hours options to minimize disruption.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Are your cleaners insured and background-checked?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Our team is insured and background-checked. Documentation can be provided upon request.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do I get pricing or book service?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Get a free quote at sanfordcleaning.com/custom-quote, book online at sanfordcleaning.com/booking, or call (321) 236-0618 to discuss your office needs.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
 
       {/* Hero */}
       <section className="bg-white border-b">

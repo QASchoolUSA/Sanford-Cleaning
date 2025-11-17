@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Eco-Friendly House Cleaning Options Available in Sanford FL | Sanford Cleaning',
+  title: 'Eco-Friendly House Cleaning Options Available in Sanford FL',
   description:
     'Learn about eco-friendly house cleaning in Sanford FL. See products, practices, and how Sanford Cleaning keeps homes clean and family- and pet-safe.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/eco-friendly-house-cleaning-options-sanford-fl' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'Green cleaning tips, products, and services from Sanford Cleaning. Make your Sanford home sparkle—safely.',
     url: 'https://sanfordcleaning.com/guides/eco-friendly-house-cleaning-options-sanford-fl',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Eco-Friendly House Cleaning Options Available in Sanford FL',
+    description:
+      'Learn about eco-friendly house cleaning in Sanford FL. See products, practices, and how Sanford Cleaning keeps homes clean and family- and pet-safe.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

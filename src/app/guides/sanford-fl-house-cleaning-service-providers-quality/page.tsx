@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Sanford FL House Cleaning Service Providers by Quality | Sanford Cleaning',
+  title: 'Sanford FL House Cleaning Service Providers by Quality',
   description:
     'Compare Sanford FL house cleaning providers by service quality. See training, checklists, eco options, and communication practices from Sanford Cleaning.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-service-providers-quality' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'Quality-first comparison of house cleaning providers in Sanford—choose a reliable partner like Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-service-providers-quality',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sanford FL House Cleaning Service Providers by Quality',
+    description:
+      'Compare Sanford FL house cleaning providers by service quality. See training, checklists, eco options, and communication practices from Sanford Cleaning.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

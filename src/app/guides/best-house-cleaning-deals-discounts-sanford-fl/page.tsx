@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Best House Cleaning Deals and Discounts in Sanford FL | Sanford Cleaning',
+  title: 'Best House Cleaning Deals and Discounts in Sanford FL',
   description:
     'Find the best house cleaning deals and discounts in Sanford FL. Learn savings strategies and how recurring service reduces costs.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/best-house-cleaning-deals-discounts-sanford-fl' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'Savings guide for Sanford homeowners: recurring cleaning discounts, bundled add-ons, and seasonal promotions from Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/best-house-cleaning-deals-discounts-sanford-fl',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Best House Cleaning Deals and Discounts in Sanford FL',
+    description:
+      'Find the best house cleaning deals and discounts in Sanford FL. Learn savings strategies and how recurring service reduces costs.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

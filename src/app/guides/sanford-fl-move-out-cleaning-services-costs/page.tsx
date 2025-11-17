@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Sanford FL Move-Out Cleaning Services and Costs | Sanford Cleaning',
+  title: 'Sanford FL Move-Out Cleaning Services and Costs',
   description:
     'Plan your Sanford FL move-out cleaning. See costs, checklists, and how Sanford Cleaning helps renters and homeowners get spaces ready.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/sanford-fl-move-out-cleaning-services-costs' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'A complete move-out cleaning guide for Sanford: pricing, what’s included, and scheduling tips from Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/sanford-fl-move-out-cleaning-services-costs',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sanford FL Move-Out Cleaning Services and Costs',
+    description:
+      'A complete move-out cleaning guide for Sanford: pricing, what’s included, and scheduling tips from Sanford Cleaning.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

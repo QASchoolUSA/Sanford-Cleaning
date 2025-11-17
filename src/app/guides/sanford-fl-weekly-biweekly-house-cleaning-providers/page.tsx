@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Sanford FL Weekly and Biweekly House Cleaning Service Providers | Sanford Cleaning',
+  title: 'Sanford FL Weekly and Biweekly House Cleaning Service Providers',
   description:
     'Find weekly and biweekly house cleaning in Sanford FL. Learn benefits, scheduling, and how Sanford Cleaning maintains a consistently clean home.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/sanford-fl-weekly-biweekly-house-cleaning-providers' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'A maintenance cleaning guide for Sanford homeowners—how recurring service works and keeps your home fresh.',
     url: 'https://sanfordcleaning.com/guides/sanford-fl-weekly-biweekly-house-cleaning-providers',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sanford FL Weekly and Biweekly House Cleaning Service Providers',
+    description:
+      'Find weekly and biweekly house cleaning in Sanford FL. Learn benefits, scheduling, and how Sanford Cleaning maintains a consistently clean home.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

@@ -15,6 +15,13 @@ export const metadata = {
     url: 'https://sanfordcleaning.com/commercial-cleaning',
     images: [{ url: 'https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp', width: 1200, height: 630 }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',
+    description:
+      "Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!",
+    images: ['https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp'],
+  },
 };
 
 export default function CommercialCleaningPage() {
@@ -93,6 +100,54 @@ export default function CommercialCleaningPage() {
   return (
     <div className="pt-20">
       <script id="commercial-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
+      <script
+        id="commercial-jsonld-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What services are included in office and commercial cleaning?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Typical service includes workstations and desk cleaning, restroom sanitization, breakroom/kitchen cleaning, trash removal, dusting, vacuuming and mopping, and glass/interior window care. Deep cleaning and disinfection are available.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you offer after-hours or weekend cleaning?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Yes. We provide flexible schedules including daytime, after-hours, and weekend cleaning to minimize disruption to your business.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Are you insured and can you provide documentation?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Our team is insured and background-checked. We can provide COI and compliance documentation upon request for office, medical, and retail facilities.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do I get a quote for my facility?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Request a free custom quote at sanfordcleaning.com/free-custom-quote or call (321) 236-0618. We tailor pricing to your space size, traffic, and schedule.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <LocalBusinessSchema id="https://sanfordcleaning.com/commercial-cleaning#localbusiness" name="Sanford Cleaning - Commercial Services" url="https://sanfordcleaning.com/commercial-cleaning" image="https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp" priceRange="$$$" />
 
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">

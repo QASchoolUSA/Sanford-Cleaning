@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Apartment Deep Cleaning in Sanford FL | Sanford Cleaning',
+  title: 'Apartment Deep Cleaning in Sanford FL',
   description:
     'Apartment deep cleaning services in Sanford FL. Ideal for first-time cleanings, move-outs, and renter refreshes. Learn what’s included and pricing tips.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/apartment-deep-cleaning-sanford-fl' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'A renter-friendly guide to apartment deep cleaning in Sanford: checklist, add-ons, and scheduling from Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/apartment-deep-cleaning-sanford-fl',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Apartment Deep Cleaning in Sanford FL',
+    description:
+      'Apartment deep cleaning services in Sanford FL. Ideal for first-time cleanings, move-outs, and renter refreshes. Learn what’s included and pricing tips.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

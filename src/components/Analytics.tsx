@@ -5,10 +5,11 @@ import Script from "next/script";
 export default function Analytics() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <>
-      {gaId && (
+      {isProd && gaId && (
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
@@ -17,7 +18,7 @@ export default function Analytics() {
           <Script id="ga-init" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
+              function gtag(){dataLayer.push(arguments);} 
               gtag('js', new Date());
               gtag('config', '${gaId}', { anonymize_ip: true });
             `}
@@ -25,7 +26,7 @@ export default function Analytics() {
         </>
       )}
 
-      {pixelId && (
+      {isProd && pixelId && (
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s){

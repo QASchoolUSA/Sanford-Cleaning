@@ -6,7 +6,22 @@ export const metadata: Metadata = {
   title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
   description:
     'Professional Airbnb cleaning and short-term rental turnover in Sanford, FL. Fast same-day service, hotel-standard linen care, restocking, and guest-ready quality.',
-  alternates: { canonical: '/airbnb-cleaning' },
+  alternates: { canonical: 'https://sanfordcleaning.com/airbnb-cleaning' },
+  openGraph: {
+    title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
+    description:
+      'Reliable Airbnb turnover cleaning in Sanford, FL with hotel-standard linen care, restocking, and guest-ready presentation. Book fast same-day service.',
+    type: 'website',
+    url: 'https://sanfordcleaning.com/airbnb-cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
+    description:
+      'Reliable Airbnb turnover cleaning in Sanford, FL with hotel-standard linen care, restocking, and guest-ready presentation. Book fast same-day service.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
 };
 
 const jsonLdBreadcrumb = {
@@ -32,6 +47,100 @@ export default function AirbnbCleaningPage() {
   return (
     <div className="pt-20 min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
+      <script
+        id="airbnb-jsonld-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What is included in an Airbnb turnover cleaning?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Full turnover cleaning for kitchen, bathrooms, bedrooms, and living areas; high-touch disinfection; bed making and linen refresh; trash removal; light staging; and optional restocking per host request.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you offer same-day or next-day turnovers?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Yes. We provide same-day and next-day Airbnb turnovers in Sanford, FL subject to availability. Flexible windows between checkout and check-in are supported.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can you handle linens and restocking?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'We can make beds and refresh linens. Laundry and restocking are available as add-ons or by host-supplied inventory. We can also provide photo confirmation on request.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do I book or get pricing?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Book online at sanfordcleaning.com/booking, text or call (321) 236-0618, or request a custom host quote at sanfordcleaning.com/custom-quote for multi-unit or frequent turnovers.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
+      <script
+        id="airbnb-jsonld-howto"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'HowTo',
+            name: 'How to book Airbnb cleaning in Sanford, FL',
+            description: 'Simple steps to schedule an Airbnb turnover cleaning with Sanford Cleaning.',
+            totalTime: 'PT5M',
+            supply: [
+              { '@type': 'HowToSupply', name: 'Property address' },
+              { '@type': 'HowToSupply', name: 'Access instructions (lockbox/code)' },
+              { '@type': 'HowToSupply', name: 'Turnover window (checkout/check-in times)' },
+            ],
+            tool: [
+              { '@type': 'HowToTool', name: 'Online booking form' },
+              { '@type': 'HowToTool', name: 'Phone or text' },
+            ],
+            step: [
+              {
+                '@type': 'HowToStep',
+                name: 'Choose Airbnb/STR cleaning',
+                url: 'https://sanfordcleaning.com/booking',
+                text: 'Open the booking page and select Airbnb or short-term rental cleaning.',
+              },
+              {
+                '@type': 'HowToStep',
+                name: 'Pick a turnover window',
+                text: 'Choose same-day or next-day service and set the time window between checkout and check-in.',
+              },
+              {
+                '@type': 'HowToStep',
+                name: 'Provide property details',
+                text: 'Add bed count, linens handling, restocking preferences, and any access instructions.',
+              },
+              {
+                '@type': 'HowToStep',
+                name: 'Confirm booking',
+                text: 'Submit your request to receive confirmation and updates by text or email.',
+              },
+            ],
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">

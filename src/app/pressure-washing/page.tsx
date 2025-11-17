@@ -23,10 +23,54 @@ export const metadata = {
     url: "https://sanfordcleaning.com/pressure-washing",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pressure Washing in Sanford, FL",
+    description:
+      "Professional pressure washing and exterior washing in Sanford, Florida—siding, concrete, patios, and more. Full-service cleaning inside and out.",
+    images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
+  },
 };
 
 export default function PressureWashingPage() {
+  const jsonLdFaq = `{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which surfaces can you safely pressure wash?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We clean siding (vinyl, stucco, brick, painted), concrete, pavers, patios, pool decks, fences, and gutters. For delicate materials we use soft‑wash methods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you use eco‑friendly detergents and manage runoff?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We use surface‑appropriate, eco‑conscious solutions and follow proper runoff practices to protect landscaping and drainage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should I prepare before your visit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Please move vehicles and furniture away from cleaning areas, secure pets, and close windows/doors. We’ll handle hoses and safety setup on arrival."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do pricing and scheduling work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing depends on area size, material, and condition. Request a quote and book online or call (321) 236‑0618 for assistance."
+        }
+      }
+    ]
+  }`;
   const benefits = [
     "Professional pressure washing for homes and storefronts",
     "Exterior washing that removes mold, mildew, and grime",
@@ -45,6 +89,7 @@ export default function PressureWashingPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <script id="pressure-washing-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/pressure-washing#localbusiness" name="Sanford Cleaning - Pressure Washing" url="https://sanfordcleaning.com/pressure-washing" />
       {/* Hero */}
       <section className="bg-white border-b">

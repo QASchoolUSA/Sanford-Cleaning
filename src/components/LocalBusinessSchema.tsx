@@ -24,6 +24,17 @@ export default function LocalBusinessSchema({
     image,
     telephone,
     priceRange,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 28.80286,
+      longitude: -81.27312,
+    },
+    hasMap: 'https://www.google.com/maps/place/Sanford,+FL+32771',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '137',
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Sanford',

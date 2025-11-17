@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'How to Book a Professional House Cleaner in Sanford FL | Sanford Cleaning',
+  title: 'How to Book a Professional House Cleaner in Sanford FL',
   description:
     'Step-by-step guide to booking a professional house cleaner in Sanford, FL. Learn scheduling options, what to expect, and tips to prepare your home.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/how-to-book-professional-house-cleaner-sanford-fl' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'From selecting a service to confirming your appointment—here’s how Sanford Cleaning makes booking fast and easy in Sanford, FL.',
     url: 'https://sanfordcleaning.com/guides/how-to-book-professional-house-cleaner-sanford-fl',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Book a Professional House Cleaner in Sanford FL',
+    description:
+      'Step-by-step guide to booking a professional house cleaner in Sanford, FL. Learn scheduling options, what to expect, and tips to prepare your home.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

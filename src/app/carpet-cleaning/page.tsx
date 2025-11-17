@@ -17,10 +17,54 @@ export const metadata = {
     url: "https://sanfordcleaning.com/carpet-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Carpet Cleaning in Sanford, FL",
+    description:
+      "Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets.",
+    images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
+  },
 };
 
 export default function CarpetCleaningPage() {
+  const jsonLdFaq = `{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What carpet cleaning method do you use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We primarily use hot water extraction (steam cleaning) with fiber‑safe pre‑treatments and rinses to lift soil and allergens."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long do carpets take to dry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typical dry times range from 4–8 hours depending on ventilation, carpet type, and soiling. We recommend good airflow to speed drying."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you treat pet stains and odors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We offer targeted treatments for pet accidents and odor neutralization. Effectiveness varies by severity and padding saturation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is pricing handled and how do I book?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing depends on rooms, square footage, and condition. Get a transparent quote and book online or call (321) 236‑0618."
+        }
+      }
+    ]
+  }`;
   const services = [
     { title: "Whole-Home Carpet Cleaning", description: "Hot water extraction (steam cleaning) for homes in Sanford, FL with thorough pre-treatment and rinse for long-lasting freshness." },
     { title: "High-Traffic Area Restoration", description: "Targeted cleaning to lift embedded soil from hallways, living rooms, stairs, and entryways." },
@@ -39,6 +83,7 @@ export default function CarpetCleaningPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <script id="carpet-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/carpet-cleaning#localbusiness" name="Sanford Cleaning - Carpet Cleaning" url="https://sanfordcleaning.com/carpet-cleaning" />
       {/* Hero */}
       <section className="bg-white border-b">

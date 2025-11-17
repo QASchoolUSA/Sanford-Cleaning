@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Best House Cleaning Services in Sanford FL | Sanford Cleaning',
+  title: 'Best House Cleaning Services in Sanford FL',
   description:
     'Discover the best house cleaning services in Sanford FL. See packages, pricing, scheduling tips, and why Sanford Cleaning is trusted by local homeowners.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/best-house-cleaning-services-sanford-fl' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'A comprehensive guide to finding top house cleaning services in Sanford, Florida, including pricing, schedules, and quality checks from Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/best-house-cleaning-services-sanford-fl',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Best House Cleaning Services in Sanford FL',
+    description:
+      'Discover the best house cleaning services in Sanford FL. See packages, pricing, scheduling tips, and why Sanford Cleaning is trusted by local homeowners.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

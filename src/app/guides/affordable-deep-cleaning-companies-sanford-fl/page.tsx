@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Affordable Deep Cleaning Companies Near Sanford FL | Sanford Cleaning',
+  title: 'Affordable Deep Cleaning Companies Near Sanford FL',
   description:
     'Find affordable deep cleaning near Sanford, FL. Learn what’s included, pricing tips, and how Sanford Cleaning delivers value without compromising quality.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/affordable-deep-cleaning-companies-sanford-fl' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'A practical guide to affordable deep cleaning companies in Sanford, FL, including checklists, common add-ons, and budget-friendly scheduling with Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/affordable-deep-cleaning-companies-sanford-fl',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Affordable Deep Cleaning Companies Near Sanford FL',
+    description:
+      'Find affordable deep cleaning near Sanford, FL. Learn what’s included, pricing tips, and how Sanford Cleaning delivers value without compromising quality.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

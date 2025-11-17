@@ -2,7 +2,7 @@ export const metadata = {
   metadataBase: new URL("https://sanfordcleaning.com"),
   title: {
     default: "Sanford Cleaning",
-    template: "%s | Sanford Cleaning",
+    template: "%s",
   },
   applicationName: "Sanford Cleaning",
   description: "Professional residential and commercial cleaning in Sanford, FL.",
@@ -34,6 +34,7 @@ import Analytics from "@/components/Analytics";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const isProd = process.env.NODE_ENV === 'production';
   return (
     <html lang="en">
       <head />
@@ -44,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        {pixelId && (
+        {isProd && pixelId && (
           <noscript>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

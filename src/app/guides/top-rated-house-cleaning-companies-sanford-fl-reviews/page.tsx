@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Top-Rated House Cleaning Companies in Sanford FL with Reviews | Sanford Cleaning',
+  title: 'Top-Rated House Cleaning Companies in Sanford FL with Reviews',
   description:
     'Explore how to evaluate top-rated house cleaning companies in Sanford FL. Learn review signals, quality checks, and why locals choose Sanford Cleaning.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/top-rated-house-cleaning-companies-sanford-fl-reviews' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'A review-driven guide to selecting the best house cleaning companies in Sanford FL—what to look for and questions to ask.',
     url: 'https://sanfordcleaning.com/guides/top-rated-house-cleaning-companies-sanford-fl-reviews',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Top-Rated House Cleaning Companies in Sanford FL with Reviews',
+    description:
+      'Explore how to evaluate top-rated house cleaning companies in Sanford FL. Learn review signals, quality checks, and why locals choose Sanford Cleaning.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

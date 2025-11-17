@@ -17,7 +17,13 @@ export const metadata = {
     url: "https://sanfordcleaning.com/window-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Windows Cleaning in Sanford, FL",
+    description:
+      "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
+    images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
+  },
 };
 
 export default function WindowCleaningPage() {
@@ -27,6 +33,45 @@ export default function WindowCleaningPage() {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanfordcleaning.com" },
       { "@type": "ListItem", "position": 2, "name": "Window Cleaning", "item": "https://sanfordcleaning.com/window-cleaning" }
+    ]
+  }`;
+
+  const jsonLdFaq = `{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What’s included in your window cleaning service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We clean exterior and interior glass, and upon request we detail frames, sills, tracks, and screens. Hard-water spot treatment is available where feasible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you clean screens and window tracks?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We can remove, wash, and reinstall screens and clean tracks/sills to lift dust and buildup for smoother operation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is outside and inside window cleaning available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We offer outside and inside service for residential and commercial properties with streak‑free methods and pure‑water options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take and how is pricing handled?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Timing depends on window count, access, and add‑ons like tracks/screens. Get transparent pricing via our online quote or by calling (321) 236‑0618."
+        }
+      }
     ]
   }`;
 
@@ -55,6 +100,7 @@ export default function WindowCleaningPage() {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <script id="window-cleaning-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
+      <script id="window-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/window-cleaning#localbusiness" name="Sanford Cleaning - Window Cleaning" url="https://sanfordcleaning.com/window-cleaning" />
       {/* Hero */}
       <section className="bg-white border-b">

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Sanford FL House Cleaning Service Prices and Packages | Sanford Cleaning',
+  title: 'Sanford FL House Cleaning Service Prices and Packages',
   description:
     'Understand house cleaning prices and packages in Sanford FL. See factors, frequency discounts, and how to get transparent quotes from Sanford Cleaning.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages' },
@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'A pricing overview for Sanford house cleaning: factors, add-ons, and ways to save with recurring service from Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages',
     siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sanford FL House Cleaning Service Prices and Packages',
+    description:
+      'Understand house cleaning prices and packages in Sanford FL. See factors, frequency discounts, and how to get transparent quotes from Sanford Cleaning.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 

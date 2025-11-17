@@ -21,6 +21,44 @@ export const metadata = {
 };
 
 export default function PostConstructionCleaningPage() {
+  const jsonLdFaq = `{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What’s included in post-construction cleaning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Debris removal, fine dust capture, detailed cleaning of windows, floors, fixtures, cabinets, and full sanitization of kitchens and bathrooms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you handle fine construction dust and residue?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We use methods and equipment designed to capture fine particulates from ceilings, walls, vents, and surfaces without damaging materials."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you serve residential and commercial projects and are you insured?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve both residential and commercial properties. Our team is licensed and insured, and we can provide documentation upon request."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do quotes and scheduling work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing depends on scope, square footage, materials, and timeline. Request a transparent quote and schedule online or call (321) 236‑0618."
+        }
+      }
+    ]
+  }`;
   const services = [
     { title: "Debris & Dust Removal", description: "Safe removal of construction debris, sawdust, and fine particles from all surfaces." },
     { title: "Window & Glass Cleaning", description: "Streak-free cleaning of windows, glass doors, and mirrors to remove construction residue." },
@@ -69,6 +107,7 @@ export default function PostConstructionCleaningPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <script id="post-construction-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/post-construction-cleaning#localbusiness" name="Sanford Cleaning - Post-Construction Cleaning" url="https://sanfordcleaning.com/post-construction-cleaning" />
       {/* Hero */}
       <section className="bg-white border-b">

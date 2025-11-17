@@ -2,9 +2,22 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Cleaning Guides | Sanford Cleaning',
+  title: 'Cleaning Guides',
   description: 'SEO-friendly cleaning guides for Sanford, FL homeowners and renters. Learn pricing, booking, deep cleaning, and more.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides' },
+  openGraph: {
+    title: 'Cleaning Guides',
+    description: 'SEO-friendly cleaning guides for Sanford, FL homeowners and renters. Learn pricing, booking, deep cleaning, and more.',
+    url: 'https://sanfordcleaning.com/guides',
+    siteName: 'Sanford Cleaning',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cleaning Guides',
+    description: 'SEO-friendly cleaning guides for Sanford, FL homeowners and renters. Learn pricing, booking, deep cleaning, and more.',
+    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+  },
 };
 
 const guides = [

@@ -21,10 +21,49 @@ export const metadata = {
     title: "Deep Cleaning Experts in Sanford, FL | Get a Free Quote",
     description:
       "Need a deep clean? Our top-rated team handles everything from spring cleaning to move-outs. Make your home feel brand new. Get an instant, free quote online!",
+    images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
 };
 
 export default function DeepCleaningPage() {
+  const jsonLdFaq = `{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What’s included in a deep cleaning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Deep cleaning targets kitchens, bathrooms, baseboards, light fixtures, cabinet fronts, and high‑touch areas with detailed scrubbing and sanitization beyond routine service."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer move‑in/move‑out and seasonal deep cleans?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We provide deep cleans for move‑in/move‑out, spring cleaning, special events, and post‑illness recovery. Packages can be tailored to your needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a deep cleaning take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Duration depends on home size, scope, and condition. Typical visits range from 4–8 hours. Larger or add‑on tasks may extend the timeframe."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get pricing and book?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Get an instant, transparent quote and book online, or call (321) 236‑0618. Pricing reflects square footage, room count, and requested extras."
+        }
+      }
+    ]
+  }`;
   const packages = [
     {
       name: "Standard Deep Clean",
@@ -126,6 +165,7 @@ export default function DeepCleaningPage() {
 
   return (
     <div className="pt-20">
+      <script id="deep-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/deep-cleaning#localbusiness" name="Sanford Cleaning - Deep Cleaning Services" url="https://sanfordcleaning.com/deep-cleaning" priceRange="$$$" />
 
       {/* Hero Section */}

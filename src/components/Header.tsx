@@ -86,6 +86,30 @@ const Header = () => {
               </div>
             </div>
 
+            {/* Guides Dropdown */}
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors" data-cy="desktop-guides-dropdown-button">Guides</button>
+              <div className="absolute top-full left-0 mt-2 w-[28rem] bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="py-2 max-h-96 overflow-y-auto">
+                  <Link href="/guides" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-index">All Guides</Link>
+                  <Link href="/guides/best-house-cleaning-services-sanford-fl" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-best-house-cleaning-services-sanford-fl">Best House Cleaning Services in Sanford, FL</Link>
+                  <Link href="/guides/affordable-deep-cleaning-companies-sanford-fl" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-affordable-deep-cleaning-companies-sanford-fl">Affordable Deep Cleaning Companies in Sanford, FL</Link>
+                  <Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-how-to-book-professional-house-cleaner-sanford-fl">How to Book a Professional House Cleaner (Sanford, FL)</Link>
+                  <Link href="/guides/top-rated-house-cleaning-companies-sanford-fl-reviews" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-top-rated-house-cleaning-companies-sanford-fl-reviews">Top-Rated House Cleaning Companies: Reviews</Link>
+                  <Link href="/guides/sanford-fl-house-cleaning-prices-packages" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-sanford-fl-house-cleaning-prices-packages">House Cleaning Prices & Packages (Sanford, FL)</Link>
+                  <Link href="/guides/eco-friendly-house-cleaning-options-sanford-fl" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-eco-friendly-house-cleaning-options-sanford-fl">Eco-Friendly House Cleaning Options (Sanford, FL)</Link>
+                  <Link href="/guides/compare-house-cleaning-companies-sanford-fl-service-quality" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-compare-house-cleaning-companies-sanford-fl-service-quality">Compare House Cleaning Companies by Quality</Link>
+                  <Link href="/guides/sanford-fl-move-out-cleaning-services-costs" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-sanford-fl-move-out-cleaning-services-costs">Move-Out Cleaning Services & Costs (Sanford, FL)</Link>
+                  <Link href="/guides/sanford-fl-weekly-biweekly-house-cleaning-providers" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-sanford-fl-weekly-biweekly-house-cleaning-providers">Weekly & Biweekly House Cleaning Providers</Link>
+                  <Link href="/guides/best-house-cleaning-deals-discounts-sanford-fl" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-best-house-cleaning-deals-discounts-sanford-fl">Best House Cleaning Deals & Discounts</Link>
+                  <Link href="/guides/apartment-deep-cleaning-sanford-fl" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-apartment-deep-cleaning-sanford-fl">Apartment Deep Cleaning (Sanford, FL)</Link>
+                  <Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl-customer-reviews" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-how-to-book-professional-house-cleaner-sanford-fl-customer-reviews">Booking a House Cleaner Using Customer Reviews</Link>
+                  <Link href="/guides/sanford-fl-house-cleaning-service-providers-quality" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-sanford-fl-house-cleaning-service-providers-quality">Compare House Cleaning Providers by Quality (Sanford, FL)</Link>
+                  <Link href="/guides/how-to-book-house-cleaner-sanford-fl" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-guides-link-how-to-book-house-cleaner-sanford-fl">How to Book a House Cleaner (Sanford, FL)</Link>
+                </div>
+              </div>
+            </div>
+
             <Link href="/get-hired" className="text-gray-700 hover:text-blue-600 transition-colors" data-cy="desktop-get-hired-link">Get Hired</Link>
             <Link href="/custom-quote" className="text-gray-700 hover:text-blue-600 transition-colors" data-cy="desktop-custom-quote-link">Custom Quote</Link>
           </nav>
@@ -132,6 +156,26 @@ const Header = () => {
                   <Link href="/window-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-window-cleaning-link">Window Cleaning</Link>
                   <Link href="/move-in-move-out-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link>
                   <Link href="/post-construction-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-post-construction-cleaning-link">Post-Construction Cleaning</Link>
+                </div>
+
+                {/* Guides - Mobile */}
+                <div className="space-y-2 pl-4">
+                  <div className="text-sm font-semibold text-gray-500">Guides:</div>
+                  <Link href="/guides" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-index">All Guides</Link>
+                  <Link href="/guides/best-house-cleaning-services-sanford-fl" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-best-house-cleaning-services-sanford-fl">Best House Cleaning Services in Sanford, FL</Link>
+                  <Link href="/guides/affordable-deep-cleaning-companies-sanford-fl" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-affordable-deep-cleaning-companies-sanford-fl">Affordable Deep Cleaning Companies in Sanford, FL</Link>
+                  <Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-how-to-book-professional-house-cleaner-sanford-fl">How to Book a Professional House Cleaner (Sanford, FL)</Link>
+                  <Link href="/guides/top-rated-house-cleaning-companies-sanford-fl-reviews" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-top-rated-house-cleaning-companies-sanford-fl-reviews">Top-Rated House Cleaning Companies: Reviews</Link>
+                  <Link href="/guides/sanford-fl-house-cleaning-prices-packages" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-sanford-fl-house-cleaning-prices-packages">House Cleaning Prices & Packages (Sanford, FL)</Link>
+                  <Link href="/guides/eco-friendly-house-cleaning-options-sanford-fl" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-eco-friendly-house-cleaning-options-sanford-fl">Eco-Friendly House Cleaning Options (Sanford, FL)</Link>
+                  <Link href="/guides/compare-house-cleaning-companies-sanford-fl-service-quality" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-compare-house-cleaning-companies-sanford-fl-service-quality">Compare House Cleaning Companies by Quality</Link>
+                  <Link href="/guides/sanford-fl-move-out-cleaning-services-costs" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-sanford-fl-move-out-cleaning-services-costs">Move-Out Cleaning Services & Costs (Sanford, FL)</Link>
+                  <Link href="/guides/sanford-fl-weekly-biweekly-house-cleaning-providers" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-sanford-fl-weekly-biweekly-house-cleaning-providers">Weekly & Biweekly House Cleaning Providers</Link>
+                  <Link href="/guides/best-house-cleaning-deals-discounts-sanford-fl" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-best-house-cleaning-deals-discounts-sanford-fl">Best House Cleaning Deals & Discounts</Link>
+                  <Link href="/guides/apartment-deep-cleaning-sanford-fl" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-apartment-deep-cleaning-sanford-fl">Apartment Deep Cleaning (Sanford, FL)</Link>
+                  <Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl-customer-reviews" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-how-to-book-professional-house-cleaner-sanford-fl-customer-reviews">Booking a House Cleaner Using Customer Reviews</Link>
+                  <Link href="/guides/sanford-fl-house-cleaning-service-providers-quality" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-sanford-fl-house-cleaning-service-providers-quality">Compare House Cleaning Providers by Quality (Sanford, FL)</Link>
+                  <Link href="/guides/how-to-book-house-cleaner-sanford-fl" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-guides-link-how-to-book-house-cleaner-sanford-fl">How to Book a House Cleaner (Sanford, FL)</Link>
                 </div>
 
                 <div className="flex flex-row gap-6">

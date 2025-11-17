@@ -24,6 +24,44 @@ export const metadata = {
 };
 
 export default function MoveInMoveOutPage() {
+  const jsonLdFaq = `{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What’s included in move‑in and move‑out cleaning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Comprehensive cleaning of all rooms, appliances, fixtures, cabinets, baseboards, and high‑touch areas with sanitization to meet landlord and listing standards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help maximize my security deposit return?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our detailed move‑out checklist targets areas landlords inspect most, helping protect your deposit when cleanliness is a condition of return."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you coordinate timing with movers or property managers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer flexible scheduling and can coordinate access with property managers, leasing offices, or your moving timeline to reduce downtime."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do quotes and booking work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Request a transparent quote online or call (321) 236‑0618. Pricing depends on size, condition, and any add‑ons like inside appliances or cabinets."
+        }
+      }
+    ]
+  }`;
   const moveInSteps = [
     {
       icon: Key,
@@ -101,6 +139,51 @@ export default function MoveInMoveOutPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <script id="move-in-move-out-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
+      <script
+        id="move-in-move-out-cleaning-jsonld-howto"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'HowTo',
+            name: 'How to book move-in or move-out cleaning in Sanford, FL',
+            description: 'A quick checklist to schedule professional move-in or move-out cleaning with Sanford Cleaning.',
+            totalTime: 'PT5M',
+            supply: [
+              { '@type': 'HowToSupply', name: 'Property address and unit number' },
+              { '@type': 'HowToSupply', name: 'Preferred date and access details' },
+            ],
+            tool: [
+              { '@type': 'HowToTool', name: 'Online booking form' },
+              { '@type': 'HowToTool', name: 'Phone: (321) 236-0618' },
+            ],
+            step: [
+              {
+                '@type': 'HowToStep',
+                name: 'Open booking or request a quote',
+                url: 'https://sanfordcleaning.com/booking',
+                text: 'Visit the booking page to choose move-in or move-out cleaning, or request a transparent quote if needed.',
+              },
+              {
+                '@type': 'HowToStep',
+                name: 'Choose date and timing',
+                text: 'Select your preferred service date and timing—coordinate with movers or property managers if needed.',
+              },
+              {
+                '@type': 'HowToStep',
+                name: 'Add scope and add-ons',
+                text: 'Include inside appliances, cabinets, or special instructions to match landlord or listing standards.',
+              },
+              {
+                '@type': 'HowToStep',
+                name: 'Confirm and prepare',
+                text: 'Submit your booking to receive confirmation and preparation tips for easy access on service day.',
+              },
+            ],
+          }),
+        }}
+      />
       <LocalBusinessSchema id="https://sanfordcleaning.com/move-in-move-out-cleaning#localbusiness" name="Sanford Cleaning - Move In & Move Out Cleaning" url="https://sanfordcleaning.com/move-in-move-out-cleaning" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
@@ -268,15 +351,6 @@ export default function MoveInMoveOutPage() {
 
             <div className="grid md:grid-cols-2 gap-8 mt-8">
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Popular Searches We Cover</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>move out cleaning near me</strong> – fast, thorough, and deposit-friendly.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>apartment move out cleaning near me</strong> – ideal for studios and multi-unit properties.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house move out cleaning near me</strong> – deep cleaning for single-family homes and townhomes.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>move in and out cleaning services</strong> – flexible scheduling for both ends of your move.</span></li>
-                </ul>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">What&apos;s Included</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start"><Sparkles className="w-4 h-4 text-blue-600 mr-2 mt-0.5" /> Kitchen: appliances inside/out, cabinets, counters, sinks, and floors.</li>
@@ -289,7 +363,7 @@ export default function MoveInMoveOutPage() {
 
             <div className="mt-10 bg-blue-50 border border-blue-200 rounded-xl p-6">
               <p className="text-gray-700">
-                Ready to book <strong>move out cleaning services near me</strong> or a <strong>move in cleaning service</strong>? Click below to schedule your appointment in minutes.
+                Ready to book move out cleaning in Sanford, FL? Click below to schedule your appointment in minutes.
               </p>
               <div className="mt-4 flex flex-col sm:flex-row gap-4">
                 <Link href="/booking" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-flex items-center">Book Move Cleaning <ArrowRight className="w-5 h-5 ml-2" /></Link>
