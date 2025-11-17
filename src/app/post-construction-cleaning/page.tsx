@@ -3,14 +3,14 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { MapPin, CheckCircle, Clock, Shield, Star, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Post-Construction Cleaning in Sanford, FL",
+  title: "#1 Post-Construction Cleaning in Sanford FL | Sanford Cleaning",
   description:
     "Post-construction cleaning in Sanford, FL: debris and dust removal, windows, floors, fixtures, and sanitization to prepare your space.",
   keywords:
     "post construction cleaning sanford fl, renovation cleanup, construction dust removal, contractor cleanup, commercial post construction cleaning, residential post construction cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/post-construction-cleaning" },
   openGraph: {
-    title: "Post-Construction Cleaning in Sanford, FL",
+    title: "#1 Post-Construction Cleaning in Sanford FL | Sanford Cleaning",
     description:
       "Detailed post-construction cleanup: debris and dust removal, windows, floors, fixtures, and sanitization with insured professionals in Sanford, FL.",
     type: "website",

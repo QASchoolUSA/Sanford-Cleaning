@@ -3,12 +3,12 @@ import { Building, Clock, Shield, Users, CheckCircle, Briefcase } from 'lucide-r
 import Image from 'next/image';
 
 export const metadata = {
-  title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',
+  title: '#1 Commercial Cleaning Service in Sanford, FL | Free Quote',
   description:
-    "Commercial cleaning in Sanford, FL for offices, medical, and retail. Professional service with custom pricing and flexible scheduling. Get a free quote today.",
+    "Commercial cleaning in Sanford, FL for offices, medical, and retail. Professional service with custom pricing and flexible scheduling.",
   alternates: { canonical: 'https://sanfordcleaning.com/commercial-cleaning' },
   openGraph: {
-    title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',
+    title: '#1 Commercial Cleaning Service in Sanford, FL | Free Quote',
     description:
       "Sanford&apos;s top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!",
     type: 'website',
@@ -17,7 +17,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',
+    title: '#1 Commercial Cleaning Service in Sanford, FL | Free Quote',
     description:
       "Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!",
     images: ['https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp'],

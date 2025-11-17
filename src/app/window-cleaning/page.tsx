@@ -3,14 +3,14 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 
 export const metadata = {
-  title: "Window Cleaning in Sanford, FL",
+  title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
   description:
     "Inside and outside window cleaning in Sanford, FL for homes and businesses. Streak-free glass, tracks, sills, and screens.",
   keywords:
     "window cleaning sanford fl, window cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/window-cleaning" },
   openGraph: {
-    title: "Window Cleaning in Sanford, FL",
+    title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
     description:
       "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
     type: "website",
@@ -19,7 +19,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Window Cleaning in Sanford, FL",
+    title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
     description:
       "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
