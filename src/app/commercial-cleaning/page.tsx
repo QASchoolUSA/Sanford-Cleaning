@@ -5,7 +5,7 @@ import Image from 'next/image';
 export const metadata = {
   title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',
   description:
-    "Commercial cleaning in Sanford, FL for offices, medical, and retail. Keep your business pristine and professional. Get a free quote today.",
+    "Commercial cleaning in Sanford, FL for offices, medical, and retail. Professional service with custom pricing and flexible scheduling. Get a free quote today.",
   alternates: { canonical: 'https://sanfordcleaning.com/commercial-cleaning' },
   openGraph: {
     title: '#1 Office Cleaning Service in Sanford, FL | Free Quote',

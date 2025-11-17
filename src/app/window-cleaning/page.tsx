@@ -3,14 +3,14 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 
 export const metadata = {
-  title: "Windows Cleaning in Sanford, FL",
+  title: "Window Cleaning in Sanford, FL",
   description:
     "Inside and outside window cleaning in Sanford, FL for homes and businesses. Streak-free glass, tracks, sills, and screens.",
   keywords:
-    "windows cleaning sanford, fl, windows cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
+    "window cleaning sanford fl, window cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/window-cleaning" },
   openGraph: {
-    title: "Windows Cleaning in Sanford, FL",
+    title: "Window Cleaning in Sanford, FL",
     description:
       "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
     type: "website",
@@ -19,7 +19,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Windows Cleaning in Sanford, FL",
+    title: "Window Cleaning in Sanford, FL",
     description:
       "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
@@ -109,7 +109,7 @@ export default function WindowCleaningPage() {
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Outside & Inside Window Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Crystal-clear windows brighten your space and improve curb appeal. Sanford Cleaning offers professional windows cleaning in Sanford Florida—outside and inside service for
+                Crystal-clear windows brighten your space and improve curb appeal. Sanford Cleaning offers professional window cleaning in Sanford FL—outside and inside service for
                 <Link href="/house-cleaning" className="text-blue-600 hover:underline"> residential</Link> and
                 <Link href="/commercial-cleaning" className="text-blue-600 hover:underline"> commercial</Link> properties. We detail tracks, sills, frames, and screens for a complete finish.
               </p>
@@ -165,10 +165,10 @@ export default function WindowCleaningPage() {
 
       {/* Article Section for SEO */}
       <section className="container mx-auto px-4 py-12">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Windows Cleaning in Sanford Florida: What to Expect</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Window Cleaning in Sanford FL: What to Expect</h2>
         <div className="prose max-w-none text-gray-800">
           <p>
-            For homeowners and businesses seeking windows cleaning in Sanford, FL, the goal is more than spotless glass. Proper outside and inside window cleaning removes pollen, construction dust, and water spots, while detailing tracks and sills to prevent sticking and grime buildup. Sanford Cleaning uses streak-free methods and surface-safe tools that respect your materials.
+            For homeowners and businesses seeking window cleaning in Sanford FL, the goal is more than spotless glass. Proper outside and inside window cleaning removes pollen, construction dust, and water spots, while detailing tracks and sills to prevent sticking and grime buildup. Sanford Cleaning uses streak-free methods and surface-safe tools that respect your materials.
           </p>
           <p>
             Residential and commercial properties have different needs. Storefronts benefit from routine exterior glass cleaning to maintain visibility and brand image, while homes often pair window service with seasonal

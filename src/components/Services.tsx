@@ -81,7 +81,7 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 data-cy="services-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Cleaning Services
+            House Cleaning Services in Sanford FL
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We offer a comprehensive range of professional cleaning services tailored to meet your specific needs.

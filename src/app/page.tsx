@@ -6,7 +6,7 @@ import Contact from '@/components/Contact';
 export const metadata = {
   title: 'House Cleaning Services Sanford, FL | Sanford Cleaning',
   description:
-    "Top-rated house and office cleaning in Sanford, FL. Get a free instant quote and book in 60 seconds for a spotless space.",
+    "Professional cleaning services in Sanford FL — house cleaning, deep cleaning, carpet cleaning, and window cleaning. Fast booking with custom pricing.",
   alternates: {
     canonical: 'https://sanfordcleaning.com',
   },

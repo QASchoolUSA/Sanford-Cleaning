@@ -23,7 +23,7 @@ const Hero = () => {
               Professional
               <span className="block text-blue-600">Cleaning Services</span>
               <span className="block text-2xl lg:text-3xl xl:text-4xl font-normal text-gray-600 mt-2">
-                in Sanford, Florida
+                in Sanford FL
               </span>
             </h1>
             
