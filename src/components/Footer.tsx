@@ -14,7 +14,7 @@ const Footer = () => {
       window.location.href = `/#${sectionId}`;
       return;
     }
-    
+
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -52,7 +52,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/house-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">House Cleaning Services</Link></li>
+              <li><Link href="/house-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-house-cleaning-link">House Cleaning Services</Link></li>
+              <li><Link href="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">Residential Cleaning</Link></li>
               <li><Link href="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Office Cleaning Service</Link></li>
               <li><Link href="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-deep-cleaning-link">Deep Cleaning Services</Link></li>
               <li><Link href="/move-in-move-out-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link></li>
