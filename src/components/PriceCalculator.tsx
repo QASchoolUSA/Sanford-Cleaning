@@ -461,9 +461,34 @@ const PriceCalculator = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+
+    const bookingData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      aptUnit: formData.aptUnit || undefined,
+      keyInfo: formData.keyInfo,
+      service: formData.service || 'Cleaning Service',
+      squareFootage: formData.squareFootage || '',
+      bedrooms: Number(formData.bedrooms),
+      bathrooms: Number(formData.bathrooms),
+      paymentType: formData.paymentType || '',
+      paymentComment: formData.customerNote || undefined,
+      maintenancePrice: typeof maintenancePrice === 'number' && maintenancePrice > 0 ? maintenancePrice : undefined,
+    };
+    const bookingId = `BK${Date.now()}`;
 
     if (formData.paymentType === 'Credit Card') {
+      try {
+        await fetch('/api/emails/confirm-booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bookingData, bookingId }),
+        });
+      } catch {}
       // Persist latest payment details for fallback use on the Stripe page
       try {
         const lastStripePayment = {
@@ -510,6 +535,13 @@ const PriceCalculator = () => {
         }
       })();
     } else {
+      try {
+        await fetch('/api/emails/confirm-booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bookingData, bookingId }),
+        });
+      } catch {}
       // Persist latest booking details so user can still pay later from booking success
       try {
         const lastStripePayment = {
