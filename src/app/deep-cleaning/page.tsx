@@ -26,6 +26,14 @@ export const metadata = {
 };
 
 export default function DeepCleaningPage() {
+  const jsonLdBreadcrumb = `{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanfordcleaning.com" },
+      { "@type": "ListItem", "position": 2, "name": "Deep Cleaning", "item": "https://sanfordcleaning.com/deep-cleaning" }
+    ]
+  }`;
   const jsonLdFaq = `{
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -165,8 +173,9 @@ export default function DeepCleaningPage() {
 
   return (
     <div className="pt-20">
+      <script id="deep-cleaning-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
       <script id="deep-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
-      <LocalBusinessSchema id="https://sanfordcleaning.com/deep-cleaning#localbusiness" name="Sanford Cleaning - Deep Cleaning Services" url="https://sanfordcleaning.com/deep-cleaning" priceRange="$$$" />
+      <LocalBusinessSchema id="https://sanfordcleaning.com/deep-cleaning#localbusiness" name="Sanford Cleaning - Deep Cleaning" url="https://sanfordcleaning.com/deep-cleaning" />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">

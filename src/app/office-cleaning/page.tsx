@@ -27,6 +27,14 @@ export const metadata = {
 };
 
 export default function OfficeCleaningPage() {
+  const jsonLdBreadcrumb = `{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanfordcleaning.com" },
+      { "@type": "ListItem", "position": 2, "name": "Office Cleaning", "item": "https://sanfordcleaning.com/office-cleaning" }
+    ]
+  }`;
   const services = [
     { title: "Lobby & Common Areas", description: "Dusting, surface wipe‑downs, glass cleaning, and tidy presentation for reception and shared spaces." },
     { title: "Workstations & Offices", description: "Detailed cleaning for desks, chairs, shelves, and fixtures. Light organization upon request." },
@@ -64,6 +72,7 @@ export default function OfficeCleaningPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <script id="office-cleaning-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/office-cleaning#localbusiness" name="Sanford Cleaning - Office Cleaning" url="https://sanfordcleaning.com/office-cleaning" />
       <script
         id="office-jsonld-faq"

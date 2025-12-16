@@ -8,6 +8,9 @@ export const metadata = {
     "Professional pressure washing in Sanford, FL. House siding, driveways, patios, and gutters with safe soft-wash options.",
   keywords: [
     "pressure washing",
+    "pressure washing near me",
+    "pressure washing sanford fl",
+    "house pressure washing",
     "exterior washing",
     "professional pressure washing",
     "house washing",
@@ -33,6 +36,14 @@ export const metadata = {
 };
 
 export default function PressureWashingPage() {
+  const jsonLdBreadcrumb = `{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanfordcleaning.com" },
+      { "@type": "ListItem", "position": 2, "name": "Pressure Washing", "item": "https://sanfordcleaning.com/pressure-washing" }
+    ]
+  }`;
   const jsonLdFaq = `{
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -89,6 +100,7 @@ export default function PressureWashingPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <script id="pressure-washing-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
       <script id="pressure-washing-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/pressure-washing#localbusiness" name="Sanford Cleaning - Pressure Washing" url="https://sanfordcleaning.com/pressure-washing" />
       {/* Hero */}
@@ -157,6 +169,39 @@ export default function PressureWashingPage() {
           <p className="mt-4">
             Driveways and walkways in shaded areas can also accumulate slippery growth. With proper treatment, we lift stains and improve traction. We also offer soft-wash for delicate materials, plus window cleaning follow-ups so everything shines.
           </p>
+        </div>
+      </section>
+
+      {/* Popular Searches Near You */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl p-6 border">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>pressure washing near me</strong> – house siding, driveways, patios.</span></li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>pressure washing sanford fl</strong> – local exterior washing with soft‑wash options.</span></li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house pressure washing</strong> – safe methods for stucco, vinyl, brick, and paint.</span></li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>exterior washing near me</strong> – gutters, soffits, fences, and pool decks.</span></li>
+            </ul>
+          </div>
+          <div className="bg-white rounded-xl p-6 border">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Licensed and insured exterior cleaning specialists</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Eco‑conscious detergents and managed runoff</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Soft‑wash options for delicate surfaces</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Transparent quotes and flexible scheduling</li>
+            </ul>
+            <div className="mt-4 flex flex-col sm:flex-row gap-3">
+              <Link href="/free-custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                Get a Free Quote
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+              <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
+                Book Pressure Washing
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

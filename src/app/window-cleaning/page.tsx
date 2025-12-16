@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Inside and outside window cleaning in Sanford, FL for homes and businesses. Streak-free glass, tracks, sills, and screens.",
   keywords:
-    "window cleaning sanford fl, window cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
+    "window cleaning near me, sanford window cleaning, window cleaning sanford fl, window cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/window-cleaning" },
   openGraph: {
     title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
@@ -179,6 +179,39 @@ export default function WindowCleaningPage() {
             Our team provides flexible scheduling and clear pricing. Call <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a> to discuss your Sanford FL property, or
             <Link href="/custom-quote" className="text-blue-600 hover:underline"> request a custom quote</Link>. We can bundle pressure washing and window cleaning for a seamless, full-service experience.
           </p>
+        </div>
+      </section>
+
+      {/* Popular Searches Near You */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl p-6 border">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>window cleaning near me</strong> – local residential and commercial service.</span></li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>sanford window cleaning</strong> – streak‑free outside and inside cleaning.</span></li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>window screen cleaning</strong> – remove, wash, and reinstall screens.</span></li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>window track cleaning</strong> – detail tracks and sills to prevent sticking.</span></li>
+            </ul>
+          </div>
+          <div className="bg-white rounded-xl p-6 border">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Licensed and insured window technicians</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Pure‑water and surface‑safe methods</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Flexible scheduling for homes and storefronts</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Transparent pricing and clear communication</li>
+            </ul>
+            <div className="mt-4 flex flex-col sm:flex-row gap-3">
+              <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                Get a Free Quote
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+              <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">
+                Book Window Cleaning
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

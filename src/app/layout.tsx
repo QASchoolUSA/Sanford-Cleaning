@@ -35,9 +35,22 @@ import Analytics from "@/components/Analytics";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const isProd = process.env.NODE_ENV === 'production';
+  const siteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Sanford Cleaning',
+    url: 'https://sanfordcleaning.com',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://sanfordcleaning.com/guides?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
   return (
     <html lang="en">
-      <head />
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
+      </head>
       <body>
         <MicrosoftClarity />
         <Analytics />

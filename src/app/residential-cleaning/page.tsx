@@ -271,7 +271,7 @@ export default function ResidentialCleaningPage() {
                     <Sparkles className="w-8 h-8 text-indigo-600" />
                 </div>
                 <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Pet Owners? We've Got You Covered!</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Pet Owners? We&apos;ve Got You Covered!</h3>
                     <p className="text-gray-600">
                         We understand that pets are family, but they can leave behind messes. Our <strong>odor elimination</strong> and <strong>carpet cleaning</strong> services are specifically designed to tackle pet stains, urine odors, and dander, leaving your home fresh and clean.
                     </p>
@@ -287,7 +287,7 @@ export default function ResidentialCleaningPage() {
           <div className="max-w-4xl mx-auto prose prose-indigo">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us for Residential Cleaning in Sanford?</h2>
             <p className="text-gray-700 mb-4">
-              Finding reliable <strong>residential cleaning near me</strong> shouldn't be a hassle. At Sanford Cleaning, we pride ourselves on delivering consistent, high-quality service to residents in Sanford, FL, and surrounding areas. Whether you live in a cozy apartment, a spacious townhouse, or a condo, our team is trained to respect your space and provide a superior clean.
+              Finding reliable <strong>residential cleaning near me</strong> shouldn&apos;t be a hassle. At Sanford Cleaning, we pride ourselves on delivering consistent, high-quality service to residents in Sanford, FL, and surrounding areas. Whether you live in a cozy apartment, a spacious townhouse, or a condo, our team is trained to respect your space and provide a superior clean.
             </p>
             <p className="text-gray-700 mb-4">
               Our <strong>residential cleaning sanford, fl</strong> services are flexible to meet your needs. We offer:
@@ -295,7 +295,7 @@ export default function ResidentialCleaningPage() {
             <ul className="list-disc pl-5 space-y-2 text-gray-700 mb-6">
               <li><strong>Customized Checklists:</strong> We focus on what matters most to you.</li>
               <li><strong>Trusted Professionals:</strong> Background-checked and insured for your peace of mind.</li>
-              <li><strong>Satisfaction Guarantee:</strong> If you're not happy, we'll make it right.</li>
+              <li><strong>Satisfaction Guarantee:</strong> If you&apos;re not happy, we&apos;ll make it right.</li>
             </ul>
             <p className="text-gray-700 mb-6">
               For those searching for <strong>residential cleaning in sanford</strong>, look no further. We combine professional expertise with a personal touch. From scrubbing bathrooms to deep cleaning carpets with pet stains, we handle the dirty work so you can enjoy your free time.
@@ -304,7 +304,7 @@ export default function ResidentialCleaningPage() {
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Ready to book your cleaning?</h3>
                 <p className="text-gray-700 mb-4">
-                    Don't wait! Experience the best <strong>residential cleaning sanford</strong> has to offer.
+                    Don&apos;t wait! Experience the best <strong>residential cleaning sanford</strong> has to offer.
                 </p>
                 <div className="flex gap-4">
                      <Link href="/booking" className="text-indigo-600 font-bold hover:underline">Book Online</Link>
