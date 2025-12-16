@@ -1,7 +1,7 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home as HomeIcon, Clock, CheckCircle, ArrowRight, Sparkles, Wind, AlertCircle } from 'lucide-react';
+import { Home as HomeIcon, Clock, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
 
 export const metadata = {
   title: 'Residential Cleaning in Sanford, FL | Apartments & Townhouses',
