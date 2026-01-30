@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 
@@ -141,6 +142,15 @@ export default function WindowCleaningPage() {
               </div>
               <div className="mt-4 flex items-center text-sm text-gray-600">
                 <Shield className="w-4 h-4 mr-2" /> Fully insured • <Clock className="w-4 h-4 mx-2" /> On-time • <MapPin className="w-4 h-4 mx-2" /> Sanford, FL
+              </div>
+              <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                <Image
+                  src="/sanford-cleaning-windows-cleaning.png"
+                  alt="Professional window cleaning in Sanford FL"
+                  width={800}
+                  height={500}
+                  className="w-full h-80 md:h-96 object-cover object-top"
+                />
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import Services from '@/components/Services';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import ServiceAreas from '@/components/ServiceAreas';
+import Gallery from '@/components/Gallery';
 
 export const metadata = {
   title: 'Top-Rated House Cleaning Services Sanford, FL | Sanford Cleaning',
@@ -123,6 +124,7 @@ export default function HomePage() {
       <Hero />
       <Services />
       <About />
+      <Gallery />
       <ServiceAreas />
       <Contact />
     </main>

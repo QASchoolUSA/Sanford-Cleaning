@@ -87,31 +87,31 @@ export default function ResidentialCleaningPage() {
   ];
 
   const extras = [
-    { 
-      name: 'Inside Refrigerator', 
-      price: '$20', 
-      description: 'Deep clean of shelves and drawers to remove spills and food residue.' 
+    {
+      name: 'Inside Refrigerator',
+      price: '$20',
+      description: 'Deep clean of shelves and drawers to remove spills and food residue.'
     },
-    { 
-      name: 'Odor Elimination', 
-      price: 'Custom Quote', 
-      description: 'Specialized treatment to neutralize tough odors from pets, smoke, or cooking.' 
+    {
+      name: 'Odor Elimination',
+      price: 'Custom Quote',
+      description: 'Specialized treatment to neutralize tough odors from pets, smoke, or cooking.'
     },
-    { 
-      name: 'Carpet Cleaning', 
-      price: 'Custom Quote', 
+    {
+      name: 'Carpet Cleaning',
+      price: 'Custom Quote',
       description: 'Hot water extraction for pet stains, urine odor, and deep-seated dirt.',
       link: '/carpet-cleaning'
     },
-    { 
-      name: 'Inside Oven', 
-      price: '$25', 
-      description: 'Scrubbing and degreasing to remove burnt-on food and grease.' 
+    {
+      name: 'Inside Oven',
+      price: '$25',
+      description: 'Scrubbing and degreasing to remove burnt-on food and grease.'
     },
-    { 
-      name: 'Interior Windows', 
-      price: '$3 per window', 
-      description: 'Streak-free cleaning for glass surfaces and wiping down sills.' 
+    {
+      name: 'Interior Windows',
+      price: '$3 per window',
+      description: 'Streak-free cleaning for glass surfaces and wiping down sills.'
     },
   ];
 
@@ -178,8 +178,8 @@ export default function ResidentialCleaningPage() {
             </div>
             <div className="relative">
               <Image
-                src="/sanford-residential-cleaning.webp"
-                alt="Residential Cleaning Sanford FL - Apartments and Townhouses"
+                src="/sanford-cleaning-mopping-floors.png"
+                alt="Mopping hardwood floors in a Sanford apartment"
                 width={800}
                 height={800}
                 priority
@@ -224,9 +224,9 @@ export default function ResidentialCleaningPage() {
                   ))}
                 </div>
                 {service.link && (
-                    <Link href={service.link} className="text-indigo-600 font-semibold hover:underline flex items-center justify-center mt-auto">
-                        Learn More <ArrowRight className="w-4 h-4 ml-1" />
-                    </Link>
+                  <Link href={service.link} className="text-indigo-600 font-semibold hover:underline flex items-center justify-center mt-auto">
+                    Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
                 )}
               </div>
             ))}
@@ -257,25 +257,25 @@ export default function ResidentialCleaningPage() {
                 </div>
                 <p className="text-gray-600 text-sm mb-4">{extra.description}</p>
                 {extra.link && (
-                     <Link href={extra.link} className="text-sm text-indigo-600 font-medium hover:underline flex items-center">
-                        View Details <ArrowRight className="w-3 h-3 ml-1" />
-                     </Link>
+                  <Link href={extra.link} className="text-sm text-indigo-600 font-medium hover:underline flex items-center">
+                    View Details <ArrowRight className="w-3 h-3 ml-1" />
+                  </Link>
                 )}
               </div>
             ))}
           </div>
-          
+
           <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto border-l-4 border-indigo-500">
             <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="bg-indigo-100 p-4 rounded-full">
-                    <Sparkles className="w-8 h-8 text-indigo-600" />
-                </div>
-                <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Pet Owners? We&apos;ve Got You Covered!</h3>
-                    <p className="text-gray-600">
-                        We understand that pets are family, but they can leave behind messes. Our <strong>odor elimination</strong> and <strong>carpet cleaning</strong> services are specifically designed to tackle pet stains, urine odors, and dander, leaving your home fresh and clean.
-                    </p>
-                </div>
+              <div className="bg-indigo-100 p-4 rounded-full">
+                <Sparkles className="w-8 h-8 text-indigo-600" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Pet Owners? We&apos;ve Got You Covered!</h3>
+                <p className="text-gray-600">
+                  We understand that pets are family, but they can leave behind messes. Our <strong>odor elimination</strong> and <strong>carpet cleaning</strong> services are specifically designed to tackle pet stains, urine odors, and dander, leaving your home fresh and clean.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -300,17 +300,17 @@ export default function ResidentialCleaningPage() {
             <p className="text-gray-700 mb-6">
               For those searching for <strong>residential cleaning in sanford</strong>, look no further. We combine professional expertise with a personal touch. From scrubbing bathrooms to deep cleaning carpets with pet stains, we handle the dirty work so you can enjoy your free time.
             </p>
-            
+
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Ready to book your cleaning?</h3>
-                <p className="text-gray-700 mb-4">
-                    Don&apos;t wait! Experience the best <strong>residential cleaning sanford</strong> has to offer.
-                </p>
-                <div className="flex gap-4">
-                     <Link href="/booking" className="text-indigo-600 font-bold hover:underline">Book Online</Link>
-                     <span className="text-gray-300">|</span>
-                     <Link href="/contact" className="text-indigo-600 font-bold hover:underline">Contact Us</Link>
-                </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Ready to book your cleaning?</h3>
+              <p className="text-gray-700 mb-4">
+                Don&apos;t wait! Experience the best <strong>residential cleaning sanford</strong> has to offer.
+              </p>
+              <div className="flex gap-4">
+                <Link href="/booking" className="text-indigo-600 font-bold hover:underline">Book Online</Link>
+                <span className="text-gray-300">|</span>
+                <Link href="/contact" className="text-indigo-600 font-bold hover:underline">Contact Us</Link>
+              </div>
             </div>
           </div>
         </div>
