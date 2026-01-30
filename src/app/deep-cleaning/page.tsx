@@ -1,26 +1,27 @@
 import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import ServiceAreas from "@/components/ServiceAreas";
 import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks } from "lucide-react";
 
 export const metadata = {
-  title: "Deep Cleaning Experts in Sanford, FL | Get a Free Quote",
+  title: "Deep Cleaning Services Near Me | Sanford, FL Deep Cleaners",
   description:
-    "Expert deep cleaning in Sanford, FL for homes and move-outs. Make your place feel brand new. Get a free instant quote online.",
+    "Expert deep cleaning services near me in Sanford, FL. Thorough house and apartment deep cleaning for spring cleaning, move-outs, and more. Get a free quote!",
   alternates: { canonical: "https://sanfordcleaning.com/deep-cleaning" },
   openGraph: {
-    title: "Deep Cleaning Experts in Sanford, FL | Get a Free Quote",
+    title: "Deep Cleaning Services Near Me | Sanford, FL Deep Cleaners",
     description:
-      "Need a deep clean? Our top-rated team handles everything from spring cleaning to move-outs. Make your home feel brand new. Get an instant, free quote online!",
+      "Need deep cleaning near me? Our top-rated team handles spring cleaning, move-outs, and detailed house cleaning in Sanford, FL. Book online!",
     type: "website",
     url: "https://sanfordcleaning.com/deep-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deep Cleaning Experts in Sanford, FL | Get a Free Quote",
+    title: "Deep Cleaning Services Near Me | Sanford, FL Deep Cleaners",
     description:
-      "Need a deep clean? Our top-rated team handles everything from spring cleaning to move-outs. Make your home feel brand new. Get an instant, free quote online!",
+      "Need deep cleaning near me? Our top-rated team handles spring cleaning, move-outs, and detailed house cleaning in Sanford, FL. Book online!",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
 };
@@ -381,6 +382,9 @@ export default function DeepCleaningPage() {
           </div>
         </div>
       </section>
+
+      {/* Service Areas */}
+      <ServiceAreas />
     </div>
   );
 }

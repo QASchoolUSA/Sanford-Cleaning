@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import ServiceAreas from "@/components/ServiceAreas";
 import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sparkles, Key, Truck } from "lucide-react";
 
 export const metadata = {
@@ -8,18 +9,18 @@ export const metadata = {
     "Reliable move-in and move-out cleaning in Sanford, FL. Ideal for renters, owners, and property managers. Get a free quote today.",
   alternates: { canonical: "https://sanfordcleaning.com/move-in-move-out-cleaning" },
   openGraph: {
-    title: "Move In & Move Out Cleaning Services Sanford FL",
+    title: "Move Out Cleaning Services Near Me | Sanford Cleaning",
     description:
-      "Sanford Cleaning offers the most reliable move in & move out cleaning services in Sanford FL, and surrounding areas. Perfect for rental property owners and residents moving homes.",
+      "Looking for move out cleaning services near me? Sanford Cleaning offers top-rated move-in & move-out cleaning in Sanford, FL. Book online!",
     type: "website",
     url: "https://sanfordcleaning.com/move-in-move-out-cleaning",
     images: [{ url: "https://sanfordcleaning.com/sanford-residential-cleaning-2.webp", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Move In & Move Out Cleaning Services Sanford FL",
+    title: "Move Out Cleaning Services Near Me | Sanford Cleaning",
     description:
-      "Sanford Cleaning offers the most reliable move in & move out cleaning services in Sanford FL, and surrounding areas. Perfect for rental property owners and residents moving homes.",
+      "Looking for move out cleaning services near me? Sanford Cleaning offers top-rated move-in & move-out cleaning in Sanford, FL. Book online!",
   },
 };
 
@@ -375,28 +376,7 @@ export default function MoveInMoveOutPage() {
       </section>
 
       {/* Service Areas */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Serving Sanford & Surrounding Areas</h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {serviceAreas.map((area) => (
-                <span key={area} className="px-4 py-2 bg-white border rounded-lg text-gray-700">
-                  {area}
-                </span>
-              ))}
-            </div>
-            <div className="mt-8 flex justify-center gap-4">
-              <Link href="/booking" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-flex items-center">
-                Book Now <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-              <Link href="/free-custom-quote" className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 inline-flex items-center">
-                Get a Free Quote <Sparkles className="w-5 h-5 ml-2" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceAreas />
     </div>
   );
 }

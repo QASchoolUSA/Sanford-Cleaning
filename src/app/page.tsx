@@ -2,11 +2,12 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
+import ServiceAreas from '@/components/ServiceAreas';
 
 export const metadata = {
-  title: 'House Cleaning Services Sanford, FL | Sanford Cleaning',
+  title: 'Top-Rated House Cleaning Services Sanford, FL | Sanford Cleaning',
   description:
-    "Professional cleaning services in Sanford FL — house cleaning, deep cleaning, carpet cleaning, and window cleaning. Fast booking with custom pricing.",
+    "Looking for the best home cleaners in Sanford, FL? We offer top-rated housekeeping, deep cleaning, and move-out services. Book online today!",
   alternates: {
     canonical: 'https://sanfordcleaning.com',
   },
@@ -14,7 +15,7 @@ export const metadata = {
     title:
       'Sanford Cleaning | Top-Rated House & Commercial Cleaning in Sanford, FL',
     description:
-      "Get a sparkling clean house or office with Sanford Cleaning's top-rated services. We offer reliable residential, commercial, and deep cleaning in Sanford, FL. Book online in 60 seconds!",
+      "Get a sparkling clean house or office with Sanford Cleaning's top-rated home cleaners. We offer reliable housekeeping, commercial, and deep cleaning in Sanford, FL. Book online in 60 seconds!",
     type: 'website',
     url: 'https://sanfordcleaning.com',
     siteName: 'Sanford Cleaning',
@@ -122,6 +123,7 @@ export default function HomePage() {
       <Hero />
       <Services />
       <About />
+      <ServiceAreas />
       <Contact />
     </main>
   );

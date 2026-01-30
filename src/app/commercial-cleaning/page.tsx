@@ -1,4 +1,5 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
+import ServiceAreas from '@/components/ServiceAreas';
 import { Building, Clock, Shield, Users, CheckCircle, Briefcase } from 'lucide-react';
 import Image from 'next/image';
 
@@ -95,7 +96,7 @@ export default function CommercialCleaningPage() {
     { icon: Shield, name: 'Educational Facilities', description: 'Comprehensive school and educational facility cleaning in Sanford' },
   ];
 
-  
+
 
   return (
     <div className="pt-20">
@@ -158,8 +159,8 @@ export default function CommercialCleaningPage() {
                 <Building className="w-8 h-8 text-blue-600" />
                 <span className="text-blue-600 font-semibold">Commercial Cleaning</span>
               </div>
-              <h1 data-cy="commercial-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Commercial Cleaning Services in Sanford, FL</h1>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose">Sanford&apos;s premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive cleaning services that enhance your business image and create healthier work environments.</p>
+              <h1 data-cy="commercial-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Commercial Cleaning & Janitorial Services in Sanford, FL</h1>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose">Sanford&apos;s premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive janitorial services that enhance your business image and create healthier work environments.</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="/free-custom-quote" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block text-center">Get Custom Quote</a>
               </div>
@@ -241,7 +242,7 @@ export default function CommercialCleaningPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
           </div>
-          
+
           <div className="max-w-3xl mx-auto">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">What&apos;s the difference between office cleaning and janitorial services in Sanford, FL?</h3>
@@ -250,6 +251,8 @@ export default function CommercialCleaningPage() {
           </div>
         </div>
       </section>
+
+      <ServiceAreas />
     </div>
   );
 }

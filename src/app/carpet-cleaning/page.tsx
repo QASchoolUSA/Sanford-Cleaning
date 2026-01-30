@@ -3,14 +3,14 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Sparkles, CheckCircle, Shield, Clock, MapPin, Droplets, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "#1 Carpet Cleaning in Sanford FL | Sanford Cleaning",
+  title: "#1 Carpet & Rug Cleaning in Sanford FL | Sanford Cleaning",
   description:
     "Professional carpet cleaning in Sanford, FL: steam extraction, pet odor removal, and spot treatment for homes and businesses.",
   keywords:
     "carpet cleaning sanford fl, sanford carpet cleaning, professional carpet cleaning, steam cleaning sanford fl, pet odor removal, carpet stain removal, residential carpet cleaning, commercial carpet cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/carpet-cleaning" },
   openGraph: {
-    title: "#1 Carpet Cleaning in Sanford FL | Sanford Cleaning",
+    title: "#1 Carpet & Rug Cleaning in Sanford FL | Sanford Cleaning",
     description:
       "Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets.",
     type: "website",
@@ -19,7 +19,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "#1 Carpet Cleaning in Sanford FL | Sanford Cleaning",
+    title: "#1 Carpet & Rug Cleaning in Sanford FL | Sanford Cleaning",
     description:
       "Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets.",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
@@ -94,9 +94,9 @@ export default function CarpetCleaningPage() {
                 <Sparkles className="w-6 h-6 text-blue-600" />
                 <span className="text-blue-600 font-semibold">Carpet Cleaning</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Professional Carpet Cleaning in Sanford, FL</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Professional Carpet & Rug Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-  Fresh, clean carpets improve your home’s comfort and air quality. We provide professional <strong>carpet cleaning in Sanford, FL</strong> using hot water extraction and fiber-safe treatments to remove dirt, allergens, and odors. From <strong>pet stain removal</strong> to <strong>high-traffic area restoration</strong>, we deliver reliable results for homes and businesses. For a full-home refresh, consider pairing carpet cleaning with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> or routine <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link>.
+                Fresh, clean carpets improve your home’s comfort and air quality. We provide professional <strong>carpet cleaning in Sanford, FL</strong> using hot water extraction and fiber-safe treatments to remove dirt, allergens, and odors. From <strong>pet stain removal</strong> to <strong>high-traffic area restoration</strong>, we deliver reliable results for homes and businesses. For a full-home refresh, consider pairing carpet cleaning with <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Cleaning</Link> or routine <Link href="/house-cleaning" className="text-blue-600 hover:underline">House Cleaning</Link>.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">

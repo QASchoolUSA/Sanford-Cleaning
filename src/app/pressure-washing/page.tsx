@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import ServiceAreas from "@/components/ServiceAreas";
 import { Sparkles, Droplets, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 
 export const metadata = {
@@ -108,9 +109,9 @@ export default function PressureWashingPage() {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Professional Pressure Washing in Sanford, FL</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Professional Pressure Washing & Exterior Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Restore curb appeal with exterior washing that’s safe, effective, and tailored to your home. Sanford Cleaning provides professional pressure washing in Sanford, Florida—removing mold, mildew, algae, and tough stains from siding, concrete, patios, gutters, and more.
+                Restore curb appeal with exterior washing that’s safe, effective, and tailored to your home. Sanford Cleaning provides professional pressure washing in Sanford, Florida—removing mold, mildew, algae, and tough stains from siding, driveways, patios, gutters, and more.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/free-custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-cy="pressure-quote-button">
@@ -204,6 +205,7 @@ export default function PressureWashingPage() {
           </div>
         </div>
       </section>
+      <ServiceAreas />
     </div>
   );
 }

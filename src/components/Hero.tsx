@@ -20,29 +20,29 @@ const Hero = () => {
           {/* Main Headline */}
           <div className="space-y-6 mb-10">
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mt-4">
-              Professional
-              <span className="block text-blue-600">Cleaning Services</span>
+              Top-Rated
+              <span className="block text-blue-600">House Cleaning Services</span>
               <span className="block text-2xl lg:text-3xl xl:text-4xl font-normal text-gray-600 mt-2">
-                in Sanford FL
+                in Sanford, FL
               </span>
             </h1>
-            
+
             <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Get instant pricing and book your cleaning service in under 60 seconds. 
+              Get instant pricing and book your cleaning service in under 60 seconds.
               Professional, reliable, and affordable cleaning for your home or business.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a 
-              href="tel:321-236-0618" 
+            <a
+              href="tel:321-236-0618"
               className="inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
               Call (321) 236-0618
             </a>
-            <button 
+            <button
               onClick={() => document.getElementById('price-calculator')?.scrollIntoView({ behavior: 'smooth' })}
               className="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl border-2 border-blue-600 transform hover:-translate-y-0.5"
             >
@@ -85,7 +85,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Calculator Content */}
             <div id="price-calculator" className="p-2 lg:p-8">
               <Suspense fallback={<div className="py-12 text-center text-gray-500">Loading calculator…</div>}>
