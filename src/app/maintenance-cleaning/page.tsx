@@ -3,6 +3,7 @@ import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import ServiceAreas from "@/components/ServiceAreas";
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { Home, CheckCircle, Calendar, Shield, Sparkles, ArrowRight, RotateCw, PenTool } from "lucide-react";
 
 export const metadata = {
@@ -115,6 +116,8 @@ export default function MaintenanceCleaningPage() {
                 </div>
             </section>
 
+            <SpecialOffers />
+
             {/* Expert Field Notes Section */}
             <section className="py-12 bg-white">
                 <div className="container mx-auto px-4">
@@ -205,6 +208,6 @@ export default function MaintenanceCleaningPage() {
             </section>
 
             <ServiceAreas />
-        </div>
+        </div >
     );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { Sparkles, CheckCircle, Shield, Clock, MapPin, Droplets, ArrowRight, Fan, PawPrint } from "lucide-react";
 
 export const metadata = {
@@ -156,6 +157,8 @@ export default function CarpetCleaningPage() {
         </div>
       </section>
 
+      <SpecialOffers />
+
       {/* Expert Field Notes Section */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
@@ -232,6 +235,6 @@ export default function CarpetCleaningPage() {
           </div>
         </div>
       </section>
-    </div>
+    </div >
   );
 }

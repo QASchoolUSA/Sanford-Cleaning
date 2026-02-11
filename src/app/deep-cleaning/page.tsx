@@ -3,6 +3,7 @@ import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import ServiceAreas from "@/components/ServiceAreas";
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks, DollarSign, Calendar } from "lucide-react";
 
 export const metadata = {
@@ -341,6 +342,8 @@ export default function DeepCleaningPage() {
           </div>
         </div>
       </section>
+
+      <SpecialOffers />
 
       {/* Comparison Table: Deep vs Regular */}
       <section className="py-12 bg-white">

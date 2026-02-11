@@ -12,7 +12,7 @@ interface FormData {
   frequency?: string;
   hours?: number;
   minutes?: number;
-  
+
   // Step 2: Home Details
   squareFootage: string;
   bedrooms: string;
@@ -21,7 +21,7 @@ interface FormData {
   excludedAreas: string[];
   extras: { name: string; quantity?: number }[];
   extraQuantities: { [key: string]: number };
-  
+
   // Step 3: Tell Us More
   houseCondition: string;
   peopleCount: string;
@@ -29,7 +29,7 @@ interface FormData {
   wasProfessional: boolean;
   scheduledDate: Date | undefined;
   scheduledTime: string;
-  
+
   firstName: string;
   lastName: string;
   email: string;
@@ -89,13 +89,13 @@ const PriceCalculator = () => {
   ];
 
   const frequencyOptions = ['Weekly', 'Every Other Week', 'Every 4 Weeks'];
-  
+
   const bedroomOptions = ['1', '2', '3', '4', '5', '6'];
-  
+
   const bathroomOptions = ['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', '6', '6.5', '7', '7.5', '8', '8.5'];
-  
+
   const areaOptions = ['Bedroom', 'Full Bathroom', 'Kitchen', 'Living/Dining Room'];
-  
+
   const extraOptions = useMemo(() => ([
     { name: 'Behind fridge', price: 20, hasQuantity: false },
     { name: 'Behind oven', price: 20, hasQuantity: false },
@@ -114,25 +114,25 @@ const PriceCalculator = () => {
   ]), []);
 
   const conditionOptions = ['Very clean', 'Pretty clean', 'Average', 'Pretty dirty', 'Very dirty'];
-  
+
   const peopleOptions = ['1', '2', '3', '4', '5+'];
-  
+
   const keyInfoOptions = [
     'Someone will be at home',
     'I will hide the keys',
     'Keep key with provider'
   ];
-  
+
   const paymentOptions = ['Zelle', 'Cash', 'Check', 'Credit Card'];
 
   // Phone number formatting and validation functions
   const formatPhoneNumber = (value: string): string => {
     // Remove all non-numeric characters
     const phoneNumber = value.replace(/\D/g, '');
-    
+
     // Limit to 10 digits
     const limitedPhoneNumber = phoneNumber.substring(0, 10);
-    
+
     // Format as (XXX) XXX-XXXX
     if (limitedPhoneNumber.length >= 6) {
       return `(${limitedPhoneNumber.substring(0, 3)}) ${limitedPhoneNumber.substring(3, 6)}-${limitedPhoneNumber.substring(6)}`;
@@ -153,12 +153,12 @@ const PriceCalculator = () => {
   const handlePhoneChange = (value: string, field: 'phone') => {
     // Extract only numeric characters
     const numericValue = value.replace(/\D/g, '');
-    
+
     // Limit to 10 digits
     if (numericValue.length <= 10) {
       const formattedValue = formatPhoneNumber(numericValue);
       updateFormData(field, formattedValue);
-      
+
       // Validate and set error messages
       if (numericValue.length > 0 && !validatePhoneNumber(formattedValue)) {
         setPhoneError('Please enter a valid 10-digit phone number');
@@ -171,11 +171,11 @@ const PriceCalculator = () => {
   const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, field: 'phone') => {
     const target = e.target as HTMLInputElement;
     const currentValue = target.value;
-    
+
     // Handle backspace and delete keys
     if (e.key === 'Backspace' || e.key === 'Delete') {
       const cursorPosition = target.selectionStart || 0;
-      
+
       // If backspace is pressed and cursor is at a formatting character, move cursor back
       if (e.key === 'Backspace' && cursorPosition > 0) {
         const charBeforeCursor = currentValue[cursorPosition - 1];
@@ -187,7 +187,7 @@ const PriceCalculator = () => {
             const newNumericValue = numericValue.slice(0, -1);
             const newFormattedValue = formatPhoneNumber(newNumericValue);
             updateFormData(field, newFormattedValue);
-            
+
             // Update validation
             if (newNumericValue.length > 0 && !validatePhoneNumber(newFormattedValue)) {
               setPhoneError('Please enter a valid 10-digit phone number');
@@ -204,7 +204,7 @@ const PriceCalculator = () => {
   useEffect(() => {
     let finalPrice = 0;
     let maintenanceRecurringPrice = 0;
-    
+
     if (formData.service === 'Hourly Cleaning') {
       // Hourly Cleaning service: $55/hour, no sqft/bed/bath modifiers
       const totalMinutes = (formData.hours || 0) * 60 + (formData.minutes || 0);
@@ -212,27 +212,27 @@ const PriceCalculator = () => {
     } else if (formData.service === 'Move In / Move Out Cleaning') {
       // Move In / Move Out service: special pricing with house condition modifiers
       let basePrice = 277; // Base price for <1000sqft, 1 bedroom, 1 bathroom
-      
+
       const sqft = parseInt(formData.squareFootage) || 0;
       const bedrooms = parseInt(formData.bedrooms) || 0;
       const bathrooms = parseFloat(formData.bathrooms) || 0;
-      
+
       // For every 1000 sqft above 1000, add $10
       if (sqft > 1000) {
         const additionalThousands = Math.ceil((sqft - 1000) / 1000);
         basePrice += additionalThousands * 10;
       }
-      
+
       // For bedrooms above 1, add $10 each
       if (bedrooms > 1) {
         basePrice += (bedrooms - 1) * 10;
       }
-      
+
       // For bathrooms above 1, add $6.50 each
       if (bathrooms > 1) {
         basePrice += (bathrooms - 1) * 6.5;
       }
-      
+
       // Add house condition modifier
       switch (formData.houseCondition) {
         case 'Very clean':
@@ -251,38 +251,38 @@ const PriceCalculator = () => {
           basePrice += 195;
           break;
       }
-      
+
       finalPrice = basePrice;
     } else {
       // All other services start with base price calculation
       let basePrice = 157;
-      
+
       // Apply sqft/bed/bath modifiers
       const sqft = parseInt(formData.squareFootage) || 0;
       const bedrooms = parseInt(formData.bedrooms) || 0;
       const bathrooms = parseFloat(formData.bathrooms) || 0;
-      
+
       // For every 1000 sqft above 1000, add $10
       if (sqft > 1000) {
         const additionalThousands = Math.ceil((sqft - 1000) / 1000);
         basePrice += additionalThousands * 10;
       }
-      
+
       // For bedrooms above 1, add $10 each
       if (bedrooms > 1) {
         basePrice += (bedrooms - 1) * 10;
       }
-      
+
       // For bathrooms above 1, add $12 each
-       if (bathrooms > 1) {
-         basePrice += (bathrooms - 1) * 12;
-       }
-      
+      if (bathrooms > 1) {
+        basePrice += (bathrooms - 1) * 12;
+      }
+
       // For Maintenance Cleaning, calculate both initial and recurring prices
       if (formData.service === 'Maintenance Cleaning' && formData.frequency) {
         // Initial cleaning uses full calculated price
         finalPrice = basePrice;
-        
+
         // Recurring service uses base frequency pricing plus modifiers
         let baseMaintenancePrice = 0;
         switch (formData.frequency) {
@@ -298,67 +298,67 @@ const PriceCalculator = () => {
           default:
             baseMaintenancePrice = 109.90;
         }
-        
+
         // Apply same modifiers to maintenance price
         maintenanceRecurringPrice = baseMaintenancePrice;
-        
+
         // Add sqft modifier to maintenance price
         if (sqft > 1000) {
           const additionalThousands = Math.ceil((sqft - 1000) / 1000);
           maintenanceRecurringPrice += additionalThousands * 7; // $7 per 1000 sqft for maintenance
         }
-        
+
         // Add bedroom modifier to maintenance price
         if (bedrooms > 1) {
           maintenanceRecurringPrice += (bedrooms - 1) * 7; // $7 per extra bedroom for maintenance
         }
-        
+
         // Add bathroom modifier to maintenance price
-         if (bathrooms > 1) {
-            maintenanceRecurringPrice += (bathrooms - 1) * 8.2; // $8.20 per extra bathroom for maintenance
-          }
+        if (bathrooms > 1) {
+          maintenanceRecurringPrice += (bathrooms - 1) * 8.2; // $8.20 per extra bathroom for maintenance
+        }
       } else {
         // Use the calculated base price for initial cleaning or other services
         finalPrice = basePrice;
       }
     }
-    
+
     // Add extras pricing (only for non-Hourly Cleaning services)
     if (formData.service !== 'Hourly Cleaning') {
-       let extrasTotal = 0;
-       let maintenanceExtrasTotal = 0;
-       
-       // Extras that apply to both initial and maintenance cleaning
-       const maintenanceIncludedExtras = ['Inside oven', 'Dishes', 'Laundry & Folding'];
-       
-       formData.extras.forEach(extra => {
-         const extraOption = extraOptions.find(opt => opt.name === extra.name);
-         if (extraOption) {
-           const quantity = extra.quantity || 1;
-           const extraCost = extraOption.price * quantity;
-           
-           // Add to initial cleaning price
-           extrasTotal += extraCost;
-           
-           // Add to maintenance price if it's in the included list
-           if (maintenanceIncludedExtras.includes(extra.name)) {
-             maintenanceExtrasTotal += extraCost;
-           }
-         }
-       });
-       
-       finalPrice += extrasTotal;
-       // Add specific extras to maintenance recurring price
-       if (formData.service === 'Maintenance Cleaning') {
-         maintenanceRecurringPrice += maintenanceExtrasTotal;
-       }
-     }
-    
+      let extrasTotal = 0;
+      let maintenanceExtrasTotal = 0;
+
+      // Extras that apply to both initial and maintenance cleaning
+      const maintenanceIncludedExtras = ['Inside oven', 'Dishes', 'Laundry & Folding'];
+
+      formData.extras.forEach(extra => {
+        const extraOption = extraOptions.find(opt => opt.name === extra.name);
+        if (extraOption) {
+          const quantity = extra.quantity || 1;
+          const extraCost = extraOption.price * quantity;
+
+          // Add to initial cleaning price
+          extrasTotal += extraCost;
+
+          // Add to maintenance price if it's in the included list
+          if (maintenanceIncludedExtras.includes(extra.name)) {
+            maintenanceExtrasTotal += extraCost;
+          }
+        }
+      });
+
+      finalPrice += extrasTotal;
+      // Add specific extras to maintenance recurring price
+      if (formData.service === 'Maintenance Cleaning') {
+        maintenanceRecurringPrice += maintenanceExtrasTotal;
+      }
+    }
+
     // Auto-suggest Heavy Duty if last cleaning was over 90 days ago
     if (formData.lastCleaning) {
       const lastCleaningDate = new Date(formData.lastCleaning);
       const daysSinceLastCleaning = (Date.now() - lastCleaningDate.getTime()) / (1000 * 60 * 60 * 24);
-      
+
       if (daysSinceLastCleaning > 90 && !formData.wasProfessional) {
         const hasHeavyDuty = formData.extras.some(extra => extra.name === 'Heavy Duty');
         if (!hasHeavyDuty) {
@@ -367,9 +367,12 @@ const PriceCalculator = () => {
         }
       }
     }
-    
-    setEstimatedPrice(Math.round(finalPrice * 100) / 100); // Round to 2 decimal places
-    setMaintenancePrice(Math.round(maintenanceRecurringPrice * 100) / 100);
+
+    // Apply 15% discount to estimates
+    const DISCOUNT_MULTIPLIER = 0.85;
+
+    setEstimatedPrice(Math.round(finalPrice * DISCOUNT_MULTIPLIER * 100) / 100); // 15% off
+    setMaintenancePrice(Math.round(maintenanceRecurringPrice * DISCOUNT_MULTIPLIER * 100) / 100); // 15% off
   }, [formData, extraOptions]);
 
   const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
@@ -409,7 +412,7 @@ const PriceCalculator = () => {
   const updateExtraQuantity = (extraName: string, quantity: number) => {
     setFormData(prev => ({
       ...prev,
-      extras: prev.extras.map(extra => 
+      extras: prev.extras.map(extra =>
         extra.name === extraName ? { ...extra, quantity } : extra
       )
     }));
@@ -420,10 +423,10 @@ const PriceCalculator = () => {
       // Get the calculator container position
       const rect = calculatorRef.current.getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
+
       // Calculate position to include some padding above the progress bar
       const targetPosition = rect.top + scrollTop - 100; // 100px padding above
-      
+
       window.scrollTo({
         top: Math.max(0, targetPosition),
         behavior: 'smooth'
@@ -488,7 +491,7 @@ const PriceCalculator = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ bookingData, bookingId }),
         });
-      } catch {}
+      } catch { }
       // Persist latest payment details for fallback use on the Stripe page
       try {
         const lastStripePayment = {
@@ -541,7 +544,7 @@ const PriceCalculator = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ bookingData, bookingId }),
         });
-      } catch {}
+      } catch { }
       // Persist latest booking details so user can still pay later from booking success
       try {
         const lastStripePayment = {
@@ -705,77 +708,77 @@ const PriceCalculator = () => {
       )}
 
       <div>
-          <div className="flex items-center justify-between mb-3">
-            <div>
-              <label className="block text-sm font-semibold text-gray-700">Select Extras</label>
-              <p className="text-sm text-gray-600 mt-1">✨ Enhance your cleaning with our premium extras</p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setShowExtras(!showExtras)}
-              className="flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
-              data-cy="toggle-extras-button"
-            >
-              {showExtras ? (
-                <>
-                  <ChevronUp className="w-4 h-4 mr-1" />
-                  Hide Extras
-                </>
-              ) : (
-                <>
-                  <ChevronDown className="w-4 h-4 mr-1" />
-                  View Extras
-                </>
-              )}
-            </button>
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <label className="block text-sm font-semibold text-gray-700">Select Extras</label>
+            <p className="text-sm text-gray-600 mt-1">✨ Enhance your cleaning with our premium extras</p>
           </div>
-          
-          {showExtras && (
-            <div className="space-y-3">
-              {extraOptions.map(extra => {
-                const isSelected = formData.extras.some(e => e.name === extra.name);
-                const selectedExtra = formData.extras.find(e => e.name === extra.name);
-                
-                return (
-                  <div key={extra.name} className="border rounded-lg p-3 hover:border-blue-300 transition-colors">
-                    <div className="flex items-center justify-between">
-                      <label className="flex items-center space-x-3 cursor-pointer flex-1">
-                        <input
-                          type="checkbox"
-                          checked={isSelected}
-                          onChange={() => handleExtraToggle(extra.name)}
-                          className="w-4 h-4 text-blue-600 rounded"
-                          data-cy={`extra-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
-                        />
-                        <span className="text-gray-700">{extra.name}</span>
-                      </label>
-                      <span className="text-blue-600 font-semibold">
-                        ${extra.price}{extra.hasQuantity ? ` per ${extra.unit}` : ''}
-                        {extra.price === 0 ? ' (Free)' : ''}
-                      </span>
-                    </div>
-                    
-                    {isSelected && extra.hasQuantity && (
-                      <div className="mt-3 flex items-center space-x-2">
-                        <label className="text-sm text-gray-600">Quantity:</label>
-                        <input
-                          type="number"
-                          min="1"
-                          max="20"
-                          value={selectedExtra?.quantity || 1}
-                          onChange={(e) => updateExtraQuantity(extra.name, parseInt(e.target.value) || 1)}
-                          className="w-20 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                          data-cy={`extra-quantity-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
-                        />
-                        <span className="text-sm text-gray-500">{extra.unit}(s)</span>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
+          <button
+            type="button"
+            onClick={() => setShowExtras(!showExtras)}
+            className="flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+            data-cy="toggle-extras-button"
+          >
+            {showExtras ? (
+              <>
+                <ChevronUp className="w-4 h-4 mr-1" />
+                Hide Extras
+              </>
+            ) : (
+              <>
+                <ChevronDown className="w-4 h-4 mr-1" />
+                View Extras
+              </>
+            )}
+          </button>
         </div>
+
+        {showExtras && (
+          <div className="space-y-3">
+            {extraOptions.map(extra => {
+              const isSelected = formData.extras.some(e => e.name === extra.name);
+              const selectedExtra = formData.extras.find(e => e.name === extra.name);
+
+              return (
+                <div key={extra.name} className="border rounded-lg p-3 hover:border-blue-300 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <label className="flex items-center space-x-3 cursor-pointer flex-1">
+                      <input
+                        type="checkbox"
+                        checked={isSelected}
+                        onChange={() => handleExtraToggle(extra.name)}
+                        className="w-4 h-4 text-blue-600 rounded"
+                        data-cy={`extra-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
+                      />
+                      <span className="text-gray-700">{extra.name}</span>
+                    </label>
+                    <span className="text-blue-600 font-semibold">
+                      ${extra.price}{extra.hasQuantity ? ` per ${extra.unit}` : ''}
+                      {extra.price === 0 ? ' (Free)' : ''}
+                    </span>
+                  </div>
+
+                  {isSelected && extra.hasQuantity && (
+                    <div className="mt-3 flex items-center space-x-2">
+                      <label className="text-sm text-gray-600">Quantity:</label>
+                      <input
+                        type="number"
+                        min="1"
+                        max="20"
+                        value={selectedExtra?.quantity || 1}
+                        onChange={(e) => updateExtraQuantity(extra.name, parseInt(e.target.value) || 1)}
+                        className="w-20 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        data-cy={`extra-quantity-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
+                      />
+                      <span className="text-sm text-gray-500">{extra.unit}(s)</span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 
@@ -916,9 +919,8 @@ const PriceCalculator = () => {
             value={formData.phone}
             onChange={(e) => handlePhoneChange(e.target.value, 'phone')}
             onKeyDown={(e) => handlePhoneKeyDown(e, 'phone')}
-            className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-              phoneError ? 'border-red-500' : 'border-gray-300'
-            }`}
+            className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${phoneError ? 'border-red-500' : 'border-gray-300'
+              }`}
             placeholder="(555) 123-4567"
             maxLength={14}
             required
@@ -1035,13 +1037,13 @@ const PriceCalculator = () => {
                   <span>{Math.round((currentStep / 4) * 100)}% Complete</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
+                  <div
                     className="bg-blue-600 h-2 rounded-full transition-all duration-300 ease-in-out"
                     style={{ width: `${(currentStep / 4) * 100}%` }}
                   ></div>
                 </div>
               </div>
-              
+
               {/* Step Indicators - Mobile Compact Version */}
               <div className="md:hidden">
                 <div className="flex items-center justify-between">
@@ -1052,20 +1054,18 @@ const PriceCalculator = () => {
                     { number: 4, title: 'Contact & Payment' }
                   ].map((step, index) => (
                     <div key={step.number} className="flex items-center">
-                      <div className={`flex flex-col items-center ${
-                        step.number === currentStep 
-                          ? 'text-blue-600' 
-                          : step.number < currentStep 
+                      <div className={`flex flex-col items-center ${step.number === currentStep
+                          ? 'text-blue-600'
+                          : step.number < currentStep
                             ? 'text-green-600'
                             : 'text-gray-400'
-                      }`}>
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${
-                          step.number === currentStep 
-                            ? 'bg-blue-600 text-white' 
-                            : step.number < currentStep 
+                        }`}>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${step.number === currentStep
+                            ? 'bg-blue-600 text-white'
+                            : step.number < currentStep
                               ? 'bg-green-600 text-white'
                               : 'bg-gray-300 text-gray-600'
-                        }`}>
+                          }`}>
                           {step.number < currentStep ? <Check className="w-4 h-4" /> : step.number}
                         </div>
                         <span className="text-xs font-medium text-center leading-tight max-w-16">
@@ -1075,15 +1075,14 @@ const PriceCalculator = () => {
                         </span>
                       </div>
                       {index < 3 && (
-                        <div className={`w-4 h-0.5 mx-1 ${
-                          step.number < currentStep ? 'bg-green-600' : 'bg-gray-300'
-                        }`} />
+                        <div className={`w-4 h-0.5 mx-1 ${step.number < currentStep ? 'bg-green-600' : 'bg-gray-300'
+                          }`} />
                       )}
                     </div>
                   ))}
                 </div>
               </div>
-              
+
               {/* Step Indicators - Desktop Version */}
               <div className="hidden md:grid md:grid-cols-4 gap-4">
                 {[
@@ -1092,32 +1091,28 @@ const PriceCalculator = () => {
                   { number: 3, title: 'Schedule & Details', subtitle: 'When & house condition' },
                   { number: 4, title: 'Contact & Payment', subtitle: 'Your info & payment method' }
                 ].map(step => (
-                  <div key={step.number} className={`text-center p-3 rounded-lg transition-all duration-200 ${
-                    step.number === currentStep 
-                      ? 'bg-blue-600 text-white shadow-lg' 
-                      : step.number < currentStep 
+                  <div key={step.number} className={`text-center p-3 rounded-lg transition-all duration-200 ${step.number === currentStep
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : step.number < currentStep
                         ? 'bg-green-100 text-green-800'
                         : 'bg-white text-gray-600'
-                  }`}>
+                    }`}>
                     <div className="flex items-center justify-center mb-2">
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                        step.number === currentStep 
-                          ? 'bg-white text-blue-600' 
-                          : step.number < currentStep 
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step.number === currentStep
+                          ? 'bg-white text-blue-600'
+                          : step.number < currentStep
                             ? 'bg-green-600 text-white'
                             : 'bg-gray-300 text-gray-600'
-                      }`}>
+                        }`}>
                         {step.number < currentStep ? <Check className="w-3 h-3" /> : step.number}
                       </div>
                     </div>
-                    <h4 className={`text-sm font-semibold mb-1 ${
-                      step.number === currentStep ? 'text-white' : ''
-                    }`}>
+                    <h4 className={`text-sm font-semibold mb-1 ${step.number === currentStep ? 'text-white' : ''
+                      }`}>
                       {step.title}
                     </h4>
-                    <p className={`text-xs opacity-75 ${
-                      step.number === currentStep ? 'text-blue-100' : ''
-                    }`}>
+                    <p className={`text-xs opacity-75 ${step.number === currentStep ? 'text-blue-100' : ''
+                      }`}>
                       {step.subtitle}
                     </p>
                   </div>
@@ -1139,7 +1134,7 @@ const PriceCalculator = () => {
                 {formData.service === 'Maintenance Cleaning' && maintenancePrice > 0 ? (
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">Maintenance Cleaning Pricing</h3>
-                    
+
                     {/* Initial Cleaning Price */}
                     <div className="bg-white p-4 rounded-lg border border-blue-200">
                       <div className="flex justify-between items-center">
@@ -1152,7 +1147,7 @@ const PriceCalculator = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Recurring Maintenance Price */}
                     <div className="bg-white p-4 rounded-lg border border-green-200">
                       <div className="flex justify-between items-center">
@@ -1167,7 +1162,7 @@ const PriceCalculator = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="text-xs text-gray-500 text-center">
                       💡 You&apos;ll pay the initial cleaning price for your first service, then the maintenance price for ongoing cleanings
                     </div>
@@ -1190,11 +1185,10 @@ const PriceCalculator = () => {
               <button
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${
-                  currentStep === 1
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${currentStep === 1
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-gray-600 text-white hover:bg-gray-700'
-                }`}
+                  }`}
                 data-cy="previous-step-button"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -1205,11 +1199,10 @@ const PriceCalculator = () => {
                 <button
                   onClick={nextStep}
                   disabled={!isStepValid()}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${
-                    !isStepValid()
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${!isStepValid()
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                       : 'bg-blue-600 text-white hover:bg-blue-700'
-                  }`}
+                    }`}
                   data-cy="next-step-button"
                 >
                   <span>Next</span>
@@ -1219,11 +1212,10 @@ const PriceCalculator = () => {
                 <button
                   onClick={handleSubmit}
                   disabled={!isStepValid()}
-                  className={`flex items-center space-x-2 px-8 py-3 rounded-lg transition-colors ${
-                    !isStepValid()
+                  className={`flex items-center space-x-2 px-8 py-3 rounded-lg transition-colors ${!isStepValid()
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                       : 'bg-green-600 text-white hover:bg-green-700'
-                  }`}
+                    }`}
                   data-cy="submit-button"
                 >
                   {formData.paymentType === 'Credit Card' ? (

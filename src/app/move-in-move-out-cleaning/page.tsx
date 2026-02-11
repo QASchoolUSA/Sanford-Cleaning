@@ -2,6 +2,7 @@ import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import ServiceAreas from "@/components/ServiceAreas";
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sparkles, Key, Truck, Calendar, DollarSign } from "lucide-react";
 
 export const metadata = {
@@ -317,6 +318,8 @@ export default function MoveInMoveOutPage() {
           </div>
         </div>
       </section>
+
+      <SpecialOffers />
 
       {/* Trust Signals */}
       <section className="py-16 bg-gray-50">

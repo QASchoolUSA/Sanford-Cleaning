@@ -1,9 +1,10 @@
 import Hero from '@/components/Hero';
+import SpecialOffers from '@/components/SpecialOffers';
 import Services from '@/components/Services';
 import About from '@/components/About';
-import Contact from '@/components/Contact';
-import ServiceAreas from '@/components/ServiceAreas';
 import Gallery from '@/components/Gallery';
+import ServiceAreas from '@/components/ServiceAreas';
+import Contact from '@/components/Contact';
 
 export const metadata = {
   title: 'Top-Rated House Cleaning Services Sanford, FL | Sanford Cleaning',
@@ -122,6 +123,7 @@ export default function HomePage() {
     <main>
       <script id="homepage-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Hero />
+      <SpecialOffers />
       <Services />
       <About />
       <Gallery />

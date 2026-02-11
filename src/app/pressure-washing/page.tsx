@@ -2,6 +2,7 @@ import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import ServiceAreas from "@/components/ServiceAreas";
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { Sparkles, Droplets, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin, Eraser, Home } from "lucide-react";
 
 export const metadata = {
@@ -164,6 +165,8 @@ export default function PressureWashingPage() {
           </div>
         </div>
       </section>
+
+      <SpecialOffers />
 
       {/* Expert Field Notes Section */}
       <section className="py-12 bg-white">

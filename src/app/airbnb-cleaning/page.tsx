@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { Home as HomeIcon, CheckCircle, Clock, ArrowRight, Shield, MapPin, Star, Bed } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -199,6 +200,8 @@ export default function AirbnbCleaningPage() {
         </div>
       </section>
 
+      <SpecialOffers />
+
       {/* Expert Field Notes Section */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
@@ -378,6 +381,6 @@ export default function AirbnbCleaningPage() {
           </div>
         </div>
       </section>
-    </div>
+    </div >
   );
 }

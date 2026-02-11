@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin, Sun, Wind } from "lucide-react";
 
 export const metadata = {
@@ -177,6 +178,8 @@ export default function WindowCleaningPage() {
           </div>
         </div>
       </section>
+
+      <SpecialOffers />
 
       {/* Expert Field Notes Section */}
       <section className="py-12 bg-white">

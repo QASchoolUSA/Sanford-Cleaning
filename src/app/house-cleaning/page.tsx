@@ -2,6 +2,7 @@ import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import Link from 'next/link';
 import Image from 'next/image';
 import AuthorBio from '@/components/AuthorBio';
+import SpecialOffers from '@/components/SpecialOffers';
 import { Home as HomeIcon, Clock, CheckCircle, ArrowRight, Zap, Shield, Sparkles } from 'lucide-react';
 
 export const metadata = {
@@ -283,6 +284,8 @@ export default function ResidentialCleaningPage() {
           </div>
         </div>
       </section>
+
+      <SpecialOffers />
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import AuthorBio from "@/components/AuthorBio";
+import SpecialOffers from "@/components/SpecialOffers";
 import { MapPin, CheckCircle, Clock, Shield, Star, ArrowRight, Construction, AlertTriangle, Layers } from "lucide-react";
 
 export const metadata = {
@@ -201,6 +202,8 @@ export default function PostConstructionCleaningPage() {
           </div>
         </div>
       </section>
+
+      <SpecialOffers />
 
       {/* Expert Field Notes Section */}
       <section className="py-12 bg-white">

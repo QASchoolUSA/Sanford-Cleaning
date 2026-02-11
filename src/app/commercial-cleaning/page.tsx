@@ -1,6 +1,7 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import ServiceAreas from '@/components/ServiceAreas';
 import AuthorBio from '@/components/AuthorBio';
+import SpecialOffers from '@/components/SpecialOffers';
 import { Building, Clock, Shield, Users, CheckCircle, Briefcase, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
@@ -199,6 +200,8 @@ export default function CommercialCleaningPage() {
           </div>
         </div>
       </section>
+
+      <SpecialOffers />
 
       {/* Expert Field Notes Section */}
       <section className="py-12 bg-white">
