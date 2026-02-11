@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import { MapPin, CheckCircle, Clock, Shield, Star, ArrowRight } from "lucide-react";
+import AuthorBio from "@/components/AuthorBio";
+import { MapPin, CheckCircle, Clock, Shield, Star, ArrowRight, Construction, AlertTriangle, Layers } from "lucide-react";
 
 export const metadata = {
   title: "#1 Post-Construction Cleaning in Sanford FL | Sanford Cleaning",
@@ -181,6 +182,52 @@ export default function PostConstructionCleaningPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does post-construction cleaning cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> provides specialized <strong>post-construction cleaning in Sanford, FL</strong> starting at <strong>$0.25–$0.50 per sq. ft.</strong> for final cleans. Our 3-stage process removes hazardous drywall dust, paint overspray, and adhesive residue common in local renovations. We work directly with Sanford contractors to ensure your Certificate of Occupancy.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Res. Renovation:</strong> Flat rates available</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>New Build:</strong> Multi-stage scheduling</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Includes:</strong> Windows, Vents, Cabinetry</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Safety:</strong> OSHA-compliant dust removal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Construction Cleanup</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Fine Dust Control</h3>
+                <p className="text-sm text-gray-600">Drywall dust is abrasive. We use HEPA-filtered vacuums to capture it from walls and ceilings without scratching paint.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Sticker Removal</h3>
+                <p className="text-sm text-gray-600">We use non-abrasive solvents to remove manufacturer stickers from new windows and appliances to avoid glass damage.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Air Filtration</h3>
+                <p className="text-sm text-gray-600">We recommend changing HVAC filters immediately after our clean to prevent recirculating construction dust.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6">What’s Included</h2>
@@ -290,6 +337,41 @@ export default function PostConstructionCleaningPage() {
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Transparent estimates and clear communication</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hyper-Local Neighborhood Section */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving Sanford's Growth Zones</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic Renovations</h3>
+                <p className="text-gray-600 mb-4">
+                  Renovating a Victorian in the <strong>Historic District</strong>? We understand how to clean around delicate original woodwork and heart pine floors without causing damage.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic District</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Georgetown</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">New Developments</h3>
+                <p className="text-gray-600 mb-4">
+                  From new models near <strong>Lake Mary Blvd</strong> to commercial build-outs by <strong>Seminole Towne Center</strong>, we provide final cleans for contractors and owners.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> New Commercial Units</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Residential Additions</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <AuthorBio />
             </div>
           </div>
         </div>

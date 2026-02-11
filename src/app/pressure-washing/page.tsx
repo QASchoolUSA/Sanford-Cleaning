@@ -1,7 +1,8 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import ServiceAreas from "@/components/ServiceAreas";
-import { Sparkles, Droplets, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
+import AuthorBio from "@/components/AuthorBio";
+import { Sparkles, Droplets, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin, Eraser, Home } from "lucide-react";
 
 export const metadata = {
   title: "#1 Pressure Washing in Sanford FL | Sanford Cleaning",
@@ -144,6 +145,52 @@ export default function PressureWashingPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does pressure washing cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> delivers professional <strong>pressure washing in Sanford, FL</strong> starting at <strong>$100</strong> for driveways and <strong>$200</strong> for house washing. We use a &apos;Soft Wash&apos; technique for vinyl and stucco to kill mold without high-pressure damage, protecting your siding and landscaping. Most jobs are completed in 2-4 hours.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Driveways:</strong> Starting at $100</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>House Wash:</strong> Starting at $200 (Soft Wash)</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Technique:</strong> Low-Pressure Chemical Treat</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Safety:</strong> Plant & Pet Friendly Rinses</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Exterior Care</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Algae vs. Mold</h3>
+                <p className="text-sm text-gray-600">Sanford&apos;s humidity breeds green algae on north-facing walls. We use a sodium hypochlorite blend to kill the spores, so it doesn&apos;t return in a month.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Soffit Protection</h3>
+                <p className="text-sm text-gray-600">High pressure can force water into soffit vents (attics). We only use low-pressure soft washing on eaves to prevent water damage.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Surface Sealing</h3>
+                <p className="text-sm text-gray-600">After cleaning pavers, we recommend sealing to lock out sand and prevent weeds—common issues in sandy Sanford soil.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6">Exterior Washing Services</h2>
@@ -205,7 +252,42 @@ export default function PressureWashingPage() {
           </div>
         </div>
       </section>
+
+      {/* Hyper-Local Neighborhood Section */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving Sanford Neighborhoods & HOAs</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">HOA Compliance</h3>
+                <p className="text-gray-600 mb-4">
+                  Received an HOA letter in <strong>Lake Forest</strong> or <strong>Preserve at Lake Monroe</strong>? We offer priority scheduling to get you back in compliance quickly.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Lake Forest</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Preserve at Lake Monroe</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic Home Care</h3>
+                <p className="text-gray-600 mb-4">
+                  For homes in the <strong>Historic District</strong>, we use specialized ultra-low pressure to clean clapboard siding without damaging the paintwork.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic District</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Goldsboro</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <AuthorBio />
+            </div>
+          </div>
+        </div>
+      </section>
       <ServiceAreas />
-    </div>
+    </div >
   );
 }

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import ServiceAreas from "@/components/ServiceAreas";
-import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sparkles, Key, Truck } from "lucide-react";
+import AuthorBio from "@/components/AuthorBio";
+import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sparkles, Key, Truck, Calendar, DollarSign } from "lucide-react";
 
 export const metadata = {
   title: "Move In & Move Out Cleaning Services Sanford FL",
@@ -63,6 +64,50 @@ export default function MoveInMoveOutPage() {
       }
     ]
   }`;
+
+  const serviceSchema = `{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Move Out Cleaning",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Sanford Cleaning",
+      "image": "https://sanfordcleaning.com/sanford-residential-cleaning-2.webp",
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Sanford, FL"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Moving Cleaning Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Move Out Cleaning"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "200.00",
+            "priceCurrency": "USD",
+            "unitText": "service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Move In/Out Discount"
+          },
+          "description": "$20 off your first move-in or move-out cleaning in Sanford."
+        }
+      ]
+    }
+  }`;
+
   const moveInSteps = [
     {
       icon: Key,
@@ -127,20 +172,10 @@ export default function MoveInMoveOutPage() {
     "Flexible scheduling to accommodate your moving timeline",
   ];
 
-  const serviceAreas = [
-    "Sanford, FL",
-    "Lake Mary, FL",
-    "Longwood, FL",
-    "Altamonte Springs, FL",
-    "Winter Springs, FL",
-    "Casselberry, FL",
-    "Oviedo, FL",
-    "Winter Park, FL",
-  ];
-
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <script id="move-in-move-out-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
+      <script id="move-in-move-out-cleaning-jsonld-service" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serviceSchema }} />
       <script
         id="move-in-move-out-cleaning-jsonld-howto"
         type="application/ld+json"
@@ -209,6 +244,80 @@ export default function MoveInMoveOutPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does move-out cleaning cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> provides 5-star <strong>move-out cleaning in Sanford, FL</strong> starting at <strong>$200</strong>. We work directly with Sanford property managers to ensure full deposit returns, targeting commonly missed areas like sticky cabinet tops and appliance interiors. Our 6+ hour checklist is guaranteed for inspection approval.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Apartments:</strong> Starting at $200</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Single Family Homes:</strong> Starting at $300</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Includes:</strong> Inside Cabinets & Appliances</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Guarantee:</strong> Re-clean if not approved</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Sanford Move-Out Inspections</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Hidden Grease</h3>
+                <p className="text-sm text-gray-600">We inspect cabinet tops where cooking grease settles—a top deduction point for Sanford property managers.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Behind Appliances</h3>
+                <p className="text-sm text-gray-600">We clean behind fridges and stoves where local pests hide to ensure you pass pest control inspections.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Garage Sweep</h3>
+                <p className="text-sm text-gray-600">Included in all move-out cleans to remove leaves, webs, and bugs common in Florida carports.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* At a Glance Section (AEO Hook) */}
+      <section className="bg-white py-12 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 text-center">
+              <Clock className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Duration</div>
+              <div className="font-bold text-gray-900">4 - 8 Hours</div>
+            </div>
+            <div className="p-4 bg-green-50 rounded-xl border border-green-100 text-center">
+              <DollarSign className="w-8 h-8 text-green-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Starting Price</div>
+              <div className="font-bold text-gray-900">$200+</div>
+            </div>
+            <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 text-center">
+              <Key className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Best For</div>
+              <div className="font-bold text-gray-900">Deposit Return</div>
+            </div>
+            <div className="p-4 bg-orange-50 rounded-xl border border-orange-100 text-center">
+              <Shield className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Guarantee</div>
+              <div className="font-bold text-gray-900">Inspection Ready</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Signals */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -239,8 +348,55 @@ export default function MoveInMoveOutPage() {
         </div>
       </section>
 
+      {/* Checklist Table */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">What's Included in a Move-Out Clean?</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+              <table className="w-full text-left text-sm text-gray-600">
+                <thead className="bg-gray-50 text-xs uppercase text-gray-700 font-bold">
+                  <tr>
+                    <th className="px-6 py-4">Area</th>
+                    <th className="px-6 py-4">Tasks Included</th>
+                    <th className="px-6 py-4 text-center">Landlord Checked?</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 bg-white">
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Kitchen</td>
+                    <td className="px-6 py-4">Clean inside/out of cabinets, appliances (if selected), counters, sinks.</td>
+                    <td className="px-6 py-4 text-center text-red-500 font-bold">YES (High Priority)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Bathrooms</td>
+                    <td className="px-6 py-4">Scrub tubs, showers, toilets, vanities, mirrors, and tile/grout.</td>
+                    <td className="px-6 py-4 text-center text-red-500 font-bold">YES (High Priority)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Floors</td>
+                    <td className="px-6 py-4">Vacuum carpets, sweep and mop hard floors.</td>
+                    <td className="px-6 py-4 text-center text-orange-500 font-semibold">Yes</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Baseboards & Doors</td>
+                    <td className="px-6 py-4">Hand-wiping baseboards, frames, and spot cleaning doors.</td>
+                    <td className="px-6 py-4 text-center text-orange-500 font-semibold">Yes</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Inside Appliances</td>
+                    <td className="px-6 py-4">Refrigerator and Oven deep clean (Add-ons available).</td>
+                    <td className="px-6 py-4 text-center text-red-500 font-bold">Varies</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Comprehensive Solutions Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 data-cy="comprehensive-solutions-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -253,7 +409,7 @@ export default function MoveInMoveOutPage() {
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Move-In Cleaning */}
-            <div className="bg-blue-50 rounded-xl p-8">
+            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100">
               <div className="text-center mb-8">
                 <Home className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                 <h3 data-cy="move-in-process-title" className="text-2xl font-bold text-gray-900 mb-4">
@@ -277,7 +433,7 @@ export default function MoveInMoveOutPage() {
             </div>
 
             {/* Move-Out Cleaning */}
-            <div className="bg-green-50 rounded-xl p-8">
+            <div className="bg-green-50 rounded-xl p-8 border border-green-100">
               <div className="text-center mb-8">
                 <Truck className="w-12 h-12 text-green-600 mx-auto mb-4" />
                 <h3 data-cy="move-out-process-title" className="text-2xl font-bold text-gray-900 mb-4">
@@ -371,6 +527,37 @@ export default function MoveInMoveOutPage() {
                 <Link href="/free-custom-quote" className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 inline-flex items-center">Get a Free Quote <Sparkles className="w-5 h-5 ml-2" /></Link>
               </div>
             </div>
+
+            {/* Hyper-Local Neighborhood Section */}
+            <div className="mt-16 pt-12 border-t border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Move-Out Cleaning in Your Area</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Rental Communities</h3>
+                  <p className="text-gray-600 mb-4">
+                    We work closely with property managers at major complexes near <strong>Seminole State College</strong> and along <strong>Lake Mary Blvd</strong>. We know the specific checklists required for full deposit returns in these communities.
+                  </p>
+                  <ul className="space-y-1 text-gray-700">
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Student Housing</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Luxury Apartments</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Townhome Rentals</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Home Sales & Closings</h3>
+                  <p className="text-gray-600 mb-4">
+                    Selling a home in <strong>Mayfair</strong> or the <strong>Historic District</strong>? Our move-out cleans ensure your property shines for open houses and passes the final walkthrough inspection seamlessly.
+                  </p>
+                  <ul className="space-y-1 text-gray-700">
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Pre-Listing Clean</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Closing Day Clean</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Open House Prep</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <AuthorBio />
           </div>
         </div>
       </section>

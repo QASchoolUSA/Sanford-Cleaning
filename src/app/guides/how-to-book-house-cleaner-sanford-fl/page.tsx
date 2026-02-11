@@ -1,76 +1,171 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
-  title: 'How to Book a House Cleaner in Sanford FL',
+  title: 'How to Prepare for a House Cleaner in Sanford FL',
   description:
-    'A simple guide to booking a house cleaner in Sanford FL. Steps, preparation tips, and scheduling options with Sanford Cleaning.',
+    'Getting ready for your cleaning appointment? Here is a simple checklist to help your cleaner be more efficient and thorough.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/how-to-book-house-cleaner-sanford-fl' },
   openGraph: {
-    title: 'How to Book a House Cleaner in Sanford FL',
+    title: 'How to Prepare for a House Cleaner in Sanford FL',
     description:
-      'From selecting a service to confirmation—book your Sanford house cleaner quickly with Sanford Cleaning.',
+      'Maximize your cleaning service value with these simple preparation tips from Sanford Cleaning.',
     url: 'https://sanfordcleaning.com/guides/how-to-book-house-cleaner-sanford-fl',
     siteName: 'Sanford Cleaning',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How to Book a House Cleaner in Sanford FL',
+    title: 'How to Prepare for a House Cleaner in Sanford FL',
     description:
-      'A simple guide to booking a house cleaner in Sanford FL. Steps, preparation tips, and scheduling options with Sanford Cleaning.',
+      'Getting ready for your cleaning appointment? Here is a simple checklist to help your cleaner be more efficient and thorough.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
 
 export default function Page() {
-  const breadcrumb = {
+  const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanfordcleaning.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://sanfordcleaning.com/guides' },
-      { '@type': 'ListItem', position: 3, name: 'How to Book a House Cleaner in Sanford FL', item: 'https://sanfordcleaning.com/guides/how-to-book-house-cleaner-sanford-fl' },
+    '@type': 'Article',
+    headline: 'How to Prepare for a House Cleaner in Sanford FL',
+    image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
+    author: {
+      '@type': 'Person',
+      name: 'Sanford Cleaning Team',
+      url: 'https://sanfordcleaning.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Sanford Cleaning',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://sanfordcleaning.com/sanford-cleaning-logo.png',
+      },
+    },
+    datePublished: '2026-02-10',
+    dateModified: '2026-02-10',
+    description: 'A guide to preparing your home for professional cleaning services.',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://sanfordcleaning.com/guides/how-to-book-house-cleaner-sanford-fl',
+    },
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Do I need to be home during the cleaning?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No, most of our clients in Sanford provide us with a key or door code. You can carry on with your day while we work.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Should I clean before the cleaners come?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No need to scrub! However, we recommend "tidying up"—picking up toys, clothes, and dishes—so our team can focus on deep cleaning surfaces rather than organizing clutter.',
+        },
+      },
     ],
   };
 
   return (
-    <main className="pt-20">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <section className="bg-gradient-to-b from-white to-slate-50">
-        <div className="container mx-auto px-4 py-12">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">How to Book a House Cleaner in Sanford FL</h1>
-          <p className="mt-4 text-slate-700 max-w-3xl">
-            Sanford Cleaning makes scheduling easy: pick your service, choose your time, and submit your booking.
-            This guide includes prep tips to make the most of your appointment.
-          </p>
-          <div className="mt-6 flex gap-3">
-            <Link href="/booking" className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Book Online</Link>
-            <Link href="/free-custom-quote" className="inline-flex items-center rounded-md border border-slate-300 px-4 py-2 text-slate-700 hover:bg-slate-100">Custom Quote</Link>
-          </div>
-        </div>
-      </section>
+    <main className="pt-24 pb-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="container mx-auto px-4 py-10">
-        <h2 className="text-2xl font-semibold">Booking Steps</h2>
-        <ul className="mt-3 list-disc pl-6 text-slate-700">
-          <li>Select service (house cleaning, deep cleaning, move-out)</li>
-          <li>Choose frequency (weekly, biweekly, one-time)</li>
-          <li>Prepare home: tidy surfaces, secure pets, list priorities</li>
-        </ul>
+      <article className="container mx-auto px-4 max-w-4xl">
+        <nav className="text-sm text-slate-500 mb-6">
+          <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+          <span className="mx-2">/</span>
+          <Link href="/guides" className="hover:text-blue-600 transition-colors">Guides</Link>
+          <span className="mx-2">/</span>
+          <span className="text-slate-800 font-medium">Prep Guide</span>
+        </nav>
 
-        <div className="mt-8 rounded-lg border p-6">
-          <h3 className="text-xl font-semibold">Local and Friendly</h3>
-          <p className="mt-2 text-slate-700">
-            If you’re searching “house cleaning services near me,” book with Sanford Cleaning for a smooth, professional
-            experience.
+        <header className="mb-10 text-center sm:text-left">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
+            How to Prepare for a House Cleaner (Sanford, FL)
+          </h1>
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
+            You've booked the appointment. Now, here's how to get the most bang for your buck by preparing your home.
           </p>
-          <div className="mt-4 flex gap-3">
-            <Link href="/house-cleaning" className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">View Services</Link>
-            <Link href="/deep-cleaning" className="rounded-md border border-slate-300 px-4 py-2 text-slate-700 hover:bg-slate-100">Deep Cleaning</Link>
+        </header>
+
+        {/* Hook + Answer */}
+        <section className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-12 shadow-sm">
+          <h2 className="text-xl font-bold text-blue-900 mb-2 flex items-center">
+            <span className="bg-blue-600 text-white rounded-full w-6 h-6 inline-flex items-center justify-center text-sm mr-2">✓</span>
+            Quick Answer: Do I have to clean?
+          </h2>
+          <p className="text-slate-800 leading-relaxed">
+            <strong>Don't clean!</strong> That's our job. However, we do ask that you <strong>declutter</strong>.
+            Clearing floors and countertops of personal items allows our team to spend 100% of their time scrubbing and sanitizing,
+            giving you a deeper, longer-lasting clean.
+          </p>
+        </section>
+
+        {/* Checklist Table */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Pre-Appointment Checklist</h2>
+          <div className="overflow-x-auto rounded-lg border border-slate-200">
+            <table className="w-full text-left text-sm text-slate-600">
+              <thead className="bg-slate-50 text-xs uppercase text-slate-700 font-bold">
+                <tr>
+                  <th className="px-6 py-4">Action Item</th>
+                  <th className="px-6 py-4">Why it helps</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 bg-white">
+                <tr>
+                  <td className="px-6 py-4 font-medium text-slate-900">Secure Pets</td>
+                  <td className="px-6 py-4">Ensures safety for your furry friends and our team.</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-medium text-slate-900">Clear Sink of Dishes</td>
+                  <td className="px-6 py-4">Allows us to scrub the sink basin thoroughly.</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-medium text-slate-900">Pick up Laundry/Toys</td>
+                  <td className="px-6 py-4">Gives us clear access to vacuum and mop floors.</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-medium text-slate-900">Set Alarm/Gate Code</td>
+                  <td className="px-6 py-4">Ensures seamless entry if you aren't home.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="prose prose-slate max-w-none mb-12">
+          <h2 className="text-2xl font-bold text-slate-900">A Note on Temperature</h2>
+          <p>
+            In Sanford, FL, it gets hot! For the health and safety of our cleaners, we kindly ask that you keep the air conditioning on at a reasonable temperature (74°F or lower) while we work.
+          </p>
+        </section>
+
+        {/* CTA */}
+        <section className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center text-white mb-16">
+          <h2 className="text-3xl font-bold mb-4">Book Your Appointment</h2>
+          <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+            Ready to schedule? Our team is prepped and ready to serve you.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/booking" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-100 transition-colors">
+              Book Now
+            </Link>
+          </div>
+        </section>
+
+        <AuthorBio />
+      </article>
     </main>
   );
 }

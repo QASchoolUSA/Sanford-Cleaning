@@ -1,7 +1,8 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home as HomeIcon, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import AuthorBio from '@/components/AuthorBio';
+import { Home as HomeIcon, Clock, CheckCircle, ArrowRight, Zap, Shield, Sparkles } from 'lucide-react';
 
 export const metadata = {
   title: '5-Star House Cleaning in Sanford, FL | Instant Online Booking',
@@ -37,6 +38,50 @@ export default function ResidentialCleaningPage() {
       }
     ]
   }`;
+
+  const serviceSchema = `{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "House Cleaning",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Sanford Cleaning",
+      "image": "https://sanfordcleaning.com/sanford-residential-cleaning.webp",
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Sanford, FL"
+    },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "House Cleaning Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Regular House Cleaning"
+                },
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "80.00",
+                  "priceCurrency": "USD",
+                  "unitText": "visit"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "New Customer Discount"
+                },
+                "description": "$10 off your first cleaning service in Sanford."
+              }
+            ]
+          }
+  }`;
+
   const services = [
     {
       name: 'Regular House Cleaning',
@@ -91,8 +136,6 @@ export default function ResidentialCleaningPage() {
     { name: 'Laundry Service', price: '$15 per load' },
   ];
 
-  
-
   const jsonLdFaq = `{
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -128,14 +171,6 @@ export default function ResidentialCleaningPage() {
           "@type": "Answer",
           "text": "We offer both scheduled and one-time cleanings. Weekly, bi-weekly, or monthly plans are available and often qualify for discounted rates compared to one-off bookings."
         }
-      },
-      {
-        "@type": "Question",
-        "name": "What are the ways to book cleaning?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can book online on our website, call or text (321) 236-0618, or email info@sanfordcleaning.com."
-        }
       }
     ]
   }`;
@@ -143,6 +178,7 @@ export default function ResidentialCleaningPage() {
   return (
     <div className="pt-20">
       <script id="residential-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
+      <script id="residential-jsonld-service" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serviceSchema }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/residential-cleaning#localbusiness" name="Sanford Cleaning - Residential Services" url="https://sanfordcleaning.com/residential-cleaning" image="https://sanfordcleaning.com/sanford-residential-cleaning.webp" priceRange="$$" />
       <script id="residential-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
 
@@ -154,7 +190,7 @@ export default function ResidentialCleaningPage() {
                 <HomeIcon className="w-8 h-8 text-blue-600" />
                 <span className="text-blue-600 font-semibold">House Cleaning</span>
               </div>
-  <h1 data-cy="residential-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">House Cleaning Services in Sanford, FL</h1>
+              <h1 data-cy="residential-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">House Cleaning Services in Sanford, FL</h1>
               <p className="text-lg text-gray-600 leading-relaxed">Transform your house into a spotless sanctuary with our comprehensive residential cleaning services. From regular maintenance to deep cleaning, we handle it all so you can focus on what matters most.</p>
               <div className="flex justify-start">
                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block">Get Free Quote and Book</Link>
@@ -174,6 +210,80 @@ export default function ResidentialCleaningPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does house cleaning help cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> provides 5-star <strong>house cleaning in Sanford, FL</strong> starting at <strong>$80/visit</strong>. Unlike franchise maids, our local insured team uses pH-neutral products safe for Sanford&apos;s hard water and targets high-humidity mold risks. We offer weekly, bi-weekly, and one-time cleans with next-day availability.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Weekly / Bi-Weekly:</strong> Starting at $80</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>One-Time Clean:</strong> Starting at $120</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Availability:</strong> Next-day often available</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Service Area:</strong> All Sanford zip codes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Sanford Cleaning Insights</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Hard Water Defense</h3>
+                <p className="text-sm text-gray-600">Sanford water has high mineral content. We use specific pH-neutral cleaners to prevent haze on your shower glass.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Humidity Control</h3>
+                <p className="text-sm text-gray-600">We recommend keeping A/C set to 74°F during cleaning to allow floors to dry streak-free in Florida humidity.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Pest Prevention</h3>
+                <p className="text-sm text-gray-600">Our kitchen checklist focuses on crumb removal in pantry corners to deter locally common Palmetto bugs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* At a Glance Section (AEO Hook) */}
+      <section className="bg-white py-12 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 text-center">
+              <Clock className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Duration</div>
+              <div className="font-bold text-gray-900">2 - 4 Hours</div>
+            </div>
+            <div className="p-4 bg-green-50 rounded-xl border border-green-100 text-center">
+              <Zap className="w-8 h-8 text-green-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Starting Price</div>
+              <div className="font-bold text-gray-900">$80 (Flat Rate)</div>
+            </div>
+            <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 text-center">
+              <Sparkles className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Best For</div>
+              <div className="font-bold text-gray-900">Recurring Maintenance</div>
+            </div>
+            <div className="p-4 bg-orange-50 rounded-xl border border-orange-100 text-center">
+              <Shield className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Guarantee</div>
+              <div className="font-bold text-gray-900">100% Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -182,7 +292,7 @@ export default function ResidentialCleaningPage() {
             <p className="text-md text-gray-600 max-w-3xl mx-auto mt-4">Looking for a professional house cleaning service near me? Our local Sanford team provides reliable, thorough cleaning services right in your neighborhood, ensuring your house stays pristine without the hassle.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => {
               const cardContent = (
                 <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
@@ -215,6 +325,59 @@ export default function ResidentialCleaningPage() {
                 <div key={index}>{cardContent}</div>
               );
             })}
+          </div>
+
+          {/* Comparison Table */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Which Clean Do You Need?</h3>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+              <table className="w-full text-left text-sm text-gray-600">
+                <thead className="bg-gray-50 text-xs uppercase text-gray-700 font-bold">
+                  <tr>
+                    <th className="px-6 py-4">Task</th>
+                    <th className="px-6 py-4 text-center">Standard Clean</th>
+                    <th className="px-6 py-4 text-center text-blue-700 bg-blue-50">Deep Clean</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 bg-white">
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Kitchen Counters & Sinks</td>
+                    <td className="px-6 py-4 text-center text-green-600">✓</td>
+                    <td className="px-6 py-4 text-center text-green-600 bg-blue-50/30">✓</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Vacuum & Mop Floors</td>
+                    <td className="px-6 py-4 text-center text-green-600">✓</td>
+                    <td className="px-6 py-4 text-center text-green-600 bg-blue-50/30">✓</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Baseboards (Hand-Wiped)</td>
+                    <td className="px-6 py-4 text-center text-gray-400">Dust Only</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">✓</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Ceiling Fans (Hand-Wiped)</td>
+                    <td className="px-6 py-4 text-center text-gray-400">Dust Only</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">✓</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Cabinet Fronts</td>
+                    <td className="px-6 py-4 text-center text-gray-400">Spot Clean</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">✓</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Light Switches & Doors</td>
+                    <td className="px-6 py-4 text-center text-gray-400">-</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">✓</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="text-center mt-6">
+              <Link href="/deep-cleaning" className="text-blue-600 font-semibold hover:underline flex items-center justify-center">
+                Learn more about Deep Cleaning <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -265,6 +428,7 @@ export default function ResidentialCleaningPage() {
                 </Link>
               </div>
             </div>
+
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
@@ -272,7 +436,6 @@ export default function ResidentialCleaningPage() {
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning near me</strong> – recurring or one‑time appointments.</span></li>
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning services near me</strong> – customized checklists and reliable scheduling.</span></li>
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning services in sanford fl</strong> – local, insured professionals.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaners in sanford fl</strong> – consistent results for homeowners and property managers.</span></li>
                 </ul>
               </div>
               <div className="bg-white rounded-xl p-6 border">
@@ -284,31 +447,58 @@ export default function ResidentialCleaningPage() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* FAQs */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">House Cleaning FAQs</h2>
-            <div className="space-y-4">
-              <details className="bg-white rounded-xl p-6 border group">
-                <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
-                  Can you clean on a schedule (weekly, bi‑weekly, monthly) or just once?
-                  <span className="text-gray-500 group-open:rotate-180 transition-transform">▾</span>
-                </summary>
-                <p className="text-gray-700 mt-3">Yes. We offer both scheduled and one‑time cleanings. Weekly, bi‑weekly, or monthly plans are available and often qualify for discounted rates compared to one‑off bookings.</p>
-              </details>
-              <details className="bg-white rounded-xl p-6 border group">
-                <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
-                  What are the ways to book cleaning?
-                  <span className="text-gray-500 group-open:rotate-180 transition-transform">▾</span>
-                </summary>
-                <p className="text-gray-700 mt-3">You can book online on our website, call or text <a href="tel:+13212360618" className="text-blue-600 hover:underline">(321) 236-0618</a>, or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>.</p>
-              </details>
+            {/* FAQs */}
+            <div className="mt-12">
+              <h2 className="text-3xl md:text-3xl font-bold text-gray-900 mb-8">Common Questions</h2>
+              <div className="space-y-4">
+                <details className="bg-white rounded-xl p-6 border group">
+                  <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
+                    Can you clean on a schedule (weekly, bi‑weekly, monthly) or just once?
+                    <span className="text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+                  </summary>
+                  <p className="text-gray-700 mt-3">Yes. We offer both scheduled and one‑time cleanings. Weekly, bi‑weekly, or monthly plans are available and often qualify for discounted rates compared to one‑off bookings.</p>
+                </details>
+                <details className="bg-white rounded-xl p-6 border group">
+                  <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
+                    What are the ways to book cleaning?
+                    <span className="text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+                  </summary>
+                  <p className="text-gray-700 mt-3">You can book online on our website, call or text <a href="tel:+13212360618" className="text-blue-600 hover:underline">(321) 236-0618</a>, or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>.</p>
+                </details>
+              </div>
             </div>
+
+            {/* Hyper-Local Neighborhood Section */}
+            <div className="mt-16 pt-12 border-t border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving Sanford&apos;s Neighborhoods</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic & Downtown</h3>
+                  <p className="text-gray-600 mb-4">
+                    Our team provides meticulous <strong>house cleaning in the Sanford Historic District</strong>, respecting the unique needs of older homes and Victorians. We also serve the downtown area near <strong>Lake Monroe</strong> and the <strong>Sanford Riverwalk</strong>.
+                  </p>
+                  <ul className="space-y-1 text-gray-700">
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic District</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Downtown Sanford</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Georgetown</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Subdivisions & Communities</h3>
+                  <p className="text-gray-600 mb-4">
+                    We frequently service homes in <strong>Mayfair</strong>, <strong>Heathrow</strong>, and <strong>Buckingham Estates</strong>. From large estate cleanings near <strong>Seminole Towne Center</strong> to townhomes in <strong>Lake Forest</strong>, we have a cleaning plan for every home type.
+                  </p>
+                  <ul className="space-y-1 text-gray-700">
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Mayfair / Heathrow</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Lake Forest</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Buckingham Estates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <AuthorBio />
           </div>
         </div>
       </section>

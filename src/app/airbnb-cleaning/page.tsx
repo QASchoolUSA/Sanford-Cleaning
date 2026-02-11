@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Home as HomeIcon, CheckCircle, Clock, ArrowRight } from 'lucide-react';
+import AuthorBio from "@/components/AuthorBio";
+import { Home as HomeIcon, CheckCircle, Clock, ArrowRight, Shield, MapPin, Star, Bed } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
@@ -178,6 +179,52 @@ export default function AirbnbCleaningPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does Airbnb cleaning cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> provides 5-star <strong>Airbnb cleaning in Sanford, FL</strong> starting at <strong>$95/turnover</strong>. Designed for Superhosts, our service includes same-day turnover, hotel-quality linen staging, restocking of essentials, and photo reporting. We integrate with your booking calendar to ensure your rental is guest-ready by 3 PM.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Studio/1-Bed:</strong> Starting at $95</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>2-Bed/2-Bath:</strong> Starting at $140</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Turnover:</strong> 11 AM - 3 PM Window</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Includes:</strong> Linens & Restocking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Vacation Rental Ops</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Inventory Checks</h3>
+                <p className="text-sm text-gray-600">Guests often break glasses or hide stains. We perform a visual inventory check during every clean to report damages before your next booking.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Humidity Control</h3>
+                <p className="text-sm text-gray-600">We verify the AC is reset to 72-74°F; leaving it off in Sanford can cause musty odors that lead to refunds.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Welcome Staging</h3>
+                <p className="text-sm text-gray-600">First impressions matter. We diamond-fold toilet paper and create towel fans to signal 'professionally cleaned' immediately upon entry.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Cards */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -292,6 +339,41 @@ export default function AirbnbCleaningPage() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hyper-Local Neighborhood Section */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving Sanford Short-Term Rentals</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Downtown Historic District</h3>
+                <p className="text-gray-600 mb-4">
+                  Cleaning historic bungalows near <strong>Magnolia Square</strong> requires care with original hardwood floors. We use pH-neutral cleaners safe for 100-year-old wood.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic Downtown</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> 1st Street Dining</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Marina & Lakefront</h3>
+                <p className="text-gray-600 mb-4">
+                  Properties near <strong>Lake Monroe</strong> experience higher sand tracking. We focus on entryway extraction to protect your floors.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Sanford Marina</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Riverwalk Condos</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <AuthorBio />
             </div>
           </div>
         </div>

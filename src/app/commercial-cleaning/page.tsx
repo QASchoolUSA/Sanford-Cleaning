@@ -1,6 +1,7 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import ServiceAreas from '@/components/ServiceAreas';
-import { Building, Clock, Shield, Users, CheckCircle, Briefcase } from 'lucide-react';
+import AuthorBio from '@/components/AuthorBio';
+import { Building, Clock, Shield, Users, CheckCircle, Briefcase, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata = {
@@ -179,6 +180,52 @@ export default function CommercialCleaningPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does commercial cleaning cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> provides reliable <strong>commercial cleaning in Sanford, FL</strong> starting at <strong>$150/month</strong> for small offices. We specialize in medical, retail, and office spaces, offering after-hours secure access and customized scope—from daily trash/vac to weekly deep sanitation. We are fully insured and locally owned.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Small Office:</strong> Starting at $150/mo</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Frequency:</strong> Daily, Weekly, Bi-Weekly</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Specialty:</strong> Medical & Retail VCT</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Availability:</strong> After-hours / Weekends</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Commercial Maintenance</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">High-Touch Points</h3>
+                <p className="text-sm text-gray-600">We prioritize door handles, light switches, and breakroom fixtures to reduce office germ transmission.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">VCT Floor Care</h3>
+                <p className="text-sm text-gray-600">Regular buffing extends the life of VCT tile in high-traffic retail aisles, delaying the need for costly stripping.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Secure Access</h3>
+                <p className="text-sm text-gray-600">Our after-hours teams follow strict lock-up protocols to ensure your facility is secure when we leave.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -247,6 +294,41 @@ export default function CommercialCleaningPage() {
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">What&apos;s the difference between office cleaning and janitorial services in Sanford, FL?</h3>
               <p className="text-gray-600">Our comprehensive janitorial services in Sanford, FL go beyond basic office cleaning to include facility maintenance, supply management, and specialized cleaning protocols. While office cleaning focuses on daily tasks like dusting and vacuuming, our full janitorial services encompass everything from deep sanitization to maintenance coordination, ensuring your Sanford business operates in a pristine, professional environment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hyper-Local Neighborhood Section */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving Sanford Businesses</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic Downtown</h3>
+                <p className="text-gray-600 mb-4">
+                  We keep shops and offices on <strong>1st Street</strong> and <strong>Sanford Ave</strong> pristine for customers. We understand the specific trash and recycling needs of the downtown district.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Downtown Sanford</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Waterfront District</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Corporate Corridors</h3>
+                <p className="text-gray-600 mb-4">
+                  From medical parks near <strong>HCA Florida Lake Monroe Hospital</strong> to logistics centers off <strong>SR 46</strong>, our teams are equipped for diverse commercial facility needs.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Medical Arts District</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Lake Mary Blvd Corridor</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <AuthorBio />
             </div>
           </div>
         </div>

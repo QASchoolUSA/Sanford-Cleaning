@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import ServiceAreas from "@/components/ServiceAreas";
-import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks } from "lucide-react";
+import AuthorBio from "@/components/AuthorBio";
+import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks, DollarSign, Calendar } from "lucide-react";
 
 export const metadata = {
   title: "Deep Cleaning Services Near Me | Sanford, FL Deep Cleaners",
@@ -35,6 +36,50 @@ export default function DeepCleaningPage() {
       { "@type": "ListItem", "position": 2, "name": "Deep Cleaning", "item": "https://sanfordcleaning.com/deep-cleaning" }
     ]
   }`;
+
+  const serviceSchema = `{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Deep Cleaning",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Sanford Cleaning",
+      "image": "https://sanfordcleaning.com/sanford-cleaning-cleaning-fridge.png",
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Sanford, FL"
+    },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Deep Cleaning Packages",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Standard Deep Clean"
+                },
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "150.00",
+                  "priceCurrency": "USD",
+                  "unitText": "service"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "First Deep Clean Discount"
+                },
+                "description": "$20 off your first deep cleaning service in Sanford."
+              }
+            ]
+          }
+  }`;
+
   const jsonLdFaq = `{
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -175,6 +220,7 @@ export default function DeepCleaningPage() {
   return (
     <div className="pt-20">
       <script id="deep-cleaning-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
+      <script id="deep-cleaning-jsonld-service" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serviceSchema }} />
       <script id="deep-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/deep-cleaning#localbusiness" name="Sanford Cleaning - Deep Cleaning" url="https://sanfordcleaning.com/deep-cleaning" />
 
@@ -192,9 +238,6 @@ export default function DeepCleaningPage() {
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Go beyond surface cleaning with our thorough deep cleaning services. Perfect for spring cleaning, special occasions, or when your home needs that extra level of care and attention.
-              </p>
-              <p className="text-md text-gray-600 leading-relaxed">
-                Whether you need comprehensive spring cleaning to refresh your home after winter or thorough move-out deep cleaning to ensure your property is spotless for the next occupants, our experienced team delivers exceptional results every time.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center">
@@ -225,8 +268,134 @@ export default function DeepCleaningPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does a deep house cleaning cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> provides professional <strong>deep cleaning in Sanford, FL</strong> starting at <strong>$150</strong>. Our 4–6 hour intensive service targets Florida-specific issues like humidity-trapped potential mold in grout, red clay dust on baseboards, and AC vent buildup. We serve the <strong>Historic District</strong> and all Seminole County zip codes.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Standard Deep Clean:</strong> Starting at $150</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Premium Detail:</strong> Starting at $250</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Includes:</strong> Baseboards, Grout, Vents</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Availability:</strong> Book within 48 hours</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Sanford Deep Cleaning</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Red Clay Dust</h3>
+                <p className="text-sm text-gray-600">Local soil often tracks in reddish dust appearing on baseboards; we use damp microfiber to capture it without staining paint.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">AC Intake Vents</h3>
+                <p className="text-sm text-gray-600">To improve air quality, we vacuum intake vents first to prevent recirculating dust during the cleaning process.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Grout Lines</h3>
+                <p className="text-sm text-gray-600">Sanford&apos;s sandy soil embeds in grout. We use a targeted peroxide scrub to lift discoloration from tile floors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* At a Glance Section (AEO Hook) */}
+      <section className="bg-white py-12 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 text-center">
+              <Clock className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Duration</div>
+              <div className="font-bold text-gray-900">4 - 6 Hours</div>
+            </div>
+            <div className="p-4 bg-green-50 rounded-xl border border-green-100 text-center">
+              <DollarSign className="w-8 h-8 text-green-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Starting Price</div>
+              <div className="font-bold text-gray-900">$150 (Package)</div>
+            </div>
+            <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 text-center">
+              <Calendar className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Frequency</div>
+              <div className="font-bold text-gray-900">One-Time / Annual</div>
+            </div>
+            <div className="p-4 bg-orange-50 rounded-xl border border-orange-100 text-center">
+              <Zap className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Focus</div>
+              <div className="font-bold text-gray-900">Build-Up Removal</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table: Deep vs Regular */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Deep Cleaning vs. Regular Cleaning</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+              <table className="w-full text-left text-sm text-gray-600">
+                <thead className="bg-gray-50 text-xs uppercase text-gray-700 font-bold">
+                  <tr>
+                    <th className="px-6 py-4">Checklist Item</th>
+                    <th className="px-6 py-4 text-center">Regular Clean</th>
+                    <th className="px-6 py-4 text-center text-blue-700 bg-blue-50">Deep Clean</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 bg-white">
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">General Dusting</td>
+                    <td className="px-6 py-4 text-center text-green-600">✓</td>
+                    <td className="px-6 py-4 text-center text-green-600 bg-blue-50/30">✓ (Detailed)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Baseboards</td>
+                    <td className="px-6 py-4 text-center text-gray-400">Light Dust</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">Hand-Wash / Scrub</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Ceiling Fans</td>
+                    <td className="px-6 py-4 text-center text-gray-400">Dust Only</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">Blade Washing</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Light Switches / Door Frames</td>
+                    <td className="px-6 py-4 text-center text-gray-400">Sanitize</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">Deep Scrub</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Cabinet Exteriors</td>
+                    <td className="px-6 py-4 text-center text-gray-400">Spot Clean</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">Full Wash</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Vents & Intakes</td>
+                    <td className="px-6 py-4 text-center text-gray-400">-</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold bg-blue-50/30">Vacuum/Wash</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Packages */}
-      <section className="bg-white py-12">
+      <section className="bg-gray-50 py-12">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="bg-white rounded-xl shadow-sm border p-8">
@@ -253,7 +422,7 @@ export default function DeepCleaningPage() {
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900">When Do You Need Deep Cleaning?</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {whenToBook.map((item) => (
-                  <div key={item.title} className="bg-gray-50 rounded-xl p-6 border text-center">
+                  <div key={item.title} className="bg-white rounded-xl p-6 border text-center shadow-sm">
                     <item.icon className="w-10 h-10 text-blue-600 mx-auto mb-3" />
                     <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
                     <p className="text-gray-600 text-sm">{item.description}</p>
@@ -340,6 +509,7 @@ export default function DeepCleaningPage() {
                 </Link>
               </div>
             </div>
+
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
@@ -360,6 +530,37 @@ export default function DeepCleaningPage() {
                 </ul>
               </div>
             </div>
+
+            {/* Hyper-Local Neighborhood Section */}
+            <div className="mt-16 pt-12 border-t border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Deep Cleaning Across Sanford</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic Renovations & Estates</h3>
+                  <p className="text-gray-600 mb-4">
+                    Owners of historic homes in the <strong>Sanford Historic District</strong> trust us for careful deep cleaning of original features. We also handle large estate deep cleans in <strong>Heathrow</strong> and <strong>Lake Forest</strong>, ensuring every corner is dust-free.
+                  </p>
+                  <ul className="space-y-1 text-gray-700">
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic District</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Heathrow Estates</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Lake Forest</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Apartments & Condos</h3>
+                  <p className="text-gray-600 mb-4">
+                    From lofts in <strong>Downtown Sanford</strong> to apartments near <strong>Seminole State College</strong>, our team is equipped for efficient deep cleaning in any layout. We focus on high-traffic areas and compact spaces to refresh your home.
+                  </p>
+                  <ul className="space-y-1 text-gray-700">
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Downtown Lofts</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> College Park Area</li>
+                    <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Gateway at Riverwalk</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <AuthorBio />
           </div>
         </div>
       </section>
@@ -382,8 +583,6 @@ export default function DeepCleaningPage() {
           </div>
         </div>
       </section>
-
-      {/* Service Areas */}
       <ServiceAreas />
     </div>
   );

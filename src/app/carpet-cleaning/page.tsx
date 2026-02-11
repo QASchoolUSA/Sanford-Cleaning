@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import { Sparkles, CheckCircle, Shield, Clock, MapPin, Droplets, ArrowRight } from "lucide-react";
+import AuthorBio from "@/components/AuthorBio";
+import { Sparkles, CheckCircle, Shield, Clock, MapPin, Droplets, ArrowRight, Fan, PawPrint } from "lucide-react";
 
 export const metadata = {
   title: "#1 Carpet & Rug Cleaning in Sanford FL | Sanford Cleaning",
@@ -135,6 +136,52 @@ export default function CarpetCleaningPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does carpet cleaning cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> provides professional <strong>carpet cleaning in Sanford, FL</strong> starting at <strong>$50/room</strong> (min. applies). We use truck-mounted hot water extraction (steam cleaning) to remove embedded sand, pet dander, and allergens common in Florida homes. Our process includes enzymatic pet odor treatment and rapid-dry fans.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Per Room:</strong> Starting at $50</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Whole Home:</strong> Packages available</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Tech:</strong> 230°F Steam Extraction</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Drying:</strong> 4-6 Hours Typical</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Carpet Care</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Sandy Soil</h3>
+                <p className="text-sm text-gray-600">Sanford soil is sandy and abrasive. It cuts carpet fibers like sandpaper if not extracted annually, shortening carpet life.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Humidity & Drying</h3>
+                <p className="text-sm text-gray-600">We use extra dry passes and air movers to combat Florida humidity, ensuring carpets dry before mold can grow.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Pet Enzyme Science</h3>
+                <p className="text-sm text-gray-600">For urine spots, we use bio-enzymatic digesters that break down uric acid crystals rather than just masking the smell.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6">Carpet Cleaning Services</h2>
@@ -148,6 +195,41 @@ export default function CarpetCleaningPage() {
               <p className="text-gray-700 text-sm">{s.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Hyper-Local Neighborhood Section */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving Sanford Neighborhoods</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic & Established</h3>
+                <p className="text-gray-600 mb-4">
+                  Cleaning wool rugs in the <strong>Historic District</strong>? We have specialized low-moisture options for delicate fibers.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic District</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Mayfair</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Family Communities</h3>
+                <p className="text-gray-600 mb-4">
+                  We remove kid and pet stains daily in neighborhoods like <strong>Buckingham Estates</strong> and <strong>Lake Forest</strong>.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Buckingham Estates</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Lake Forest</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <AuthorBio />
+            </div>
+          </div>
         </div>
       </section>
     </div>

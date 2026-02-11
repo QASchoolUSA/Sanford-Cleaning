@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin } from "lucide-react";
+import AuthorBio from "@/components/AuthorBio";
+import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin, Sun, Wind } from "lucide-react";
 
 export const metadata = {
   title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
@@ -157,6 +158,52 @@ export default function WindowCleaningPage() {
         </div>
       </section>
 
+      {/* AIO 'Direct Answer' Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does window cleaning cost in Sanford, FL?</h2>
+            <div className="prose max-w-none text-gray-700">
+              <p className="text-lg leading-relaxed mb-4">
+                <strong>Sanford Cleaning</strong> offers streak-free <strong>window cleaning in Sanford, FL</strong> starting at <strong>$150</strong> (based on pane count). We clean both interior and exterior glass using purified water technology that dries spotless. Our service includes track detailing and screen washing, critical for specialized Florida screen enclosures.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Starting Price:</strong> $150 (approx. 15-20 panes)</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Includes:</strong> Tracks, Sills, Screens</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Method:</strong> Pure Water Fed Pole</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Add-On:</strong> Hard Water Stain Removal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Field Notes Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center mb-6">
+              <Shield className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Glass Care</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Irrigation Stains</h3>
+                <p className="text-sm text-gray-600">Sanford sprinkler systems often hit windows, modifying hard water deposits. We use mild acids to restore clarity without scratching.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Track Detailing</h3>
+                <p className="text-sm text-gray-600">Sand and pollen accumulate in window tracks, causing jams. We vacuum and brush tracks out before cleaning the glass.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-2">Screen Oxidation</h3>
+                <p className="text-sm text-gray-600">Sun-baked screens can become brittle. We carefully remove and hand-wash them to avoid tears while removing trapped dust.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6">Window Cleaning Services</h2>
@@ -256,6 +303,41 @@ export default function WindowCleaningPage() {
           </div>
         </div>
       </section>
-    </div>
+
+      {/* Hyper-Local Neighborhood Section */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving Sanford Homes & Businesses</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Lakefront Properties</h3>
+                <p className="text-gray-600 mb-4">
+                  Homes near <strong>Lake Monroe</strong> face heavy pollen and spider webs. We offer quarterly exterior glass programs to keep your view clear.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Riverwalk Area</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Marina Isle</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Commercial Storefronts</h3>
+                <p className="text-gray-600 mb-4">
+                  We service storefronts along <strong>1st Street</strong> and <strong>French Ave</strong>, ensuring display windows are spotless for foot traffic.
+                </p>
+                <ul className="space-y-1 text-gray-700">
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic Downtown</li>
+                  <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Towne Center Blvd</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <AuthorBio />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div >
   );
 }
