@@ -1130,51 +1130,46 @@ const PriceCalculator = () => {
 
             {/* Price Estimate - Only show after sufficient information is provided */}
             {estimatedPrice > 0 && currentStep >= 2 && formData.service && formData.squareFootage && (
-              <div className="bg-blue-50 p-4 md:p-6 border-t shrink-0">
+              <div className="bg-blue-50 py-3 px-4 md:p-6 border-t shrink-0">
                 {formData.service === 'Maintenance Cleaning' && maintenancePrice > 0 ? (
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">Maintenance Cleaning Pricing</h3>
+                  <div className="space-y-2 md:space-y-4">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 text-center mb-2 md:mb-4">Maintenance Pricing</h3>
 
-                    {/* Initial Cleaning Price */}
-                    <div className="bg-white p-4 rounded-lg border border-blue-200">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <h4 className="font-semibold text-gray-900">Initial Cleaning</h4>
-                          <p className="text-sm text-gray-600">First-time deep clean to establish baseline</p>
+                    <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+                      {/* Initial Cleaning Price */}
+                      <div className="bg-white p-2 md:p-4 rounded-lg flex-1 border border-blue-200 flex justify-between md:flex-col md:justify-center items-center">
+                        <div className="text-left md:text-center text-xs md:text-sm">
+                          <h4 className="font-semibold text-gray-900">Initial Clean</h4>
+                          <span className="hidden md:block text-gray-600">Establish baseline</span>
                         </div>
-                        <div className="text-2xl font-bold text-blue-600">
+                        <div className="text-lg md:text-2xl font-bold text-blue-600">
                           ${estimatedPrice.toFixed(2)}
                         </div>
                       </div>
-                    </div>
 
-                    {/* Recurring Maintenance Price */}
-                    <div className="bg-white p-4 rounded-lg border border-green-200">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <h4 className="font-semibold text-gray-900">Ongoing Maintenance</h4>
-                          <p className="text-sm text-gray-600">
-                            {formData.frequency} service
-                          </p>
+                      {/* Recurring Maintenance Price */}
+                      <div className="bg-white p-2 md:p-4 rounded-lg flex-1 border border-green-200 flex justify-between md:flex-col md:justify-center items-center">
+                        <div className="text-left md:text-center text-xs md:text-sm">
+                          <h4 className="font-semibold text-gray-900">Ongoing</h4>
+                          <span className="hidden md:block text-gray-600">{formData.frequency}</span>
                         </div>
-                        <div className="text-2xl font-bold text-green-600">
+                        <div className="text-lg md:text-2xl font-bold text-green-600">
                           ${maintenancePrice.toFixed(2)}
                         </div>
                       </div>
                     </div>
-
-                    <div className="text-xs text-gray-500 text-center">
-                      💡 You&apos;ll pay the initial cleaning price for your first service, then the maintenance price for ongoing cleanings
-                    </div>
                   </div>
                 ) : (
-                  <div className="text-center">
-                    <p className="text-sm text-gray-600 mb-1">Estimated Price</p>
-                    <p className="text-3xl font-bold text-blue-600">${estimatedPrice.toFixed(2)}</p>
-                    {formData.service === 'Maintenance Cleaning' && !formData.frequency && (
-                      <p className="text-sm text-orange-600 mt-1">*Select frequency to see recurring pricing</p>
-                    )}
-                    <p className="text-xs text-gray-500 mt-1">*Final price may vary based on actual conditions</p>
+                  <div className="flex justify-between items-center md:block md:text-center">
+                    <div>
+                      <p className="text-xs md:text-sm font-medium text-gray-600 md:mb-1">Estimated Price</p>
+                      {formData.service === 'Maintenance Cleaning' && !formData.frequency && (
+                        <p className="hidden md:block text-xs text-orange-600 mt-1">*Select frequency to see recurring pricing</p>
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-2xl md:text-3xl font-bold text-blue-600">${estimatedPrice.toFixed(2)}</p>
+                    </div>
                   </div>
                 )}
               </div>
