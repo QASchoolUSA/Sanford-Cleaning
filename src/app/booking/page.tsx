@@ -27,14 +27,6 @@ export default function BookingPage() {
   return (
     <div className="fixed inset-0 z-[100] bg-gray-50 flex flex-col h-[100dvh] md:relative md:z-auto md:h-auto md:bg-transparent md:block pt-0 md:pt-20">
 
-      {/* --- Mobile App Header --- */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 shadow-[0_2px_10px_rgba(0,0,0,0.05)] z-20 shrink-0">
-        <h1 className="text-xl font-bold text-gray-900 tracking-tight">Book Cleaning</h1>
-        <Link href="/" className="p-2 text-gray-500 hover:text-gray-900 bg-gray-100 active:bg-gray-200 transition-colors rounded-full">
-          <X className="w-5 h-5" />
-        </Link>
-      </div>
-
       {/* --- Desktop Hero Header --- */}
       <section className="hidden md:block bg-gradient-to-br from-blue-50 to-white py-12 border-b shrink-0">
         <div className="container mx-auto px-4">

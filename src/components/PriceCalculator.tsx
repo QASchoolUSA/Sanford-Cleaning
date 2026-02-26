@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, Shield, Star } from 'lucide-react';
+import Link from 'next/link';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, Shield, Star, X } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
 import AddressAutocomplete from '@/components/ui/address-autocomplete';
@@ -1031,8 +1032,8 @@ const PriceCalculator = () => {
             {/* Progress Bar */}
             <div className="bg-blue-50 p-4 md:p-6 shrink-0 z-10 shadow-sm md:shadow-none">
               {/* Overall Progress Bar */}
-              <div className="mb-6">
-                <div className="flex justify-between text-xs text-gray-600 mb-2">
+              <div className="mb-0 md:mb-6">
+                <div className="hidden md:flex justify-between text-xs text-gray-600 mb-2">
                   <span>Step {currentStep} of 4</span>
                   <span>{Math.round((currentStep / 4) * 100)}% Complete</span>
                 </div>
@@ -1044,42 +1045,19 @@ const PriceCalculator = () => {
                 </div>
               </div>
 
-              {/* Step Indicators - Mobile Compact Version */}
-              <div className="md:hidden">
+              {/* Step Indicators - Mobile Compact Version (Replaces Header & Visual Steps) */}
+              <div className="md:hidden flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  {[
-                    { number: 1, title: 'Service Selection' },
-                    { number: 2, title: 'Home Details & Extras' },
-                    { number: 3, title: 'Schedule & Details' },
-                    { number: 4, title: 'Contact & Payment' }
-                  ].map((step, index) => (
-                    <div key={step.number} className="flex items-center">
-                      <div className={`flex flex-col items-center ${step.number === currentStep
-                        ? 'text-blue-600'
-                        : step.number < currentStep
-                          ? 'text-green-600'
-                          : 'text-gray-400'
-                        }`}>
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${step.number === currentStep
-                          ? 'bg-blue-600 text-white'
-                          : step.number < currentStep
-                            ? 'bg-green-600 text-white'
-                            : 'bg-gray-300 text-gray-600'
-                          }`}>
-                          {step.number < currentStep ? <Check className="w-4 h-4" /> : step.number}
-                        </div>
-                        <span className="text-xs font-medium text-center leading-tight max-w-16">
-                          {step.title.split(' ')[0]}
-                          {step.title.split(' ')[1] && <br />}
-                          {step.title.split(' ').slice(1).join(' ')}
-                        </span>
-                      </div>
-                      {index < 3 && (
-                        <div className={`w-4 h-0.5 mx-1 ${step.number < currentStep ? 'bg-green-600' : 'bg-gray-300'
-                          }`} />
-                      )}
-                    </div>
-                  ))}
+                  <span className="font-semibold text-gray-900 text-sm">
+                    Step {currentStep}: {
+                      currentStep === 1 ? 'Service Selection' :
+                        currentStep === 2 ? 'Home Details' :
+                          currentStep === 3 ? 'Schedule' : 'Contact & Payment'
+                    }
+                  </span>
+                  <Link href="/" className="p-1.5 text-gray-500 hover:text-gray-900 bg-gray-200/50 rounded-full">
+                    <X className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
 
