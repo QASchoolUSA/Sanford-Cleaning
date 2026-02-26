@@ -30,39 +30,14 @@ export default function ExitIntentPopup() {
             return;
         }
 
-        // --- DESKTOP: Mouse leave viewport targeting top edge
+        // --- DESKTOP ONLY: Mouse leave viewport targeting top edge
+        // Disable on mobile entirely to prevent annoying scroll-up triggers
+        if (window.innerWidth < 768) return;
+
         document.addEventListener('mouseleave', mouseEvent);
-
-        // --- MOBILE: Scroll direction & speed detection as exit intent fallback
-        let lastScrollY = window.scrollY;
-        let fastScrollTimeout: ReturnType<typeof setTimeout>;
-
-        const handleScroll = () => {
-            if (hasTriggered || sessionStorage.getItem('exitPopupShown')) return;
-
-            const currentScrollY = window.scrollY;
-            const scrollSpeed = lastScrollY - currentScrollY; // positive means scrolling up
-
-            // If they scrolled UP very quickly by more than 100px instantly (usually indicates wanting to jump to menu/leave)
-            if (scrollSpeed > 100 && currentScrollY < 1000) {
-                setShowPopup(true);
-                setHasTriggered(true);
-                sessionStorage.setItem('exitPopupShown', 'true');
-                window.removeEventListener('scroll', handleScroll);
-            }
-
-            lastScrollY = currentScrollY;
-        };
-
-        // Give them 10 seconds to read before we arm the mobile scroll tracker so we don't annoy them early
-        fastScrollTimeout = setTimeout(() => {
-            window.addEventListener('scroll', handleScroll);
-        }, 10000);
 
         return () => {
             document.removeEventListener('mouseleave', mouseEvent);
-            window.removeEventListener('scroll', handleScroll);
-            clearTimeout(fastScrollTimeout);
         };
     }, [hasTriggered, mouseEvent]);
 

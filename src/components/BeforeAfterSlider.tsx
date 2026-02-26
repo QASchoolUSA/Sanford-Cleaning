@@ -1,20 +1,24 @@
 "use client";
 
-import React, { useState, useRef, useEffect, MouseEvent, TouchEvent } from 'react';
+import React, { useRef, useEffect, MouseEvent, TouchEvent, useState } from 'react';
 import Image from 'next/image';
 import { Sparkles } from 'lucide-react';
 
 export default function BeforeAfterSlider() {
-    const [sliderPosition, setSliderPosition] = useState(50);
     const [isDragging, setIsDragging] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const topImageRef = useRef<HTMLDivElement>(null);
+    const sliderLineRef = useRef<HTMLDivElement>(null);
 
     const handleMove = (clientX: number) => {
-        if (!containerRef.current) return;
+        if (!containerRef.current || !topImageRef.current || !sliderLineRef.current) return;
         const rect = containerRef.current.getBoundingClientRect();
         const x = clientX - rect.left; // x position within the element
         const position = Math.max(0, Math.min(100, (x / rect.width) * 100));
-        setSliderPosition(position);
+
+        // Zero-lag direct DOM manipulation for mobile performance
+        topImageRef.current.style.clipPath = `polygon(0 0, ${position}% 0, ${position}% 100%, 0 100%)`;
+        sliderLineRef.current.style.left = `calc(${position}% - 2px)`;
     };
 
     const onMouseMove = (e: globalThis.MouseEvent) => {
@@ -100,8 +104,9 @@ export default function BeforeAfterSlider() {
 
                         {/* Top Image (Before) - Gets sliced by clip-path */}
                         <div
+                            ref={topImageRef}
                             className="absolute inset-0 w-full h-full bg-gray-300"
-                            style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
+                            style={{ clipPath: `polygon(0 0, 50% 0, 50% 100%, 0 100%)` }}
                         >
                             <Image
                                 src="/before-cleaning.png"
@@ -118,8 +123,9 @@ export default function BeforeAfterSlider() {
 
                         {/* Slider Line & Handle */}
                         <div
-                            className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] z-10 hover:w-1.5 transition-all duration-150"
-                            style={{ left: `calc(${sliderPosition}% - 2px)` }}
+                            ref={sliderLineRef}
+                            className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] z-10 hover:w-1.5 transition-[width] duration-150"
+                            style={{ left: `calc(50% - 2px)` }}
                         >
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center pointer-events-none border-2 border-blue-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">

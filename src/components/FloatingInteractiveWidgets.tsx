@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { MessageCircle, Phone, Calculator, X } from 'lucide-react';
 
 export default function FloatingInteractiveWidgets() {
+    const pathname = usePathname();
     const [showWidgets, setShowWidgets] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -21,6 +23,10 @@ export default function FloatingInteractiveWidgets() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Hooks cannot be placed below a conditional return
+    // Hide on booking page to prevent collision with fixed checkout footer
+    if (pathname === '/booking') return null;
 
     const phoneNumber = "(321) 236-0618";
     const rawPhone = "3212360618";
@@ -59,26 +65,26 @@ export default function FloatingInteractiveWidgets() {
             </div>
 
             {/* --- MOBILE STICKY CTA BAR --- */}
-            {/* Shows only on mobile (below md break) */}
-            <div className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-5px_20px_rgba(0,0,0,0.1)] transition-transform duration-300 ${showWidgets ? 'translate-y-0' : 'translate-y-full'}`}>
-                <div className="flex px-2 py-3 gap-2">
+            {/* Shows only on mobile (below md break) with native app feel */}
+            <div className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-t border-gray-200/50 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 ${showWidgets ? 'translate-y-0' : 'translate-y-full'}`}>
+                <div className="flex px-4 py-3 gap-3">
                     <a
                         href="tel:3212360618"
-                        className="flex-1 bg-gray-100 text-gray-900 font-semibold py-3 rounded-lg flex items-center justify-center border border-gray-200 hover:bg-gray-200 active:scale-95 transition-all text-sm"
+                        className="flex-1 bg-gray-100/80 text-gray-900 font-semibold py-3.5 rounded-xl flex items-center justify-center border border-gray-200/50 active:bg-gray-200 active:scale-[0.98] transition-all text-sm shadow-sm"
                     >
                         <Phone className="w-4 h-4 mr-2 text-gray-700" />
                         Call Now
                     </a>
                     <Link
-                        href="/custom-quote"
-                        className="flex-[1.5] bg-blue-600 text-white font-bold py-3 rounded-lg flex items-center justify-center shadow-md hover:bg-blue-700 active:scale-95 transition-all text-sm"
+                        href="/booking"
+                        className="flex-[1.5] bg-blue-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center shadow-[0_4px_14px_rgba(37,99,235,0.39)] active:bg-blue-700 active:scale-[0.98] transition-all text-sm"
                     >
                         <Calculator className="w-4 h-4 mr-2" />
                         Instant Quote
                     </Link>
                 </div>
                 {/* iOS Safe Area Padding */}
-                <div className="pb-safe" />
+                <div className="h-safe pb-2" />
             </div>
         </>
     );

@@ -1022,14 +1022,14 @@ const PriceCalculator = () => {
   };
 
   return (
-    <section id="price-calculator" className="pt-0 pb-2 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+    <section id="price-calculator" className="pt-0 md:pb-2 bg-gray-50 md:bg-transparent h-full flex flex-col md:block">
+      <div className="container mx-auto px-0 md:px-4 h-full flex flex-col md:block">
+        <div className="max-w-4xl mx-auto w-full h-full flex flex-col md:block">
           {/* Removed duplicate header; handled by parent section/card header */}
 
-          <div ref={calculatorRef} className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div ref={calculatorRef} className="flex-1 min-h-0 flex flex-col md:block bg-white md:rounded-xl md:shadow-lg overflow-hidden">
             {/* Progress Bar */}
-            <div className="bg-blue-50 p-6">
+            <div className="bg-blue-50 p-4 md:p-6 shrink-0 z-10 shadow-sm md:shadow-none">
               {/* Overall Progress Bar */}
               <div className="mb-6">
                 <div className="flex justify-between text-xs text-gray-600 mb-2">
@@ -1121,7 +1121,7 @@ const PriceCalculator = () => {
             </div>
 
             {/* Form Content */}
-            <div className="p-8">
+            <div className="flex-1 overflow-y-auto min-h-0 p-4 md:p-8">
               {currentStep === 1 && renderStep1()}
               {currentStep === 2 && renderStep2()}
               {currentStep === 3 && renderStep3()}
@@ -1130,7 +1130,7 @@ const PriceCalculator = () => {
 
             {/* Price Estimate - Only show after sufficient information is provided */}
             {estimatedPrice > 0 && currentStep >= 2 && formData.service && formData.squareFootage && (
-              <div className="bg-blue-50 p-6 border-t">
+              <div className="bg-blue-50 p-4 md:p-6 border-t shrink-0">
                 {formData.service === 'Maintenance Cleaning' && maintenancePrice > 0 ? (
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">Maintenance Cleaning Pricing</h3>
@@ -1181,7 +1181,7 @@ const PriceCalculator = () => {
             )}
 
             {/* Navigation */}
-            <div className="bg-gray-50 p-6 flex justify-between items-center">
+            <div className="bg-white md:bg-gray-50 p-4 pt-5 md:p-6 flex justify-between items-center shrink-0 border-t shadow-[0_-10px_30px_rgba(0,0,0,0.08)] md:shadow-none pb-safe">
               <button
                 onClick={prevStep}
                 disabled={currentStep === 1}
@@ -1236,7 +1236,7 @@ const PriceCalculator = () => {
         </div>
 
         {/* Trust Badges - Low Friction Submission */}
-        <div className="mt-6 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500 font-medium">
+        <div className="mt-4 md:mt-6 shrink-0 flex flex-wrap justify-center items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-500 font-medium pb-6 md:pb-0 px-4 md:px-0">
           <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
             <Shield className="w-4 h-4 text-green-600" />
             <span>Secure 256-bit Encryption</span>
