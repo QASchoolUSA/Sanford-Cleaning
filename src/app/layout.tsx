@@ -31,6 +31,8 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import MicrosoftClarity from "@/components/MicrosoftClarity";
 import Analytics from "@/components/Analytics";
+import FloatingInteractiveWidgets from "@/components/FloatingInteractiveWidgets";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
@@ -55,6 +57,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MicrosoftClarity />
         <Analytics />
         <ScrollToTop />
+        <ExitIntentPopup />
+        <FloatingInteractiveWidgets />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

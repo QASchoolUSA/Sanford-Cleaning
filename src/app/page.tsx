@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import SpecialOffers from '@/components/SpecialOffers';
 import Services from '@/components/Services';
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import About from '@/components/About';
 import Gallery from '@/components/Gallery';
 import ServiceAreas from '@/components/ServiceAreas';
@@ -124,6 +125,7 @@ export default function HomePage() {
       <script id="homepage-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Hero />
       <SpecialOffers />
+      <BeforeAfterSlider />
       <Services />
       <About />
       <Gallery />

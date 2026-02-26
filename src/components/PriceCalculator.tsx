@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, Shield, Star } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
 import AddressAutocomplete from '@/components/ui/address-autocomplete';
@@ -1055,16 +1055,16 @@ const PriceCalculator = () => {
                   ].map((step, index) => (
                     <div key={step.number} className="flex items-center">
                       <div className={`flex flex-col items-center ${step.number === currentStep
-                          ? 'text-blue-600'
-                          : step.number < currentStep
-                            ? 'text-green-600'
-                            : 'text-gray-400'
+                        ? 'text-blue-600'
+                        : step.number < currentStep
+                          ? 'text-green-600'
+                          : 'text-gray-400'
                         }`}>
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${step.number === currentStep
-                            ? 'bg-blue-600 text-white'
-                            : step.number < currentStep
-                              ? 'bg-green-600 text-white'
-                              : 'bg-gray-300 text-gray-600'
+                          ? 'bg-blue-600 text-white'
+                          : step.number < currentStep
+                            ? 'bg-green-600 text-white'
+                            : 'bg-gray-300 text-gray-600'
                           }`}>
                           {step.number < currentStep ? <Check className="w-4 h-4" /> : step.number}
                         </div>
@@ -1092,17 +1092,17 @@ const PriceCalculator = () => {
                   { number: 4, title: 'Contact & Payment', subtitle: 'Your info & payment method' }
                 ].map(step => (
                   <div key={step.number} className={`text-center p-3 rounded-lg transition-all duration-200 ${step.number === currentStep
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : step.number < currentStep
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-white text-gray-600'
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : step.number < currentStep
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-white text-gray-600'
                     }`}>
                     <div className="flex items-center justify-center mb-2">
                       <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step.number === currentStep
-                          ? 'bg-white text-blue-600'
-                          : step.number < currentStep
-                            ? 'bg-green-600 text-white'
-                            : 'bg-gray-300 text-gray-600'
+                        ? 'bg-white text-blue-600'
+                        : step.number < currentStep
+                          ? 'bg-green-600 text-white'
+                          : 'bg-gray-300 text-gray-600'
                         }`}>
                         {step.number < currentStep ? <Check className="w-3 h-3" /> : step.number}
                       </div>
@@ -1186,8 +1186,8 @@ const PriceCalculator = () => {
                 onClick={prevStep}
                 disabled={currentStep === 1}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${currentStep === 1
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-gray-600 text-white hover:bg-gray-700'
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-gray-600 text-white hover:bg-gray-700'
                   }`}
                 data-cy="previous-step-button"
               >
@@ -1200,8 +1200,8 @@ const PriceCalculator = () => {
                   onClick={nextStep}
                   disabled={!isStepValid()}
                   className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${!isStepValid()
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    : 'bg-blue-600 text-white hover:bg-blue-700'
                     }`}
                   data-cy="next-step-button"
                 >
@@ -1213,8 +1213,8 @@ const PriceCalculator = () => {
                   onClick={handleSubmit}
                   disabled={!isStepValid()}
                   className={`flex items-center space-x-2 px-8 py-3 rounded-lg transition-colors ${!isStepValid()
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      : 'bg-green-600 text-white hover:bg-green-700'
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    : 'bg-green-600 text-white hover:bg-green-700'
                     }`}
                   data-cy="submit-button"
                 >
@@ -1234,6 +1234,23 @@ const PriceCalculator = () => {
             </div>
           </div>
         </div>
+
+        {/* Trust Badges - Low Friction Submission */}
+        <div className="mt-6 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500 font-medium">
+          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+            <Shield className="w-4 h-4 text-green-600" />
+            <span>Secure 256-bit Encryption</span>
+          </div>
+          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-500" />
+            <span>100% Satisfaction Guarantee</span>
+          </div>
+          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+            <Check className="w-4 h-4 text-blue-600" />
+            <span>No Hidden Fees</span>
+          </div>
+        </div>
+
       </div>
     </section>
   );
