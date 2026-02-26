@@ -1,27 +1,29 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import ServiceSchema from "@/components/ServiceSchema";
+import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Building2, Sparkles, CheckCircle, MapPin, Shield, Clock, ArrowRight, ListChecks } from "lucide-react";
 
 export const metadata = {
-  title: "Office Cleaning in Sanford, FL",
+  title: "Top-Rated Office Cleaning Services in Sanford, FL | Sanford Cleaning",
   description:
-    "Professional office cleaning in Sanford, FL. Daily, weekly, and deep cleaning with office furniture cleaning, restrooms, breakrooms, floors, windows, and disinfection.",
+    "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
   keywords:
     "office cleaning service near me, office cleaning service, sanford office cleaning, office furniture cleaning sanford, fl, office cleaning sanford, fl",
   alternates: { canonical: "https://sanfordcleaning.com/office-cleaning" },
   openGraph: {
-    title: "Office Cleaning in Sanford, FL",
+    title: "Top-Rated Office Cleaning Services in Sanford, FL | Sanford Cleaning",
     description:
-      "Reliable office cleaning service in Sanford, FL: routine maintenance, deep cleaning, and disinfection for professional workplaces.",
+      "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
     type: "website",
     url: "https://sanfordcleaning.com/office-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Office Cleaning in Sanford, FL",
+    title: "Top-Rated Office Cleaning Services in Sanford, FL | Sanford Cleaning",
     description:
-      "Reliable office cleaning service in Sanford, FL: routine maintenance, deep cleaning, and disinfection for professional workplaces.",
+      "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
 };
@@ -74,53 +76,11 @@ export default function OfficeCleaningPage() {
     <div className="pt-20 min-h-screen bg-gray-50">
       <script id="office-cleaning-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/office-cleaning#localbusiness" name="Sanford Cleaning - Office Cleaning" url="https://sanfordcleaning.com/office-cleaning" />
-      <script
-        id="office-jsonld-faq"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: [
-              {
-                '@type': 'Question',
-                name: 'What does an office cleaning service include?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text:
-                    'Routine office cleaning covers lobbies, workstations, conference rooms, restrooms, and breakrooms: dusting, trash removal, surface wipe-downs, glass cleaning, floors, and high-touch disinfection. Deep cleaning is available.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'Can you accommodate daily, weekly, or custom schedules?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text:
-                    'Yes. We offer flexible schedules—daily, weekly, biweekly, or custom—plus after-hours options to minimize disruption.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'Are your cleaners insured and background-checked?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text:
-                    'Our team is insured and background-checked. Documentation can be provided upon request.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'How do I get pricing or book service?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text:
-                    'Get a free quote at sanfordcleaning.com/custom-quote, book online at sanfordcleaning.com/booking, or call (321) 236-0618 to discuss your office needs.',
-                },
-              },
-            ],
-          }),
-        }}
+      <ServiceSchema
+        name="Office Cleaning Services"
+        serviceType="Commercial Cleaning"
+        description="Reliable office cleaning service in Sanford, FL: routine maintenance, deep cleaning, and disinfection for professional workplaces."
+        url="https://sanfordcleaning.com/office-cleaning"
       />
 
       {/* Hero */}
@@ -132,9 +92,9 @@ export default function OfficeCleaningPage() {
                 <Building2 className="w-6 h-6 text-blue-600" />
                 <span className="text-blue-600 font-semibold">Office Cleaning</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Office Cleaning Services in Sanford, FL</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Office & Commercial Cleaning Services in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Keep your workplace spotless, healthy, and client‑ready with our professional <strong>office cleaning service</strong>. We provide reliable daily, weekly, and custom schedules for businesses of all sizes—covering lobbies, workstations, conference rooms, restrooms, and breakrooms. Our team delivers consistent quality, detailed checklists, and high‑touch disinfection.
+                Keep your workplace spotless, healthy, and client‑ready with the leading <strong>commercial cleaning services Sanford FL</strong> has to offer. We provide reliable <strong>office cleaning service</strong> on daily, weekly, and custom schedules for businesses of all sizes—covering lobbies, workstations, conference rooms, restrooms, and breakrooms. Our team delivers consistent quality, detailed checklists, and high‑touch disinfection.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -269,6 +229,29 @@ export default function OfficeCleaningPage() {
           </div>
         </div>
       </section>
+
+      <ConversationalFAQ
+        title="Frequently Asked Questions: Office Cleaning"
+        items={[
+          {
+            question: 'What does an office cleaning service include?',
+            answer: 'Routine office cleaning covers lobbies, workstations, conference rooms, restrooms, and breakrooms: dusting, trash removal, surface wipe-downs, glass cleaning, floors, and high-touch disinfection. Deep cleaning is available.',
+          },
+          {
+            question: 'Can you accommodate daily, weekly, or custom schedules?',
+            answer: 'Yes. We offer flexible schedules—daily, weekly, biweekly, or custom—plus after-hours options to minimize disruption.',
+          },
+          {
+            question: 'Are your cleaners insured and background-checked?',
+            answer: 'Our team is insured and background-checked. Documentation can be provided upon request.',
+          },
+          {
+            question: 'How do I get pricing or book service?',
+            answer: 'Get a free quote at sanfordcleaning.com/custom-quote, book online at sanfordcleaning.com/booking, or call (321) 236-0618 to discuss your office needs.',
+          }
+        ]}
+        className="bg-gray-50 border-t border-gray-100"
+      />
 
       {/* Related Services */}
       <section className="py-12 bg-white">

@@ -1,4 +1,6 @@
 import { MetadataRoute } from 'next';
+import fs from 'fs';
+import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://sanfordcleaning.com';
@@ -45,7 +47,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: '/booking-success', priority: 0.1, changeFrequency: 'yearly' as const },
     ];
 
-    return routes.map((route) => ({
+    // Dynamically include all /guides subdirectories
+    const guideRoutes: { url: string; priority: number; changeFrequency: "monthly" }[] = [
+        { url: '/guides', priority: 0.8, changeFrequency: 'monthly' }
+    ];
+
+    try {
+        const guidesDir = path.join(process.cwd(), 'src/app/guides');
+        if (fs.existsSync(guidesDir)) {
+            const items = fs.readdirSync(guidesDir, { withFileTypes: true });
+            for (const item of items) {
+                if (item.isDirectory() && item.name !== 'layout.tsx' && item.name !== 'page.tsx') {
+                    guideRoutes.push({
+                        url: `/guides/${item.name}`,
+                        priority: 0.7,
+                        changeFrequency: 'monthly'
+                    });
+                }
+            }
+        }
+    } catch (e) {
+        console.error("Sitemap generation error reading guides:", e);
+    }
+
+    const allRoutes = [...routes, ...guideRoutes];
+
+    return allRoutes.map((route) => ({
         url: `${baseUrl}${route.url}`,
         lastModified: new Date(),
         changeFrequency: route.changeFrequency,

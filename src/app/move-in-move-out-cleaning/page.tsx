@@ -1,113 +1,53 @@
 import Link from "next/link";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import ServiceAreas from "@/components/ServiceAreas";
 import AuthorBio from "@/components/AuthorBio";
 import SpecialOffers from "@/components/SpecialOffers";
+import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sparkles, Key, Truck, Calendar, DollarSign } from "lucide-react";
 
 export const metadata = {
-  title: "Move In & Move Out Cleaning Services Sanford FL",
+  title: "Top-Rated Move-In & Move-Out Cleaning in Sanford, FL | Free Quotes",
   description:
-    "Reliable move-in and move-out cleaning in Sanford, FL. Ideal for renters, owners, and property managers. Get a free quote today.",
+    "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
   alternates: { canonical: "https://sanfordcleaning.com/move-in-move-out-cleaning" },
   openGraph: {
-    title: "Move Out Cleaning Services Near Me | Sanford Cleaning",
+    title: "Top-Rated Move-In & Move-Out Cleaning in Sanford, FL | Free Quotes",
     description:
-      "Looking for move out cleaning services near me? Sanford Cleaning offers top-rated move-in & move-out cleaning in Sanford, FL. Book online!",
+      "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
     type: "website",
     url: "https://sanfordcleaning.com/move-in-move-out-cleaning",
     images: [{ url: "https://sanfordcleaning.com/sanford-residential-cleaning-2.webp", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Move Out Cleaning Services Near Me | Sanford Cleaning",
+    title: "Top-Rated Move-In & Move-Out Cleaning in Sanford, FL | Free Quotes",
     description:
-      "Looking for move out cleaning services near me? Sanford Cleaning offers top-rated move-in & move-out cleaning in Sanford, FL. Book online!",
+      "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
   },
 };
 
 export default function MoveInMoveOutPage() {
-  const jsonLdFaq = `{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What’s included in move‑in and move‑out cleaning?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Comprehensive cleaning of all rooms, appliances, fixtures, cabinets, baseboards, and high‑touch areas with sanitization to meet landlord and listing standards."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you help maximize my security deposit return?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Our detailed move‑out checklist targets areas landlords inspect most, helping protect your deposit when cleanliness is a condition of return."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you coordinate timing with movers or property managers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer flexible scheduling and can coordinate access with property managers, leasing offices, or your moving timeline to reduce downtime."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do quotes and booking work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Request a transparent quote online or call (321) 236‑0618. Pricing depends on size, condition, and any add‑ons like inside appliances or cabinets."
-        }
-      }
-    ]
-  }`;
-
-  const serviceSchema = `{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Move Out Cleaning",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Sanford Cleaning",
-      "image": "https://sanfordcleaning.com/sanford-residential-cleaning-2.webp",
-      "priceRange": "$$"
+  const faqItems = [
+    {
+      question: "What’s included in move‑in and move‑out cleaning?",
+      answer: "Comprehensive cleaning of all rooms, appliances, fixtures, cabinets, baseboards, and high‑touch areas with sanitization to meet landlord and listing standards."
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Sanford, FL"
+    {
+      question: "Can you help maximize my security deposit return?",
+      answer: "Yes. Our detailed move‑out checklist targets areas landlords inspect most, helping protect your deposit when cleanliness is a condition of return."
     },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Moving Cleaning Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Move Out Cleaning"
-          },
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "200.00",
-            "priceCurrency": "USD",
-            "unitText": "service"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Move In/Out Discount"
-          },
-          "description": "$20 off your first move-in or move-out cleaning in Sanford."
-        }
-      ]
+    {
+      question: "Do you coordinate timing with movers or property managers?",
+      answer: "We offer flexible scheduling and can coordinate access with property managers, leasing offices, or your moving timeline to reduce downtime."
+    },
+    {
+      question: "How do quotes and booking work?",
+      answer: "Request a transparent quote online or call (321) 236‑0618. Pricing depends on size, condition, and any add‑ons like inside appliances or cabinets."
     }
-  }`;
+  ];
+
 
   const moveInSteps = [
     {
@@ -175,8 +115,16 @@ export default function MoveInMoveOutPage() {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      <script id="move-in-move-out-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
-      <script id="move-in-move-out-cleaning-jsonld-service" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serviceSchema }} />
+      <ServiceSchema
+        name="Move In & Move Out Cleaning Services"
+        serviceType="Move Out Cleaning"
+        description="Reliable, 5-star move-in and move-out cleaning to maximize deposit returns in Sanford, FL."
+        url="https://sanfordcleaning.com/move-in-move-out-cleaning"
+        offers={[
+          { name: "Move Out Cleaning", price: "200.00" },
+          { name: "Move In/Out Discount", description: "$20 off your first move-in or move-out cleaning in Sanford." }
+        ]}
+      />
       <script
         id="move-in-move-out-cleaning-jsonld-howto"
         type="application/ld+json"
@@ -231,7 +179,7 @@ export default function MoveInMoveOutPage() {
               Professional Move In & Move Out Cleaning Services in Sanford, FL
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Stress-free moving with comprehensive cleaning solutions for property owners and residents in Sanford and surrounding areas.
+              Stress-free transitions with our expert moving house cleaning service. Fast, comprehensive solutions for property owners and residents in Sanford and surrounding areas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center">
@@ -255,7 +203,7 @@ export default function MoveInMoveOutPage() {
                 <strong>Sanford Cleaning</strong> provides 5-star <strong>move-out cleaning in Sanford, FL</strong> starting at <strong>$200</strong>. We work directly with Sanford property managers to ensure full deposit returns, targeting commonly missed areas like sticky cabinet tops and appliance interiors. Our 6+ hour checklist is guaranteed for inspection approval.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
-                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Apartments:</strong> Starting at $200</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Apartments:</strong> Starting at $200 (ideal for apartment move out cleaning)</li>
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Single Family Homes:</strong> Starting at $300</li>
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Includes:</strong> Inside Cabinets & Appliances</li>
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Guarantee:</strong> Re-clean if not approved</li>
@@ -502,7 +450,7 @@ export default function MoveInMoveOutPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Move-In and Move-Out Cleaning Guide</h2>
             <p className="text-lg text-gray-700 mb-6">
-              Planning a move? Our <strong>move out cleaning services</strong> and <strong>move in cleaning service</strong> options are designed to make your transition effortless. Whether you need
+              Planning a move? Our <strong>move out cleaning services</strong> and <strong>moving house cleaning service</strong> options are designed to make your transition effortless. Whether you need
               <strong> move out cleaning services near me</strong> for a quick turnover or a detailed <strong>move in cleaning service near me</strong> to start fresh, Sanford Cleaning delivers professional results that meet property manager and landlord standards.
             </p>
             <p className="text-gray-700 mb-4">
@@ -559,6 +507,12 @@ export default function MoveInMoveOutPage() {
                 </div>
               </div>
             </div>
+
+            <ConversationalFAQ
+              title="Frequently Asked Questions: Move-In/Move-Out"
+              items={faqItems}
+              className="mt-16 bg-transparent border-t border-gray-100"
+            />
 
             <AuthorBio />
           </div>

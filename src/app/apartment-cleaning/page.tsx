@@ -1,20 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import ServiceAreas from "@/components/ServiceAreas";
 import AuthorBio from "@/components/AuthorBio";
 import SpecialOffers from "@/components/SpecialOffers";
+import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Home, CheckCircle, Clock, Shield, Star, ArrowRight, Building, Key, Layout } from "lucide-react";
 
 export const metadata = {
-    title: "Apartment Cleaning Services in Sanford FL | Studio to 3BR",
+    title: "Top-Rated Apartment Cleaning Services in Sanford, FL | Sanford Cleaning",
     description:
-        "Top-rated apartment and condo cleaning in Sanford, FL. Specialized service for small spaces, walk-ups, and complexes. Get a free quote starting at $80.",
+        "Professional apartment and condo cleaning near you in Sanford, FL. We specialize in small spaces, deep cleaning, and move-outs. Free quotes available!",
     alternates: { canonical: "https://sanfordcleaning.com/apartment-cleaning" },
     openGraph: {
-        title: "Apartment Cleaning Services in Sanford FL | Studio to 3BR",
+        title: "Top-Rated Apartment Cleaning Services in Sanford, FL | Sanford Cleaning",
         description:
-            "Reliable apartment cleaning near me in Sanford. We handle move-ins, move-outs, and recurring cleaning for condos and flats. Book online!",
+            "Professional apartment and condo cleaning near you in Sanford, FL. We specialize in small spaces, deep cleaning, and move-outs. Free quotes available!",
         type: "website",
         url: "https://sanfordcleaning.com/apartment-cleaning",
         images: [{ url: "https://sanfordcleaning.com/sanford-residential-cleaning.webp", width: 1200, height: 630 }],
@@ -22,41 +24,34 @@ export const metadata = {
 };
 
 export default function ApartmentCleaningPage() {
-    const jsonLdFaq = `{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does apartment cleaning cost in Sanford?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Apartment cleaning starts at $80 for studio/1-bedroom units. Pricing increases slightly for 2-3 bedroom condos or deep cleaning requirements."
+    const faqItems = [
+        {
+            question: "How much does apartment cleaning cost in Sanford?",
+            answer: "Apartment cleaning starts at $80 for studio/1-bedroom units. Pricing increases slightly for 2-3 bedroom condos or deep cleaning requirements."
+        },
+        {
+            question: "Do you bring your own supplies?",
+            answer: "Yes, we bring all professional supplies and equipment, including vacuums and mops suitable for apartment floor plans."
+        },
+        {
+            question: "Can you clean while I'm at work?",
+            answer: "Absolutely. We can arrange key pickup or lockbox access. All our cleaners are background-checked and insured for your peace of mind."
         }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you bring your own supplies?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we bring all professional supplies and equipment, including vacuums and mops suitable for apartment floor plans."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you clean while I'm at work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely. We can arrange key pickup or lockbox access. All our cleaners are background-checked and insured for your peace of mind."
-        }
-      }
-    ]
-  }`;
+    ];
 
     return (
         <div className="pt-20 min-h-screen bg-gray-50">
-            <script id="apt-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
             <LocalBusinessSchema id="https://sanfordcleaning.com/apartment-cleaning#localbusiness" name="Sanford Cleaning - Apartment Services" url="https://sanfordcleaning.com/apartment-cleaning" />
+            <ServiceSchema
+                name="Apartment Cleaning Services"
+                serviceType="Apartment Cleaning"
+                description="Professional apartment and condo cleaning in Sanford, FL. Specialized service for small spaces, walk-ups, and complexes."
+                url="https://sanfordcleaning.com/apartment-cleaning"
+                offers={[
+                    { name: "Studio / 1BR Cleaning", price: "80.00" },
+                    { name: "2+ Bedroom Condo Cleaning", price: "100.00" }
+                ]}
+            />
 
             {/* Hero */}
             <section className="bg-gradient-to-br from-blue-50 to-white py-16">
@@ -71,7 +66,7 @@ export default function ApartmentCleaningPage() {
                                 Reliable Apartment Cleaning in Sanford, FL
                             </h1>
                             <p className="text-lg text-gray-600">
-                                From studio apartments to luxury condos, our local team specializes in small-space cleaning. We handle the unique needs of apartment living, including elevator access and move-in/out checklists.
+                                From studio apartments to luxury condos, our local team specializes in small-space cleaning. Searching for apartment cleaning services near me? We handle the unique needs of apartment living, including elevator access and move-in/out checklists.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center">
@@ -103,7 +98,7 @@ export default function ApartmentCleaningPage() {
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does apartment cleaning cost in Sanford, FL?</h2>
                         <div className="prose max-w-none text-gray-700">
                             <p className="text-lg leading-relaxed mb-4">
-                                <strong>Sanford Cleaning</strong> offers specialized <strong>apartment cleaning in Sanford, FL</strong> starting at <strong>$80/visit</strong> for studios and 1-bedrooms. Our compact teams are equipped for elevator buildings and walk-ups, servicing major complexes like <strong>Gateway at Riverwalk</strong>. We handle move-outs, pet hair removal, and balcony cleaning.
+                                <strong>Sanford Cleaning</strong> offers specialized <strong>apartment cleaning in Sanford, FL</strong> starting at <strong>$80/visit</strong> for studios and 1-bedrooms. Our compact teams are equipped for elevator buildings and walk-ups, servicing major complexes like <strong>Gateway at Riverwalk</strong>. We handle everyday maintenance, move-outs, and pet hair removal. Need a total reset? We also perform comprehensive <Link href="/deep-cleaning" className="text-blue-600 hover:underline">apartment deep cleaning in Sanford, FL</Link>.
                             </p>
                             <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Studio / 1BR:</strong> Starting at $80</li>
@@ -161,8 +156,8 @@ export default function ApartmentCleaningPage() {
                         </div>
                         <div className="bg-white p-6 rounded-xl shadow-sm">
                             <Key className="w-10 h-10 text-blue-600 mb-4" />
-                            <h3 className="font-bold text-lg mb-2">Secure Access</h3>
-                            <p className="text-gray-600 text-sm">We can coordinate with your leasing office for key release if you are at work.</p>
+                            <h3 className="font-bold text-lg mb-2">Deep Cleaning Options</h3>
+                            <p className="text-gray-600 text-sm">Targeting baseboards, inside appliances, and neglected areas for a true deep clean.</p>
                         </div>
                     </div>
                 </div>
@@ -195,6 +190,12 @@ export default function ApartmentCleaningPage() {
                                 </ul>
                             </div>
                         </div>
+
+                        <ConversationalFAQ
+                            title="Frequently Asked Questions: Apartment Cleaning"
+                            items={faqItems}
+                            className="mt-12 bg-transparent border-t border-gray-100"
+                        />
 
                         <div className="mt-12">
                             <AuthorBio />

@@ -1,30 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import AuthorBio from "@/components/AuthorBio";
 import SpecialOffers from "@/components/SpecialOffers";
+import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin, Sun, Wind } from "lucide-react";
 
 export const metadata = {
-  title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
+  title: "Top-Rated Window Cleaning in Sanford, FL | Streak-Free Shine",
   description:
-    "Inside and outside window cleaning in Sanford, FL for homes and businesses. Streak-free glass, tracks, sills, and screens.",
+    "Professional window cleaning service in Sanford, FL. We clean inside and outside windows, screens, and tracks for homes and businesses. Get a free quote!",
   keywords:
     "window cleaning near me, sanford window cleaning, window cleaning sanford fl, window cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/window-cleaning" },
   openGraph: {
-    title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
+    title: "Top-Rated Window Cleaning in Sanford, FL | Streak-Free Shine",
     description:
-      "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
+      "Professional window cleaning service in Sanford, FL. We clean inside and outside windows, screens, and tracks for homes and businesses. Get a free quote!",
     type: "website",
     url: "https://sanfordcleaning.com/window-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "#1 Window Cleaning in Sanford FL | Sanford Cleaning",
+    title: "Top-Rated Window Cleaning in Sanford, FL | Streak-Free Shine",
     description:
-      "Professional window cleaning in Sanford, FL—outside and inside service for residential and commercial. Tracks, sills, screens, and stain removal.",
+      "Professional window cleaning service in Sanford, FL. We clean inside and outside windows, screens, and tracks for homes and businesses. Get a free quote!",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
 };
@@ -39,44 +41,24 @@ export default function WindowCleaningPage() {
     ]
   }`;
 
-  const jsonLdFaq = `{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What’s included in your window cleaning service?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We clean exterior and interior glass, and upon request we detail frames, sills, tracks, and screens. Hard-water spot treatment is available where feasible."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you clean screens and window tracks?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We can remove, wash, and reinstall screens and clean tracks/sills to lift dust and buildup for smoother operation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is outside and inside window cleaning available?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely. We offer outside and inside service for residential and commercial properties with streak‑free methods and pure‑water options."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take and how is pricing handled?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Timing depends on window count, access, and add‑ons like tracks/screens. Get transparent pricing via our online quote or by calling (321) 236‑0618."
-        }
-      }
-    ]
-  }`;
+  const faqItems = [
+    {
+      question: "What’s included in your window cleaning service?",
+      answer: "We clean exterior and interior glass, and upon request we detail frames, sills, tracks, and screens. Hard-water spot treatment is available where feasible."
+    },
+    {
+      question: "Do you clean screens and window tracks?",
+      answer: "Yes. We can remove, wash, and reinstall screens and clean tracks/sills to lift dust and buildup for smoother operation."
+    },
+    {
+      question: "Is outside and inside window cleaning available?",
+      answer: "Absolutely. We offer outside and inside service for residential and commercial properties with streak‑free methods and pure‑water options."
+    },
+    {
+      question: "How long does it take and how is pricing handled?",
+      answer: "Timing depends on window count, access, and add‑ons like tracks/screens. Get transparent pricing via our online quote or by calling (321) 236‑0618."
+    }
+  ];
 
   const areas = ["Sanford, FL", "Lake Mary, FL", "Longwood, FL", "Altamonte Springs, FL", "Winter Springs, FL"];
 
@@ -103,8 +85,16 @@ export default function WindowCleaningPage() {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <script id="window-cleaning-jsonld-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdBreadcrumb }} />
-      <script id="window-cleaning-jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdFaq }} />
       <LocalBusinessSchema id="https://sanfordcleaning.com/window-cleaning#localbusiness" name="Sanford Cleaning - Window Cleaning" url="https://sanfordcleaning.com/window-cleaning" />
+      <ServiceSchema
+        name="Window Cleaning Services"
+        serviceType="Window Cleaning"
+        description="Professional inside and outside window cleaning for residential and commercial properties in Sanford, FL."
+        url="https://sanfordcleaning.com/window-cleaning"
+        offers={[
+          { name: "Window Cleaning Service", price: "150.00" }
+        ]}
+      />
       {/* Hero */}
       <section className="bg-white border-b">
         <div className="container mx-auto px-4 py-12">
@@ -228,12 +218,12 @@ export default function WindowCleaningPage() {
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Window Cleaning in Sanford FL: What to Expect</h2>
         <div className="prose max-w-none text-gray-800">
           <p>
-            For homeowners and businesses seeking window cleaning in Sanford FL, the goal is more than spotless glass. Proper outside and inside window cleaning removes pollen, construction dust, and water spots, while detailing tracks and sills to prevent sticking and grime buildup. Sanford Cleaning uses streak-free methods and surface-safe tools that respect your materials.
+            For homeowners and businesses seeking window cleaning in Sanford FL, the goal is more than spotless glass. Our professional window cleaners ensure proper outside and inside window washing to remove pollen, construction dust, and water spots, while detailing tracks and sills to prevent sticking and grime buildup. Sanford Cleaning uses streak-free methods and surface-safe tools that respect your materials.
           </p>
           <p>
-            Residential and commercial properties have different needs. Storefronts benefit from routine exterior glass cleaning to maintain visibility and brand image, while homes often pair window service with seasonal
+            Residential and commercial properties have different needs. <strong>For homeowners</strong>, clean windows instantly boost curb appeal, let in more natural light, and protect the glass from long-term hard water etching. <strong>For businesses and storefronts</strong>, routine exterior glass cleaning maintains visibility and a pristine brand image for passing foot traffic. Homes often pair our window washing service with seasonal
             <Link href="/pressure-washing" className="text-blue-600 hover:underline"> pressure washing</Link> and interior detailing. If you’ve recently completed
-            <Link href="/pressure-washing" className="text-blue-600 hover:underline"> pressure washing</Link>, we recommend scheduling windows cleaning right after to eliminate residue and ensure a consistent shine throughout the property.
+            <Link href="/pressure-washing" className="text-blue-600 hover:underline"> pressure washing</Link>, we recommend scheduling your window cleaning right after to eliminate any residue and ensure a consistent shine throughout the property.
           </p>
           <p>
             Our team provides flexible scheduling and clear pricing. Call <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a> to discuss your Sanford FL property, or
@@ -334,6 +324,12 @@ export default function WindowCleaningPage() {
                 </ul>
               </div>
             </div>
+
+            <ConversationalFAQ
+              title="Frequently Asked Questions: Window Cleaning"
+              items={faqItems}
+              className="mt-12 bg-transparent border-t border-gray-100"
+            />
 
             <div className="mt-12">
               <AuthorBio />

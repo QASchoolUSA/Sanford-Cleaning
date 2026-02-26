@@ -53,8 +53,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
               <li><Link href="/house-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-house-cleaning-link">House Cleaning Services</Link></li>
+              <li><Link href="/apartment-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-apartment-cleaning-link">Apartment Cleaning</Link></li>
               <li><Link href="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">Residential Cleaning</Link></li>
-              <li><Link href="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Office Cleaning Service</Link></li>
+              <li><Link href="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Commercial Cleaning</Link></li>
+              <li><Link href="/office-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-office-cleaning-link">Office Cleaning</Link></li>
               <li><Link href="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-deep-cleaning-link">Deep Cleaning Services</Link></li>
               <li><Link href="/move-in-move-out-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link></li>
               <li><Link href="/post-construction-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-post-construction-cleaning-link">Post-Construction Cleaning</Link></li>
