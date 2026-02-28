@@ -93,10 +93,11 @@ export default function BeforeAfterSlider() {
                                 src="/after-cleaning.png"
                                 alt="Clean room"
                                 fill
-                                sizes="(max-width: 768px) 100vw, 768px"
+                                sizes="(max-width: 640px) 380px, (max-width: 1024px) 500px, 600px"
                                 className="object-cover object-center"
                                 draggable={false}
-                                priority
+                                quality={70}
+                                loading="lazy"
                             />
                             <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md pointer-events-none">
                                 After
@@ -113,10 +114,11 @@ export default function BeforeAfterSlider() {
                                 src="/before-cleaning.png"
                                 alt="Messy room"
                                 fill
-                                sizes="(max-width: 768px) 100vw, 768px"
+                                sizes="(max-width: 640px) 380px, (max-width: 1024px) 500px, 600px"
                                 className="object-cover object-center"
                                 draggable={false}
-                                priority
+                                quality={70}
+                                loading="lazy"
                             />
                             <div className="absolute top-4 left-4 bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md pointer-events-none">
                                 Before

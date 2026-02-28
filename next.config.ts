@@ -10,9 +10,10 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   // Image optimization
   images: {
-    formats: ['image/webp', 'image/avif'],
+    formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 2592000, // 30 days
   },
   async headers() {
     const securityHeaders = [
@@ -50,6 +51,36 @@ const nextConfig: NextConfig = {
         // Apply to all routes
         source: '/(.*)',
         headers: securityHeaders,
+      },
+      {
+        // Immutable cache for Next.js static assets (hashed filenames)
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Long cache for images
+        source: '/(.*)\\.(png|jpg|jpeg|gif|webp|avif|ico|svg)$',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=2592000, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      {
+        // Long cache for fonts
+        source: '/(.*)\\.(woff|woff2|ttf|otf|eot)$',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
       },
     ];
   },

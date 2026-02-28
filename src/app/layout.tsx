@@ -48,6 +48,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://a.basemaps.cartocdn.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://b.basemaps.cartocdn.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://c.basemaps.cartocdn.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
       </head>
       <body>

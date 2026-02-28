@@ -1,7 +1,7 @@
-> 0.3%
+# Target modern browsers only — eliminates legacy polyfills
+# Removes Array.prototype.at, Array.prototype.flat, Object.fromEntries polyfills (~14KB)
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
 not dead
-not op_mini all
-not IE > 0
-not IE_Mob > 0
-last 2 versions
-since 2020
