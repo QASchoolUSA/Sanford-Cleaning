@@ -3,11 +3,9 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, Shield, Star, X } from 'lucide-react';
-import dynamic from 'next/dynamic';
-
-const DatePicker = dynamic(() => import('@/components/ui/date-picker').then(mod => ({ default: mod.DatePicker })));
-const TimeSlotPicker = dynamic(() => import('@/components/ui/time-slot-picker').then(mod => ({ default: mod.TimeSlotPicker })));
-const AddressAutocomplete = dynamic(() => import('@/components/ui/address-autocomplete'));
+import { DatePicker } from '@/components/ui/date-picker';
+import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
+import AddressAutocomplete from '@/components/ui/address-autocomplete';
 
 interface FormData {
   // Step 1: Service Selection
