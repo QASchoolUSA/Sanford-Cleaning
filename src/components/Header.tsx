@@ -53,6 +53,15 @@ const Header = () => {
   };
 
   // Removed unused handleContactClick to satisfy linter
+  useEffect(() => {
+    // Only fetch navigation items on initial mount
+    const fetchNavItems = async () => { };
+    fetchNavItems();
+  }, []);
+
+  if (pathname === '/booking-success') {
+    return null;
+  }
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'}`}>

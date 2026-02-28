@@ -21,6 +21,7 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 
 import BookingSuccessPayments from "@/components/BookingSuccessPayments";
+import BookingSuccessAnimated from "@/components/BookingSuccessAnimated";
 import Link from "next/link";
 
 export default async function BookingSuccessPage({
@@ -33,8 +34,13 @@ export default async function BookingSuccessPage({
   const isStripePaidParam = Array.isArray(paidParam)
     ? paidParam.includes('stripe')
     : paidParam === 'stripe';
+
+  if (isStripePaidParam) {
+    return <BookingSuccessAnimated />;
+  }
+
   return (
-    <div className="pt-20 bg-gray-50">
+    <div className="pt-20 bg-gray-50 flex-1">
       {/* Confirmation Hero */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-16 border-b">
         <div className="container mx-auto px-4">
@@ -43,17 +49,15 @@ export default async function BookingSuccessPage({
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-8 h-8 text-blue-600"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Booking Confirmed</h1>
-              <p className="text-lg text-gray-600">Thank you! Your appointment is confirmed. A confirmation email has been sent with your details.</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Booking Scheduled</h1>
+              <p className="text-lg text-gray-600">Thank you! Your appointment is scheduled. Follow the instructions below to complete your payment.</p>
               <p className="text-gray-600 mt-3">Questions? Call <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a> or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800">info@sanfordcleaning.com</a>.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {!isStripePaidParam && (
-        <BookingSuccessPayments paidParam={paidParam} />
-      )}
+      <BookingSuccessPayments paidParam={paidParam} />
 
       {/* Help & Next Actions */}
       <section className="py-12 bg-gray-50">

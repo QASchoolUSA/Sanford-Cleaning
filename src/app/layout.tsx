@@ -26,13 +26,10 @@ export const metadata = {
 };
 
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import MicrosoftClarity from "@/components/MicrosoftClarity";
 import Analytics from "@/components/Analytics";
-import FloatingInteractiveWidgets from "@/components/FloatingInteractiveWidgets";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
+import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
@@ -57,11 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MicrosoftClarity />
         <Analytics />
         <ScrollToTop />
-        <ExitIntentPopup />
-        <FloatingInteractiveWidgets />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <ClientLayoutWrapper>
+          {children}
+        </ClientLayoutWrapper>
         {isProd && pixelId && (
           <noscript>
             {/* eslint-disable-next-line @next/next/no-img-element */}

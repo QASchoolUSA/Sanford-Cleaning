@@ -1253,21 +1253,7 @@ const PriceCalculator = () => {
           </div>
         </div>
 
-        {/* Trust Badges - Low Friction Submission */}
-        <div className="mt-4 md:mt-6 shrink-0 flex flex-wrap justify-center items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-500 font-medium pb-6 md:pb-0 px-4 md:px-0">
-          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-            <Shield className="w-4 h-4 text-green-600" />
-            <span>Secure 256-bit Encryption</span>
-          </div>
-          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-            <Star className="w-4 h-4 fill-yellow-400 text-yellow-500" />
-            <span>100% Satisfaction Guarantee</span>
-          </div>
-          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-            <Check className="w-4 h-4 text-blue-600" />
-            <span>No Hidden Fees</span>
-          </div>
-        </div>
+
 
       </div>
     </section>
