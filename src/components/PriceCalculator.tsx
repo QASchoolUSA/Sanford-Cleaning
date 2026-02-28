@@ -568,38 +568,60 @@ const PriceCalculator = () => {
   };
 
   const renderStep1 = () => (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">Choose Your Service</label>
-        <select
-          value={formData.service}
-          onChange={(e) => updateFormData('service', e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          data-cy="service-select"
-          aria-label="Select your service"
-        >
-          <option value="">Select service</option>
+        <label className="block text-sm font-semibold text-gray-700 mb-4">Choose Your Service</label>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" data-cy="service-select">
           {serviceOptions.map(option => (
-            <option key={option} value={option}>{option}</option>
+            <button
+              key={option}
+              type="button"
+              onClick={() => updateFormData('service', option)}
+              className={`p-4 rounded-xl text-left transition-all duration-200 border-2 ${formData.service === option
+                ? 'border-blue-600 bg-blue-50/50 shadow-md ring-1 ring-blue-600'
+                : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50'
+                }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className={`font-semibold ${formData.service === option ? 'text-blue-900' : 'text-gray-700'}`}>
+                  {option}
+                </span>
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${formData.service === option ? 'border-blue-600 bg-blue-600' : 'border-gray-300'
+                  }`}>
+                  {formData.service === option && <Check className="w-3 h-3 text-white" />}
+                </div>
+              </div>
+            </button>
           ))}
-        </select>
+        </div>
       </div>
 
       {formData.service === 'Maintenance Cleaning' && (
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Frequency</label>
-          <select
-            value={formData.frequency || ''}
-            onChange={(e) => updateFormData('frequency', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            data-cy="frequency-select"
-            aria-label="Select frequency"
-          >
-            <option value="">Select frequency</option>
+        <div className="animate-in fade-in slide-in-from-top-4 duration-300">
+          <label className="block text-sm font-semibold text-gray-700 mb-4">Frequency</label>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" data-cy="frequency-select">
             {frequencyOptions.map(option => (
-              <option key={option} value={option}>{option}</option>
+              <button
+                key={option}
+                type="button"
+                onClick={() => updateFormData('frequency', option)}
+                className={`p-4 rounded-xl text-center transition-all duration-200 border-2 ${formData.frequency === option
+                  ? 'border-blue-600 bg-blue-50/50 shadow-md ring-1 ring-blue-600'
+                  : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50'
+                  }`}
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${formData.frequency === option ? 'border-blue-600 bg-blue-600' : 'border-gray-300'
+                    }`}>
+                    {formData.frequency === option && <Check className="w-3 h-3 text-white" />}
+                  </div>
+                  <span className={`font-semibold text-sm ${formData.frequency === option ? 'text-blue-900' : 'text-gray-700'}`}>
+                    {option}
+                  </span>
+                </div>
+              </button>
             ))}
-          </select>
+          </div>
         </div>
       )}
 
@@ -650,34 +672,42 @@ const PriceCalculator = () => {
           data-cy="square-footage-input"
         />
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-6">
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-3">Bedrooms</label>
-          <select
-            value={formData.bedrooms}
-            onChange={(e) => updateFormData('bedrooms', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            data-cy="bedrooms-select"
-            aria-label="Select number of bedrooms"
-          >
+          <div className="flex flex-wrap gap-2" data-cy="bedrooms-select">
             {bedroomOptions.map(option => (
-              <option key={option} value={option}>{option}</option>
+              <button
+                key={option}
+                type="button"
+                onClick={() => updateFormData('bedrooms', option)}
+                className={`w-12 h-12 rounded-full font-semibold transition-all duration-200 border-2 flex items-center justify-center ${formData.bedrooms === option
+                  ? 'border-blue-600 bg-blue-600 text-white shadow-md'
+                  : 'border-gray-200 bg-white text-gray-700 hover:border-blue-300 hover:bg-blue-50'
+                  }`}
+              >
+                {option}
+              </button>
             ))}
-          </select>
+          </div>
         </div>
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-3">Bathrooms</label>
-          <select
-            value={formData.bathrooms}
-            onChange={(e) => updateFormData('bathrooms', e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            data-cy="bathrooms-select"
-            aria-label="Select number of bathrooms"
-          >
+          <div className="flex flex-wrap gap-2" data-cy="bathrooms-select">
             {bathroomOptions.map(option => (
-              <option key={option} value={option}>{option}</option>
+              <button
+                key={option}
+                type="button"
+                onClick={() => updateFormData('bathrooms', option)}
+                className={`px-4 h-12 rounded-full font-semibold transition-all duration-200 border-2 flex items-center justify-center ${formData.bathrooms === option
+                  ? 'border-blue-600 bg-blue-600 text-white shadow-md'
+                  : 'border-gray-200 bg-white text-gray-700 hover:border-blue-300 hover:bg-blue-50'
+                  }`}
+              >
+                {option}
+              </button>
             ))}
-          </select>
+          </div>
         </div>
       </div>
 
@@ -747,7 +777,7 @@ const PriceCalculator = () => {
               const selectedExtra = formData.extras.find(e => e.name === extra.name);
 
               return (
-                <div key={extra.name} className="border rounded-lg p-3 hover:border-blue-300 transition-colors">
+                <div key={extra.name} className="border rounded-lg p-2.5 hover:border-blue-300 transition-colors">
                   <div className="flex items-center justify-between">
                     <label className="flex items-center space-x-3 cursor-pointer flex-1">
                       <input
@@ -757,27 +787,27 @@ const PriceCalculator = () => {
                         className="w-4 h-4 text-blue-600 rounded"
                         data-cy={`extra-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
                       />
-                      <span className="text-gray-700">{extra.name}</span>
+                      <span className="text-gray-700 text-sm">{extra.name}</span>
                     </label>
-                    <span className="text-blue-600 font-semibold">
+                    <span className="text-blue-600 font-semibold text-sm">
                       ${extra.price}{extra.hasQuantity ? ` per ${extra.unit}` : ''}
                       {extra.price === 0 ? ' (Free)' : ''}
                     </span>
                   </div>
 
                   {isSelected && extra.hasQuantity && (
-                    <div className="mt-3 flex items-center space-x-2">
-                      <label className="text-sm text-gray-600">Quantity:</label>
+                    <div className="mt-2 flex items-center space-x-2 pl-7">
+                      <label className="text-sm text-gray-600">Qty:</label>
                       <input
                         type="number"
                         min="1"
                         max="20"
                         value={selectedExtra?.quantity || 1}
                         onChange={(e) => updateExtraQuantity(extra.name, parseInt(e.target.value) || 1)}
-                        className="w-20 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-16 p-1.5 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         data-cy={`extra-quantity-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
                       />
-                      <span className="text-sm text-gray-500">{extra.unit}(s)</span>
+                      <span className="text-xs text-gray-500">{extra.unit}(s)</span>
                     </div>
                   )}
                 </div>
@@ -1100,10 +1130,10 @@ const PriceCalculator = () => {
                       {step.title}
                     </h4>
                     <p className={`text-xs mt-1 ${step.number === currentStep
-                        ? 'text-blue-50'
-                        : step.number < currentStep
-                          ? 'text-green-800'
-                          : 'text-gray-600'
+                      ? 'text-blue-50'
+                      : step.number < currentStep
+                        ? 'text-green-800'
+                        : 'text-gray-600'
                       }`}>
                       {step.subtitle}
                     </p>
@@ -1120,104 +1150,108 @@ const PriceCalculator = () => {
               {currentStep === 4 && renderStep4()}
             </div>
 
-            {/* Price Estimate - Only show after sufficient information is provided */}
-            {estimatedPrice > 0 && currentStep >= 2 && formData.service && formData.squareFootage && (
-              <div className="bg-blue-50 py-3 px-4 md:p-6 border-t shrink-0">
-                {formData.service === 'Maintenance Cleaning' && maintenancePrice > 0 ? (
-                  <div className="space-y-2 md:space-y-4">
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 text-center mb-2 md:mb-4">Maintenance Pricing</h3>
+            {/* Fixed Bottom Container for Price & Navigation */}
+            <div className="sticky bottom-0 z-50 w-full bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.12)] border-t border-gray-100 flex flex-col shrink-0">
 
-                    <div className="flex flex-col md:flex-row gap-2 md:gap-4">
-                      {/* Initial Cleaning Price */}
-                      <div className="bg-white p-2 md:p-4 rounded-lg flex-1 border border-blue-200 flex justify-between md:flex-col md:justify-center items-center">
-                        <div className="text-left md:text-center text-xs md:text-sm">
-                          <h4 className="font-semibold text-gray-900">Initial Clean</h4>
-                          <span className="hidden md:block text-gray-600">Establish baseline</span>
-                        </div>
-                        <div className="text-lg md:text-2xl font-bold text-blue-600">
-                          ${estimatedPrice.toFixed(2)}
-                        </div>
-                      </div>
+              {/* Price Estimate - Only show after sufficient information is provided */}
+              {estimatedPrice > 0 && currentStep >= 2 && formData.service && formData.squareFootage && (
+                <div className="bg-blue-50/90 backdrop-blur-md py-2 px-4 md:p-6 border-b border-blue-100">
+                  {formData.service === 'Maintenance Cleaning' && maintenancePrice > 0 ? (
+                    <div className="space-y-1 md:space-y-4">
+                      <h3 className="hidden md:block text-lg font-semibold text-gray-900 text-center mb-4">Maintenance Pricing</h3>
 
-                      {/* Recurring Maintenance Price */}
-                      <div className="bg-white p-2 md:p-4 rounded-lg flex-1 border border-green-200 flex justify-between md:flex-col md:justify-center items-center">
-                        <div className="text-left md:text-center text-xs md:text-sm">
-                          <h4 className="font-semibold text-gray-900">Ongoing</h4>
-                          <span className="hidden md:block text-gray-600">{formData.frequency}</span>
+                      <div className="flex flex-row justify-between md:gap-4 items-center">
+                        {/* Initial Cleaning Price */}
+                        <div className="flex-1 md:bg-white md:p-4 md:rounded-lg md:border md:border-blue-200 flex flex-col justify-center items-start md:items-center">
+                          <div className="text-left md:text-center text-xs text-gray-600">
+                            <span className="font-semibold text-gray-900 md:font-normal md:text-gray-900">Initial Clean</span>
+                            <span className="hidden md:block">Establish baseline</span>
+                          </div>
+                          <div className="text-lg md:text-2xl font-bold text-blue-600">
+                            ${estimatedPrice.toFixed(2)}
+                          </div>
                         </div>
-                        <div className="text-lg md:text-2xl font-bold text-green-600">
-                          ${maintenancePrice.toFixed(2)}
+
+                        <div className="hidden md:block w-px h-12 bg-blue-200 mx-4"></div>
+
+                        {/* Recurring Maintenance Price */}
+                        <div className="flex-1 md:bg-white md:p-4 md:rounded-lg md:border md:border-green-200 flex flex-col justify-center items-end md:items-center">
+                          <div className="text-right md:text-center text-xs text-gray-600">
+                            <span className="font-semibold text-gray-900 md:font-normal md:text-gray-900">Ongoing <span className="md:hidden">({formData.frequency})</span></span>
+                            <span className="hidden md:block text-gray-600">{formData.frequency}</span>
+                          </div>
+                          <div className="text-lg md:text-2xl font-bold text-green-600">
+                            ${maintenancePrice.toFixed(2)}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex flex-row justify-between items-center md:block md:text-center">
+                      <div className="flex flex-col">
+                        <span className="text-xs md:text-sm font-medium text-gray-600">Estimated Price</span>
+                        {formData.service === 'Maintenance Cleaning' && !formData.frequency && (
+                          <span className="text-[10px] sm:text-xs text-orange-600">*Select frequency</span>
+                        )}
+                      </div>
+                      <span className="text-xl md:text-3xl font-bold text-blue-600">${estimatedPrice.toFixed(2)}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Navigation */}
+              <div className="p-3 md:p-6 flex justify-between items-center gap-3">
+                <button
+                  onClick={prevStep}
+                  disabled={currentStep === 1}
+                  className={`flex-1 md:flex-none flex items-center justify-center space-x-1 md:space-x-2 px-4 md:px-6 py-2.5 md:py-3 rounded-lg transition-colors font-medium text-sm md:text-base ${currentStep === 1
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-gray-200 border'
+                    }`}
+                  data-cy="previous-step-button"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  <span>Back</span>
+                </button>
+
+                {currentStep < 4 ? (
+                  <button
+                    onClick={nextStep}
+                    disabled={!isStepValid()}
+                    className={`flex-[2] md:flex-none flex items-center justify-center space-x-1 md:space-x-2 px-4 md:px-6 py-2.5 md:py-3 rounded-lg transition-colors font-semibold shadow-sm text-sm md:text-base ${!isStepValid()
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
+                      : 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-md'
+                      }`}
+                    data-cy="next-step-button"
+                  >
+                    <span>Next</span>
+                    <ChevronRight className="w-4 h-4 relative top-[1px]" />
+                  </button>
                 ) : (
-                  <div className="flex justify-between items-center md:block md:text-center">
-                    <div>
-                      <p className="text-xs md:text-sm font-medium text-gray-600 md:mb-1">Estimated Price</p>
-                      {formData.service === 'Maintenance Cleaning' && !formData.frequency && (
-                        <p className="hidden md:block text-xs text-orange-600 mt-1">*Select frequency to see recurring pricing</p>
-                      )}
-                    </div>
-                    <div>
-                      <p className="text-2xl md:text-3xl font-bold text-blue-600">${estimatedPrice.toFixed(2)}</p>
-                    </div>
-                  </div>
+                  <button
+                    onClick={handleSubmit}
+                    disabled={!isStepValid()}
+                    className={`flex-[2] md:flex-none flex items-center justify-center space-x-2 px-4 md:px-8 py-2.5 md:py-3 rounded-lg transition-colors font-semibold shadow-sm text-sm md:text-base ${!isStepValid()
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
+                      : 'bg-green-600 text-white hover:bg-green-700 hover:shadow-md'
+                      }`}
+                    data-cy="submit-button"
+                  >
+                    {formData.paymentType === 'Credit Card' ? (
+                      <>
+                        <CreditCard className="w-4 h-4 hidden sm:block" />
+                        <span>Pay & Book</span>
+                      </>
+                    ) : (
+                      <>
+                        <Check className="w-4 h-4 hidden sm:block" />
+                        <span>Book Now</span>
+                      </>
+                    )}
+                  </button>
                 )}
               </div>
-            )}
-
-            {/* Navigation */}
-            <div className="bg-white md:bg-gray-50 p-4 pt-5 md:p-6 flex justify-between items-center shrink-0 border-t shadow-[0_-10px_30px_rgba(0,0,0,0.08)] md:shadow-none pb-safe">
-              <button
-                onClick={prevStep}
-                disabled={currentStep === 1}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${currentStep === 1
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-gray-600 text-white hover:bg-gray-700'
-                  }`}
-                data-cy="previous-step-button"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                <span>Previous</span>
-              </button>
-
-              {currentStep < 4 ? (
-                <button
-                  onClick={nextStep}
-                  disabled={!isStepValid()}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${!isStepValid()
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-blue-600 text-white hover:bg-blue-700'
-                    }`}
-                  data-cy="next-step-button"
-                >
-                  <span>Next</span>
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              ) : (
-                <button
-                  onClick={handleSubmit}
-                  disabled={!isStepValid()}
-                  className={`flex items-center space-x-2 px-8 py-3 rounded-lg transition-colors ${!isStepValid()
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-green-600 text-white hover:bg-green-700'
-                    }`}
-                  data-cy="submit-button"
-                >
-                  {formData.paymentType === 'Credit Card' ? (
-                    <>
-                      <CreditCard className="w-4 h-4" />
-                      <span>Proceed to Payment</span>
-                    </>
-                  ) : (
-                    <>
-                      <Check className="w-4 h-4" />
-                      <span>Continue</span>
-                    </>
-                  )}
-                </button>
-              )}
             </div>
           </div>
         </div>
