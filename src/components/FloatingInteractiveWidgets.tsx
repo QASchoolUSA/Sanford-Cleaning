@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MessageCircle, Phone, Calculator, X } from 'lucide-react';
+import { MessageCircle, Phone, X } from 'lucide-react';
 
 export default function FloatingInteractiveWidgets() {
     const pathname = usePathname();
@@ -70,18 +70,11 @@ export default function FloatingInteractiveWidgets() {
                 <div className="flex px-4 py-3 gap-3">
                     <a
                         href="tel:3212360618"
-                        className="flex-1 bg-gray-100/80 text-gray-900 font-semibold py-3.5 rounded-xl flex items-center justify-center border border-gray-200/50 active:bg-gray-200 active:scale-[0.98] transition-all text-sm shadow-sm"
+                        className="flex-1 bg-blue-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center shadow-[0_4px_14px_rgba(37,99,235,0.39)] active:bg-blue-700 active:scale-[0.98] transition-all text-sm"
                     >
-                        <Phone className="w-4 h-4 mr-2 text-gray-700" />
+                        <Phone className="w-5 h-5 mr-2" />
                         Call Now
                     </a>
-                    <Link
-                        href="/booking"
-                        className="flex-[1.5] bg-blue-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center shadow-[0_4px_14px_rgba(37,99,235,0.39)] active:bg-blue-700 active:scale-[0.98] transition-all text-sm"
-                    >
-                        <Calculator className="w-4 h-4 mr-2" />
-                        Instant Quote
-                    </Link>
                 </div>
                 {/* iOS Safe Area Padding */}
                 <div className="h-safe pb-2" />
