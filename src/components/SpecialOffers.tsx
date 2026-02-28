@@ -78,7 +78,7 @@ export default function SpecialOffers() {
                     {/* Offer 2: Recurring Service */}
                     <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-1 shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                         <div className="bg-white rounded-xl p-8 h-full flex flex-col relative">
-                            <div className="absolute top-0 right-0 bg-yellow-500 text-yellow-950 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                            <div className="absolute top-0 right-0 bg-yellow-600 text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                                 MOST POPULAR
                             </div>
 

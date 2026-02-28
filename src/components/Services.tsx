@@ -69,7 +69,7 @@ const Services = () => {
       price: 'Custom pricing',
       link: '/post-construction-cleaning'
     },
-    
+
   ];
 
   // Removed unused scrollToContact to satisfy linter
@@ -102,36 +102,36 @@ const Services = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-6">
                 <service.icon className="w-8 h-8 text-blue-600" />
               </div>
-              
+
               <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
               <p className="text-gray-600 mb-6">
                 {service.description}
                 {service.title === 'Residential Cleaning' && (
-                  <> {' '}Explore <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">Deep Cleaning</Link>, <Link href="/move-in-move-out-cleaning" className="text-blue-600 underline hover:text-blue-800">Move In/Move Out</Link>, or refresh fibers with <Link href="/carpet-cleaning" className="text-blue-600 underline hover:text-blue-800">Carpet Cleaning</Link>.</>
+                  <> {' '}Explore <Link href="/deep-cleaning" className="text-blue-700 underline hover:text-blue-900">Deep Cleaning</Link>, <Link href="/move-in-move-out-cleaning" className="text-blue-700 underline hover:text-blue-900">Move In/Move Out</Link>, or refresh fibers with <Link href="/carpet-cleaning" className="text-blue-700 underline hover:text-blue-900">Carpet Cleaning</Link>.</>
                 )}
                 {service.title === 'Deep Cleaning' && (
-                  <> {' '}Planning a move? See <Link href="/move-in-move-out-cleaning" className="text-blue-600 underline hover:text-blue-800">Move In/Move Out</Link>. Want maintenance? Visit <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link>. Stubborn fibers? Try <Link href="/carpet-cleaning" className="text-blue-600 underline hover:text-blue-800">Carpet Cleaning</Link>.</>
+                  <> {' '}Planning a move? See <Link href="/move-in-move-out-cleaning" className="text-blue-700 underline hover:text-blue-900">Move In/Move Out</Link>. Want maintenance? Visit <Link href="/house-cleaning" className="text-blue-700 underline hover:text-blue-900">House Cleaning</Link>. Stubborn fibers? Try <Link href="/carpet-cleaning" className="text-blue-700 underline hover:text-blue-900">Carpet Cleaning</Link>.</>
                 )}
                 {service.title === 'Pressure Washing' && (
-                  <> {' '}Pair with <Link href="/window-cleaning" className="text-blue-600 underline hover:text-blue-800">Window Cleaning</Link> for spotless glass.</>
+                  <> {' '}Pair with <Link href="/window-cleaning" className="text-blue-700 underline hover:text-blue-900">Window Cleaning</Link> for spotless glass.</>
                 )}
                 {service.title === 'Window Cleaning' && (
-                  <> {' '}After exterior washes, consider <Link href="/pressure-washing" className="text-blue-600 underline hover:text-blue-800">Pressure Washing</Link>.</>
+                  <> {' '}After exterior washes, consider <Link href="/pressure-washing" className="text-blue-700 underline hover:text-blue-900">Pressure Washing</Link>.</>
                 )}
                 {service.title === 'Commercial Cleaning' && (
-                  <> {' '}Renovating? See <Link href="/post-construction-cleaning" className="text-blue-600 underline hover:text-blue-800">Post-Construction</Link>. Need glass care? Try <Link href="/window-cleaning" className="text-blue-600 underline hover:text-blue-800">Window Cleaning</Link>. Have carpeted areas? Check <Link href="/carpet-cleaning" className="text-blue-600 underline hover:text-blue-800">Carpet Cleaning</Link>.</>
+                  <> {' '}Renovating? See <Link href="/post-construction-cleaning" className="text-blue-700 underline hover:text-blue-900">Post-Construction</Link>. Need glass care? Try <Link href="/window-cleaning" className="text-blue-700 underline hover:text-blue-900">Window Cleaning</Link>. Have carpeted areas? Check <Link href="/carpet-cleaning" className="text-blue-700 underline hover:text-blue-900">Carpet Cleaning</Link>.</>
                 )}
                 {service.title === 'Post-Construction' && (
-                  <> {' '}Set ongoing care with <Link href="/commercial-cleaning" className="text-blue-600 underline hover:text-blue-800">Commercial Cleaning</Link> or <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link>.</>
+                  <> {' '}Set ongoing care with <Link href="/commercial-cleaning" className="text-blue-700 underline hover:text-blue-900">Commercial Cleaning</Link> or <Link href="/house-cleaning" className="text-blue-700 underline hover:text-blue-900">House Cleaning</Link>.</>
                 )}
                 {service.title === 'Move In/Move Out' && (
-                  <> {' '}Add detailing with <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">Deep Cleaning</Link>, refresh fibers with <Link href="/carpet-cleaning" className="text-blue-600 underline hover:text-blue-800">Carpet Cleaning</Link>, or set routine <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link>.</>
+                  <> {' '}Add detailing with <Link href="/deep-cleaning" className="text-blue-700 underline hover:text-blue-900">Deep Cleaning</Link>, refresh fibers with <Link href="/carpet-cleaning" className="text-blue-700 underline hover:text-blue-900">Carpet Cleaning</Link>, or set routine <Link href="/house-cleaning" className="text-blue-700 underline hover:text-blue-900">House Cleaning</Link>.</>
                 )}
                 {service.title === 'Carpet Cleaning' && (
-                  <> {' '}Bundle with <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">Deep Cleaning</Link> or maintain with <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link>.</>
+                  <> {' '}Bundle with <Link href="/deep-cleaning" className="text-blue-700 underline hover:text-blue-900">Deep Cleaning</Link> or maintain with <Link href="/house-cleaning" className="text-blue-700 underline hover:text-blue-900">House Cleaning</Link>.</>
                 )}
               </p>
-              
+
               <ul className="space-y-2 mb-6">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center text-sm text-gray-700">
@@ -140,7 +140,7 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-              
+
               <div className="pt-4 border-t border-gray-100">
                 <span className="text-lg font-bold text-blue-600">{service.price}</span>
               </div>
@@ -150,7 +150,7 @@ const Services = () => {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-6">Need a custom cleaning solution?</p>
-          <Link 
+          <Link
             href="/free-custom-quote"
             className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             data-cy="services-custom-quote-button"

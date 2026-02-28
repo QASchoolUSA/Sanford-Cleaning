@@ -156,7 +156,7 @@ export default function MaintenanceCleaningPage() {
                             <p className="text-gray-600 text-sm">Best for busy families, pets, and homes that need to stay "guest-ready" at all times.</p>
                         </div>
                         <div className="bg-blue-600 p-8 rounded-xl shadow-lg border border-blue-600 text-center text-white transform md:-translate-y-4">
-                            <div className="inline-block bg-white text-blue-600 text-xs font-bold px-3 py-1 rounded-full mb-3">MOST POPULAR</div>
+                            <div className="inline-block bg-white text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3">MOST POPULAR</div>
                             <RotateCw className="w-12 h-12 text-white mx-auto mb-4" />
                             <h3 className="font-bold text-xl mb-2">Bi-Weekly Service</h3>
                             <p className="text-white font-bold text-2xl mb-4">Save 15%</p>

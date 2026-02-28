@@ -80,7 +80,7 @@ const Hero = () => {
                   <Calculator className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-center">
-                  <h2 className="text-2xl lg:text-3xl font-bold text-white">Get Your Instant Quote</h2>
+                  <h1 className="text-2xl lg:text-3xl font-bold text-white">Get Your Instant Quote</h1>
                   <p className="text-blue-100 text-lg">Professional pricing in 3 easy steps</p>
                 </div>
               </div>
