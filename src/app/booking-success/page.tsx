@@ -45,7 +45,7 @@ export default async function BookingSuccessPage({
               </div>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Booking Confirmed</h1>
               <p className="text-lg text-gray-600">Thank you! Your appointment is confirmed. A confirmation email has been sent with your details.</p>
-              <p className="text-gray-600 mt-3">Questions? Call <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a> or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>.</p>
+              <p className="text-gray-600 mt-3">Questions? Call <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a> or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800">info@sanfordcleaning.com</a>.</p>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default async function BookingSuccessPage({
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-gray-700">Need to modify your booking or have questions? Call <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a> or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>.</p>
+            <p className="text-gray-700">Need to modify your booking or have questions? Call <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a> or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800">info@sanfordcleaning.com</a>.</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Book Another Service</Link>
               <Link href="/" className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">Go to Homepage</Link>

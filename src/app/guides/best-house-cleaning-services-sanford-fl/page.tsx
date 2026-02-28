@@ -177,7 +177,7 @@ export default function Page() {
 
           <h3 className="text-xl font-bold text-slate-900 mt-6">1. Determine Your Cleaning Needs</h3>
           <p>
-            Are you looking for a <Link href="/deep-cleaning" className="text-blue-600 hover:underline">one-time deep clean</Link> to reset your home, or
+            Are you looking for a <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">one-time deep clean</Link> to reset your home, or
             regular maintenance? Deep cleanings are essential for homes that haven't been professionally cleaned in over 30 days.
           </p>
 

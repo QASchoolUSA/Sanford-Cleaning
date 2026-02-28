@@ -103,8 +103,8 @@ export default function WindowCleaningPage() {
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Outside & Inside Window Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
                 Crystal-clear windows brighten your space and improve curb appeal. Sanford Cleaning offers professional window cleaning in Sanford FL—outside and inside service for
-                <Link href="/house-cleaning" className="text-blue-600 hover:underline"> residential</Link> and
-                <Link href="/commercial-cleaning" className="text-blue-600 hover:underline"> commercial</Link> properties. We detail tracks, sills, frames, and screens for a complete finish.
+                <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800"> residential</Link> and
+                <Link href="/commercial-cleaning" className="text-blue-600 underline hover:text-blue-800"> commercial</Link> properties. We detail tracks, sills, frames, and screens for a complete finish.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-cy="windows-quote-button">
@@ -222,12 +222,12 @@ export default function WindowCleaningPage() {
           </p>
           <p>
             Residential and commercial properties have different needs. <strong>For homeowners</strong>, clean windows instantly boost curb appeal, let in more natural light, and protect the glass from long-term hard water etching. <strong>For businesses and storefronts</strong>, routine exterior glass cleaning maintains visibility and a pristine brand image for passing foot traffic. Homes often pair our window washing service with seasonal
-            <Link href="/pressure-washing" className="text-blue-600 hover:underline"> pressure washing</Link> and interior detailing. If you’ve recently completed
-            <Link href="/pressure-washing" className="text-blue-600 hover:underline"> pressure washing</Link>, we recommend scheduling your window cleaning right after to eliminate any residue and ensure a consistent shine throughout the property.
+            <Link href="/pressure-washing" className="text-blue-600 underline hover:text-blue-800"> pressure washing</Link> and interior detailing. If you’ve recently completed
+            <Link href="/pressure-washing" className="text-blue-600 underline hover:text-blue-800"> pressure washing</Link>, we recommend scheduling your window cleaning right after to eliminate any residue and ensure a consistent shine throughout the property.
           </p>
           <p>
-            Our team provides flexible scheduling and clear pricing. Call <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a> to discuss your Sanford FL property, or
-            <Link href="/custom-quote" className="text-blue-600 hover:underline"> request a custom quote</Link>. We can bundle pressure washing and window cleaning for a seamless, full-service experience.
+            Our team provides flexible scheduling and clear pricing. Call <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a> to discuss your Sanford FL property, or
+            <Link href="/custom-quote" className="text-blue-600 underline hover:text-blue-800"> request a custom quote</Link>. We can bundle pressure washing and window cleaning for a seamless, full-service experience.
           </p>
         </div>
       </section>

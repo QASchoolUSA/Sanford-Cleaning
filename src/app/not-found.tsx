@@ -25,7 +25,7 @@ export default function NotFound() {
         </div>
 
         <p className="mt-6 text-sm text-gray-600">
-          Prefer to talk? Call <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a>
+          Prefer to talk? Call <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a>
         </p>
       </div>
     </main>

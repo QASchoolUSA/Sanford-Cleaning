@@ -262,7 +262,7 @@ export default function PostConstructionCleaningPage() {
             ))}
           </div>
           <p className="text-gray-600 mt-6">
-            Don’t see your area listed? Call <a href="tel:+13212360618" className="text-blue-600 hover:underline">(321) 236-0618</a> to confirm availability.
+            Don’t see your area listed? Call <a href="tel:+13212360618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a> to confirm availability.
           </p>
         </div>
       </section>

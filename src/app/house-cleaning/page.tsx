@@ -444,9 +444,9 @@ export default function ResidentialCleaningPage() {
               <div className="bg-white rounded-xl p-6 border">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Ways to Book</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Book online at <Link href="/booking" className="text-blue-600 hover:underline">sanfordcleaning.com/booking</Link></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Call or text <a href="tel:+13212360618" className="text-blue-600 hover:underline">(321) 236-0618</a></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Book online at <Link href="/booking" className="text-blue-600 underline hover:text-blue-800">sanfordcleaning.com/booking</Link></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Call or text <a href="tel:+13212360618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a></li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800">info@sanfordcleaning.com</a></li>
                 </ul>
               </div>
             </div>
@@ -467,7 +467,7 @@ export default function ResidentialCleaningPage() {
                     What are the ways to book cleaning?
                     <span className="text-gray-500 group-open:rotate-180 transition-transform">▾</span>
                   </summary>
-                  <p className="text-gray-700 mt-3">You can book online on our website, call or text <a href="tel:+13212360618" className="text-blue-600 hover:underline">(321) 236-0618</a>, or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>.</p>
+                  <p className="text-gray-700 mt-3">You can book online on our website, call or text <a href="tel:+13212360618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a>, or email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800">info@sanfordcleaning.com</a>.</p>
                 </details>
               </div>
             </div>

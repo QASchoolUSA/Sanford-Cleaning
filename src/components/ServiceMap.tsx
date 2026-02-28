@@ -45,7 +45,7 @@ export default function ServiceMap() {
                     }}
                     radius={radiusInMeters}
                 />
-                <Marker position={sanfordCoords} icon={icon}>
+                <Marker position={sanfordCoords} icon={icon} title="Sanford Cleaning Location" alt="Sanford Cleaning Location">
                     <Popup>
                         <div className="text-center font-sans">
                             <strong>Sanford Cleaning</strong><br />

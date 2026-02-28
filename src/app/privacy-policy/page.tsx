@@ -268,8 +268,8 @@ export default function PrivacyPolicyPage() {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700 text-sm">
                   <strong>To exercise any of these rights,</strong> please contact us at
-                  <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline"> info@sanfordcleaning.com</a> or call us at
-                  <a href="tel:321-236-0618" className="text-blue-600 hover:underline"> (321) 236-0618</a>. We will respond to your request within 30 days.
+                  <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800"> info@sanfordcleaning.com</a> or call us at
+                  <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800"> (321) 236-0618</a>. We will respond to your request within 30 days.
                 </p>
               </div>
             </section>

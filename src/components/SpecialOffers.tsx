@@ -78,7 +78,7 @@ export default function SpecialOffers() {
                     {/* Offer 2: Recurring Service */}
                     <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-1 shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                         <div className="bg-white rounded-xl p-8 h-full flex flex-col relative">
-                            <div className="absolute top-0 right-0 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                            <div className="absolute top-0 right-0 bg-yellow-500 text-yellow-950 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                                 MOST POPULAR
                             </div>
 
@@ -86,7 +86,7 @@ export default function SpecialOffers() {
                                 <div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-2">Recurring Service</h3>
                                     <div className="flex items-baseline space-x-2">
-                                        <span className="text-4xl font-extrabold text-yellow-600">30% OFF</span>
+                                        <span className="text-4xl font-extrabold text-yellow-800">30% OFF</span>
                                         <span className="text-gray-500 text-sm font-medium">First Service</span>
                                     </div>
                                 </div>

@@ -62,7 +62,7 @@ export default function BookingSuccessPayments({ paidParam }: Props) {
                 <h3 className="font-semibold text-gray-900">Zelle</h3>
               </div>
               <p className="text-gray-700 text-sm mb-2">Send payment via Zelle using your banking app.</p>
-              <p className="text-gray-700 text-sm">Use our email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a> and include your booking name in the memo.</p>
+              <p className="text-gray-700 text-sm">Use our email <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800">info@sanfordcleaning.com</a> and include your booking name in the memo.</p>
             </div>
 
             {/* Cash or Check */}

@@ -151,7 +151,7 @@ export default function Page() {
           <ol className="list-decimal pl-6 space-y-4 text-slate-700">
             <li>
               <strong>Choose the Right Service Level:</strong> Don't book a "Standard Clean" if your home hasn't been cleaned in 6 months.
-              Start with a <Link href="/deep-cleaning" className="text-blue-600 hover:underline">Deep Clean</Link> to get the best results.
+              Start with a <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">Deep Clean</Link> to get the best results.
             </li>
             <li>
               <strong>Select a Frequency:</strong> One-time cleans are great, but recurring services (Weekly/Bi-Weekly) often come with

@@ -139,6 +139,7 @@ const Header = () => {
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             data-cy="mobile-menu-toggle-button"
+            aria-label="Toggle mobile menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

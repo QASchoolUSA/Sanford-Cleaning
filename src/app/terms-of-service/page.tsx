@@ -50,10 +50,10 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Company Information</h3>
                 <p className="text-gray-700 mb-1"><strong>Official Name:</strong> Topaz West LLC</p>
                 <p className="text-gray-700 mb-1">
-                  <strong>Contact Email:</strong> <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 hover:underline">info@sanfordcleaning.com</a>
+                  <strong>Contact Email:</strong> <a href="mailto:info@sanfordcleaning.com" className="text-blue-600 underline hover:text-blue-800">info@sanfordcleaning.com</a>
                 </p>
                 <p className="text-gray-700 mb-1">
-                  <strong>Phone:</strong> <a href="tel:321-236-0618" className="text-blue-600 hover:underline">(321) 236-0618</a>
+                  <strong>Phone:</strong> <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a>
                 </p>
                 <p className="text-gray-700"><strong>Address:</strong> 3298 Eastgrove Terrace, Sanford, FL 32771</p>
               </div>

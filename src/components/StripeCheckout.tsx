@@ -133,7 +133,7 @@ export default function StripeCheckout({ amount, service, email }: Props) {
             <p className="text-sm text-gray-500 mt-4 text-center">You will be redirected to a secure Stripe-hosted page.</p>
 
             <div className="mt-6 text-center">
-              <a href="/booking" className="text-blue-600 hover:underline">Return to booking</a>
+              <a href="/booking" className="text-blue-600 underline hover:text-blue-800">Return to booking</a>
             </div>
           </div>
         </div>

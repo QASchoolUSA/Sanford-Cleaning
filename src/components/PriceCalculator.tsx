@@ -574,6 +574,7 @@ const PriceCalculator = () => {
           onChange={(e) => updateFormData('service', e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           data-cy="service-select"
+          aria-label="Select your service"
         >
           <option value="">Select service</option>
           {serviceOptions.map(option => (
@@ -590,6 +591,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('frequency', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             data-cy="frequency-select"
+            aria-label="Select frequency"
           >
             <option value="">Select frequency</option>
             {frequencyOptions.map(option => (
@@ -654,6 +656,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('bedrooms', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             data-cy="bedrooms-select"
+            aria-label="Select number of bedrooms"
           >
             {bedroomOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -667,6 +670,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('bathrooms', e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             data-cy="bathrooms-select"
+            aria-label="Select number of bathrooms"
           >
             {bathroomOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -795,6 +799,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('houseCondition', e.target.value)}
             className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             data-cy="house-condition-select"
+            aria-label="Select house condition"
           >
             {conditionOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -808,6 +813,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('peopleCount', e.target.value)}
             className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             data-cy="people-count-select"
+            aria-label="Select number of people"
           >
             {peopleOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -851,6 +857,7 @@ const PriceCalculator = () => {
             onChange={(e) => updateFormData('wasProfessional', e.target.value === 'YES')}
             className="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             data-cy="was-professional-select"
+            aria-label="Was the last cleaning professional?"
           >
             <option value="NO">NO</option>
             <option value="YES">YES</option>
@@ -965,6 +972,7 @@ const PriceCalculator = () => {
           className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           required
           data-cy="key-info-select"
+          aria-label="Select key information"
         >
           <option value="">Select key arrangement</option>
           {keyInfoOptions.map(option => (
@@ -1055,7 +1063,7 @@ const PriceCalculator = () => {
                           currentStep === 3 ? 'Schedule' : 'Contact & Payment'
                     }
                   </span>
-                  <Link href="/" className="p-1.5 text-gray-500 hover:text-gray-900 bg-gray-200/50 rounded-full">
+                  <Link href="/" className="p-1.5 text-gray-500 hover:text-gray-900 bg-gray-200/50 rounded-full" aria-label="Close">
                     <X className="w-4 h-4" />
                   </Link>
                 </div>
