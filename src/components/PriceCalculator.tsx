@@ -1063,12 +1063,12 @@ const PriceCalculator = () => {
   };
 
   return (
-    <section id="price-calculator" className="pt-0 md:pb-2 bg-gray-50 md:bg-transparent h-full flex flex-col md:block">
-      <div className="container mx-auto px-0 md:px-4 h-full flex flex-col md:block">
-        <div className="max-w-4xl mx-auto w-full h-full flex flex-col md:block">
+    <section id="price-calculator" className="pt-0 md:pb-2 bg-gray-50 md:bg-transparent">
+      <div className="container mx-auto px-0 md:px-4">
+        <div className="max-w-4xl mx-auto w-full">
           {/* Removed duplicate header; handled by parent section/card header */}
 
-          <div ref={calculatorRef} className="flex-1 min-h-0 flex flex-col md:block bg-white md:rounded-xl md:shadow-lg overflow-hidden">
+          <div ref={calculatorRef} className="bg-white md:rounded-xl md:shadow-lg overflow-hidden">
             {/* Progress Bar */}
             <div className="bg-blue-50 p-4 md:p-6 shrink-0 z-10 shadow-sm md:shadow-none">
               {/* Overall Progress Bar */}
@@ -1095,9 +1095,6 @@ const PriceCalculator = () => {
                           currentStep === 3 ? 'Schedule' : 'Contact & Payment'
                     }
                   </span>
-                  <Link href="/" className="p-1.5 text-gray-500 hover:text-gray-900 bg-gray-200/50 rounded-full" aria-label="Close">
-                    <X className="w-4 h-4" />
-                  </Link>
                 </div>
               </div>
 
@@ -1143,7 +1140,7 @@ const PriceCalculator = () => {
             </div>
 
             {/* Form Content */}
-            <div className="flex-1 overflow-y-auto min-h-0 p-4 md:p-8">
+            <div className="p-4 md:p-8">
               {currentStep === 1 && renderStep1()}
               {currentStep === 2 && renderStep2()}
               {currentStep === 3 && renderStep3()}
