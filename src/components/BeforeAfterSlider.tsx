@@ -93,6 +93,7 @@ export default function BeforeAfterSlider() {
                                 src="/after-cleaning.png"
                                 alt="Clean room"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="object-cover object-center"
                                 draggable={false}
                                 priority
@@ -112,6 +113,7 @@ export default function BeforeAfterSlider() {
                                 src="/before-cleaning.png"
                                 alt="Messy room"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="object-cover object-center"
                                 draggable={false}
                                 priority
