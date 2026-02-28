@@ -1099,7 +1099,11 @@ const PriceCalculator = () => {
                       }`}>
                       {step.title}
                     </h4>
-                    <p className={`text-xs opacity-75 ${step.number === currentStep ? 'text-blue-100' : ''
+                    <p className={`text-xs mt-1 ${step.number === currentStep
+                        ? 'text-blue-50'
+                        : step.number < currentStep
+                          ? 'text-green-800'
+                          : 'text-gray-600'
                       }`}>
                       {step.subtitle}
                     </p>
