@@ -1,7 +1,9 @@
 "use client";
 import React, { Suspense } from 'react';
 import { Phone, Star, Clock, Shield, Calculator } from 'lucide-react';
-import PriceCalculator from './PriceCalculator';
+import dynamic from 'next/dynamic';
+
+const PriceCalculator = dynamic(() => import('./PriceCalculator'), { ssr: false });
 
 const Hero = () => {
   return (

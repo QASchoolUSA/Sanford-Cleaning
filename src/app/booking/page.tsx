@@ -1,6 +1,8 @@
 import { Suspense } from 'react';
 import { Calculator, X } from 'lucide-react';
-import PriceCalculator from '@/components/PriceCalculator';
+import dynamic from 'next/dynamic';
+
+const PriceCalculator = dynamic(() => import('@/components/PriceCalculator'));
 import Link from 'next/link';
 
 export const metadata = {

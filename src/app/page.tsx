@@ -1,11 +1,13 @@
 import Hero from '@/components/Hero';
-import SpecialOffers from '@/components/SpecialOffers';
-import Services from '@/components/Services';
-import BeforeAfterSlider from '@/components/BeforeAfterSlider';
-import About from '@/components/About';
-import Gallery from '@/components/Gallery';
-import ServiceAreas from '@/components/ServiceAreas';
-import Contact from '@/components/Contact';
+import dynamic from 'next/dynamic';
+
+const SpecialOffers = dynamic(() => import('@/components/SpecialOffers'));
+const Services = dynamic(() => import('@/components/Services'));
+const BeforeAfterSlider = dynamic(() => import('@/components/BeforeAfterSlider'));
+const About = dynamic(() => import('@/components/About'));
+const Gallery = dynamic(() => import('@/components/Gallery'));
+const ServiceAreas = dynamic(() => import('@/components/ServiceAreas'));
+const Contact = dynamic(() => import('@/components/Contact'));
 
 export const metadata = {
   title: 'Top-Rated House Cleaning Services Sanford, FL | Sanford Cleaning',
