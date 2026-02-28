@@ -1,9 +1,9 @@
-"use client";
 import React, { Suspense } from 'react';
-import { Phone, Star, Clock, Shield, Calculator } from 'lucide-react';
+import { Phone, Star, Clock, Shield, Calculator as HeroCalculator } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import ScrollToCalculatorButton from './ScrollToCalculatorButton';
 
-const PriceCalculator = dynamic(() => import('./PriceCalculator'), { ssr: false });
+const PriceCalculator = dynamic(() => import('./PriceCalculator'));
 
 const Hero = () => {
   return (
@@ -44,13 +44,7 @@ const Hero = () => {
               <Phone className="w-5 h-5" />
               Call (321) 236-0618
             </a>
-            <button
-              onClick={() => document.getElementById('price-calculator')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl border-2 border-blue-600 transform hover:-translate-y-0.5"
-            >
-              <Calculator className="w-5 h-5" />
-              Get Instant Quote
-            </button>
+            <ScrollToCalculatorButton />
           </div>
 
           {/* Trust Badges moved closer to Quick Stats */}
@@ -79,7 +73,7 @@ const Hero = () => {
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 lg:px-8 py-6">
               <div className="flex items-center justify-center gap-4">
                 <div className="bg-white/20 p-3 rounded-lg">
-                  <Calculator className="w-8 h-8 text-white" />
+                  <HeroCalculator className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-center">
                   <h1 className="text-2xl lg:text-3xl font-bold text-white">Get Your Instant Quote</h1>

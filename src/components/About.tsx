@@ -1,4 +1,3 @@
-"use client";
 import React from 'react';
 import Image from 'next/image';
 import { Shield, Leaf, Clock, Award } from 'lucide-react';
