@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, Shield, Star, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, Shield, Star, X, Loader2 } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
 import AddressAutocomplete from '@/components/ui/address-autocomplete';
@@ -54,6 +54,7 @@ const PriceCalculator = () => {
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [maintenancePrice, setMaintenancePrice] = useState(0);
   const [showExtras, setShowExtras] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [phoneError, setPhoneError] = useState('');
   const [formData, setFormData] = useState<FormData>({
     service: '',
@@ -466,7 +467,7 @@ const PriceCalculator = () => {
   };
 
   const handleSubmit = async () => {
-
+    setIsSubmitting(true);
     const bookingData = {
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -536,6 +537,7 @@ const PriceCalculator = () => {
           const message = err instanceof Error ? err.message : String(err);
           console.error('Stripe checkout error:', message);
           alert('Unable to start Stripe checkout. Please try again or choose another payment method.');
+          setIsSubmitting(false);
         }
       })();
     } else {
@@ -562,6 +564,7 @@ const PriceCalculator = () => {
         // ignore storage errors
       }
       router.push('/booking-success');
+      // We don't need to unset isSubmitting here because we are redirecting away
     }
   };
 
@@ -1226,23 +1229,30 @@ const PriceCalculator = () => {
                 ) : (
                   <button
                     onClick={handleSubmit}
-                    disabled={!isStepValid()}
-                    className={`flex-[2] md:flex-none flex items-center justify-center space-x-2 px-4 md:px-8 py-2.5 md:py-3 rounded-lg transition-colors font-semibold shadow-sm text-sm md:text-base ${!isStepValid()
+                    disabled={!isStepValid() || isSubmitting}
+                    className={`flex-[2] md:flex-none flex items-center justify-center space-x-2 px-4 md:px-8 py-2.5 md:py-3 rounded-lg transition-colors font-semibold shadow-sm text-sm md:text-base ${(!isStepValid() || isSubmitting)
                       ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
                       : 'bg-green-600 text-white hover:bg-green-700 hover:shadow-md'
                       }`}
                     data-cy="submit-button"
                   >
-                    {formData.paymentType === 'Credit Card' ? (
+                    {isSubmitting ? (
                       <>
-                        <CreditCard className="w-4 h-4 hidden sm:block" />
-                        <span>Pay & Book</span>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Processing...</span>
                       </>
                     ) : (
-                      <>
-                        <Check className="w-4 h-4 hidden sm:block" />
-                        <span>Book Now</span>
-                      </>
+                      formData.paymentType === 'Credit Card' ? (
+                        <>
+                          <CreditCard className="w-4 h-4 hidden sm:block" />
+                          <span>Pay & Book</span>
+                        </>
+                      ) : (
+                        <>
+                          <Check className="w-4 h-4 hidden sm:block" />
+                          <span>Book Now</span>
+                        </>
+                      )
                     )}
                   </button>
                 )}

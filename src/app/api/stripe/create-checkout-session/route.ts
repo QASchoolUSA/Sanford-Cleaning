@@ -40,6 +40,7 @@ export async function POST(req: Request) {
           quantity: 1,
         },
       ],
+      allow_promotion_codes: true,
       success_url: `${origin}/booking-success?paid=stripe`,
       cancel_url: `${origin}/booking?returnToStep=4`,
       // Store business metadata on the PaymentIntent for later reconciliation
