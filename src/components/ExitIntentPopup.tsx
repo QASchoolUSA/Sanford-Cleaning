@@ -71,7 +71,7 @@ export default function ExitIntentPopup() {
                     <p className="mb-6 font-medium">Use code <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-md text-lg font-bold border border-blue-200">CLEAN20</span> at checkout.</p>
 
                     <Link
-                        href="/custom-quote"
+                        href="/booking"
                         onClick={() => setShowPopup(false)}
                         className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl flex items-center justify-center shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all mb-3 text-lg"
                     >
