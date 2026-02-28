@@ -1150,8 +1150,8 @@ const PriceCalculator = () => {
               {currentStep === 4 && renderStep4()}
             </div>
 
-            {/* Fixed Bottom Container for Price & Navigation */}
-            <div className="sticky bottom-0 z-50 w-full bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.12)] border-t border-gray-100 flex flex-col shrink-0">
+            {/* Bottom Container for Price & Navigation */}
+            <div className="w-full bg-white md:shadow-[0_-8px_30px_rgba(0,0,0,0.12)] border-t border-gray-200 flex flex-col shrink-0 mt-4 rounded-b-2xl">
 
               {/* Price Estimate - Only show after sufficient information is provided */}
               {estimatedPrice > 0 && currentStep >= 2 && formData.service && formData.squareFootage && (
