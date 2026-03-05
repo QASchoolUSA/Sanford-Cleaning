@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error --skip '.*instagram.com.*'"
+    "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error --skip '.*instagram.com.*'",
+    "indexnow": "npx -y tsx scripts/submit-indexnow.ts"
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.1.15",

@@ -1,0 +1,1078 @@
+[
+  {
+    "id": "aria-command-name",
+    "title": "`button`, `link`, and `menuitem` elements do not have accessible names.",
+    "items": [
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-0-DIV",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,7,SECTION,0,DIV,1,DIV,0,DIV,0,DIV,0,DIV,3,DIV,0,DIV",
+          "selector": "div.leaflet-container > div.leaflet-pane > div.leaflet-pane > div.leaflet-marker-icon",
+          "boundingRect": {
+            "top": 12510,
+            "bottom": 12526,
+            "left": 198,
+            "right": 214,
+            "width": 16,
+            "height": 16
+          },
+          "snippet": "<div class=\"leaflet-marker-icon custom-div-icon leaflet-zoom-animated leaflet-interact…\" tabindex=\"0\" role=\"button\" style=\"margin-left: -8px; margin-top: -8px; width: 16px; height: 16px;\">",
+          "nodeLabel": "div.leaflet-container > div.leaflet-pane > div.leaflet-pane > div.leaflet-marker-icon",
+          "explanation": "Fix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      }
+    ]
+  },
+  {
+    "id": "button-name",
+    "title": "Buttons do not have an accessible name",
+    "items": [
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-1-BUTTON",
+          "path": "2,HTML,1,BODY,3,HEADER,0,DIV,0,DIV,3,BUTTON",
+          "selector": "header.fixed > div.container > div.flex > button.md:hidden",
+          "boundingRect": {
+            "top": 12,
+            "bottom": 52,
+            "left": 356,
+            "right": 396,
+            "width": 40,
+            "height": 40
+          },
+          "snippet": "<button class=\"md:hidden p-2\" data-cy=\"mobile-menu-toggle-button\">",
+          "nodeLabel": "header.fixed > div.container > div.flex > button.md:hidden",
+          "explanation": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      }
+    ]
+  },
+  {
+    "id": "color-contrast",
+    "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+    "items": [
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-2-DIV",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,2,SECTION,1,DIV,1,DIV,1,DIV,0,DIV,0,DIV",
+          "selector": "div.grid > div.bg-gradient-to-br > div.bg-white > div.absolute",
+          "boundingRect": {
+            "top": 2270,
+            "bottom": 2294,
+            "left": 270,
+            "right": 392,
+            "width": 122,
+            "height": 24
+          },
+          "snippet": "<div class=\"absolute top-0 right-0 bg-yellow-500 text-white text-xs font-bold px-3 py-…\">",
+          "nodeLabel": "MOST POPULAR",
+          "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 1.91 (foreground color: #ffffff, background color: #eab308, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-3-SPAN",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,2,SECTION,1,DIV,1,DIV,1,DIV,0,DIV,1,DIV,0,DIV,1,DIV,0,SPAN",
+          "selector": "div.flex > div > div.flex > span.text-4xl",
+          "boundingRect": {
+            "top": 2342,
+            "bottom": 2382,
+            "left": 52,
+            "right": 209,
+            "width": 157,
+            "height": 40
+          },
+          "snippet": "<span class=\"text-4xl font-extrabold text-yellow-600\">",
+          "nodeLabel": "30% OFF",
+          "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.93 (foreground color: #ca8a04, background color: #ffffff, font size: 27.0pt (36px), font weight: bold). Expected contrast ratio of 3:1"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-4-DIV",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,2,SECTION,1,DIV,1,DIV,1,DIV,0,DIV",
+                "selector": "div.container > div.grid > div.bg-gradient-to-br > div.bg-white",
+                "boundingRect": {
+                  "top": 2270,
+                  "bottom": 2684,
+                  "left": 20,
+                  "right": 392,
+                  "width": 372,
+                  "height": 414
+                },
+                "snippet": "<div class=\"bg-white rounded-xl p-8 h-full flex flex-col relative\">",
+                "nodeLabel": "MOST POPULAR\nRecurring Service\n30% OFF\nFirst Service\n30% OFF your first recurri…"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "heading-order",
+    "title": "Heading elements are not in a sequentially-descending order",
+    "items": [
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-5-H3",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,1,SECTION,1,DIV,1,DIV,0,DIV,0,DIV,0,DIV,1,DIV,0,H3",
+          "selector": "div.bg-gradient-to-r > div.flex > div.text-center > h3.text-2xl",
+          "boundingRect": {
+            "top": 789,
+            "bottom": 821,
+            "left": 113,
+            "right": 371,
+            "width": 258,
+            "height": 32
+          },
+          "snippet": "<h3 class=\"text-2xl lg:text-3xl font-bold text-white\">",
+          "nodeLabel": "Get Your Instant Quote",
+          "explanation": "Fix any of the following:\n  Heading order invalid"
+        }
+      }
+    ]
+  },
+  {
+    "id": "link-name",
+    "title": "Links do not have a discernible name",
+    "items": [
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-35-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,1,SECTION,1,DIV,1,DIV,0,DIV,1,DIV,0,SECTION,0,DIV,0,DIV,0,DIV,0,DIV,1,DIV,0,DIV,1,A",
+          "selector": "div.bg-blue-50 > div.md:hidden > div.flex > a.p-1.5",
+          "boundingRect": {
+            "top": 933,
+            "bottom": 961,
+            "left": 343,
+            "right": 371,
+            "width": 28,
+            "height": 28
+          },
+          "snippet": "<a class=\"p-1.5 text-gray-500 hover:text-gray-900 bg-gray-200/50 rounded-full\" href=\"/\">",
+          "nodeLabel": "div.bg-blue-50 > div.md:hidden > div.flex > a.p-1.5",
+          "explanation": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-36-A",
+          "path": "2,HTML,1,BODY,5,FOOTER,0,DIV,0,DIV,0,DIV,2,DIV,0,A",
+          "selector": "div.grid > div.space-y-6 > div.flex > a.w-10",
+          "boundingRect": {
+            "top": 15176,
+            "bottom": 15216,
+            "left": 16,
+            "right": 56,
+            "width": 40,
+            "height": 40
+          },
+          "snippet": "<a href=\"https://www.facebook.com/profile.php?id=61579618588193\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-cent…\" data-cy=\"footer-facebook-link\">",
+          "nodeLabel": "div.grid > div.space-y-6 > div.flex > a.w-10",
+          "explanation": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-37-A",
+          "path": "2,HTML,1,BODY,5,FOOTER,0,DIV,0,DIV,0,DIV,2,DIV,1,A",
+          "selector": "div.grid > div.space-y-6 > div.flex > a.w-10",
+          "boundingRect": {
+            "top": 15176,
+            "bottom": 15216,
+            "left": 72,
+            "right": 112,
+            "width": 40,
+            "height": 40
+          },
+          "snippet": "<a href=\"https://www.instagram.com/sanfordcleaning\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-cent…\" data-cy=\"footer-instagram-link\">",
+          "nodeLabel": "div.grid > div.space-y-6 > div.flex > a.w-10",
+          "explanation": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      }
+    ]
+  },
+  {
+    "id": "link-in-text-block",
+    "title": "Links rely on color to be distinguishable.",
+    "items": [
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-6-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,0,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 3980,
+            "bottom": 3999,
+            "left": 228,
+            "right": 334,
+            "width": 106,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/deep-cleaning\">",
+          "nodeLabel": "Deep Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-7-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,0,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 3929,
+                  "bottom": 4049,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 120
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Complete house cleaning services including kitchens, bathrooms, bedrooms, and l…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-8-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,0,DIV,2,P,7,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 4004,
+            "bottom": 4023,
+            "left": 48,
+            "right": 179,
+            "width": 131,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/move-in-move-out-cleaning\">",
+          "nodeLabel": "Move In/Move Out",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-7-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,0,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 3929,
+                  "bottom": 4049,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 120
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Complete house cleaning services including kitchens, bathrooms, bedrooms, and l…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-9-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,0,DIV,2,P,9,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 4028,
+            "bottom": 4047,
+            "left": 48,
+            "right": 165,
+            "width": 117,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/carpet-cleaning\">",
+          "nodeLabel": "Carpet Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-7-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,0,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 3929,
+                  "bottom": 4049,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 120
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Complete house cleaning services including kitchens, bathrooms, bedrooms, and l…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-10-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,1,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 4521,
+            "bottom": 4564,
+            "left": 48,
+            "right": 311,
+            "width": 263,
+            "height": 43
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/post-construction-cleaning\">",
+          "nodeLabel": "Post-Construction",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-11-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,1,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 4470,
+                  "bottom": 4614,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 144
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Professional office and commercial space cleaning to maintain a pristine work e…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-12-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,1,DIV,2,P,7,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 4569,
+            "bottom": 4588,
+            "left": 48,
+            "right": 174,
+            "width": 126,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/window-cleaning\">",
+          "nodeLabel": "Window Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-11-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,1,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 4470,
+                  "bottom": 4614,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 144
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Professional office and commercial space cleaning to maintain a pristine work e…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-13-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,1,DIV,2,P,9,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 4593,
+            "bottom": 4612,
+            "left": 98,
+            "right": 215,
+            "width": 117,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/carpet-cleaning\">",
+          "nodeLabel": "Carpet Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-11-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,1,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 4470,
+                  "bottom": 4614,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 144
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Professional office and commercial space cleaning to maintain a pristine work e…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-14-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,2,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 5086,
+            "bottom": 5129,
+            "left": 48,
+            "right": 351,
+            "width": 303,
+            "height": 43
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/move-in-move-out-cleaning\">",
+          "nodeLabel": "Move In/Move Out",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-15-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,2,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 5035,
+                  "bottom": 5179,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 144
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Comprehensive deep cleaning service for those hard-to-reach areas and seasonal …"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-16-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,2,DIV,2,P,7,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 5134,
+            "bottom": 5153,
+            "left": 48,
+            "right": 162,
+            "width": 114,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/house-cleaning\">",
+          "nodeLabel": "House Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-15-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,2,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 5035,
+                  "bottom": 5179,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 144
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Comprehensive deep cleaning service for those hard-to-reach areas and seasonal …"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-17-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,2,DIV,2,P,9,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 5158,
+            "bottom": 5177,
+            "left": 48,
+            "right": 165,
+            "width": 117,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/carpet-cleaning\">",
+          "nodeLabel": "Carpet Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-15-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,2,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 5035,
+                  "bottom": 5179,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 144
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Comprehensive deep cleaning service for those hard-to-reach areas and seasonal …"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-18-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,3,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 5651,
+            "bottom": 5670,
+            "left": 137,
+            "right": 243,
+            "width": 106,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/deep-cleaning\">",
+          "nodeLabel": "Deep Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-19-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,3,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 5600,
+                  "bottom": 5696,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 96
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Professional carpet cleaning in Sanford, FL including pet stain and odor treatm…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-20-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,3,DIV,2,P,7,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 5675,
+            "bottom": 5694,
+            "left": 48,
+            "right": 162,
+            "width": 114,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/house-cleaning\">",
+          "nodeLabel": "House Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-19-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,3,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 5600,
+                  "bottom": 5696,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 96
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Professional carpet cleaning in Sanford, FL including pet stain and odor treatm…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-21-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,4,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 6168,
+            "bottom": 6187,
+            "left": 114,
+            "right": 240,
+            "width": 126,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/window-cleaning\">",
+          "nodeLabel": "Window Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-22-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,4,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 6117,
+                  "bottom": 6213,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 96
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Professional exterior washing for siding, driveways, patios, and more in Sanfor…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-23-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,5,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 6685,
+            "bottom": 6728,
+            "left": 48,
+            "right": 341,
+            "width": 293,
+            "height": 43
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/pressure-washing\">",
+          "nodeLabel": "Pressure Washing",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-24-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,5,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 6634,
+                  "bottom": 6730,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 96
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Outside and inside window cleaning for residential and commercial in Sanford, F…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-25-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,6,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 7202,
+            "bottom": 7245,
+            "left": 48,
+            "right": 348,
+            "width": 300,
+            "height": 43
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/deep-cleaning\">",
+          "nodeLabel": "Deep Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-26-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,6,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 7151,
+                  "bottom": 7271,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 120
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Comprehensive cleaning services for moving transitions, perfect for tenants and…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-27-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,6,DIV,2,P,7,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 7226,
+            "bottom": 7269,
+            "left": 48,
+            "right": 305,
+            "width": 257,
+            "height": 43
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/carpet-cleaning\">",
+          "nodeLabel": "Carpet Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-26-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,6,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 7151,
+                  "bottom": 7271,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 120
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Comprehensive cleaning services for moving transitions, perfect for tenants and…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-28-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,6,DIV,2,P,9,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 7250,
+            "bottom": 7269,
+            "left": 221,
+            "right": 335,
+            "width": 114,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/house-cleaning\">",
+          "nodeLabel": "House Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-26-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,6,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 7151,
+                  "bottom": 7271,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 120
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Comprehensive cleaning services for moving transitions, perfect for tenants and…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-29-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,7,DIV,2,P,5,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 7767,
+            "bottom": 7786,
+            "left": 48,
+            "right": 202,
+            "width": 154,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/commercial-cleaning\">",
+          "nodeLabel": "Commercial Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-30-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,7,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 7692,
+                  "bottom": 7788,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 96
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Specialized cleaning for newly constructed or renovated spaces to remove constr…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-31-A",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,7,DIV,2,P,7,A",
+          "selector": "div.grid > div.bg-white > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 7767,
+            "bottom": 7786,
+            "left": 225,
+            "right": 339,
+            "width": 114,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/house-cleaning\">",
+          "nodeLabel": "House Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-30-P",
+                "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,4,SECTION,0,DIV,1,DIV,7,DIV,2,P",
+                "selector": "div.container > div.grid > div.bg-white > p.text-gray-600",
+                "boundingRect": {
+                  "top": 7692,
+                  "bottom": 7788,
+                  "left": 48,
+                  "right": 364,
+                  "width": 316,
+                  "height": 96
+                },
+                "snippet": "<p class=\"text-gray-600 mb-6\">",
+                "nodeLabel": "Specialized cleaning for newly constructed or renovated spaces to remove constr…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-32-A",
+          "path": "2,HTML,1,BODY,5,FOOTER,0,DIV,0,DIV,0,DIV,1,P,1,A",
+          "selector": "div.grid > div.space-y-6 > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 15130,
+            "bottom": 15149,
+            "left": 16,
+            "right": 130,
+            "width": 114,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/house-cleaning\">",
+          "nodeLabel": "House Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-33-P",
+                "path": "2,HTML,1,BODY,5,FOOTER,0,DIV,0,DIV,0,DIV,1,P",
+                "selector": "div.container > div.grid > div.space-y-6 > p.text-gray-600",
+                "boundingRect": {
+                  "top": 15048,
+                  "bottom": 15152,
+                  "left": 16,
+                  "right": 396,
+                  "width": 380,
+                  "height": 104
+                },
+                "snippet": "<p class=\"text-gray-600 leading-relaxed\">",
+                "nodeLabel": "Professional cleaning services you can trust. We're committed to providing exce…"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-34-A",
+          "path": "2,HTML,1,BODY,5,FOOTER,0,DIV,0,DIV,0,DIV,1,P,3,A",
+          "selector": "div.grid > div.space-y-6 > p.text-gray-600 > a.text-blue-600",
+          "boundingRect": {
+            "top": 15130,
+            "bottom": 15149,
+            "left": 166,
+            "right": 291,
+            "width": 126,
+            "height": 19
+          },
+          "snippet": "<a class=\"text-blue-600 hover:underline\" href=\"/window-cleaning\">",
+          "nodeLabel": "Window Cleaning",
+          "explanation": "Fix any of the following:\n  The link has insufficient color contrast of 1.46:1 with the surrounding text. (Minimum contrast is 3:1, link text: #2563eb, surrounding text: #4b5563)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        },
+        "subItems": {
+          "type": "subitems",
+          "items": [
+            {
+              "relatedNode": {
+                "type": "node",
+                "lhId": "1-33-P",
+                "path": "2,HTML,1,BODY,5,FOOTER,0,DIV,0,DIV,0,DIV,1,P",
+                "selector": "div.container > div.grid > div.space-y-6 > p.text-gray-600",
+                "boundingRect": {
+                  "top": 15048,
+                  "bottom": 15152,
+                  "left": 16,
+                  "right": 396,
+                  "width": 380,
+                  "height": 104
+                },
+                "snippet": "<p class=\"text-gray-600 leading-relaxed\">",
+                "nodeLabel": "Professional cleaning services you can trust. We're committed to providing exce…"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "select-name",
+    "title": "Select elements do not have associated label elements.",
+    "items": [
+      {
+        "node": {
+          "type": "node",
+          "lhId": "1-38-SELECT",
+          "path": "2,HTML,1,BODY,4,MAIN,0,MAIN,1,SECTION,1,DIV,1,DIV,0,DIV,1,DIV,0,SECTION,0,DIV,0,DIV,0,DIV,1,DIV,0,DIV,0,DIV,1,SELECT",
+          "selector": "div.flex-1 > div.space-y-6 > div > select.w-full",
+          "boundingRect": {
+            "top": 1025,
+            "bottom": 1072,
+            "left": 41,
+            "right": 371,
+            "width": 330,
+            "height": 47
+          },
+          "snippet": "<select class=\"w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-…\" data-cy=\"service-select\">",
+          "nodeLabel": "Select service\nMaintenance Cleaning\nDeep Cleaning\nMove In / Move Out Cleaning\nP…",
+          "explanation": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      }
+    ]
+  }
+]
