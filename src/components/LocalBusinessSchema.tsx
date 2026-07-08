@@ -7,6 +7,26 @@ type Props = {
   priceRange?: string;
 };
 
+const SERVICE_AREAS = [
+  { '@type': 'City', name: 'Sanford', sameAs: 'https://en.wikipedia.org/wiki/Sanford,_Florida' },
+  { '@type': 'City', name: 'Lake Mary', sameAs: 'https://en.wikipedia.org/wiki/Lake_Mary,_Florida' },
+  { '@type': 'City', name: 'Heathrow' },
+  { '@type': 'City', name: 'Longwood' },
+  { '@type': 'City', name: 'Altamonte Springs' },
+  { '@type': 'City', name: 'Winter Springs' },
+  { '@type': 'City', name: 'DeBary' },
+  { '@type': 'City', name: 'Deltona' },
+  { '@type': 'City', name: 'Casselberry' },
+  { '@type': 'City', name: 'Oviedo' },
+  { '@type': 'City', name: 'Winter Park' },
+];
+
+const SAME_AS = [
+  'https://sanfordcleaning.com',
+  'https://www.facebook.com/profile.php?id=61579618588193',
+  'https://www.instagram.com/sanfordcleaning',
+];
+
 export default function LocalBusinessSchema({
   id = 'https://sanfordcleaning.com/#localbusiness',
   name = 'Sanford Cleaning',
@@ -30,27 +50,6 @@ export default function LocalBusinessSchema({
       longitude: -81.27312,
     },
     hasMap: 'https://www.google.com/maps/place/Sanford,+FL+32771',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '137',
-    },
-    review: [
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'Verified Customer' },
-        datePublished: '2023-11-15',
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-        reviewBody: 'Sanford Cleaning did an amazing job on our move-out clean. Highly recommend their professional team!',
-      },
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'Local Business Owner' },
-        datePublished: '2024-01-20',
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-        reviewBody: 'Reliable office cleaning service in Sanford. They always leave our workspace spotless.',
-      }
-    ],
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Sanford',
@@ -58,24 +57,24 @@ export default function LocalBusinessSchema({
       postalCode: '32771',
       addressCountry: 'US',
     },
-    areaServed: [
-      { '@type': 'City', name: 'Sanford', sameAs: 'https://en.wikipedia.org/wiki/Sanford,_Florida' },
-      { '@type': 'City', name: 'Lake Mary', sameAs: 'https://en.wikipedia.org/wiki/Lake_Mary,_Florida' },
-      { '@type': 'City', name: 'Longwood' },
-      { '@type': 'City', name: 'Altamonte Springs' },
-    ],
+    areaServed: SERVICE_AREAS,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Cleaning Services in Sanford, FL',
       itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'House Cleaning' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Maid Service' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Move-In/Move-Out Cleaning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Apartment Cleaning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office Cleaning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Window Cleaning' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Deep Cleaning' } }
-      ]
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Deep Cleaning' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Airbnb Cleaning' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Maintenance Cleaning' } },
+      ],
     },
-    description: 'Top-rated professional cleaning company in Sanford, FL. We offer move out cleaning, apartment cleaning, office cleaning, and deep cleaning services.',
+    description:
+      'Top-rated professional cleaning company in Sanford, FL. House cleaning, maid service, move-out cleaning, apartment cleaning, office cleaning, and deep cleaning.',
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -90,7 +89,7 @@ export default function LocalBusinessSchema({
         closes: '16:00',
       },
     ],
-    sameAs: ['https://sanfordcleaning.com'],
+    sameAs: SAME_AS,
   };
 
   return (

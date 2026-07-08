@@ -86,7 +86,7 @@ const Header = () => {
                 <div className="py-2">
                   <Link href="/house-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-house-cleaning-link">House Cleaning Services</Link>
                   <Link href="/apartment-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-apartment-cleaning-link">Apartment Cleaning</Link>
-                  <Link href="/residential-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-residential-cleaning-link">Residential Cleaning</Link>
+                  <Link href="/maintenance-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-maintenance-cleaning-link">Maintenance Cleaning</Link>
                   <Link href="/commercial-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-commercial-cleaning-link">Commercial Cleaning</Link>
                   <Link href="/office-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-office-cleaning-link">Office Cleaning</Link>
                   <Link href="/deep-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-deep-cleaning-link">Deep Cleaning Services</Link>
@@ -95,6 +95,7 @@ const Header = () => {
                   <Link href="/window-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-window-cleaning-link">Window Cleaning</Link>
                   <Link href="/move-in-move-out-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link>
                   <Link href="/post-construction-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-post-construction-cleaning-link">Post-Construction Cleaning</Link>
+                  <Link href="/airbnb-cleaning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-cy="desktop-airbnb-cleaning-link">Airbnb Cleaning</Link>
                 </div>
               </div>
             </div>
@@ -164,7 +165,7 @@ const Header = () => {
                   <div className="text-sm font-semibold text-gray-500">Services:</div>
                   <Link href="/house-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-house-cleaning-link">House Cleaning Services</Link>
                   <Link href="/apartment-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-apartment-cleaning-link">Apartment Cleaning</Link>
-                  <Link href="/residential-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-residential-cleaning-link">Residential Cleaning</Link>
+                  <Link href="/maintenance-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-maintenance-cleaning-link">Maintenance Cleaning</Link>
                   <Link href="/commercial-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-commercial-cleaning-link">Commercial Cleaning</Link>
                   <Link href="/office-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-office-cleaning-link">Office Cleaning</Link>
                   <Link href="/deep-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-deep-cleaning-link">Deep Cleaning Services</Link>
@@ -173,6 +174,7 @@ const Header = () => {
                   <Link href="/window-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-window-cleaning-link">Window Cleaning</Link>
                   <Link href="/move-in-move-out-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-move-in-move-out-cleaning-link">Move In/Move Out Cleaning</Link>
                   <Link href="/post-construction-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-post-construction-cleaning-link">Post-Construction Cleaning</Link>
+                  <Link href="/airbnb-cleaning" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 transition-colors" data-cy="mobile-airbnb-cleaning-link">Airbnb Cleaning</Link>
                 </div>
 
                 {/* Guides - Mobile */}

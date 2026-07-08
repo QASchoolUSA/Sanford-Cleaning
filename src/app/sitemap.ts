@@ -13,8 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         // Main Service Pages (High Priority)
         { url: '/house-cleaning', priority: 0.9, changeFrequency: 'monthly' as const },
         { url: '/commercial-cleaning', priority: 0.9, changeFrequency: 'monthly' as const },
-        { url: '/residential-cleaning', priority: 0.9, changeFrequency: 'monthly' as const },
-
         // Core Services
         { url: '/deep-cleaning', priority: 0.8, changeFrequency: 'monthly' as const },
         { url: '/move-in-move-out-cleaning', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -31,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         // Booking & Quotes
         { url: '/booking', priority: 0.8, changeFrequency: 'monthly' as const },
-        { url: '/free-custom-quote', priority: 0.7, changeFrequency: 'monthly' as const },
         { url: '/custom-quote', priority: 0.7, changeFrequency: 'monthly' as const },
 
         // Info & Legal
@@ -42,9 +39,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         // Employment
         { url: '/get-hired', priority: 0.7, changeFrequency: 'monthly' as const },
-
-        // Dynamic Pages (Low Priority)
-        { url: '/booking-success', priority: 0.1, changeFrequency: 'yearly' as const },
     ];
 
     // Dynamically include all /guides subdirectories

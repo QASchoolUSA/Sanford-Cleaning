@@ -5,14 +5,14 @@ import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Building2, Sparkles, CheckCircle, MapPin, Shield, Clock, ArrowRight, ListChecks } from "lucide-react";
 
 export const metadata = {
-  title: "Top-Rated Office Cleaning Services in Sanford, FL | Sanford Cleaning",
+  title: "Top-Rated Office Cleaning Services in Sanford, FL",
   description:
     "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
   keywords:
     "office cleaning service near me, office cleaning service, sanford office cleaning, office furniture cleaning sanford, fl, office cleaning sanford, fl",
   alternates: { canonical: "https://sanfordcleaning.com/office-cleaning" },
   openGraph: {
-    title: "Top-Rated Office Cleaning Services in Sanford, FL | Sanford Cleaning",
+    title: "Top-Rated Office Cleaning Services in Sanford, FL",
     description:
       "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
     type: "website",
@@ -21,7 +21,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top-Rated Office Cleaning Services in Sanford, FL | Sanford Cleaning",
+    title: "Top-Rated Office Cleaning Services in Sanford, FL",
     description:
       "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],

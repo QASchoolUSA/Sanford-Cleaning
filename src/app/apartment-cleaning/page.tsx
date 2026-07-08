@@ -9,12 +9,12 @@ import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Home, CheckCircle, Clock, Shield, Star, ArrowRight, Building, Key, Layout } from "lucide-react";
 
 export const metadata = {
-    title: "Top-Rated Apartment Cleaning Services in Sanford, FL | Sanford Cleaning",
+    title: "Top-Rated Apartment Cleaning Services in Sanford, FL",
     description:
         "Professional apartment and condo cleaning near you in Sanford, FL. We specialize in small spaces, deep cleaning, and move-outs. Free quotes available!",
     alternates: { canonical: "https://sanfordcleaning.com/apartment-cleaning" },
     openGraph: {
-        title: "Top-Rated Apartment Cleaning Services in Sanford, FL | Sanford Cleaning",
+        title: "Top-Rated Apartment Cleaning Services in Sanford, FL",
         description:
             "Professional apartment and condo cleaning near you in Sanford, FL. We specialize in small spaces, deep cleaning, and move-outs. Free quotes available!",
         type: "website",

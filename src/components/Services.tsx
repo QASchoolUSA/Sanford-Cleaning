@@ -1,15 +1,15 @@
-import { Home, Building, Sparkles, Car, Wrench, Truck } from 'lucide-react';
+import { Home, Building, Sparkles, Car, Wrench, Truck, Key, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
 const Services = () => {
   const services = [
     {
       icon: Home,
-      title: 'Residential Cleaning',
-      description: 'Complete house cleaning services including kitchens, bathrooms, bedrooms, and living areas.',
+      title: 'House Cleaning',
+      description: 'Complete house cleaning and maid service including kitchens, bathrooms, bedrooms, and living areas.',
       features: ['Weekly/Bi-weekly service', 'Deep cleaning', 'Move-in/out cleaning', 'Post-construction cleanup'],
       price: 'Starting at $80',
-      link: '/residential-cleaning'
+      link: '/house-cleaning'
     },
     {
       icon: Building,
@@ -26,6 +26,22 @@ const Services = () => {
       features: ['Cabinet interiors', 'Baseboards & trim', 'Light fixtures', 'Appliance deep clean'],
       price: 'Starting at $150',
       link: '/deep-cleaning'
+    },
+    {
+      icon: Calendar,
+      title: 'Maintenance Cleaning',
+      description: 'Recurring weekly, bi-weekly, or monthly cleaning to keep your home consistently spotless.',
+      features: ['Flexible schedules', 'Same cleaner when possible', 'Custom checklists', 'Starting at $70'],
+      price: 'Starting at $70',
+      link: '/maintenance-cleaning'
+    },
+    {
+      icon: Key,
+      title: 'Airbnb Cleaning',
+      description: 'Fast short-term rental turnover cleaning for Airbnb and vacation rental hosts in Sanford, FL.',
+      features: ['Same-day turnovers', 'Linen refresh', 'Restocking options', 'Photo confirmation'],
+      price: 'Custom pricing',
+      link: '/airbnb-cleaning'
     },
     {
       icon: Car,
@@ -77,8 +93,10 @@ const Services = () => {
           <h2 data-cy="services-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             House Cleaning Services in Sanford FL
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We offer a comprehensive range of professional cleaning services tailored to meet your specific needs.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Sanford Cleaning is your local cleaning company for house cleaning, maid service, deep cleaning,
+            and commercial cleaning across Sanford, Lake Mary, Longwood, and Seminole County. Every service
+            is performed by bonded, insured professionals — book online in 60 seconds or request a custom quote.
           </p>
         </div>
 
@@ -97,11 +115,17 @@ const Services = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
               <p className="text-gray-600 mb-6 block">
                 {service.description}
-                {service.title === 'Residential Cleaning' && (
+                {service.title === 'House Cleaning' && (
                   <> {' '}Explore <span className="text-blue-700 underline hover:text-blue-900 font-medium">Deep Cleaning</span>, <span className="text-blue-700 underline hover:text-blue-900 font-medium">Move In/Move Out</span>, or refresh fibers with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Carpet Cleaning</span>.</>
                 )}
                 {service.title === 'Deep Cleaning' && (
-                  <> {' '}Planning a move? See <span className="text-blue-700 underline hover:text-blue-900 font-medium">Move In/Move Out</span>. Want maintenance? Visit <span className="text-blue-700 underline hover:text-blue-900 font-medium">House Cleaning</span>. Stubborn fibers? Try <span className="text-blue-700 underline hover:text-blue-900 font-medium">Carpet Cleaning</span>.</>
+                  <> {' '}Planning a move? See <span className="text-blue-700 underline hover:text-blue-900 font-medium">Move In/Move Out</span>. Want maintenance? Visit <span className="text-blue-700 underline hover:text-blue-900 font-medium">Maintenance Cleaning</span>. Stubborn fibers? Try <span className="text-blue-700 underline hover:text-blue-900 font-medium">Carpet Cleaning</span>.</>
+                )}
+                {service.title === 'Maintenance Cleaning' && (
+                  <> {' '}Need a deeper reset first? Start with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Deep Cleaning</span>.</>
+                )}
+                {service.title === 'Airbnb Cleaning' && (
+                  <> {' '}Property managers also use our <span className="text-blue-700 underline hover:text-blue-900 font-medium">Move In/Move Out</span> service.</>
                 )}
                 {service.title === 'Pressure Washing' && (
                   <> {' '}Pair with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Window Cleaning</span> for spotless glass.</>
@@ -110,13 +134,13 @@ const Services = () => {
                   <> {' '}After exterior washes, consider <span className="text-blue-700 underline hover:text-blue-900 font-medium">Pressure Washing</span>.</>
                 )}
                 {service.title === 'Commercial Cleaning' && (
-                  <> {' '}Renovating? See <span className="text-blue-700 underline hover:text-blue-900 font-medium">Post-Construction</span>. Need glass care? Try <span className="text-blue-700 underline hover:text-blue-900 font-medium">Window Cleaning</span>. Have carpeted areas? Check <span className="text-blue-700 underline hover:text-blue-900 font-medium">Carpet Cleaning</span>.</>
+                  <> {' '}For smaller offices, see <span className="text-blue-700 underline hover:text-blue-900 font-medium">Office Cleaning</span>. Renovating? See <span className="text-blue-700 underline hover:text-blue-900 font-medium">Post-Construction</span>.</>
                 )}
                 {service.title === 'Post-Construction' && (
                   <> {' '}Set ongoing care with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Commercial Cleaning</span> or <span className="text-blue-700 underline hover:text-blue-900 font-medium">House Cleaning</span>.</>
                 )}
                 {service.title === 'Move In/Move Out' && (
-                  <> {' '}Add detailing with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Deep Cleaning</span>, refresh fibers with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Carpet Cleaning</span>, or set routine <span className="text-blue-700 underline hover:text-blue-900 font-medium">House Cleaning</span>.</>
+                  <> {' '}Add detailing with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Deep Cleaning</span>, refresh fibers with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Carpet Cleaning</span>, or set routine <span className="text-blue-700 underline hover:text-blue-900 font-medium">Maintenance Cleaning</span>.</>
                 )}
                 {service.title === 'Carpet Cleaning' && (
                   <> {' '}Bundle with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Deep Cleaning</span> or maintain with <span className="text-blue-700 underline hover:text-blue-900 font-medium">House Cleaning</span>.</>
@@ -142,7 +166,7 @@ const Services = () => {
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-6">Need a custom cleaning solution?</p>
           <Link
-            href="/free-custom-quote"
+            href="/custom-quote"
             className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             data-cy="services-custom-quote-button"
           >

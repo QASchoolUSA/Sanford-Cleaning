@@ -8,7 +8,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Book Cleaning Service Online | Instant Price & Booking',
   description:
-    'Book cleaning online in Sanford, FL. Get instant quotes, choose services, and schedule your appointment.',
+    'Book house cleaning or maid service online in Sanford, FL. Get instant quotes, choose services, and schedule your appointment in 60 seconds.',
   alternates: { canonical: 'https://sanfordcleaning.com/booking' },
   openGraph: {
     title: 'Book Cleaning Service Online',
@@ -52,7 +52,7 @@ export default function BookingPage() {
                     <Calculator className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-center">
-                    <h1 className="text-2xl lg:text-3xl font-bold text-white">Get Your Instant Quote</h1>
+                    <h2 className="text-2xl lg:text-3xl font-bold text-white">Get Your Instant Quote</h2>
                     <p className="text-blue-100 text-lg">Professional pricing in 3 easy steps</p>
                   </div>
                 </div>
