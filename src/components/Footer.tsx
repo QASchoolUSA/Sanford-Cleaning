@@ -54,7 +54,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link href="/house-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-house-cleaning-link">House Cleaning Services</Link></li>
               <li><Link href="/apartment-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-apartment-cleaning-link">Apartment Cleaning</Link></li>
-              <li><Link href="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">Residential Cleaning</Link></li>
+              <li><Link href="/maintenance-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-maintenance-cleaning-link">Maintenance Cleaning</Link></li>
               <li><Link href="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Commercial Cleaning</Link></li>
               <li><Link href="/office-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-office-cleaning-link">Office Cleaning</Link></li>
               <li><Link href="/deep-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-deep-cleaning-link">Deep Cleaning Services</Link></li>
@@ -63,6 +63,7 @@ const Footer = () => {
               <li><Link href="/carpet-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-carpet-cleaning-link">Carpet Cleaning</Link></li>
               <li><Link href="/pressure-washing" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-pressure-washing-link">Pressure Washing</Link></li>
               <li><Link href="/window-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-window-cleaning-link">Window Cleaning</Link></li>
+              <li><Link href="/airbnb-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-airbnb-cleaning-link">Airbnb Cleaning</Link></li>
             </ul>
           </div>
 
@@ -70,7 +71,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-home-link">Home</Link></li>
-              <li><button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-about-button">About Us</button></li>
+              <li><Link href="/about" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-about-link">About Us</Link></li>
               <li><button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-services-button">Services</button></li>
 
               <li><button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-contact-button">Contact</button></li>

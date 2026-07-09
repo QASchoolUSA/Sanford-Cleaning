@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Shield, Leaf, Clock, Award } from 'lucide-react';
 
 const About = () => {
@@ -33,13 +34,18 @@ const About = () => {
           <div className="space-y-8">
             <div>
               <h2 data-cy="about-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                About Topaz West LLC
+                About Sanford Cleaning
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                With over 10 years of experience in the cleaning industry, Sanford Cleaning has built a reputation for excellence, reliability, and customer satisfaction. We&apos;re not just a cleaning company – we&apos;re your partners in creating healthier, more comfortable living and working spaces.
+                With over 10 years of experience in the cleaning industry, Sanford Cleaning — operated by Topaz West LLC — has built a reputation for excellence, reliability, and customer satisfaction across Sanford, Lake Mary, and Longwood. We&apos;re not just a cleaning company – we&apos;re your partners in creating healthier, more comfortable living and working spaces.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our team of trained professionals uses the latest cleaning techniques and eco-friendly products to deliver exceptional results. We understand that every space is unique, which is why we customize our services to meet your specific needs and budget.
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                Our team of bonded, insured house cleaners uses the latest cleaning techniques and eco-friendly products to deliver exceptional results. We understand that every space is unique, which is why we customize our maid service and commercial cleaning to meet your specific needs and budget.
+              </p>
+              <p className="text-lg">
+                <Link href="/about" className="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                  Learn more about our story →
+                </Link>
               </p>
             </div>
           </div>

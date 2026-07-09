@@ -10,9 +10,9 @@ const ServiceAreas = dynamic(() => import('@/components/ServiceAreas'));
 const Contact = dynamic(() => import('@/components/Contact'));
 
 export const metadata = {
-  title: 'Top-Rated House Cleaning Services Sanford, FL | Sanford Cleaning',
+  title: 'Top-Rated House Cleaning Services Sanford, FL',
   description:
-    "Looking for the best home cleaners in Sanford, FL? We offer top-rated housekeeping, deep cleaning, and move-out services. Book online today!",
+    "Looking for the best home cleaners and maid service in Sanford, FL? Bonded, insured house cleaning, deep cleaning, and move-out services. Book online today!",
   alternates: {
     canonical: 'https://sanfordcleaning.com',
   },
@@ -80,7 +80,11 @@ export default function HomePage() {
         "postalCode": "32771",
         "addressCountry": "US"
       },
-      "sameAs": ["https://sanfordcleaning.com"]
+      "sameAs": [
+        "https://sanfordcleaning.com",
+        "https://www.facebook.com/profile.php?id=61579618588193",
+        "https://www.instagram.com/sanfordcleaning"
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -101,8 +105,15 @@ export default function HomePage() {
       "areaServed": [
         "Sanford, FL",
         "Lake Mary, FL",
+        "Heathrow, FL",
         "Longwood, FL",
-        "Altamonte Springs, FL"
+        "Altamonte Springs, FL",
+        "Winter Springs, FL",
+        "DeBary, FL",
+        "Deltona, FL",
+        "Casselberry, FL",
+        "Oviedo, FL",
+        "Winter Park, FL"
       ],
       "openingHoursSpecification": [
         {
@@ -118,7 +129,11 @@ export default function HomePage() {
           "closes": "16:00"
         }
       ],
-      "sameAs": ["https://sanfordcleaning.com"]
+      "sameAs": [
+        "https://sanfordcleaning.com",
+        "https://www.facebook.com/profile.php?id=61579618588193",
+        "https://www.instagram.com/sanfordcleaning"
+      ]
     }
   ]`;
 

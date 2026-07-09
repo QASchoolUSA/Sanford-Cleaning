@@ -1,11 +1,11 @@
 export const metadata = {
   metadataBase: new URL("https://sanfordcleaning.com"),
   title: {
-    default: "Sanford Cleaning",
-    template: "%s",
+    default: "Sanford Cleaning | House Cleaning & Maid Service in Sanford, FL",
+    template: "%s | Sanford Cleaning",
   },
   applicationName: "Sanford Cleaning",
-  description: "Professional residential and commercial cleaning in Sanford, FL.",
+  description: "Professional house cleaning, maid service, and commercial cleaning in Sanford, FL. Insured cleaners serving Lake Mary, Longwood & Central Florida. Book online in 60 seconds.",
   alternates: {
     canonical: "https://sanfordcleaning.com",
   },
@@ -34,17 +34,6 @@ import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const isProd = process.env.NODE_ENV === 'production';
-  const siteJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Sanford Cleaning',
-    url: 'https://sanfordcleaning.com',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://sanfordcleaning.com/guides?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
-  };
   return (
     <html lang="en">
       <head>
@@ -54,7 +43,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://c.basemaps.cartocdn.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
       </head>
       <body>
         <MicrosoftClarity />

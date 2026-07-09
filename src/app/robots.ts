@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/api/', '/booking-success', '/get-hired-success'],
+            disallow: ['/api/', '/booking-success', '/get-hired-success', '/stripe-payment'],
         },
         sitemap: 'https://sanfordcleaning.com/sitemap.xml',
     };

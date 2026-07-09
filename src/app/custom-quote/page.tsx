@@ -1,17 +1,17 @@
 export const metadata = {
-  title: "Custom Quote | Sanford Cleaning",
-  description: "Request a tailored cleaning quote based on your needs.",
+  title: "Free Cleaning Quote Sanford FL | Custom Pricing",
+  description: "Request a free, tailored house cleaning or commercial cleaning quote in Sanford, FL. Transparent pricing based on your home size, condition, and scope.",
   alternates: { canonical: "https://sanfordcleaning.com/custom-quote" },
   openGraph: {
-    title: "Custom Quote | Sanford Cleaning",
-    description: "Request a tailored cleaning quote based on your needs.",
+    title: "Free Cleaning Quote Sanford FL | Custom Pricing",
+    description: "Request a free, tailored house cleaning or commercial cleaning quote in Sanford, FL.",
     type: "website",
     url: "https://sanfordcleaning.com/custom-quote",
   },
   twitter: {
     card: "summary",
-    title: "Custom Quote | Sanford Cleaning",
-    description: "Request a tailored cleaning quote based on your needs.",
+    title: "Free Cleaning Quote Sanford FL | Custom Pricing",
+    description: "Request a free, tailored house cleaning or commercial cleaning quote in Sanford, FL.",
   },
 };
 

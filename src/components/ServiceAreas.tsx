@@ -18,9 +18,12 @@ const ServiceAreas = () => {
     const areas = [
         "Sanford, FL",
         "Lake Mary, FL",
+        "Heathrow, FL",
         "Longwood, FL",
         "Altamonte Springs, FL",
         "Winter Springs, FL",
+        "DeBary, FL",
+        "Deltona, FL",
         "Casselberry, FL",
         "Oviedo, FL",
         "Winter Park, FL"
@@ -29,9 +32,14 @@ const ServiceAreas = () => {
     return (
         <section className="bg-white border-t border-gray-100 py-12">
             <div className="container mx-auto px-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">
-                    Proudly Serving Sanford & Surrounding Areas
+                <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-4">
+                    Proudly Serving Sanford &amp; Surrounding Areas
                 </h2>
+                <p className="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    We provide house cleaning, maid service, deep cleaning, and move-out cleaning throughout
+                    Seminole County and Central Florida. Our bonded, insured cleaners travel up to 30 miles
+                    from Sanford to serve homeowners, renters, and businesses in every community listed below.
+                </p>
 
                 <div className="max-w-5xl mx-auto mb-10">
                     <ServiceMap />

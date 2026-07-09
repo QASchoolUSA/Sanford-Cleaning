@@ -1,17 +1,20 @@
 export const metadata = {
-  title: "FAQ",
-  description: "Frequently asked questions about services, scheduling, pricing, and policies.",
+  title: "House Cleaning FAQ Sanford FL | Pricing, Booking & Policies",
+  description:
+    "Answers to common house cleaning questions in Sanford, FL — pricing, service areas, booking, payment, insurance, and what's included. Sanford Cleaning FAQ.",
   alternates: { canonical: "https://sanfordcleaning.com/faq" },
   openGraph: {
-    title: "FAQ",
-    description: "Frequently asked questions about services, scheduling, pricing, and policies.",
+    title: "House Cleaning FAQ Sanford FL | Sanford Cleaning",
+    description:
+      "Frequently asked questions about house cleaning, maid service, and office cleaning in Sanford, FL. Pricing, booking, and policies explained.",
     type: "website",
     url: "https://sanfordcleaning.com/faq",
   },
   twitter: {
     card: "summary",
-    title: "FAQ",
-    description: "Frequently asked questions about services, scheduling, pricing, and policies.",
+    title: "House Cleaning FAQ Sanford FL | Sanford Cleaning",
+    description:
+      "Frequently asked questions about house cleaning, maid service, and office cleaning in Sanford, FL.",
   },
 };
 
@@ -21,32 +24,105 @@ import { CheckCircle, Phone, Mail, Calendar } from "lucide-react";
 export default function FAQPage() {
   const faqs = [
     {
-      q: "Do you have insurance?",
-      a: "Yes, we are fully insured.",
+      q: "How much does house cleaning cost in Sanford, FL?",
+      a: (
+        <>
+          Standard house cleaning typically starts at $80 for smaller homes and ranges from $120–$200 for a
+          3-bedroom home. Deep cleaning and move-out cleaning cost more depending on size and condition. Get an{" "}
+          <Link href="/booking" className="text-blue-600 hover:text-blue-800 underline">instant quote online</Link> or{" "}
+          <Link href="/custom-quote" className="text-blue-600 hover:text-blue-800 underline">request a custom quote</Link> for
+          transparent pricing.
+        </>
+      ),
+      aText:
+        "Standard house cleaning typically starts at $80 for smaller homes and ranges from $120–$200 for a 3-bedroom home. Deep cleaning and move-out cleaning cost more depending on size and condition. Get an instant quote online or request a custom quote for transparent pricing.",
     },
     {
-      q: "Can you provide a W9?",
-      a: "Sure thing — upon request we can provide a W9.",
+      q: "What areas do you serve?",
+      a: (
+        <>
+          We provide house cleaning and maid service in Sanford, Lake Mary, Heathrow, Longwood, Altamonte Springs,
+          Winter Springs, DeBary, Deltona, Casselberry, Oviedo, and Winter Park — within approximately 30 miles of Sanford.
+        </>
+      ),
+      aText:
+        "We provide house cleaning and maid service in Sanford, Lake Mary, Heathrow, Longwood, Altamonte Springs, Winter Springs, DeBary, Deltona, Casselberry, Oviedo, and Winter Park — within approximately 30 miles of Sanford.",
+    },
+    {
+      q: "Do you have insurance?",
+      a: "Yes, we are fully licensed, bonded, and insured for your peace of mind.",
+      aText: "Yes, we are fully licensed, bonded, and insured for your peace of mind.",
+    },
+    {
+      q: "What types of cleaning do you provide?",
+      a: (
+        <>
+          We offer{" "}
+          <Link href="/house-cleaning" className="text-blue-600 hover:text-blue-800 underline">house cleaning</Link>,{" "}
+          <Link href="/deep-cleaning" className="text-blue-600 hover:text-blue-800 underline">deep cleaning</Link>,{" "}
+          <Link href="/move-in-move-out-cleaning" className="text-blue-600 hover:text-blue-800 underline">move-in/move-out cleaning</Link>,{" "}
+          <Link href="/maintenance-cleaning" className="text-blue-600 hover:text-blue-800 underline">recurring maintenance cleaning</Link>,{" "}
+          <Link href="/office-cleaning" className="text-blue-600 hover:text-blue-800 underline">office cleaning</Link>,{" "}
+          <Link href="/commercial-cleaning" className="text-blue-600 hover:text-blue-800 underline">commercial cleaning</Link>,{" "}
+          <Link href="/window-cleaning" className="text-blue-600 hover:text-blue-800 underline">window cleaning</Link>,{" "}
+          <Link href="/carpet-cleaning" className="text-blue-600 hover:text-blue-800 underline">carpet cleaning</Link>,{" "}
+          <Link href="/airbnb-cleaning" className="text-blue-600 hover:text-blue-800 underline">Airbnb turnover cleaning</Link>, and more.
+        </>
+      ),
+      aText:
+        "We offer house cleaning, deep cleaning, move-in/move-out cleaning, recurring maintenance cleaning, office cleaning, commercial cleaning, window cleaning, carpet cleaning, Airbnb turnover cleaning, and more.",
+    },
+    {
+      q: "What is included in a standard house cleaning?",
+      a: "A standard visit includes kitchen cleaning and sanitization, bathroom cleaning, dusting all surfaces, vacuuming and mopping floors, trash removal, and bed making. Deep cleaning adds baseboards, inside appliances, cabinet fronts, and other detailed tasks.",
+      aText:
+        "A standard visit includes kitchen cleaning and sanitization, bathroom cleaning, dusting all surfaces, vacuuming and mopping floors, trash removal, and bed making. Deep cleaning adds baseboards, inside appliances, cabinet fronts, and other detailed tasks.",
     },
     {
       q: "How long have you been performing house and office cleaning in Sanford, FL?",
-      a: "Under this company, we’ve been serving Sanford for 2 years. Before that, we worked for other companies. Overall experience is around 5–7 years. We’re a family‑owned business.",
+      a: "Under this company, we've been serving Sanford for 2 years. Before that, we worked for other cleaning companies. Overall experience is around 5–7 years. We're a family-owned business operated by Topaz West LLC.",
+      aText:
+        "Under this company, we've been serving Sanford for 2 years. Before that, we worked for other cleaning companies. Overall experience is around 5–7 years. We're a family-owned business operated by Topaz West LLC.",
     },
     {
       q: "What are the ways to book cleaning?",
-      a: "You can call (321) 236‑0618, email info@sanfordcleaning.com, or use the booking page at /booking.",
+      a: (
+        <>
+          You can call (321) 236-0618, email info@sanfordcleaning.com, or{" "}
+          <Link href="/booking" className="text-blue-600 hover:text-blue-800 underline">book online</Link> for instant pricing and scheduling.
+        </>
+      ),
+      aText:
+        "You can call (321) 236-0618, email info@sanfordcleaning.com, or book online for instant pricing and scheduling.",
+    },
+    {
+      q: "Do you offer a satisfaction guarantee?",
+      a: "Yes. We stand behind our work with a 100% satisfaction guarantee. If something isn't right, contact us within 24 hours and we'll make it right.",
+      aText:
+        "Yes. We stand behind our work with a 100% satisfaction guarantee. If something isn't right, contact us within 24 hours and we'll make it right.",
+    },
+    {
+      q: "Can you provide a W9?",
+      a: "Sure thing — upon request we can provide a W9 for commercial and property management clients.",
+      aText: "Sure thing — upon request we can provide a W9 for commercial and property management clients.",
     },
     {
       q: "When do you charge for cleaning?",
       a: "We charge only after the cleaning is completed. You can pay using Zelle, Cash, Check, or a Stripe invoice/payment link.",
+      aText:
+        "We charge only after the cleaning is completed. You can pay using Zelle, Cash, Check, or a Stripe invoice/payment link.",
     },
     {
       q: "What are the payment methods for cleaning?",
       a: "We accept Zelle, Cash, Check, and Stripe — using credit/debit card or bank account and routing number (ACH).",
+      aText:
+        "We accept Zelle, Cash, Check, and Stripe — using credit/debit card or bank account and routing number (ACH).",
     },
     {
-      q: "What types of cleaning do you provide?",
-      a: "House Cleaning in Sanford, FL and nearby cities; Office Cleaning in Sanford, FL and nearby cities; Window Cleaning in Sanford, FL and nearby cities.",
+      q: "What is your cancellation policy?",
+      a: "Please provide at least 24 hours notice for cancellations or rescheduling. Late cancellations may be subject to a fee. Contact us by phone or email as soon as your plans change.",
+      aText:
+        "Please provide at least 24 hours notice for cancellations or rescheduling. Late cancellations may be subject to a fee. Contact us by phone or email as soon as your plans change.",
     },
   ];
 
@@ -56,13 +132,12 @@ export default function FAQPage() {
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
+      acceptedAnswer: { "@type": "Answer", text: f.aText },
     })),
   };
 
   return (
     <div className="pt-20">
-      {/* Hero */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20 border-b">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -70,13 +145,16 @@ export default function FAQPage() {
               <Calendar className="w-6 h-6" />
               <span className="font-semibold">Frequently Asked Questions</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">FAQ</h1>
-            <p className="text-lg text-gray-600">Answers to common questions about booking, payment, and our services.</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions About Cleaning Services in Sanford, FL
+            </h1>
+            <p className="text-lg text-gray-600">
+              Answers to common questions about booking, pricing, service areas, and our house cleaning and maid service policies.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* FAQ List */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-4">
@@ -95,7 +173,6 @@ export default function FAQPage() {
             ))}
           </div>
 
-          {/* Actions */}
           <div className="max-w-4xl mx-auto mt-10 flex flex-col sm:flex-row gap-4">
             <a href="tel:321-236-0618" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
               <Phone className="w-5 h-5" /> Call (321) 236-0618
@@ -110,7 +187,6 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* FAQ Schema */}
       <script id="faq-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
     </div>
   );
