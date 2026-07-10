@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
+import GuideHeroImage from '@/components/GuideHeroImage';
 
 const CANONICAL =
   'https://sanfordcleaning.com/guides/how-much-does-house-cleaning-cost-sanford-fl';
+const HERO_IMAGE = 'https://sanfordcleaning.com/guide-house-cleaning-cost-sanford.webp';
 
 export const metadata: Metadata = {
   title: 'How Much Does House Cleaning Cost in Sanford, FL? (2026)',
@@ -17,14 +19,14 @@ export const metadata: Metadata = {
     url: CANONICAL,
     siteName: 'Sanford Cleaning',
     type: 'article',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How Much Does House Cleaning Cost in Sanford, FL? (2026)',
     description:
       'Sanford Cleaning prices house cleaning from $140 to $350+ per visit. See local ranges by home size and scope.',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
 };
 
@@ -40,7 +42,7 @@ export default function Page() {
     headline: 'How Much Does House Cleaning Cost in Sanford, FL? (2026 Local Pricing Guide)',
     description:
       'First-party pricing guide for house cleaning costs in Sanford, FL, including maintenance vs deep clean ranges and humidity-aware scheduling.',
-    image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
+    image: HERO_IMAGE,
     datePublished: '2026-07-10',
     dateModified: '2026-07-10',
     author: {
@@ -166,6 +168,13 @@ export default function Page() {
             across Sanford and Seminole County—not recycled national averages.
           </p>
         </header>
+
+        <GuideHeroImage
+          src="/guide-house-cleaning-cost-sanford.webp"
+          alt="Professional house cleaner wiping a kitchen island in a modern Sanford, FL home during a maintenance clean"
+          caption="Professional house cleaning in Sanford, FL — transparent pricing by home size, soil level, and frequency."
+          priority
+        />
 
         {/* H2 — question + AI Overview Target Block */}
         <section className="mb-12">

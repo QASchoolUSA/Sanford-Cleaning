@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
+import GuideHeroImage from '@/components/GuideHeroImage';
 
 const CANONICAL = 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages';
 const COST_GUIDE = '/guides/how-much-does-house-cleaning-cost-sanford-fl';
+const HERO_IMAGE = 'https://sanfordcleaning.com/guide-house-cleaning-packages-sanford.webp';
 
 export const metadata: Metadata = {
   title: 'House Cleaning Packages in Sanford, FL | Weekly & Biweekly Plans',
@@ -17,14 +19,14 @@ export const metadata: Metadata = {
     url: CANONICAL,
     siteName: 'Sanford Cleaning',
     type: 'article',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'House Cleaning Packages in Sanford, FL | Weekly & Biweekly Plans',
     description:
       'Weekly and biweekly house cleaning packages in Sanford, FL—recurring discounts and plan comparisons.',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
 };
 
@@ -33,7 +35,7 @@ export default function Page() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'House Cleaning Packages in Sanford, FL: Weekly & Biweekly Plans (2026)',
-    image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
+    image: HERO_IMAGE,
     author: {
       '@type': 'Organization',
       '@id': 'https://sanfordcleaning.com/#organization',
@@ -141,6 +143,13 @@ export default function Page() {
             .
           </p>
         </header>
+
+        <GuideHeroImage
+          src="/guide-house-cleaning-packages-sanford.webp"
+          alt="Bright Sanford, FL living room and hallway with mopped floors after a recurring weekly or biweekly house cleaning package"
+          caption="Recurring package results: consistently maintained floors and living areas between weekly or biweekly visits."
+          priority
+        />
 
         <section className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-12 shadow-sm">
           <h2 className="text-xl font-bold text-blue-900 mb-2">Quick Answer: Best Package for Most Homes</h2>

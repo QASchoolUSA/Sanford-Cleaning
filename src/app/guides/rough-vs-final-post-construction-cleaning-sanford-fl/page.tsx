@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
+import GuideHeroImage from '@/components/GuideHeroImage';
 
 const CANONICAL =
   'https://sanfordcleaning.com/guides/rough-vs-final-post-construction-cleaning-sanford-fl';
+const HERO_IMAGE = 'https://sanfordcleaning.com/guide-post-construction-final-clean.webp';
 
 export const metadata: Metadata = {
   title: 'Rough vs Final Post-Construction Cleaning in Sanford, FL',
@@ -17,14 +19,14 @@ export const metadata: Metadata = {
     url: CANONICAL,
     siteName: 'Sanford Cleaning',
     type: 'article',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Rough vs Final Post-Construction Cleaning in Sanford, FL',
     description:
       'What rough clean and final clean mean after renovation in Sanford—and which stage your project needs.',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
 };
 
@@ -39,7 +41,7 @@ export default function Page() {
     headline: 'Rough Clean vs Final Clean: Post-Construction Cleaning Stages in Sanford, FL',
     description:
       'Expert guide comparing rough and final post-construction cleaning stages for Sanford, FL renovations and new builds.',
-    image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
+    image: HERO_IMAGE,
     datePublished: '2026-07-10',
     dateModified: '2026-07-10',
     author: {
@@ -157,6 +159,13 @@ export default function Page() {
           </p>
         </header>
 
+        <GuideHeroImage
+          src="/guide-post-construction-final-clean.webp"
+          alt="Spotless renovated kitchen in Sanford, FL after a final post-construction clean, ready for homeowner occupancy"
+          caption="Final clean result: occupancy-ready kitchen after HEPA dust capture and detailed finish work."
+          priority
+        />
+
         <section className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             What Is the Difference Between Rough Clean and Final Clean After Construction?
@@ -219,6 +228,11 @@ export default function Page() {
           <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
             What a Rough Clean Includes on Sanford Jobs
           </h3>
+          <GuideHeroImage
+            src="/guide-post-construction-rough-clean.webp"
+            alt="Technician vacuuming drywall dust during a rough post-construction clean with cabinets protected by plastic sheeting"
+            caption="Rough clean in progress: bulk debris and drywall dust removal while finishes stay protected."
+          />
           <ul className="list-disc pl-6 space-y-2 text-slate-700">
             <li>Remove bulk construction debris and discard piles from work zones.</li>
             <li>Knock down drywall dust from floors, stairs, and open surfaces.</li>

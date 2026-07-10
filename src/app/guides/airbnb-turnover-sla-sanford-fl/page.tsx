@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
+import GuideHeroImage from '@/components/GuideHeroImage';
 
 const CANONICAL = 'https://sanfordcleaning.com/guides/airbnb-turnover-sla-sanford-fl';
+const HERO_IMAGE = 'https://sanfordcleaning.com/guide-airbnb-turnover-sanford.webp';
 
 export const metadata: Metadata = {
   title: 'Airbnb Turnover SLA in Sanford, FL | Same-Day Cleaning Standards',
@@ -16,14 +18,14 @@ export const metadata: Metadata = {
     url: CANONICAL,
     siteName: 'Sanford Cleaning',
     type: 'article',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Airbnb Turnover SLA in Sanford, FL',
     description:
       'Same-day Airbnb turnover standards for Sanford hosts and property managers: windows, checklists, linens, and photo QA.',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: [HERO_IMAGE],
   },
 };
 
@@ -38,7 +40,7 @@ export default function Page() {
     headline: 'Airbnb Turnover SLA in Sanford, FL: Same-Day Cleaning Standards for Hosts',
     description:
       'Service-level standards for Airbnb and short-term rental turnovers in Sanford, FL, including timing, checklists, linens, and humidity constraints.',
-    image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
+    image: HERO_IMAGE,
     datePublished: '2026-07-10',
     dateModified: '2026-07-10',
     author: {
@@ -148,6 +150,13 @@ export default function Page() {
             County—built for hosts and property managers who need guest-ready units on a clock.
           </p>
         </header>
+
+        <GuideHeroImage
+          src="/guide-airbnb-turnover-sanford.webp"
+          alt="Guest-ready Airbnb bedroom in Sanford, FL with fresh linens, folded towels, and a coffee welcome tray after turnover cleaning"
+          caption="Guest-ready turnover: fresh linens, restocked amenities, and staged presentation before check-in."
+          priority
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import AuthorBio from "@/components/AuthorBio";
 import SpecialOffers from "@/components/SpecialOffers";
 import { Home as HomeIcon, CheckCircle, Clock, ArrowRight, Shield, MapPin, Star, Bed } from 'lucide-react';
@@ -15,14 +16,14 @@ export const metadata: Metadata = {
       'Reliable Airbnb turnover cleaning in Sanford, FL with hotel-standard linen care, restocking, and guest-ready presentation. Book fast same-day service.',
     type: 'website',
     url: 'https://sanfordcleaning.com/airbnb-cleaning',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: ['https://sanfordcleaning.com/guide-airbnb-turnover-sanford.webp'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
     description:
       'Reliable Airbnb turnover cleaning in Sanford, FL with hotel-standard linen care, restocking, and guest-ready presentation. Book fast same-day service.',
-    images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
+    images: ['https://sanfordcleaning.com/guide-airbnb-turnover-sanford.webp'],
   },
 };
 
@@ -171,9 +172,15 @@ export default function AirbnbCleaningPage() {
               </div>
             </div>
             <div className="relative">
-              {/* Optional image placeholder for consistency. Provide an image in /public if desired. */}
-              <div className="w-full max-w-md mx-auto aspect-square rounded-2xl shadow-2xl bg-gray-100 flex items-center justify-center text-gray-400">
-                <span className="text-sm">Airbnb Cleaning</span>
+              <div className="w-full max-w-lg mx-auto rounded-2xl shadow-2xl overflow-hidden border border-gray-100 aspect-[4/3] relative">
+                <Image
+                  src="/guide-airbnb-turnover-sanford.webp"
+                  alt="Guest-ready Airbnb bedroom in Sanford, FL after professional turnover cleaning with fresh linens and welcome amenities"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 512px"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
