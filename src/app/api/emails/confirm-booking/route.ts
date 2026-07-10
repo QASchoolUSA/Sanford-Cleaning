@@ -13,7 +13,11 @@ export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => null);
     const bookingData: BookingData | undefined = body?.bookingData;
-    const bookingId: string | undefined = body?.bookingId;
+    // Prefer client bookingId; fall back so server-side forwards stay idempotent.
+    const bookingId: string =
+      typeof body?.bookingId === 'string' && body.bookingId.trim()
+        ? body.bookingId.trim()
+        : `BK${Date.now()}`;
 
     if (!bookingData || !bookingData.email || !bookingData.firstName || !bookingData.lastName) {
       return NextResponse.json({ error: 'Missing required booking fields' }, { status: 400 });
@@ -61,7 +65,14 @@ Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${book
       if (broom.forwarded) {
         console.warn('Email disabled: SMTP not fully configured — booking still forwarded to Booking Broom');
         return NextResponse.json(
-          { ok: true, provider: 'booking-broom', bookingBroom: true, id: broom.id },
+          {
+            ok: true,
+            provider: 'booking-broom',
+            bookingBroom: true,
+            id: broom.id,
+            bookingId,
+            deduped: broom.deduped === true,
+          },
           { status: 200 },
         );
       }
@@ -122,6 +133,8 @@ Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${book
         results,
         bookingBroom: broom.forwarded,
         bookingBroomId: broom.id,
+        bookingId,
+        deduped: broom.deduped === true,
       },
       { status: 200 },
     );

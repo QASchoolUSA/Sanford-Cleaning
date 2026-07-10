@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:booking": "npx --yes tsx --test tests/booking-single-creation.test.ts",
     "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error --skip '.*instagram.com.*'",
     "validate:jsonld": "tsx scripts/validate-jsonld.ts",
     "indexnow": "npx -y tsx scripts/submit-indexnow.ts"

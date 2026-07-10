@@ -55,6 +55,8 @@ const PriceCalculator = () => {
   const [maintenancePrice, setMaintenancePrice] = useState(0);
   const [showExtras, setShowExtras] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  /** Sync guard — React state alone can miss rapid double-clicks before re-render. */
+  const isSubmittingRef = useRef(false);
   const [phoneError, setPhoneError] = useState('');
   const [formData, setFormData] = useState<FormData>({
     service: '',
@@ -467,7 +469,11 @@ const PriceCalculator = () => {
   };
 
   const handleSubmit = async () => {
+    // Prevent duplicate bookings from double-clicks / repeated submits.
+    if (isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
     setIsSubmitting(true);
+
     const scheduledDateIso = formData.scheduledDate
       ? formData.scheduledDate.toISOString().split('T')[0]
       : undefined;
@@ -496,6 +502,7 @@ const PriceCalculator = () => {
           }))
         : undefined,
     };
+    // One id per submit attempt — retries of the same attempt stay idempotent upstream.
     const bookingId = `BK${Date.now()}`;
 
     if (formData.paymentType === 'Credit Card') {
@@ -549,6 +556,7 @@ const PriceCalculator = () => {
           const message = err instanceof Error ? err.message : String(err);
           console.error('Stripe checkout error:', message);
           alert('Unable to start Stripe checkout. Please try again or choose another payment method.');
+          isSubmittingRef.current = false;
           setIsSubmitting(false);
         }
       })();
@@ -576,7 +584,7 @@ const PriceCalculator = () => {
         // ignore storage errors
       }
       router.push('/booking-success');
-      // We don't need to unset isSubmitting here because we are redirecting away
+      // Keep submit locked while navigating away so a second click cannot create another booking.
     }
   };
 
