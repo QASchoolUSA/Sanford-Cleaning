@@ -468,6 +468,9 @@ const PriceCalculator = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
+    const scheduledDateIso = formData.scheduledDate
+      ? formData.scheduledDate.toISOString().split('T')[0]
+      : undefined;
     const bookingData = {
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -483,6 +486,15 @@ const PriceCalculator = () => {
       paymentType: formData.paymentType || '',
       paymentComment: formData.customerNote || undefined,
       maintenancePrice: typeof maintenancePrice === 'number' && maintenancePrice > 0 ? maintenancePrice : undefined,
+      scheduledDate: scheduledDateIso,
+      scheduledTime: formData.scheduledTime || undefined,
+      estimatedPrice: typeof estimatedPrice === 'number' && estimatedPrice > 0 ? estimatedPrice : undefined,
+      frequency: formData.frequency || undefined,
+      extras: formData.extras?.length
+        ? formData.extras.map((extra) => ({
+            name: extra.quantity ? `${extra.name} x${extra.quantity}` : extra.name,
+          }))
+        : undefined,
     };
     const bookingId = `BK${Date.now()}`;
 
