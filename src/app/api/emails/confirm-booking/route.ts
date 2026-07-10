@@ -2,23 +2,12 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import type { SentMessageInfo } from 'nodemailer';
 import { adminBookingHtml, bookingConfirmationHtml } from '@/lib/emailTemplates';
+import {
+  forwardToBookingBroom,
+  type SanfordBookingPayload,
+} from '@/lib/booking-broom';
 
-type BookingData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  address: string;
-  aptUnit?: string;
-  keyInfo: string;
-  service: string;
-  squareFootage?: string;
-  bedrooms?: number;
-  bathrooms?: number;
-  paymentType: string;
-  paymentComment?: string;
-  maintenancePrice?: number;
-};
+type BookingData = SanfordBookingPayload;
 
 export async function POST(req: Request) {
   try {
@@ -28,6 +17,11 @@ export async function POST(req: Request) {
 
     if (!bookingData || !bookingData.email || !bookingData.firstName || !bookingData.lastName) {
       return NextResponse.json({ error: 'Missing required booking fields' }, { status: 400 });
+    }
+
+    const broom = await forwardToBookingBroom(bookingData, bookingId);
+    if (broom.error) {
+      console.error('Booking Broom forward failed:', broom.error);
     }
 
     const EMAIL_FROM = process.env.EMAIL_FROM || 'no-reply@sanfordcleaning.com';
@@ -48,6 +42,7 @@ Email: ${bookingData.email}
 Phone: ${bookingData.phone}
 Address: ${bookingData.address}${bookingData.aptUnit ? `, ${bookingData.aptUnit}` : ''}
 Key Info: ${bookingData.keyInfo}
+Scheduled: ${bookingData.scheduledDate || 'N/A'} ${bookingData.scheduledTime || ''}
 
 Service: ${bookingData.service}
 Square Footage: ${bookingData.squareFootage || 'N/A'}
@@ -56,11 +51,20 @@ Bathrooms: ${bookingData.bathrooms ?? 'N/A'}
 
 Payment Method: ${bookingData.paymentType}
 Payment Comment: ${bookingData.paymentComment || 'N/A'}
+Estimated Price: ${typeof bookingData.estimatedPrice === 'number' ? `$${bookingData.estimatedPrice}` : 'N/A'}
 Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${bookingData.maintenancePrice}` : 'N/A'}
 `;
 
-    // Ensure SMTP is configured
-    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+    const smtpConfigured = Boolean(SMTP_HOST && SMTP_PORT && SMTP_USER && SMTP_PASS);
+
+    if (!smtpConfigured) {
+      if (broom.forwarded) {
+        console.warn('Email disabled: SMTP not fully configured — booking still forwarded to Booking Broom');
+        return NextResponse.json(
+          { ok: true, provider: 'booking-broom', bookingBroom: true, id: broom.id },
+          { status: 200 },
+        );
+      }
       console.error('Email disabled: SMTP not fully configured');
       return NextResponse.json({ error: 'SMTP not configured' }, { status: 500 });
     }
@@ -107,11 +111,20 @@ Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${book
     }
 
     const anySuccess = results.some(r => r.ok);
-    if (!anySuccess) {
+    if (!anySuccess && !broom.forwarded) {
       return NextResponse.json({ error: 'Failed to send emails', results }, { status: 502 });
     }
 
-    return NextResponse.json({ ok: true, provider: 'smtp', results }, { status: 200 });
+    return NextResponse.json(
+      {
+        ok: true,
+        provider: 'smtp',
+        results,
+        bookingBroom: broom.forwarded,
+        bookingBroomId: broom.id,
+      },
+      { status: 200 },
+    );
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Unknown error';
     console.error('confirm-booking API error:', message);
