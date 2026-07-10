@@ -29,6 +29,8 @@ interface BookingData {
 const BookingSummary = ({ bookingData: bookingDataProp }: { bookingData?: BookingData }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const isConfirmingRef = React.useRef(false);
+  const [isConfirming, setIsConfirming] = React.useState(false);
   let bookingData = bookingDataProp;
 
   // Optional: attempt to read booking data from querystring if provided
@@ -64,6 +66,10 @@ const BookingSummary = ({ bookingData: bookingDataProp }: { bookingData?: Bookin
   };
 
   const handleConfirmBooking = async () => {
+    if (isConfirmingRef.current) return;
+    isConfirmingRef.current = true;
+    setIsConfirming(true);
+
     try {
       const bookingId = `BK${Date.now()}`; // Generate a simple booking ID
       
@@ -297,10 +303,11 @@ const BookingSummary = ({ bookingData: bookingDataProp }: { bookingData?: Bookin
               </button>
               <button
                 onClick={handleConfirmBooking}
-                className="flex-1 px-4 md:px-6 py-2.5 md:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm md:text-base"
+                disabled={isConfirming}
+                className="flex-1 px-4 md:px-6 py-2.5 md:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm md:text-base disabled:opacity-60 disabled:cursor-not-allowed"
                 data-cy="booking-summary-confirm-button"
               >
-                Confirm Booking
+                {isConfirming ? 'Confirming…' : 'Confirm Booking'}
               </button>
             </div>
           </div>

@@ -1,6 +1,9 @@
 /**
  * Forward a Sanford booking to Booking Broom (manager dashboard).
  * No-ops when BOOKING_BROOM_URL / BOOKING_BROOM_API_KEY are unset.
+ *
+ * When a bookingId is provided, forwards are idempotent within this process:
+ * concurrent or repeated calls with the same id share one upstream POST.
  */
 
 export type SanfordBookingPayload = {
@@ -29,6 +32,29 @@ export interface BookingBroomResult {
   forwarded: boolean;
   id?: string;
   error?: string;
+  /** True when this call reused a prior forward for the same bookingId. */
+  deduped?: boolean;
+}
+
+const IDEMPOTENCY_TTL_MS = 10 * 60 * 1000;
+
+type CacheEntry = {
+  promise: Promise<BookingBroomResult>;
+  expiresAt: number;
+};
+
+/** In-process cache so the same bookingId only creates one Booking Broom row. */
+const forwardCache = new Map<string, CacheEntry>();
+
+/** Test helper — clears idempotency cache between cases. */
+export function clearBookingBroomForwardCache(): void {
+  forwardCache.clear();
+}
+
+function pruneExpiredCache(now = Date.now()): void {
+  for (const [key, entry] of forwardCache) {
+    if (entry.expiresAt <= now) forwardCache.delete(key);
+  }
 }
 
 function buildNotes(booking: SanfordBookingPayload, bookingId?: string): string {
@@ -64,7 +90,7 @@ function buildNotes(booking: SanfordBookingPayload, bookingId?: string): string 
   return parts.join("\n");
 }
 
-export async function forwardToBookingBroom(
+async function postToBookingBroom(
   booking: SanfordBookingPayload,
   bookingId?: string,
 ): Promise<BookingBroomResult> {
@@ -84,9 +110,16 @@ export async function forwardToBookingBroom(
     : booking.address;
 
   try {
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (bookingId) {
+      headers["Idempotency-Key"] = bookingId;
+    }
+
     const response = await fetch(`${baseUrl}/api/bookings`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({
         site_slug: siteSlug,
         api_key: apiKey,
@@ -98,6 +131,10 @@ export async function forwardToBookingBroom(
         preferred_date: booking.scheduledDate,
         preferred_time: booking.scheduledTime,
         notes: buildNotes(booking, bookingId),
+        // Hint for Booking Broom / Convex to treat retries as the same booking.
+        ...(bookingId
+          ? { idempotency_key: bookingId, external_id: bookingId }
+          : {}),
       }),
     });
 
@@ -115,4 +152,35 @@ export async function forwardToBookingBroom(
     console.error("[booking-broom] forward error:", message);
     return { forwarded: false, error: message };
   }
+}
+
+export async function forwardToBookingBroom(
+  booking: SanfordBookingPayload,
+  bookingId?: string,
+): Promise<BookingBroomResult> {
+  if (!bookingId) {
+    return postToBookingBroom(booking, bookingId);
+  }
+
+  pruneExpiredCache();
+  const existing = forwardCache.get(bookingId);
+  if (existing && existing.expiresAt > Date.now()) {
+    const result = await existing.promise;
+    return { ...result, deduped: true };
+  }
+
+  const promise = postToBookingBroom(booking, bookingId).then((result) => {
+    // Do not cache hard failures forever — allow a deliberate retry later.
+    if (!result.forwarded && result.error) {
+      forwardCache.delete(bookingId);
+    }
+    return result;
+  });
+
+  forwardCache.set(bookingId, {
+    promise,
+    expiresAt: Date.now() + IDEMPOTENCY_TTL_MS,
+  });
+
+  return promise;
 }
