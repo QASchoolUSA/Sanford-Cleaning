@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 const guides = [
+  { href: '/guides/how-much-does-house-cleaning-cost-sanford-fl', title: 'How Much Does House Cleaning Cost in Sanford, FL? (2026)' },
   { href: '/guides/best-house-cleaning-services-sanford-fl', title: 'Best House Cleaning Services in Sanford FL' },
   { href: '/guides/affordable-deep-cleaning-companies-sanford-fl', title: 'Affordable Deep Cleaning Companies Near Sanford FL' },
   { href: '/guides/how-to-book-professional-house-cleaner-sanford-fl', title: 'How to Book a Professional House Cleaner in Sanford FL' },

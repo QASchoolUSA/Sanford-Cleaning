@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import EntityGraphSchema from '@/components/seo/EntityGraphSchema';
 import dynamic from 'next/dynamic';
 
 const SpecialOffers = dynamic(() => import('@/components/SpecialOffers'));
@@ -43,103 +44,10 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const jsonLd = `[
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://sanfordcleaning.com/#website",
-      "url": "https://sanfordcleaning.com",
-      "name": "Sanford Cleaning",
-      "alternateName": "Sanford Cleaning Services",
-      "description": "Professional cleaning services in Sanford, FL",
-      "publisher": {
-        "@type": "Organization",
-        "@id": "https://sanfordcleaning.com/#organization"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://sanfordcleaning.com/#organization",
-      "name": "Sanford Cleaning",
-      "alternateName": "Sanford Cleaning Services",
-      "url": "https://sanfordcleaning.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
-        "width": 300,
-        "height": 300
-      },
-      "image": "https://sanfordcleaning.com/sanford-cleaning-logo.png",
-      "description": "Professional residential and commercial cleaning services in Sanford, FL",
-      "telephone": "(321) 236-0618",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sanford",
-        "addressRegion": "FL",
-        "postalCode": "32771",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://sanfordcleaning.com",
-        "https://www.facebook.com/profile.php?id=61579618588193",
-        "https://www.instagram.com/sanfordcleaning"
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://sanfordcleaning.com/#localbusiness",
-      "name": "Sanford Cleaning",
-      "url": "https://sanfordcleaning.com",
-      "image": "https://sanfordcleaning.com/sanford-cleaning-homepage.webp",
-      "telephone": "(321) 236-0618",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sanford",
-        "addressRegion": "FL",
-        "postalCode": "32771",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        "Sanford, FL",
-        "Lake Mary, FL",
-        "Heathrow, FL",
-        "Longwood, FL",
-        "Altamonte Springs, FL",
-        "Winter Springs, FL",
-        "DeBary, FL",
-        "Deltona, FL",
-        "Casselberry, FL",
-        "Oviedo, FL",
-        "Winter Park, FL"
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Saturday"],
-          "opens": "09:00",
-          "closes": "16:00"
-        }
-      ],
-      "sameAs": [
-        "https://sanfordcleaning.com",
-        "https://www.facebook.com/profile.php?id=61579618588193",
-        "https://www.instagram.com/sanfordcleaning"
-      ]
-    }
-  ]`;
-
   return (
     <main>
-      <script id="homepage-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      {/* Phase 4: Organization + WebSite + ProfessionalService entity graph */}
+      <EntityGraphSchema />
       <Hero />
       <SpecialOffers />
       <BeforeAfterSlider />
