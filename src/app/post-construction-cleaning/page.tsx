@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import AuthorBio from "@/components/AuthorBio";
 import SpecialOffers from "@/components/SpecialOffers";
@@ -17,7 +18,7 @@ export const metadata = {
       "Detailed post-construction cleanup: debris and dust removal, windows, floors, fixtures, and sanitization with insured professionals in Sanford, FL.",
     type: "website",
     url: "https://sanfordcleaning.com/post-construction-cleaning",
-    images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
+    images: ["https://sanfordcleaning.com/guide-post-construction-final-clean.webp"],
   },
   twitter: { card: "summary_large_image" },
 };
@@ -169,14 +170,26 @@ export default function PostConstructionCleaningPage() {
                 <Shield className="w-4 h-4 mr-2" /> Fully insured • <Clock className="w-4 h-4 mx-2" /> Efficient turnaround • <MapPin className="w-4 h-4 mx-2" /> Sanford, FL
               </div>
             </div>
-            <div className="bg-gray-100 rounded-lg p-6 border">
-              <div className="grid grid-cols-2 gap-4">
-                {benefits.map((b) => (
-                  <div key={b} className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-2" />
-                    <p className="text-gray-700 text-sm">{b}</p>
-                  </div>
-                ))}
+            <div className="space-y-4">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border shadow-sm">
+                <Image
+                  src="/guide-post-construction-final-clean.webp"
+                  alt="Renovated Sanford, FL kitchen after final post-construction cleaning, ready for move-in"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="bg-gray-100 rounded-lg p-6 border">
+                <div className="grid grid-cols-2 gap-4">
+                  {benefits.map((b) => (
+                    <div key={b} className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-2" />
+                      <p className="text-gray-700 text-sm">{b}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -383,8 +396,9 @@ export default function PostConstructionCleaningPage() {
       {/* Related Services */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Related Services</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Related Services &amp; Guides</h3>
           <div className="flex flex-wrap gap-3">
+            <Link href="/guides/rough-vs-final-post-construction-cleaning-sanford-fl" className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-blue-800 hover:border-blue-400 hover:text-blue-900 transition-colors">Rough vs Final Clean Guide</Link>
             <Link href="/commercial-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Commercial Cleaning</Link>
             <Link href="/house-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Residential Cleaning</Link>
             <Link href="/window-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Window Cleaning</Link>
