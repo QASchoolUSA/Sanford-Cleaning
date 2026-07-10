@@ -376,6 +376,13 @@ export default function AirbnbCleaningPage() {
             </div>
 
             <div className="mt-12">
+              <p className="text-slate-700 mb-8">
+                For turnover time targets, linen SKUs, photo QA, and humidity sequencing, read the{' '}
+                <Link href="/guides/airbnb-turnover-sla-sanford-fl" className="text-blue-700 font-semibold hover:underline">
+                  Airbnb turnover SLA guide for Sanford hosts
+                </Link>
+                .
+              </p>
               <AuthorBio />
             </div>
           </div>

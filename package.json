@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error --skip '.*instagram.com.*'",
+    "validate:jsonld": "tsx scripts/validate-jsonld.ts",
     "indexnow": "npx -y tsx scripts/submit-indexnow.ts"
   },
   "dependencies": {

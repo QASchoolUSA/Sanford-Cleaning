@@ -383,8 +383,9 @@ export default function PostConstructionCleaningPage() {
       {/* Related Services */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Related Services</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Related Services &amp; Guides</h3>
           <div className="flex flex-wrap gap-3">
+            <Link href="/guides/rough-vs-final-post-construction-cleaning-sanford-fl" className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-blue-800 hover:border-blue-400 hover:text-blue-900 transition-colors">Rough vs Final Clean Guide</Link>
             <Link href="/commercial-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Commercial Cleaning</Link>
             <Link href="/house-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Residential Cleaning</Link>
             <Link href="/window-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Window Cleaning</Link>

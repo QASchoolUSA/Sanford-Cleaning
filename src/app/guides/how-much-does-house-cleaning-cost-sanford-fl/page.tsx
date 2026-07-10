@@ -255,7 +255,14 @@ export default function Page() {
             <Link href="/deep-cleaning" className="text-blue-700 font-medium hover:underline">
               deep cleaning
             </Link>{' '}
-            pages.
+            pages. For weekly vs biweekly plan structure and recurring discounts, see{' '}
+            <Link
+              href="/guides/sanford-fl-house-cleaning-prices-packages"
+              className="text-blue-700 font-medium hover:underline"
+            >
+              house cleaning packages in Sanford
+            </Link>
+            .
           </p>
         </section>
 

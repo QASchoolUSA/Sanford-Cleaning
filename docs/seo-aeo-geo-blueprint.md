@@ -346,20 +346,31 @@ Replace placeholders when profiles are verified:
 | Deliverable | Location |
 |---|---|
 | This blueprint | `docs/seo-aeo-geo-blueprint.md` |
-| AEO pricing guide (Phase 3) | `src/app/guides/how-much-does-house-cleaning-cost-sanford-fl/page.tsx` |
+| AEO pricing / cost guide (Phase 3) | `src/app/guides/how-much-does-house-cleaning-cost-sanford-fl/page.tsx` |
+| Packages guide (recurring plans; non-cannibalizing) | `src/app/guides/sanford-fl-house-cleaning-prices-packages/page.tsx` |
+| Airbnb turnover SLA (Cluster C) | `src/app/guides/airbnb-turnover-sla-sanford-fl/page.tsx` |
+| Rough vs final post-construction (Cluster D) | `src/app/guides/rough-vs-final-post-construction-cleaning-sanford-fl/page.tsx` |
 | Entity graph schema component | `src/components/seo/EntityGraphSchema.tsx` |
 | Homepage graph upgrade | `src/app/page.tsx` |
 | Guides index entry | `src/app/guides/page.tsx` |
 | LLM crawl hints | `public/llms.txt` |
+| Local JSON-LD validator | `scripts/validate-jsonld.ts` |
 
 ### Cluster → URL ownership (avoid cannibalization)
 
 | Cluster | Hub / money page | Informational spokes |
 |---|---|---|
-| A Residential | `/house-cleaning`, `/deep-cleaning`, `/apartment-cleaning` | Pricing guide (this PR), humidity guide, weekly/biweekly guide |
+| A Residential | `/house-cleaning`, `/deep-cleaning`, `/apartment-cleaning` | Cost guide (dollar ranges) + packages guide (weekly/biweekly plans; cross-linked, non-cannibalizing) + humidity guide |
 | B Move / deposit | `/move-in-move-out-cleaning` | Move-out costs guide |
-| C STR / PM | `/airbnb-cleaning` | Future: STR turnover SLA guide |
-| D Commercial / post-build | `/commercial-cleaning`, `/office-cleaning`, `/post-construction-cleaning` | Future: rough vs final clean guide |
+| C STR / PM | `/airbnb-cleaning` | `/guides/airbnb-turnover-sla-sanford-fl` |
+| D Commercial / post-build | `/commercial-cleaning`, `/office-cleaning`, `/post-construction-cleaning` | `/guides/rough-vs-final-post-construction-cleaning-sanford-fl` |
+
+### Pricing guide ownership (anti-cannibalization)
+
+| URL | Owns intent | Does not own |
+|---|---|---|
+| `/guides/how-much-does-house-cleaning-cost-sanford-fl` | “How much does house cleaning cost…” dollar ranges | Recurring package plan comparison |
+| `/guides/sanford-fl-house-cleaning-prices-packages` | Weekly/biweekly/monthly package value | Primary cost SERP (links to cost guide) |
 
 ---
 
@@ -369,3 +380,19 @@ Replace placeholders when profiles are verified:
 2. Organic queries for `house cleaning cost Sanford FL` land on the Phase 3 guide, then convert via `/booking`.  
 3. Knowledge panels / entity graphs resolve **Sanford Cleaning** ↔ **Sanford, FL cleaning services** via Organization + ProfessionalService + sameAs.  
 4. Content diffs vs competitors show proprietary tables, humidity protocol, and QA workflow—not rewritten national averages.
+
+### Post-merge JSON-LD / Rich Results checklist
+
+Local syntax validation: `BASE_URL=http://localhost:3000 npm run validate:jsonld` (PASS on 2026-07-10).
+
+After deploy, run Google Rich Results Test (no public unauthenticated API; URL mode requires a live public URL):
+
+| Page | Rich Results Test |
+|---|---|
+| Homepage entity graph | https://search.google.com/test/rich-results?url=https%3A%2F%2Fsanfordcleaning.com%2F |
+| Cost guide | https://search.google.com/test/rich-results?url=https%3A%2F%2Fsanfordcleaning.com%2Fguides%2Fhow-much-does-house-cleaning-cost-sanford-fl |
+| Packages guide | https://search.google.com/test/rich-results?url=https%3A%2F%2Fsanfordcleaning.com%2Fguides%2Fsanford-fl-house-cleaning-prices-packages |
+| Airbnb SLA guide | https://search.google.com/test/rich-results?url=https%3A%2F%2Fsanfordcleaning.com%2Fguides%2Fairbnb-turnover-sla-sanford-fl |
+| Rough vs final guide | https://search.google.com/test/rich-results?url=https%3A%2F%2Fsanfordcleaning.com%2Fguides%2Frough-vs-final-post-construction-cleaning-sanford-fl |
+
+Expect FAQ + Breadcrumbs eligibility on guides; Organization / Local business signals on homepage (ProfessionalService may appear under broader local/business detection).

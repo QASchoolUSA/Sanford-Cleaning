@@ -2,24 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
 
+const CANONICAL = 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages';
+const COST_GUIDE = '/guides/how-much-does-house-cleaning-cost-sanford-fl';
+
 export const metadata: Metadata = {
-  title: 'Sanford FL House Cleaning Prices & Packages (2026 Guide)',
+  title: 'House Cleaning Packages in Sanford, FL | Weekly & Biweekly Plans',
   description:
-    'Current house cleaning prices in Sanford, FL for 2026. See standard rates, deep cleaning costs, and how to get the best value packages.',
-  alternates: { canonical: 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages' },
+    'Compare Sanford house cleaning packages: weekly, biweekly, and monthly plans. See recurring discounts and when a package beats one-time cleaning.',
+  alternates: { canonical: CANONICAL },
   openGraph: {
-    title: 'Sanford FL House Cleaning Prices & Packages (2026 Guide)',
+    title: 'House Cleaning Packages in Sanford, FL | Weekly & Biweekly Plans',
     description:
-      'A transparent look at house cleaning costs in Sanford. Learn what you should pay for standard, deep, and move-out cleaning services.',
-    url: 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages',
+      'Recurring house cleaning packages for Sanford homeowners—weekly and biweekly value, what’s included, and how packages differ from one-time pricing.',
+    url: CANONICAL,
     siteName: 'Sanford Cleaning',
+    type: 'article',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sanford FL House Cleaning Prices & Packages (2026 Guide)',
+    title: 'House Cleaning Packages in Sanford, FL | Weekly & Biweekly Plans',
     description:
-      'Current house cleaning prices in Sanford, FL for 2026. See standard rates, deep cleaning costs, and how to get the best value packages.',
+      'Weekly and biweekly house cleaning packages in Sanford, FL—recurring discounts and plan comparisons.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };
@@ -28,15 +32,16 @@ export default function Page() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Sanford FL House Cleaning Prices & Packages (2026 Guide)',
+    headline: 'House Cleaning Packages in Sanford, FL: Weekly & Biweekly Plans (2026)',
     image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
     author: {
-      '@type': 'Person',
-      name: 'Sanford Cleaning Team',
-      url: 'https://sanfordcleaning.com',
+      '@type': 'Organization',
+      '@id': 'https://sanfordcleaning.com/#organization',
+      name: 'Sanford Cleaning',
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://sanfordcleaning.com/#organization',
       name: 'Sanford Cleaning',
       logo: {
         '@type': 'ImageObject',
@@ -44,12 +49,23 @@ export default function Page() {
       },
     },
     datePublished: '2026-02-10',
-    dateModified: '2026-02-10',
-    description: 'A comprehensive guide to house cleaning prices in Sanford, FL.',
+    dateModified: '2026-07-10',
+    description:
+      'Guide to recurring house cleaning packages in Sanford, FL—weekly, biweekly, and monthly plan value versus one-time cleans.',
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://sanfordcleaning.com/guides/sanford-fl-house-cleaning-prices-packages',
+      '@id': CANONICAL,
     },
+    about: [
+      { '@type': 'Thing', name: 'House Cleaning Packages' },
+      { '@type': 'Thing', name: 'Recurring Maid Service' },
+      { '@type': 'City', name: 'Sanford', sameAs: 'https://en.wikipedia.org/wiki/Sanford,_Florida' },
+    ],
+    mentions: [
+      { '@type': 'Service', name: 'House Cleaning' },
+      { '@type': 'Service', name: 'Deep Cleaning' },
+      { '@type': 'Service', name: 'Maintenance Cleaning' },
+    ],
   };
 
   const faqSchema = {
@@ -58,20 +74,38 @@ export default function Page() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'What is the average cost of house cleaning in Sanford?',
+        name: 'Do you offer discounts for recurring house cleaning in Sanford?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'The average cost for a standard cleaning of a 3-bedroom home in Sanford is between $140 and $200. First-time deep cleanings typically range from $250 to $450.',
+          text: 'Yes. Weekly plans typically save about 20% per visit and biweekly plans about 12–18% per visit versus one-time maintenance cleans, because soil load stays lighter between visits.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Do you offer discounts for recurring service?',
+        name: 'Which cleaning package is best for Sanford homeowners?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes! Scheduling weekly or bi-weekly services can save you up to 20% per visit compared to one-time cleanings.',
+          text: 'Most Sanford homeowners choose biweekly maintenance after an initial deep clean. Weekly suits busy households with pets or kids. Monthly works only when the home stays lightly used between visits.',
         },
       },
+      {
+        '@type': 'Question',
+        name: 'Where can I see exact house cleaning cost ranges for Sanford?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'For dollar ranges by home size and deep vs maintenance scope, see the Sanford house cleaning cost guide at https://sanfordcleaning.com/guides/how-much-does-house-cleaning-cost-sanford-fl. This packages page focuses on recurring plan value.',
+        },
+      },
+    ],
+  };
+
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanfordcleaning.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://sanfordcleaning.com/guides' },
+      { '@type': 'ListItem', position: 3, name: 'Cleaning Packages', item: CANONICAL },
     ],
   };
 
@@ -79,127 +113,164 @@ export default function Page() {
     <main className="pt-24 pb-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       <article className="container mx-auto px-4 max-w-4xl">
-        <nav className="text-sm text-slate-500 mb-6">
-          <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+        <nav className="text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-blue-600 transition-colors">
+            Home
+          </Link>
           <span className="mx-2">/</span>
-          <Link href="/guides" className="hover:text-blue-600 transition-colors">Guides</Link>
+          <Link href="/guides" className="hover:text-blue-600 transition-colors">
+            Guides
+          </Link>
           <span className="mx-2">/</span>
-          <span className="text-slate-800 font-medium">Pricing & Packages</span>
+          <span className="text-slate-800 font-medium">Cleaning Packages</span>
         </nav>
 
         <header className="mb-10 text-center sm:text-left">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-            Sanford FL House Cleaning Prices & Packages (2026)
+            House Cleaning Packages in Sanford, FL: Weekly &amp; Biweekly Plans (2026)
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
-            Don't overpay for cleaning. We break down the current market rates for 2026 so you can budget for a spotless home.
+            Choose a recurring plan that fits your household—not a one-off scramble. This guide compares package
+            cadence and value. For dollar ranges by home size, use the{' '}
+            <Link href={COST_GUIDE} className="text-blue-700 font-semibold hover:underline">
+              Sanford house cleaning cost guide
+            </Link>
+            .
           </p>
         </header>
 
-        {/* Hook + Answer */}
         <section className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-12 shadow-sm">
-          <h2 className="text-xl font-bold text-blue-900 mb-2 flex items-center">
-            <span className="bg-blue-600 text-white rounded-full w-6 h-6 inline-flex items-center justify-center text-sm mr-2">✓</span>
-            Quick Answer: 2026 Market Rates
-          </h2>
+          <h2 className="text-xl font-bold text-blue-900 mb-2">Quick Answer: Best Package for Most Homes</h2>
           <p className="text-slate-800 leading-relaxed">
-            In 2026, standard house cleaning in Sanford, FL typically costs between <strong>$120 and $200</strong> for a standard 3-bedroom home.
-            Deep cleaning services, which are more intensive, generally start at <strong>$250</strong> and can go up to <strong>$450+</strong> depending on the home's condition.
+            Most Sanford homeowners get the best results from an <strong>initial deep clean</strong> followed by a{' '}
+            <strong>biweekly maintenance package</strong>. Weekly plans win for pets, kids, or high traffic. Recurring
+            visits typically cost <strong>12–20% less per clean</strong> than equivalent one-time maintenance visits
+            because soil load stays lighter.
           </p>
-          <div className="mt-4">
-            <Link href="/free-custom-quote" className="inline-flex items-center text-blue-700 font-semibold hover:underline">
-              Get an instant quote for your home &rarr;
-            </Link>
-          </div>
         </section>
 
-        {/* Pricing Table */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Estimated Pricing by Home Size</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Package Comparison: Weekly vs Biweekly vs Monthly</h2>
           <div className="overflow-x-auto rounded-lg border border-slate-200">
             <table className="w-full text-left text-sm text-slate-600">
               <thead className="bg-slate-50 text-xs uppercase text-slate-700 font-bold">
                 <tr>
-                  <th className="px-6 py-4">Home Size</th>
-                  <th className="px-6 py-4">Standard Clean (Recurring)</th>
-                  <th className="px-6 py-4">Deep Clean (One-Time)</th>
-                  <th className="px-6 py-4">Move-Out Clean</th>
+                  <th className="px-6 py-4">Package</th>
+                  <th className="px-6 py-4">Best for</th>
+                  <th className="px-6 py-4">Per-visit value</th>
+                  <th className="px-6 py-4">Humidity fit (Sanford)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 bg-white">
                 <tr>
-                  <td className="px-6 py-4 font-medium text-slate-900">1 Bedroom / 1 Bath</td>
-                  <td className="px-6 py-4">$100 - $130</td>
-                  <td className="px-6 py-4">$180 - $250</td>
-                  <td className="px-6 py-4">$220 - $300</td>
+                  <td className="px-6 py-4 font-medium text-slate-900">Weekly</td>
+                  <td className="px-6 py-4">Pets, kids, busy households</td>
+                  <td className="px-6 py-4">~20% below one-time rate</td>
+                  <td className="px-6 py-4">Strongest bathroom/floor control</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 font-medium text-slate-900">2 Bedroom / 2 Bath</td>
-                  <td className="px-6 py-4">$120 - $160</td>
-                  <td className="px-6 py-4">$220 - $320</td>
-                  <td className="px-6 py-4">$280 - $380</td>
+                  <td className="px-6 py-4 font-medium text-slate-900">Biweekly</td>
+                  <td className="px-6 py-4">Most 2–4 bedroom homes</td>
+                  <td className="px-6 py-4">~12–18% below one-time rate</td>
+                  <td className="px-6 py-4">Best balance for May–October RH</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 font-medium text-slate-900">3 Bedroom / 2 Bath</td>
-                  <td className="px-6 py-4">$140 - $200</td>
-                  <td className="px-6 py-4">$280 - $400</td>
-                  <td className="px-6 py-4">$350 - $480</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-medium text-slate-900">4+ Bedroom / 3+ Bath</td>
-                  <td className="px-6 py-4">$180+</td>
-                  <td className="px-6 py-4">$350+</td>
-                  <td className="px-6 py-4">$450+</td>
+                  <td className="px-6 py-4 font-medium text-slate-900">Monthly</td>
+                  <td className="px-6 py-4">Lightly used homes / travel</td>
+                  <td className="px-6 py-4">Closest to one-time pricing</td>
+                  <td className="px-6 py-4">Often needs seasonal deep add-ons</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-xs text-slate-500 text-center italic">
-            *Prices are estimates based on local market averages. Actual costs depend on square footage and condition.
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">What Every Recurring Package Includes</h2>
+          <ul className="list-disc pl-6 space-y-2 text-slate-700">
+            <li>Kitchen surfaces, sink, appliance exteriors, and floors</li>
+            <li>Bathroom disinfection (toilets, showers, vanities, mirrors)</li>
+            <li>Dusting of reachable surfaces, vacuuming, and mopping</li>
+            <li>Trash removal and bed making when requested</li>
+            <li>Consistent crew cadence once your calendar slot is locked</li>
+          </ul>
+          <p className="mt-4 text-slate-700">
+            Deep-clean resets, move-outs, and Airbnb turnovers are scoped separately—see{' '}
+            <Link href="/deep-cleaning" className="text-blue-700 font-medium hover:underline">
+              deep cleaning
+            </Link>
+            ,{' '}
+            <Link href="/move-in-move-out-cleaning" className="text-blue-700 font-medium hover:underline">
+              move-out cleaning
+            </Link>
+            , and{' '}
+            <Link href="/airbnb-cleaning" className="text-blue-700 font-medium hover:underline">
+              Airbnb cleaning
+            </Link>
+            .
           </p>
         </section>
 
-        <section className="prose prose-slate max-w-none mb-12">
-          <h2 className="text-2xl font-bold text-slate-900">Factors That Affect Your Quote</h2>
-          <p>
-            When you request a quote, three main factors determine the final price:
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">How Packages Relate to Dollar Pricing</h2>
+          <p className="text-slate-700 mb-4">
+            Package discounts apply to your quoted maintenance rate. Example planning bands for a typical Sanford
+            3-bedroom home (aligned with our cost guide):
           </p>
           <ul className="list-disc pl-6 space-y-2 text-slate-700">
-            <li><strong>Condition:</strong> A home that hasn't been cleaned in months requires more time and products than a well-maintained space.</li>
-            <li><strong>Pets:</strong> Pet hair removal adds time to the cleaning process.</li>
-            <li><strong>Frequency:</strong> We offer discounts for weekly (20% off) and bi-weekly (15% off) services because maintenance cleans are faster.</li>
+            <li>
+              <strong>One-time maintenance reference:</strong> about $170–$240
+            </li>
+            <li>
+              <strong>Biweekly package visits:</strong> commonly land toward the lower end of that band after the
+              discount
+            </li>
+            <li>
+              <strong>Initial deep clean:</strong> about $320–$450 before recurring maintenance begins
+            </li>
           </ul>
-
-          <h3 className="text-xl font-bold text-slate-900 mt-6">Hidden Costs to Watch For</h3>
-          <p>
-            Some competitors charge extra for "add-ons" that we include or transparently price. Be wary of upcharges for:
+          <p className="mt-4 text-slate-700">
+            Full size-by-size ranges, condition multipliers, and humidity cadence live in{' '}
+            <Link href={COST_GUIDE} className="text-blue-700 font-semibold hover:underline">
+              How Much Does House Cleaning Cost in Sanford, FL?
+            </Link>
           </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">Hidden Fees to Watch When Comparing Packages</h2>
           <ul className="list-disc pl-6 space-y-2 text-slate-700">
-            <li>Travel fees (We never charge this for Sanford area)</li>
-            <li>Supplies fees (We bring our own premium supplies)</li>
-            <li>weekend surcharges</li>
+            <li>Travel fees inside the Sanford service area (we do not add these for core coverage)</li>
+            <li>Surprise supplies fees (standard professional supplies are included)</li>
+            <li>Weekend surcharges that erase “discounted” package math</li>
           </ul>
         </section>
 
-        {/* CTA */}
         <section className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center text-white mb-16">
-          <h2 className="text-3xl font-bold mb-4">Get Your Exact Price</h2>
+          <h2 className="text-3xl font-bold mb-4">Lock In a Recurring Package</h2>
           <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-            Stop guessing. Fill out our simple form to get a custom, flat-rate quote for your home today.
+            Start with a deep clean or jump into weekly/biweekly maintenance. Get a flat-rate quote for your home size.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/free-custom-quote" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-100 transition-colors">
-              Get Free Quote
+            <Link
+              href="/booking"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-100 transition-colors"
+            >
+              Book a Package
             </Link>
-            <Link href="/booking" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white border border-slate-600 rounded-lg hover:bg-slate-800 transition-colors">
-              Book Now
+            <Link
+              href={COST_GUIDE}
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white border border-slate-600 rounded-lg hover:bg-slate-800 transition-colors"
+            >
+              View Cost Ranges
             </Link>
           </div>
         </section>
 
-        <AuthorBio />
+        <AuthorBio description="The Sanford Cleaning team helps homeowners pick weekly or biweekly packages that match Central Florida humidity and household traffic—not just the cheapest one-time rate." />
       </article>
     </main>
   );

@@ -25,13 +25,15 @@ export const metadata: Metadata = {
 
 const guides = [
   { href: '/guides/how-much-does-house-cleaning-cost-sanford-fl', title: 'How Much Does House Cleaning Cost in Sanford, FL? (2026)' },
+  { href: '/guides/sanford-fl-house-cleaning-prices-packages', title: 'House Cleaning Packages in Sanford, FL (Weekly & Biweekly)' },
+  { href: '/guides/airbnb-turnover-sla-sanford-fl', title: 'Airbnb Turnover SLA in Sanford, FL' },
+  { href: '/guides/rough-vs-final-post-construction-cleaning-sanford-fl', title: 'Rough vs Final Post-Construction Cleaning in Sanford, FL' },
   { href: '/guides/best-house-cleaning-services-sanford-fl', title: 'Best House Cleaning Services in Sanford FL' },
   { href: '/guides/affordable-deep-cleaning-companies-sanford-fl', title: 'Affordable Deep Cleaning Companies Near Sanford FL' },
   { href: '/guides/how-to-book-professional-house-cleaner-sanford-fl', title: 'How to Book a Professional House Cleaner in Sanford FL' },
   { href: '/guides/how-to-book-house-cleaner-sanford-fl', title: 'How to Book a House Cleaner in Sanford FL' },
   { href: '/guides/how-to-book-professional-house-cleaner-sanford-fl-customer-reviews', title: 'How to Book a House Cleaner Using Customer Reviews' },
   { href: '/guides/top-rated-house-cleaning-companies-sanford-fl-reviews', title: 'Top-Rated House Cleaning Companies in Sanford FL with Customer Reviews' },
-  { href: '/guides/sanford-fl-house-cleaning-prices-packages', title: 'Sanford FL House Cleaning Service Prices and Packages' },
   { href: '/guides/eco-friendly-house-cleaning-options-sanford-fl', title: 'Eco-Friendly House Cleaning Options Available in Sanford FL' },
   { href: '/guides/compare-house-cleaning-companies-sanford-fl-service-quality', title: 'Compare House Cleaning Companies in Sanford FL by Service Quality' },
   { href: '/guides/sanford-fl-house-cleaning-service-providers-quality', title: 'Sanford FL House Cleaning Service Providers by Quality' },
