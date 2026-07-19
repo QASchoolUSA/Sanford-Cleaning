@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Phone, Star, Clock, Shield, Calculator as HeroCalculator } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import ScrollToCalculatorButton from './ScrollToCalculatorButton';
+import { siteFacts } from '@/lib/siteFacts';
 
 const PriceCalculator = dynamic(() => import('./PriceCalculator'));
 
@@ -22,7 +23,7 @@ const Hero = () => {
           {/* Main Headline */}
           <div className="space-y-6 mb-10">
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mt-4">
-              Top-Rated
+              Local
               <span className="block text-blue-600">House Cleaning Services</span>
               <span className="block text-2xl lg:text-3xl xl:text-4xl font-normal text-gray-600 mt-2">
                 in Sanford, FL
@@ -39,11 +40,11 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="tel:321-236-0618"
+              href={siteFacts.phone.href}
               className="inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
-              Call (321) 236-0618
+              Call {siteFacts.phone.display}
             </a>
             <ScrollToCalculatorButton />
           </div>
@@ -52,7 +53,9 @@ const Hero = () => {
           <div className="flex flex-wrap justify-center gap-4 text-sm mt-6 mb-6">
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-blue-100">
               <Star className="w-4 h-4 text-yellow-500 fill-current" />
-              <span className="text-gray-700 font-medium">10+ Years Experience</span>
+              <span className="text-gray-700 font-medium">
+                {siteFacts.yearsCompany} years serving Sanford · {siteFacts.yearsTeamExperience} years team experience
+              </span>
             </div>
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-blue-100">
               <Clock className="w-4 h-4 text-blue-600" />

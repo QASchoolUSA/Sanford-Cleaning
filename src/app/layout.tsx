@@ -1,18 +1,20 @@
+import { siteFacts } from "@/lib/siteFacts";
+
 export const metadata = {
-  metadataBase: new URL("https://sanfordcleaning.com"),
+  metadataBase: new URL(siteFacts.url),
   title: {
     default: "Sanford Cleaning | House Cleaning & Maid Service in Sanford, FL",
     template: "%s | Sanford Cleaning",
   },
-  applicationName: "Sanford Cleaning",
+  applicationName: siteFacts.brandName,
   description: "Professional house cleaning, maid service, and commercial cleaning in Sanford, FL. Insured cleaners serving Lake Mary, Longwood & Central Florida. Book online in 60 seconds.",
   alternates: {
-    canonical: "https://sanfordcleaning.com",
+    canonical: siteFacts.url,
   },
   openGraph: {
-    siteName: "Sanford Cleaning",
+    siteName: siteFacts.brandName,
     type: "website",
-    url: "https://sanfordcleaning.com",
+    url: siteFacts.url,
   },
   twitter: {
     card: "summary_large_image",

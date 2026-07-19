@@ -38,7 +38,7 @@ const guides = [
   { href: '/guides/compare-house-cleaning-companies-sanford-fl-service-quality', title: 'Compare House Cleaning Companies in Sanford FL by Service Quality' },
   { href: '/guides/sanford-fl-house-cleaning-service-providers-quality', title: 'Sanford FL House Cleaning Service Providers by Quality' },
   { href: '/guides/sanford-fl-move-out-cleaning-services-costs', title: 'Sanford FL Move-Out Cleaning Services and Costs' },
-  { href: '/guides/sanford-fl-weekly-biweekly-house-cleaning-providers', title: 'Sanford FL Weekly and Biweekly House Cleaning Service Providers' },
+  { href: '/guides/sanford-fl-weekly-biweekly-house-cleaning-providers', title: 'Weekly & Biweekly House Cleaning in Sanford FL' },
   { href: '/guides/best-house-cleaning-deals-discounts-sanford-fl', title: 'Best House Cleaning Deals and Discounts in Sanford FL' },
   { href: '/guides/apartment-deep-cleaning-sanford-fl', title: 'Apartment Deep Cleaning in Sanford FL' },
   { href: '/guides/florida-humidity-deep-cleaning-sanford-waterfront-homes', title: 'Florida Humidity & Deep Cleaning for Sanford Waterfront Homes' },

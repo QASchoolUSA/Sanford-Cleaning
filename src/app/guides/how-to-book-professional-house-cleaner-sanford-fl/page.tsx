@@ -3,12 +3,12 @@ import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
-  title: 'How to Book a Professional House Cleaner in Sanford FL (2026)',
+  title: 'How to Book a House Cleaner in Sanford, FL',
   description:
     'Step-by-step guide to safe and easy house cleaning booking in Sanford, FL. Compare online providers vs. independent cleaners.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/how-to-book-professional-house-cleaner-sanford-fl' },
   openGraph: {
-    title: 'How to Book a Professional House Cleaner in Sanford FL (2026)',
+    title: 'How to Book a House Cleaner in Sanford, FL',
     description:
       'Learn the safest and fastest way to book a professional cleaner in Sanford. We compare booking methods and offer tips for a smooth experience.',
     url: 'https://sanfordcleaning.com/guides/how-to-book-professional-house-cleaner-sanford-fl',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How to Book a Professional House Cleaner in Sanford FL (2026)',
+    title: 'How to Book a House Cleaner in Sanford, FL',
     description:
       'Step-by-step guide to safe and easy house cleaning booking in Sanford, FL. Compare online providers vs. independent cleaners.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],

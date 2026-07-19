@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ExpandedSanfordGuide from '@/components/ExpandedSanfordGuide';
 
 export const metadata: Metadata = {
-  title: 'Compare House Cleaning Companies in Sanford FL by Service Quality',
+  title: 'Compare House Cleaning Companies in Sanford, FL',
   description:
     'A comparison guide for house cleaning companies in Sanford FL. Learn quality markers, checklists, and how Sanford Cleaning stacks up.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/compare-house-cleaning-companies-sanford-fl-service-quality' },
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Compare House Cleaning Companies in Sanford FL by Service Quality',
+    title: 'Compare House Cleaning Companies in Sanford, FL',
     description:
       'A comparison guide for house cleaning companies in Sanford FL. Learn quality markers, checklists, and how Sanford Cleaning stacks up.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
@@ -39,7 +40,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <section className="bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4 py-12">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Compare House Cleaning Companies in Sanford FL by Service Quality</h1>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Compare House Cleaning Companies in Sanford, FL</h1>
           <p className="mt-4 text-slate-700 max-w-3xl">
             Use this side-by-side quality checklist to evaluate house cleaning companies in Sanford, FL. We outline
             standards, training, eco options, and communication practices—so you can select the right partner. Sanford
@@ -53,6 +54,7 @@ export default function Page() {
       </section>
 
       <section className="container mx-auto px-4 py-10">
+        <ExpandedSanfordGuide guideKey="compare" />
         <h2 className="text-2xl font-semibold">Quality Comparison Checklist</h2>
         <ul className="mt-3 list-disc pl-6 text-slate-700">
           <li>Trained teams following a room-by-room checklist</li>

@@ -6,15 +6,16 @@ import ServiceAreas from "@/components/ServiceAreas";
 import AuthorBio from "@/components/AuthorBio";
 import SpecialOffers from "@/components/SpecialOffers";
 import ConversationalFAQ from "@/components/ConversationalFAQ";
-import { Home, CheckCircle, Clock, Shield, Star, ArrowRight, Building, Key, Layout } from "lucide-react";
+import { CheckCircle, Clock, Shield, ArrowRight, Building, Key, Layout } from "lucide-react";
+import { siteFacts } from "@/lib/siteFacts";
 
 export const metadata = {
-    title: "Top-Rated Apartment Cleaning Services in Sanford, FL",
+    title: "Apartment Cleaning Sanford, FL | Sanford Cleaning",
     description:
         "Professional apartment and condo cleaning near you in Sanford, FL. We specialize in small spaces, deep cleaning, and move-outs. Free quotes available!",
     alternates: { canonical: "https://sanfordcleaning.com/apartment-cleaning" },
     openGraph: {
-        title: "Top-Rated Apartment Cleaning Services in Sanford, FL",
+        title: "Apartment Cleaning Sanford, FL | Sanford Cleaning",
         description:
             "Professional apartment and condo cleaning near you in Sanford, FL. We specialize in small spaces, deep cleaning, and move-outs. Free quotes available!",
         type: "website",
@@ -27,7 +28,7 @@ export default function ApartmentCleaningPage() {
     const faqItems = [
         {
             question: "How much does apartment cleaning cost in Sanford?",
-            answer: "Apartment cleaning starts at $80 for studio/1-bedroom units. Pricing increases slightly for 2-3 bedroom condos or deep cleaning requirements."
+            answer: `${siteFacts.pricing.messages.full} Final pricing depends on the unit's size, condition, scope, and add-ons.`
         },
         {
             question: "Do you bring your own supplies?",
@@ -48,8 +49,15 @@ export default function ApartmentCleaningPage() {
                 description="Professional apartment and condo cleaning in Sanford, FL. Specialized service for small spaces, walk-ups, and complexes."
                 url="https://sanfordcleaning.com/apartment-cleaning"
                 offers={[
-                    { name: "Studio / 1BR Cleaning", price: "80.00" },
-                    { name: "2+ Bedroom Condo Cleaning", price: "100.00" }
+                    {
+                        name: "Entry-Level Apartment Cleaning",
+                        price: `${siteFacts.pricing.entryStartingFrom}.00`,
+                        description: siteFacts.pricing.messages.entryAndTypical,
+                    },
+                    {
+                        name: "Typical 3-Bedroom Standard Package",
+                        description: siteFacts.pricing.typical3brStandard,
+                    }
                 ]}
             />
 
@@ -98,11 +106,10 @@ export default function ApartmentCleaningPage() {
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does apartment cleaning cost in Sanford, FL?</h2>
                         <div className="prose max-w-none text-gray-700">
                             <p className="text-lg leading-relaxed mb-4">
-                                <strong>Sanford Cleaning</strong> offers specialized <strong>apartment cleaning in Sanford, FL</strong> starting at <strong>$80/visit</strong> for studios and 1-bedrooms. Our compact teams are equipped for elevator buildings and walk-ups, servicing major complexes like <strong>Gateway at Riverwalk</strong>. We handle everyday maintenance, move-outs, and pet hair removal. Need a total reset? We also perform comprehensive <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">apartment deep cleaning in Sanford, FL</Link>.
+                                <strong>{siteFacts.brandName}</strong> offers specialized <strong>apartment cleaning in Sanford, FL</strong>. <strong>{siteFacts.pricing.messages.entryAndTypical}</strong> Final pricing depends on size, condition, scope, and add-ons. Need a total reset? We also perform comprehensive <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">apartment deep cleaning in Sanford, FL</Link>.
                             </p>
                             <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
-                                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Studio / 1BR:</strong> Starting at $80</li>
-                                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>2 Bedroom:</strong> Starting at $100</li>
+                                <li className="flex items-center sm:col-span-2"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Pricing:</strong>&nbsp;{siteFacts.pricing.messages.entryAndTypical}</li>
                                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Move-Out:</strong> Deposit Guarantee</li>
                                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Pets:</strong> Hair Removal Included</li>
                             </ul>

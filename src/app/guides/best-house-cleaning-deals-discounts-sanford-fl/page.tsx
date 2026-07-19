@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ExpandedSanfordGuide from '@/components/ExpandedSanfordGuide';
 
 export const metadata: Metadata = {
   title: 'Best House Cleaning Deals and Discounts in Sanford FL',
@@ -52,6 +53,7 @@ export default function Page() {
       </section>
 
       <section className="container mx-auto px-4 py-10">
+        <ExpandedSanfordGuide guideKey="deals" />
         <h2 className="text-2xl font-semibold">Savings Strategies</h2>
         <ul className="mt-3 list-disc pl-6 text-slate-700">
           <li>Weekly or biweekly plans reduce per-visit pricing</li>

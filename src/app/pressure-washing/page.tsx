@@ -6,7 +6,7 @@ import SpecialOffers from "@/components/SpecialOffers";
 import { Sparkles, Droplets, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin, Eraser, Home } from "lucide-react";
 
 export const metadata = {
-  title: "#1 Pressure Washing in Sanford FL",
+  title: "Pressure Washing in Sanford, FL | Sanford Cleaning",
   description:
     "Professional pressure washing in Sanford, FL. House siding, driveways, patios, and gutters with safe soft-wash options.",
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://sanfordcleaning.com/pressure-washing" },
   openGraph: {
-    title: "#1 Pressure Washing in Sanford FL",
+    title: "Pressure Washing in Sanford, FL | Sanford Cleaning",
     description:
       "Professional pressure washing and exterior washing in Sanford, Florida—siding, concrete, patios, and more. Full-service cleaning inside and out.",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "#1 Pressure Washing in Sanford FL",
+    title: "Pressure Washing in Sanford, FL | Sanford Cleaning",
     description:
       "Professional pressure washing and exterior washing in Sanford, Florida—siding, concrete, patios, and more. Full-service cleaning inside and out.",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],

@@ -1,5 +1,6 @@
 import { Home, Building, Sparkles, Car, Wrench, Truck, Key, Calendar } from 'lucide-react';
 import Link from 'next/link';
+import { siteFacts } from '@/lib/siteFacts';
 
 const Services = () => {
   const services = [
@@ -8,7 +9,7 @@ const Services = () => {
       title: 'House Cleaning',
       description: 'Complete house cleaning and maid service including kitchens, bathrooms, bedrooms, and living areas.',
       features: ['Weekly/Bi-weekly service', 'Deep cleaning', 'Move-in/out cleaning', 'Post-construction cleanup'],
-      price: 'Starting at $80',
+      price: siteFacts.pricing.messages.entryAndTypical,
       link: '/house-cleaning'
     },
     {
@@ -24,7 +25,7 @@ const Services = () => {
       title: 'Deep Cleaning',
       description: 'Comprehensive deep cleaning service for those hard-to-reach areas and seasonal maintenance.',
       features: ['Cabinet interiors', 'Baseboards & trim', 'Light fixtures', 'Appliance deep clean'],
-      price: 'Starting at $150',
+      price: `Typical ${siteFacts.pricing.typicalDeep}`,
       link: '/deep-cleaning'
     },
     {

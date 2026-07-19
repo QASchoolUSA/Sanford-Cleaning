@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { siteFacts } from '@/lib/siteFacts';
 // Use public asset path for Next.js
 
 const Footer = () => {
@@ -40,10 +41,10 @@ const Footer = () => {
               Professional cleaning services you can trust. We&apos;re committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 underline hover:text-blue-800">Window Cleaning</Link> services.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=61579618588193" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link" aria-label="Visit our Facebook page">
+              <a href={siteFacts.sameAs[0]} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link" aria-label="Visit our Facebook page">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/sanfordcleaning" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-instagram-link" aria-label="Visit our Instagram page">
+              <a href={siteFacts.sameAs[1]} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-instagram-link" aria-label="Visit our Instagram page">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -85,15 +86,15 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-600" />
-                <a href="tel:321-236-0618" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-phone-link">(321) 236-0618</a>
+                <a href={siteFacts.phone.href} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-phone-link">{siteFacts.phone.display}</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-600" />
-                <a href="mailto:info@sanfordcleaning.com" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-email-link">info@sanfordcleaning.com</a>
+                <a href={`mailto:${siteFacts.email}`} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-email-link">{siteFacts.email}</a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-600 mt-1" />
-                <span className="text-gray-600">Sanford, FL and surrounding areas</span>
+                <span className="text-gray-600">{siteFacts.serviceAreaPolicy.description}</span>
               </div>
             </div>
 
@@ -111,7 +112,7 @@ const Footer = () => {
         <div className="border-t border-gray-300 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-600 text-sm">
-              &copy; {currentYear} Sanford Cleaning. All rights reserved.
+              &copy; {currentYear} {siteFacts.brandName} ({siteFacts.legalName}). All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-bottom-privacy-policy-link">Privacy Policy</Link>

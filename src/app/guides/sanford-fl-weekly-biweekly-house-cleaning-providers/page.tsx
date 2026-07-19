@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ExpandedSanfordGuide from '@/components/ExpandedSanfordGuide';
 
 export const metadata: Metadata = {
-  title: 'Sanford FL Weekly and Biweekly House Cleaning Service Providers',
+  title: 'Weekly & Biweekly House Cleaning in Sanford, FL',
   description:
     'Find weekly and biweekly house cleaning in Sanford FL. Learn benefits, scheduling, and how Sanford Cleaning maintains a consistently clean home.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/sanford-fl-weekly-biweekly-house-cleaning-providers' },
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sanford FL Weekly and Biweekly House Cleaning Service Providers',
+    title: 'Weekly & Biweekly House Cleaning in Sanford, FL',
     description:
       'Find weekly and biweekly house cleaning in Sanford FL. Learn benefits, scheduling, and how Sanford Cleaning maintains a consistently clean home.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
@@ -39,7 +40,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <section className="bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4 py-12">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Sanford FL Weekly and Biweekly House Cleaning Service Providers</h1>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Weekly & Biweekly House Cleaning in Sanford, FL</h1>
           <p className="mt-4 text-slate-700 max-w-3xl">
             Recurring cleaning keeps your home consistently clean with predictable scheduling. Sanford Cleaning offers
             weekly and biweekly plans that fit busy families and professionals in Sanford and nearby areas.
@@ -52,6 +53,7 @@ export default function Page() {
       </section>
 
       <section className="container mx-auto px-4 py-10">
+        <ExpandedSanfordGuide guideKey="recurring" />
         <h2 className="text-2xl font-semibold">Benefits of Recurring Cleaning</h2>
         <ul className="mt-3 list-disc pl-6 text-slate-700">
           <li>Lower per-visit rates compared to one-time service</li>

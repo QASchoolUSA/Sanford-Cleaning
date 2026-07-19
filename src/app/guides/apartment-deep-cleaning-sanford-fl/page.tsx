@@ -3,12 +3,12 @@ import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
-  title: 'Apartment Deep Cleaning in Sanford FL (Get Your Deposit Back)',
+  title: 'Apartment Deep Cleaning in Sanford, FL',
   description:
     'Need a deep clean for your Sanford apartment? We specialize in move-out cleanings that pass landlord inspections. 100% Deposit Back Guarantee.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/apartment-deep-cleaning-sanford-fl' },
   openGraph: {
-    title: 'Apartment Deep Cleaning in Sanford FL (Get Your Deposit Back)',
+    title: 'Apartment Deep Cleaning in Sanford, FL',
     description:
       'The ultimate checklist for apartment cleaning in Sanford. Don\'t lose your security deposit to dirt.',
     url: 'https://sanfordcleaning.com/guides/apartment-deep-cleaning-sanford-fl',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apartment Deep Cleaning in Sanford FL (Get Your Deposit Back)',
+    title: 'Apartment Deep Cleaning in Sanford, FL',
     description:
       'Need a deep clean for your Sanford apartment? We specialize in move-out cleanings that pass landlord inspections. 100% Deposit Back Guarantee.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
@@ -28,7 +28,7 @@ export default function Page() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Apartment Deep Cleaning in Sanford FL (Get Your Deposit Back)',
+    headline: 'Apartment Deep Cleaning in Sanford, FL',
     image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
     author: {
       '@type': 'Person',

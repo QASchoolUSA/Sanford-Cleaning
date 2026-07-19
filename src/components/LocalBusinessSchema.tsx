@@ -1,3 +1,5 @@
+import { siteFacts } from '@/lib/siteFacts';
+
 type Props = {
   id?: string;
   name?: string;
@@ -21,17 +23,12 @@ const SERVICE_AREAS = [
   { '@type': 'City', name: 'Winter Park' },
 ];
 
-const SAME_AS = [
-  'https://sanfordcleaning.com',
-  'https://www.facebook.com/profile.php?id=61579618588193',
-  'https://www.instagram.com/sanfordcleaning',
-];
 
 export default function LocalBusinessSchema({
-  id = 'https://sanfordcleaning.com/#localbusiness',
-  name = 'Sanford Cleaning',
-  url = 'https://sanfordcleaning.com',
-  telephone = '(321) 236-0618',
+  id = `${siteFacts.url}/#localbusiness`,
+  name = siteFacts.brandName,
+  url = siteFacts.url,
+  telephone = siteFacts.phone.e164,
   image = 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
   priceRange = '$$',
 }: Props) {
@@ -40,9 +37,11 @@ export default function LocalBusinessSchema({
     '@type': 'LocalBusiness',
     '@id': id,
     name,
+    legalName: siteFacts.legalName,
     url,
     image,
     telephone,
+    email: siteFacts.email,
     priceRange,
     geo: {
       '@type': 'GeoCoordinates',
@@ -52,10 +51,10 @@ export default function LocalBusinessSchema({
     hasMap: 'https://www.google.com/maps/place/Sanford,+FL+32771',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Sanford',
-      addressRegion: 'FL',
-      postalCode: '32771',
-      addressCountry: 'US',
+      addressLocality: siteFacts.serviceAreaPolicy.locality,
+      addressRegion: siteFacts.serviceAreaPolicy.region,
+      postalCode: siteFacts.serviceAreaPolicy.postalCode,
+      addressCountry: siteFacts.serviceAreaPolicy.country,
     },
     areaServed: SERVICE_AREAS,
     hasOfferCatalog: {
@@ -77,8 +76,7 @@ export default function LocalBusinessSchema({
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Turnover Cleaning' } },
       ],
     },
-    description:
-      'Top-rated professional cleaning company in Sanford, FL. House cleaning, maid service, move-out cleaning, apartment cleaning, office cleaning, and deep cleaning.',
+    description: `${siteFacts.brandName} provides professional move-out, apartment, office, and deep cleaning services. ${siteFacts.serviceAreaPolicy.description}`,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -93,7 +91,7 @@ export default function LocalBusinessSchema({
         closes: '16:00',
       },
     ],
-    sameAs: SAME_AS,
+    sameAs: siteFacts.sameAs,
   };
 
   return (

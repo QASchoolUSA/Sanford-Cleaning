@@ -7,12 +7,12 @@ import SpecialOffers from "@/components/SpecialOffers";
 import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks, DollarSign, Calendar } from "lucide-react";
 
 export const metadata = {
-  title: "Deep Cleaning Services Near Me | Sanford, FL Deep Cleaners",
+  title: "Deep Cleaning in Sanford, FL | Sanford Cleaning",
   description:
     "Expert deep cleaning services near me in Sanford, FL. Thorough house and apartment deep cleaning for spring cleaning, move-outs, and more. Get a free quote!",
   alternates: { canonical: "https://sanfordcleaning.com/deep-cleaning" },
   openGraph: {
-    title: "Deep Cleaning Services Near Me | Sanford, FL Deep Cleaners",
+    title: "Deep Cleaning in Sanford, FL | Sanford Cleaning",
     description:
       "Need deep cleaning near me? Our top-rated team handles spring cleaning, move-outs, and detailed house cleaning in Sanford, FL. Book online!",
     type: "website",
@@ -21,7 +21,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deep Cleaning Services Near Me | Sanford, FL Deep Cleaners",
+    title: "Deep Cleaning in Sanford, FL | Sanford Cleaning",
     description:
       "Need deep cleaning near me? Our top-rated team handles spring cleaning, move-outs, and detailed house cleaning in Sanford, FL. Book online!",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],

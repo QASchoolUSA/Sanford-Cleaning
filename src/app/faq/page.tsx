@@ -20,6 +20,7 @@ export const metadata = {
 
 import Link from "next/link";
 import { CheckCircle, Phone, Mail, Calendar } from "lucide-react";
+import { siteFacts } from "@/lib/siteFacts";
 
 export default function FAQPage() {
   const faqs = [
@@ -80,20 +81,19 @@ export default function FAQPage() {
     },
     {
       q: "How long have you been performing house and office cleaning in Sanford, FL?",
-      a: "Under this company, we've been serving Sanford for 2 years. Before that, we worked for other cleaning companies. Overall experience is around 5–7 years. We're a family-owned business operated by Topaz West LLC.",
-      aText:
-        "Under this company, we've been serving Sanford for 2 years. Before that, we worked for other cleaning companies. Overall experience is around 5–7 years. We're a family-owned business operated by Topaz West LLC.",
+      a: siteFacts.experienceStatement,
+      aText: siteFacts.experienceStatement,
     },
     {
       q: "What are the ways to book cleaning?",
       a: (
         <>
-          You can call (321) 236-0618, email info@sanfordcleaning.com, or{" "}
+          You can call {siteFacts.phone.display}, email {siteFacts.email}, or{" "}
           <Link href="/booking" className="text-blue-600 hover:text-blue-800 underline">book online</Link> for instant pricing and scheduling.
         </>
       ),
       aText:
-        "You can call (321) 236-0618, email info@sanfordcleaning.com, or book online for instant pricing and scheduling.",
+        `You can call ${siteFacts.phone.display}, email ${siteFacts.email}, or book online for instant pricing and scheduling.`,
     },
     {
       q: "Do you offer a satisfaction guarantee?",
@@ -174,11 +174,11 @@ export default function FAQPage() {
           </div>
 
           <div className="max-w-4xl mx-auto mt-10 flex flex-col sm:flex-row gap-4">
-            <a href="tel:321-236-0618" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-              <Phone className="w-5 h-5" /> Call (321) 236-0618
+            <a href={siteFacts.phone.href} className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              <Phone className="w-5 h-5" /> Call {siteFacts.phone.display}
             </a>
-            <a href="mailto:info@sanfordcleaning.com" className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-              <Mail className="w-5 h-5" /> info@sanfordcleaning.com
+            <a href={`mailto:${siteFacts.email}`} className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              <Mail className="w-5 h-5" /> {siteFacts.email}
             </a>
             <Link href="/booking" className="inline-flex items-center gap-2 bg-white border-2 border-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:border-blue-300 hover:text-blue-700 transition-colors">
               Book Online

@@ -11,17 +11,17 @@ const ServiceAreas = dynamic(() => import('@/components/ServiceAreas'));
 const Contact = dynamic(() => import('@/components/Contact'));
 
 export const metadata = {
-  title: 'Top-Rated House Cleaning Services Sanford, FL',
+  title: 'House Cleaning in Sanford, FL',
   description:
-    "Looking for the best home cleaners and maid service in Sanford, FL? Bonded, insured house cleaning, deep cleaning, and move-out services. Book online today!",
+    "Professional home cleaners in Sanford, FL offering housekeeping, deep cleaning, and move-out services. Request a quote online today.",
   alternates: {
     canonical: 'https://sanfordcleaning.com',
   },
   openGraph: {
     title:
-      'Sanford Cleaning | Top-Rated House & Commercial Cleaning in Sanford, FL',
+      'Sanford Cleaning | House & Commercial Cleaning',
     description:
-      "Get a sparkling clean house or office with Sanford Cleaning's top-rated home cleaners. We offer reliable housekeeping, commercial, and deep cleaning in Sanford, FL. Book online in 60 seconds!",
+      "Get a sparkling clean house or office with Sanford Cleaning. We offer reliable housekeeping, commercial, and deep cleaning in Sanford, FL.",
     type: 'website',
     url: 'https://sanfordcleaning.com',
     siteName: 'Sanford Cleaning',
@@ -36,9 +36,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sanford Cleaning | #1 Rated Cleaning Service in Sanford, FL',
+    title: 'Sanford Cleaning | Local Cleaning in Sanford, FL',
     description:
-      "Sanford's #1 rated cleaning service for house & office. Get an instant, free quote online and book in 60 seconds!",
+      "Professional house and office cleaning in Sanford, FL. Get a free quote online.",
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
   },
 };

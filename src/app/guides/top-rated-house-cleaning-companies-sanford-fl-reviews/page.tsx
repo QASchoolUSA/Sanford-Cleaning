@@ -3,12 +3,12 @@ import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
-  title: 'Top-Rated House Cleaning Companies in Sanford FL (2026 Reviews)',
+  title: 'Top House Cleaning Companies in Sanford, FL',
   description:
     'Comparing the top-rated house cleaning services in Sanford, FL based on 2026 customer reviews. See who ranks #1 for reliability and quality.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/top-rated-house-cleaning-companies-sanford-fl-reviews' },
   openGraph: {
-    title: 'Top-Rated House Cleaning Companies in Sanford FL (2026 Reviews)',
+    title: 'Top House Cleaning Companies in Sanford, FL',
     description:
       'We analyzed reviews for Sanford cleaning companies. Here is a guide to the top-rated services for reliability, speed, and quality.',
     url: 'https://sanfordcleaning.com/guides/top-rated-house-cleaning-companies-sanford-fl-reviews',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Top-Rated House Cleaning Companies in Sanford FL (2026 Reviews)',
+    title: 'Top House Cleaning Companies in Sanford, FL',
     description:
       'Comparing the top-rated house cleaning services in Sanford, FL based on 2026 customer reviews. See who ranks #1 for reliability and quality.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
@@ -28,7 +28,7 @@ export default function Page() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Top-Rated House Cleaning Companies in Sanford FL (2026 Reviews)',
+    headline: 'Top House Cleaning Companies in Sanford, FL',
     image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
     author: {
       '@type': 'Person',

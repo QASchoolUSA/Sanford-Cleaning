@@ -3,12 +3,12 @@ import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
-  title: 'Eco-Friendly House Cleaning in Sanford FL (Safe for Pets & Kids)',
+  title: 'Eco-Friendly House Cleaning in Sanford, FL',
   description:
     'Looking for green cleaning in Sanford? We use safe, non-toxic products that are tough on dirt but safe for your pets and children.',
   alternates: { canonical: 'https://sanfordcleaning.com/guides/eco-friendly-house-cleaning-options-sanford-fl' },
   openGraph: {
-    title: 'Eco-Friendly House Cleaning in Sanford FL (Safe for Pets & Kids)',
+    title: 'Eco-Friendly House Cleaning in Sanford, FL',
     description:
       'A guide to our non-toxic cleaning methods. Perfect for allergy sufferers, pet owners, and families in Sanford, FL.',
     url: 'https://sanfordcleaning.com/guides/eco-friendly-house-cleaning-options-sanford-fl',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Eco-Friendly House Cleaning in Sanford FL (Safe for Pets & Kids)',
+    title: 'Eco-Friendly House Cleaning in Sanford, FL',
     description:
       'Looking for green cleaning in Sanford? We use safe, non-toxic products that are tough on dirt but safe for your pets and children.',
     images: ['https://sanfordcleaning.com/sanford-cleaning-homepage.webp'],
@@ -28,7 +28,7 @@ export default function Page() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Eco-Friendly House Cleaning in Sanford FL (Safe for Pets & Kids)',
+    headline: 'Eco-Friendly House Cleaning in Sanford, FL',
     image: 'https://sanfordcleaning.com/sanford-cleaning-homepage.webp',
     author: {
       '@type': 'Person',

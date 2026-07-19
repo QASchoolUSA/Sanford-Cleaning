@@ -8,14 +8,14 @@ import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Sparkles, ScanLine, CheckCircle, Phone, ArrowRight, Shield, Clock, MapPin, Sun, Wind } from "lucide-react";
 
 export const metadata = {
-  title: "Top-Rated Window Cleaning in Sanford, FL | Streak-Free Shine",
+  title: "Window Cleaning in Sanford, FL | Streak-Free Results",
   description:
     "Professional window cleaning service in Sanford, FL. We clean inside and outside windows, screens, and tracks for homes and businesses. Get a free quote!",
   keywords:
     "window cleaning near me, sanford window cleaning, window cleaning sanford fl, window cleaning in sanford florida, outside and inside window cleaning, residential window cleaning, commercial window cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/window-cleaning" },
   openGraph: {
-    title: "Top-Rated Window Cleaning in Sanford, FL | Streak-Free Shine",
+    title: "Window Cleaning in Sanford, FL | Streak-Free Results",
     description:
       "Professional window cleaning service in Sanford, FL. We clean inside and outside windows, screens, and tracks for homes and businesses. Get a free quote!",
     type: "website",
@@ -24,7 +24,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top-Rated Window Cleaning in Sanford, FL | Streak-Free Shine",
+    title: "Window Cleaning in Sanford, FL | Streak-Free Results",
     description:
       "Professional window cleaning service in Sanford, FL. We clean inside and outside windows, screens, and tracks for homes and businesses. Get a free quote!",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],

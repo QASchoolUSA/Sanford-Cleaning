@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ExpandedSanfordGuide from '@/components/ExpandedSanfordGuide';
 
 export const metadata: Metadata = {
   title: 'Sanford FL House Cleaning Service Providers by Quality',
@@ -52,6 +53,7 @@ export default function Page() {
       </section>
 
       <section className="container mx-auto px-4 py-10">
+        <ExpandedSanfordGuide guideKey="quality" />
         <h2 className="text-2xl font-semibold">Quality Signals</h2>
         <ul className="mt-3 list-disc pl-6 text-slate-700">
           <li>Training and standardized checklists</li>

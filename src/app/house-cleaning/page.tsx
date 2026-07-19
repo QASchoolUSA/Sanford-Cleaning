@@ -4,16 +4,17 @@ import Image from 'next/image';
 import AuthorBio from '@/components/AuthorBio';
 import SpecialOffers from '@/components/SpecialOffers';
 import { Home as HomeIcon, Clock, CheckCircle, ArrowRight, Zap, Shield, Sparkles } from 'lucide-react';
+import { siteFacts } from '@/lib/siteFacts';
 
 export const metadata = {
-  title: '5-Star House Cleaning in Sanford, FL | Instant Online Booking',
+  title: 'House Cleaning in Sanford, FL | Sanford Cleaning',
   description:
-    '5-star house cleaning services in Sanford, FL. From $80. Get your free instant quote and book online in 60 seconds.',
+    `House cleaning in Sanford, FL. ${siteFacts.pricing.messages.entryAndTypical} Get a free quote online.`,
   alternates: { canonical: 'https://sanfordcleaning.com/house-cleaning' },
   openGraph: {
-    title: '5-Star House Cleaning in Sanford, FL | Instant Online Booking',
+    title: 'House Cleaning in Sanford, FL | Sanford Cleaning',
     description:
-      'Tired of cleaning? Reclaim your weekend! Sanford Cleaning offers 5-star rated house cleaning from just $80. Get your free, instant quote & book online in 60 seconds!',
+      `Professional Sanford house cleaning. ${siteFacts.pricing.messages.entryAndTypical} Get a free quote online.`,
     type: 'website',
     url: 'https://sanfordcleaning.com/house-cleaning',
     images: [{ url: 'https://sanfordcleaning.com/sanford-residential-cleaning.webp', width: 1200, height: 630 }],
@@ -66,9 +67,10 @@ export default function ResidentialCleaningPage() {
                 },
                 "priceSpecification": {
                   "@type": "UnitPriceSpecification",
-                  "price": "80.00",
+                  "price": "${siteFacts.pricing.entryStartingFrom}.00",
                   "priceCurrency": "USD",
-                  "unitText": "visit"
+                  "unitText": "entry-level job",
+                  "description": "${siteFacts.pricing.messages.entryAndTypical}"
                 }
               },
               {
@@ -87,7 +89,7 @@ export default function ResidentialCleaningPage() {
     {
       name: 'Regular House Cleaning',
       description: 'Weekly or bi-weekly cleaning to maintain your house',
-      price: 'Starting at $80',
+      price: siteFacts.pricing.messages.entryAndTypical,
       duration: '2-4 hours',
       includes: [
         'Kitchen cleaning and sanitization',
@@ -146,7 +148,7 @@ export default function ResidentialCleaningPage() {
         "name": "How much does your house cleaning service cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our pricing is transparent and based on your house's size and needs. Standard cleaning services start at just $80, and you can get a free, no-obligation quote instantly on our website."
+          "text": "${siteFacts.pricing.messages.full} Final pricing depends on the home's size, condition, scope, and add-ons; request a free quote."
         }
       },
       {
@@ -218,10 +220,10 @@ export default function ResidentialCleaningPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does house cleaning help cost in Sanford, FL?</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg leading-relaxed mb-4">
-                <strong>Sanford Cleaning</strong> provides 5-star <strong>house cleaning in Sanford, FL</strong> starting at <strong>$80/visit</strong>. Unlike franchise maids, our local insured team uses pH-neutral products safe for Sanford&apos;s hard water and targets high-humidity mold risks. We offer weekly, bi-weekly, and one-time cleans with next-day availability.
+                <strong>{siteFacts.brandName}</strong> provides professional <strong>house cleaning in Sanford, FL</strong>. <strong>{siteFacts.pricing.messages.entryAndTypical}</strong> Final pricing depends on the home&apos;s size, condition, scope, and add-ons.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
-                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Weekly / Bi-Weekly:</strong> Starting at $80</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Pricing:</strong>&nbsp;{siteFacts.pricing.messages.entryAndTypical}</li>
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>One-Time Clean:</strong> Starting at $120</li>
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Availability:</strong> Next-day often available</li>
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Service Area:</strong> All Sanford zip codes</li>
@@ -269,7 +271,7 @@ export default function ResidentialCleaningPage() {
             <div className="p-4 bg-green-50 rounded-xl border border-green-100 text-center">
               <Zap className="w-8 h-8 text-green-600 mx-auto mb-2" />
               <div className="text-sm text-gray-500 font-medium uppercase tracking-wide">Starting Price</div>
-              <div className="font-bold text-gray-900">$80 (Flat Rate)</div>
+              <div className="font-bold text-gray-900">Entry ${siteFacts.pricing.entryStartingFrom} · Typical 3BR {siteFacts.pricing.typical3brStandard}</div>
             </div>
             <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 text-center">
               <Sparkles className="w-8 h-8 text-purple-600 mx-auto mb-2" />

@@ -6,12 +6,12 @@ import SpecialOffers from "@/components/SpecialOffers";
 import { Home as HomeIcon, CheckCircle, Clock, ArrowRight, Shield, MapPin, Star, Bed } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
+  title: 'Airbnb Cleaning in Sanford, FL | Turnover Service',
   description:
     'Professional Airbnb cleaning and short-term rental turnover in Sanford, FL. Fast same-day service, hotel-standard linen care, restocking, and guest-ready quality.',
   alternates: { canonical: 'https://sanfordcleaning.com/airbnb-cleaning' },
   openGraph: {
-    title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
+    title: 'Airbnb Cleaning in Sanford, FL | Turnover Service',
     description:
       'Reliable Airbnb turnover cleaning in Sanford, FL with hotel-standard linen care, restocking, and guest-ready presentation. Book fast same-day service.',
     type: 'website',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Airbnb Cleaning in Sanford, FL | Short-Term Rental Turnover Service',
+    title: 'Airbnb Cleaning in Sanford, FL | Turnover Service',
     description:
       'Reliable Airbnb turnover cleaning in Sanford, FL with hotel-standard linen care, restocking, and guest-ready presentation. Book fast same-day service.',
     images: ['https://sanfordcleaning.com/guide-airbnb-turnover-sanford.webp'],

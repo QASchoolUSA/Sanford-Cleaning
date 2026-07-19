@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import { Shield, Leaf, Clock, Award, Phone, ArrowRight } from 'lucide-react';
+import { siteFacts } from '@/lib/siteFacts';
 
 export const metadata: Metadata = {
   title: 'About Us — Licensed House Cleaners in Sanford, FL',
@@ -116,10 +117,10 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                Sanford Cleaning is a professional cleaning company operated by <strong>Topaz West LLC</strong>, serving
+                Sanford Cleaning is a professional cleaning company operated by <strong>{siteFacts.legalName}</strong>, serving
                 homeowners, renters, property managers, and businesses throughout Sanford, FL and the greater Central
-                Florida area. With more than 10 years of combined experience in the cleaning industry, our team has built
-                a reputation for reliability, attention to detail, and honest communication.
+                Florida area. {siteFacts.experienceStatement} Our team has built a reputation for reliability, attention
+                to detail, and honest communication.
               </p>
               <p>
                 We are not a faceless national franchise. We are local house cleaners who understand Seminole County —

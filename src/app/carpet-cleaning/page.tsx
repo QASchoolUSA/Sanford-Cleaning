@@ -6,14 +6,14 @@ import SpecialOffers from "@/components/SpecialOffers";
 import { Sparkles, CheckCircle, Shield, Clock, MapPin, Droplets, ArrowRight, Fan, PawPrint } from "lucide-react";
 
 export const metadata = {
-  title: "#1 Carpet & Rug Cleaning in Sanford FL",
+  title: "Carpet Cleaning in Sanford, FL | Sanford Cleaning",
   description:
     "Professional carpet cleaning in Sanford, FL: steam extraction, pet odor removal, and spot treatment for homes and businesses.",
   keywords:
     "carpet cleaning sanford fl, sanford carpet cleaning, professional carpet cleaning, steam cleaning sanford fl, pet odor removal, carpet stain removal, residential carpet cleaning, commercial carpet cleaning",
   alternates: { canonical: "https://sanfordcleaning.com/carpet-cleaning" },
   openGraph: {
-    title: "#1 Carpet & Rug Cleaning in Sanford FL",
+    title: "Carpet Cleaning in Sanford, FL | Sanford Cleaning",
     description:
       "Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets.",
     type: "website",
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "#1 Carpet & Rug Cleaning in Sanford FL",
+    title: "Carpet Cleaning in Sanford, FL | Sanford Cleaning",
     description:
       "Professional carpet cleaning in Sanford, FL—steam extraction, pet stain and odor treatment, and spot removal for fresh, clean carpets.",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],

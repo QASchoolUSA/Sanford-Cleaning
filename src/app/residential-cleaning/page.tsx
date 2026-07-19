@@ -2,14 +2,15 @@ import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Home as HomeIcon, Clock, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { siteFacts } from '@/lib/siteFacts';
 
 export const metadata = {
-  title: 'Residential Cleaning in Sanford, FL | Apartments & Townhouses',
+  title: 'Residential Cleaning in Sanford, FL | Homes & Apartments',
   description:
     'Top-rated residential cleaning services in Sanford, FL. Specialized in apartments, townhouses, and condos. Maintenance, deep cleaning, and move-in/out services. Book online!',
   alternates: { canonical: 'https://sanfordcleaning.com/residential-cleaning' },
   openGraph: {
-    title: 'Residential Cleaning in Sanford, FL | Apartments & Townhouses',
+    title: 'Residential Cleaning in Sanford, FL | Homes & Apartments',
     description:
       'Looking for reliable residential cleaning in Sanford? We specialize in apartments and townhouses. Deep cleaning, odor elimination, and more. Get a free quote!',
     type: 'website',
@@ -42,7 +43,7 @@ export default function ResidentialCleaningPage() {
     {
       name: 'Maintenance Cleaning',
       description: 'Regular cleaning to keep your apartment or townhouse sparkling.',
-      price: 'Starting at $80',
+      price: siteFacts.pricing.messages.entryAndTypical,
       duration: '2-3 hours',
       includes: [
         'Dusting all surfaces',
@@ -57,7 +58,7 @@ export default function ResidentialCleaningPage() {
     {
       name: 'Deep Cleaning',
       description: 'Thorough top-to-bottom cleaning for neglected spaces.',
-      price: 'Starting at $150',
+      price: `Typical ${siteFacts.pricing.typicalDeep}`,
       duration: '3-5 hours',
       includes: [
         'Baseboards and door frames',

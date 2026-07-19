@@ -7,12 +7,12 @@ import SpecialOffers from "@/components/SpecialOffers";
 import { Home, CheckCircle, Calendar, Shield, Sparkles, ArrowRight, RotateCw, PenTool } from "lucide-react";
 
 export const metadata = {
-    title: "Recurring Maintenance Cleaning Sanford FL | Weekly & Bi-Weekly",
+    title: "Maintenance Cleaning in Sanford, FL | Weekly Options",
     description:
         "Keep your home pristine with maintenance cleaning in Sanford, FL. Weekly, bi-weekly, and monthly plans starting at $70. Save time & money!",
     alternates: { canonical: "https://sanfordcleaning.com/maintenance-cleaning" },
     openGraph: {
-        title: "Recurring Maintenance Cleaning Sanford FL | Weekly & Bi-Weekly",
+        title: "Maintenance Cleaning in Sanford, FL | Weekly Options",
         description:
             "Automate your chores! Maintenance cleaning plans in Sanford starting at $70. Weekly, bi-weekly, or monthly. No contracts. Book online.",
         type: "website",

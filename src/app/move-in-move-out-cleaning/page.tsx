@@ -8,12 +8,12 @@ import ConversationalFAQ from "@/components/ConversationalFAQ";
 import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sparkles, Key, Truck, Calendar, DollarSign } from "lucide-react";
 
 export const metadata = {
-  title: "Top-Rated Move-In & Move-Out Cleaning in Sanford, FL | Free Quotes",
+  title: "Move-In & Move-Out Cleaning in Sanford, FL",
   description:
     "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
   alternates: { canonical: "https://sanfordcleaning.com/move-in-move-out-cleaning" },
   openGraph: {
-    title: "Top-Rated Move-In & Move-Out Cleaning in Sanford, FL | Free Quotes",
+    title: "Move-In & Move-Out Cleaning in Sanford, FL",
     description:
       "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
     type: "website",
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top-Rated Move-In & Move-Out Cleaning in Sanford, FL | Free Quotes",
+    title: "Move-In & Move-Out Cleaning in Sanford, FL",
     description:
       "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
   },
