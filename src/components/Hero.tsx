@@ -1,10 +1,8 @@
 import React, { Suspense } from 'react';
 import { Phone, Star, Clock, Shield, Calculator as HeroCalculator } from 'lucide-react';
-import dynamic from 'next/dynamic';
 import ScrollToCalculatorButton from './ScrollToCalculatorButton';
 import { siteFacts } from '@/lib/siteFacts';
-
-const PriceCalculator = dynamic(() => import('./PriceCalculator'));
+import PriceCalculatorServer from './PriceCalculatorServer';
 
 const Hero = () => {
   return (
@@ -89,7 +87,7 @@ const Hero = () => {
             {/* Calculator Content */}
             <div id="price-calculator" className="p-2 lg:p-8">
               <Suspense fallback={<div className="py-12 text-center text-gray-500">Loading calculator…</div>}>
-                <PriceCalculator />
+                <PriceCalculatorServer />
               </Suspense>
             </div>
           </div>

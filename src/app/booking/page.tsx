@@ -1,8 +1,6 @@
 import { Suspense } from 'react';
 import { Calculator, X } from 'lucide-react';
-import dynamic from 'next/dynamic';
-
-const PriceCalculator = dynamic(() => import('@/components/PriceCalculator'));
+import PriceCalculatorServer from '@/components/PriceCalculatorServer';
 import Link from 'next/link';
 
 export const metadata = {
@@ -61,7 +59,7 @@ export default function BookingPage() {
               {/* Calculator Content */}
               <div id="price-calculator" className="flex-1 flex flex-col min-h-0 w-full p-0 lg:p-8">
                 <Suspense fallback={<div className="py-12 text-center text-gray-500">Loading booking options...</div>}>
-                  <PriceCalculator />
+                  <PriceCalculatorServer />
                 </Suspense>
               </div>
             </div>

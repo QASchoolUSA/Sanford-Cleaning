@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:booking": "tsx --test tests/booking-single-creation.test.ts",
+    "test:pricing": "tsx --test tests/pricing.test.ts",
     "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error --skip '.*instagram.com.*'",
     "validate:jsonld": "tsx scripts/validate-jsonld.ts",
     "indexnow": "tsx scripts/submit-indexnow.ts"

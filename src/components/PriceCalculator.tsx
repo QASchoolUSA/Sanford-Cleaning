@@ -6,6 +6,11 @@ import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, S
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
 import AddressAutocomplete from '@/components/ui/address-autocomplete';
+import {
+  DEFAULT_PRICING_CONFIG,
+  calculateQuote,
+  type PricingConfig,
+} from '@/lib/pricing';
 
 interface FormData {
   // Step 1: Service Selection
@@ -44,7 +49,11 @@ interface FormData {
   paymentType: string;
 }
 
-const PriceCalculator = () => {
+const PriceCalculator = ({
+  config = DEFAULT_PRICING_CONFIG,
+}: {
+  config?: PricingConfig;
+}) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const calculatorRef = useRef<HTMLDivElement>(null);
@@ -53,8 +62,6 @@ const PriceCalculator = () => {
     const parsed = param ? Number(param) : NaN;
     return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
   });
-  const [estimatedPrice, setEstimatedPrice] = useState(0);
-  const [maintenancePrice, setMaintenancePrice] = useState(0);
   const [showExtras, setShowExtras] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   /** Sync guard — React state alone can miss rapid double-clicks before re-render. */
@@ -95,16 +102,13 @@ const PriceCalculator = () => {
     'Hourly Cleaning'
   ];
 
-  const frequencyOptions = ['Weekly', 'Every Other Week', 'Every 4 Weeks'];
+  const frequencyOptions = useMemo(
+    () => config.maintenance.byFrequency.map(row => row.key),
+    [config]
+  );
 
   /** Quick picks for people who do not know their exact footage; value is the band midpoint. */
-  const SQFT_BANDS = [
-    { label: 'Under 1,000', value: 900 },
-    { label: '1,000–1,500', value: 1250 },
-    { label: '1,500–2,500', value: 2000 },
-    { label: '2,500–4,000', value: 3200 },
-    { label: '4,000+', value: 4500 },
-  ];
+  const SQFT_BANDS = config.sqftBands;
 
   const bedroomOptions = ['1', '2', '3', '4', '5', '6'];
 
@@ -112,24 +116,12 @@ const PriceCalculator = () => {
 
   const areaOptions = ['Bedroom', 'Full Bathroom', 'Kitchen', 'Living/Dining Room'];
 
-  const extraOptions = useMemo(() => ([
-    { name: 'Behind fridge', price: 20, hasQuantity: false },
-    { name: 'Behind oven', price: 20, hasQuantity: false },
-    { name: 'Inside oven', price: 35, hasQuantity: false },
-    { name: 'Deep Cleaning', price: 40, hasQuantity: false },
-    { name: 'Heavy Duty', price: 80, hasQuantity: false },
-    { name: 'Inside fridge', price: 30, hasQuantity: false },
-    { name: 'Patio windows in/out', price: 10, hasQuantity: true, unit: 'window' },
-    { name: 'Interior windows (all, excludes patio)', price: 30, hasQuantity: false },
-    { name: 'Wet wipe window blinds', price: 10, hasQuantity: true, unit: 'blind' },
-    { name: 'Organization (30 min)', price: 20, hasQuantity: false },
-    { name: 'Green Cleaning', price: 0, hasQuantity: false },
-    { name: 'Dishes', price: 10, hasQuantity: false },
-    { name: 'Laundry & Folding', price: 20, hasQuantity: false },
-    { name: 'Carpet Cleaning', price: 20, hasQuantity: true, unit: 'area' }
-  ]), []);
+  const extraOptions = useMemo(() => config.extras, [config]);
 
-  const conditionOptions = ['Very clean', 'Pretty clean', 'Average', 'Pretty dirty', 'Very dirty'];
+  const conditionOptions = useMemo(
+    () => config.conditionSurcharges.map(option => option.label),
+    [config]
+  );
 
   const peopleOptions = ['1', '2', '3', '4', '5+'];
 
@@ -216,180 +208,10 @@ const PriceCalculator = () => {
     }
   };
 
-  // Calculate estimated price based on form data
-  useEffect(() => {
-    let finalPrice = 0;
-    let maintenanceRecurringPrice = 0;
-
-    if (formData.service === 'Hourly Cleaning') {
-      // Hourly Cleaning service: $55/hour, no sqft/bed/bath modifiers
-      const totalMinutes = (formData.hours || 0) * 60 + (formData.minutes || 0);
-      finalPrice = (totalMinutes / 60) * 55;
-    } else if (formData.service === 'Move In / Move Out Cleaning') {
-      // Move In / Move Out service: special pricing with house condition modifiers
-      let basePrice = 277; // Base price for <1000sqft, 1 bedroom, 1 bathroom
-
-      const sqft = parseInt(formData.squareFootage) || 0;
-      const bedrooms = parseInt(formData.bedrooms) || 0;
-      const bathrooms = parseFloat(formData.bathrooms) || 0;
-
-      // For every 1000 sqft above 1000, add $10
-      if (sqft > 1000) {
-        const additionalThousands = Math.ceil((sqft - 1000) / 1000);
-        basePrice += additionalThousands * 10;
-      }
-
-      // For bedrooms above 1, add $10 each
-      if (bedrooms > 1) {
-        basePrice += (bedrooms - 1) * 10;
-      }
-
-      // For bathrooms above 1, add $6.50 each
-      if (bathrooms > 1) {
-        basePrice += (bathrooms - 1) * 6.5;
-      }
-
-      // Add house condition modifier
-      switch (formData.houseCondition) {
-        case 'Very clean':
-          // No additional charge
-          break;
-        case 'Pretty clean':
-          basePrice += 25;
-          break;
-        case 'Average':
-          basePrice += 55;
-          break;
-        case 'Pretty dirty':
-          basePrice += 115;
-          break;
-        case 'Very dirty':
-          basePrice += 195;
-          break;
-      }
-
-      finalPrice = basePrice;
-    } else {
-      // All other services start with base price calculation
-      let basePrice = 157;
-
-      // Apply sqft/bed/bath modifiers
-      const sqft = parseInt(formData.squareFootage) || 0;
-      const bedrooms = parseInt(formData.bedrooms) || 0;
-      const bathrooms = parseFloat(formData.bathrooms) || 0;
-
-      // For every 1000 sqft above 1000, add $10
-      if (sqft > 1000) {
-        const additionalThousands = Math.ceil((sqft - 1000) / 1000);
-        basePrice += additionalThousands * 10;
-      }
-
-      // For bedrooms above 1, add $10 each
-      if (bedrooms > 1) {
-        basePrice += (bedrooms - 1) * 10;
-      }
-
-      // For bathrooms above 1, add $12 each
-      if (bathrooms > 1) {
-        basePrice += (bathrooms - 1) * 12;
-      }
-
-      // For Maintenance Cleaning, calculate both initial and recurring prices
-      if (formData.service === 'Maintenance Cleaning' && formData.frequency) {
-        // Initial cleaning uses full calculated price
-        finalPrice = basePrice;
-
-        // Recurring service uses base frequency pricing plus modifiers
-        let baseMaintenancePrice = 0;
-        switch (formData.frequency) {
-          case 'Weekly':
-            baseMaintenancePrice = 109.90;
-            break;
-          case 'Every Other Week':
-            baseMaintenancePrice = 120.89;
-            break;
-          case 'Every 4 Weeks':
-            baseMaintenancePrice = 141.30;
-            break;
-          default:
-            baseMaintenancePrice = 109.90;
-        }
-
-        // Apply same modifiers to maintenance price
-        maintenanceRecurringPrice = baseMaintenancePrice;
-
-        // Add sqft modifier to maintenance price
-        if (sqft > 1000) {
-          const additionalThousands = Math.ceil((sqft - 1000) / 1000);
-          maintenanceRecurringPrice += additionalThousands * 7; // $7 per 1000 sqft for maintenance
-        }
-
-        // Add bedroom modifier to maintenance price
-        if (bedrooms > 1) {
-          maintenanceRecurringPrice += (bedrooms - 1) * 7; // $7 per extra bedroom for maintenance
-        }
-
-        // Add bathroom modifier to maintenance price
-        if (bathrooms > 1) {
-          maintenanceRecurringPrice += (bathrooms - 1) * 8.2; // $8.20 per extra bathroom for maintenance
-        }
-      } else {
-        // Use the calculated base price for initial cleaning or other services
-        finalPrice = basePrice;
-      }
-    }
-
-    // Add extras pricing (only for non-Hourly Cleaning services)
-    if (formData.service !== 'Hourly Cleaning') {
-      let extrasTotal = 0;
-      let maintenanceExtrasTotal = 0;
-
-      // Extras that apply to both initial and maintenance cleaning
-      const maintenanceIncludedExtras = ['Inside oven', 'Dishes', 'Laundry & Folding'];
-
-      formData.extras.forEach(extra => {
-        const extraOption = extraOptions.find(opt => opt.name === extra.name);
-        if (extraOption) {
-          const quantity = extra.quantity || 1;
-          const extraCost = extraOption.price * quantity;
-
-          // Add to initial cleaning price
-          extrasTotal += extraCost;
-
-          // Add to maintenance price if it's in the included list
-          if (maintenanceIncludedExtras.includes(extra.name)) {
-            maintenanceExtrasTotal += extraCost;
-          }
-        }
-      });
-
-      finalPrice += extrasTotal;
-      // Add specific extras to maintenance recurring price
-      if (formData.service === 'Maintenance Cleaning') {
-        maintenanceRecurringPrice += maintenanceExtrasTotal;
-      }
-    }
-
-    // Auto-suggest Heavy Duty if last cleaning was over 90 days ago
-    if (formData.lastCleaning) {
-      const lastCleaningDate = new Date(formData.lastCleaning);
-      const daysSinceLastCleaning = (Date.now() - lastCleaningDate.getTime()) / (1000 * 60 * 60 * 24);
-
-      if (daysSinceLastCleaning > 90 && !formData.wasProfessional) {
-        const hasHeavyDuty = formData.extras.some(extra => extra.name === 'Heavy Duty');
-        if (!hasHeavyDuty) {
-          // Auto-add Heavy Duty suggestion (you might want to show this as a suggestion instead)
-          // For now, we'll just note it in the calculation
-        }
-      }
-    }
-
-    // Apply 15% discount to estimates
-    const DISCOUNT_MULTIPLIER = 0.85;
-
-    setEstimatedPrice(Math.round(finalPrice * DISCOUNT_MULTIPLIER * 100) / 100); // 15% off
-    setMaintenancePrice(Math.round(maintenanceRecurringPrice * DISCOUNT_MULTIPLIER * 100) / 100); // 15% off
-  }, [formData, extraOptions]);
+  const { price: estimatedPrice, maintenancePrice } = useMemo(
+    () => calculateQuote(formData, config),
+    [formData, config]
+  );
 
   const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
