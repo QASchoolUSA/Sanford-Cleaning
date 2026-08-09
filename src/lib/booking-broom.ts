@@ -16,6 +16,8 @@ export type SanfordBookingPayload = {
   keyInfo: string;
   service: string;
   squareFootage?: string;
+  /** Present when the customer picked a range instead of typing an exact figure. */
+  squareFootageLabel?: string;
   bedrooms?: number;
   bathrooms?: number;
   paymentType: string;
@@ -57,37 +59,47 @@ function pruneExpiredCache(now = Date.now()): void {
   }
 }
 
+/** Only what has no structured home: the ID, access info and payment remarks. */
 function buildNotes(booking: SanfordBookingPayload, bookingId?: string): string {
   const parts: string[] = [];
 
   if (bookingId) parts.push(`Booking ID: ${bookingId}`);
   if (booking.keyInfo) parts.push(`Key info: ${booking.keyInfo}`);
-  if (booking.squareFootage) parts.push(`Sq ft: ${booking.squareFootage}`);
-  if (booking.bedrooms != null) parts.push(`Bedrooms: ${booking.bedrooms}`);
-  if (booking.bathrooms != null) parts.push(`Bathrooms: ${booking.bathrooms}`);
-  if (booking.frequency) parts.push(`Frequency: ${booking.frequency}`);
-  if (booking.paymentType) parts.push(`Payment: ${booking.paymentType}`);
   if (booking.paymentComment) parts.push(`Payment note: ${booking.paymentComment}`);
-  if (typeof booking.estimatedPrice === "number") {
-    parts.push(`Estimated price: $${booking.estimatedPrice}`);
-  }
   if (typeof booking.maintenancePrice === "number") {
     parts.push(`Maintenance price: $${booking.maintenancePrice}`);
   }
-  if (booking.extras?.length) {
-    parts.push(
-      "Extras: " +
-        booking.extras
-          .map((extra) =>
-            typeof extra.price === "number"
-              ? `${extra.name} ($${extra.price})`
-              : extra.name,
-          )
-          .join("; "),
-    );
-  }
 
   return parts.join("\n");
+}
+
+function buildProperty(booking: SanfordBookingPayload) {
+  const parsed = booking.squareFootage
+    ? Number(booking.squareFootage.replace(/[^0-9]/g, ""))
+    : undefined;
+  const squareFeet = Number.isFinite(parsed) ? parsed : undefined;
+  // A band came from a quick pick, so its midpoint is not a real measurement.
+  const fromBand = Boolean(booking.squareFootageLabel);
+
+  return {
+    bedrooms: booking.bedrooms ?? undefined,
+    bathrooms: booking.bathrooms ?? undefined,
+    square_feet: fromBand ? undefined : squareFeet,
+    size_label: booking.squareFootageLabel ?? (squareFeet ? undefined : booking.squareFootage),
+  };
+}
+
+function buildQuote(booking: SanfordBookingPayload) {
+  return {
+    estimate: booking.estimatedPrice,
+    currency: "USD",
+    frequency: booking.frequency,
+    add_ons: booking.extras?.map((extra) => ({
+      label: extra.name,
+      price: extra.price,
+    })),
+    payment_terms: booking.paymentType,
+  };
 }
 
 async function postToBookingBroom(
@@ -130,7 +142,9 @@ async function postToBookingBroom(
         service_type: booking.service,
         preferred_date: booking.scheduledDate,
         preferred_time: booking.scheduledTime,
-        notes: buildNotes(booking, bookingId),
+        notes: buildNotes(booking, bookingId) || undefined,
+        property: buildProperty(booking),
+        quote: buildQuote(booking),
         // Hint for Booking Broom / Convex to treat retries as the same booking.
         ...(bookingId
           ? { idempotency_key: bookingId, external_id: bookingId }

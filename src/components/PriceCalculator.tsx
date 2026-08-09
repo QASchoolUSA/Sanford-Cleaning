@@ -16,6 +16,8 @@ interface FormData {
 
   // Step 2: Home Details
   squareFootage: string;
+  /** Set when the size came from a quick-pick band rather than an exact entry. */
+  squareFootageBand: string;
   bedrooms: string;
   bathrooms: string;
   excludeAreas: boolean;
@@ -61,6 +63,7 @@ const PriceCalculator = () => {
   const [formData, setFormData] = useState<FormData>({
     service: '',
     squareFootage: '',
+    squareFootageBand: '',
     bedrooms: '1',
     bathrooms: '1',
     excludeAreas: false,
@@ -93,6 +96,15 @@ const PriceCalculator = () => {
   ];
 
   const frequencyOptions = ['Weekly', 'Every Other Week', 'Every 4 Weeks'];
+
+  /** Quick picks for people who do not know their exact footage; value is the band midpoint. */
+  const SQFT_BANDS = [
+    { label: 'Under 1,000', value: 900 },
+    { label: '1,000–1,500', value: 1250 },
+    { label: '1,500–2,500', value: 2000 },
+    { label: '2,500–4,000', value: 3200 },
+    { label: '4,000+', value: 4500 },
+  ];
 
   const bedroomOptions = ['1', '2', '3', '4', '5', '6'];
 
@@ -487,6 +499,9 @@ const PriceCalculator = () => {
       keyInfo: formData.keyInfo,
       service: formData.service || 'Cleaning Service',
       squareFootage: formData.squareFootage || '',
+      squareFootageLabel: formData.squareFootageBand
+        ? `${formData.squareFootageBand} sq ft`
+        : undefined,
       bedrooms: Number(formData.bedrooms),
       bathrooms: Number(formData.bathrooms),
       paymentType: formData.paymentType || '',
@@ -684,12 +699,44 @@ const PriceCalculator = () => {
     <div className="space-y-6">
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-3">Total Square Footage</label>
+        <div className="flex flex-wrap gap-2 mb-3" role="radiogroup" aria-label="Square footage range">
+          {SQFT_BANDS.map(band => {
+            const selected = formData.squareFootageBand === band.label;
+            return (
+              <button
+                key={band.label}
+                type="button"
+                role="radio"
+                aria-checked={selected}
+                onClick={() =>
+                  setFormData(prev => ({
+                    ...prev,
+                    squareFootage: String(band.value),
+                    squareFootageBand: band.label,
+                  }))
+                }
+                className={`px-4 h-12 rounded-full font-semibold transition-all duration-200 border-2 ${selected
+                  ? 'bg-blue-600 border-blue-600 text-white'
+                  : 'bg-white border-gray-300 text-gray-700 hover:border-blue-500'
+                  }`}
+              >
+                {band.label}
+              </button>
+            );
+          })}
+        </div>
         <input
           type="number"
           value={formData.squareFootage}
-          onChange={(e) => updateFormData('squareFootage', e.target.value)}
+          onChange={(e) =>
+            setFormData(prev => ({
+              ...prev,
+              squareFootage: e.target.value,
+              squareFootageBand: '',
+            }))
+          }
           className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="e.g. 1500"
+          placeholder="Or enter exact sq ft, e.g. 1500"
           data-cy="square-footage-input"
         />
       </div>
