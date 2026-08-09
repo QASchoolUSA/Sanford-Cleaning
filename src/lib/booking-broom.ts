@@ -124,7 +124,9 @@ function buildQuote(booking: SanfordBookingPayload) {
       price: extra.price,
       quantity: extra.quantity,
     })),
-    payment_terms: booking.paymentType,
+    // The calculator collects a method ("Credit Card"), which reads as nonsense
+    // under the dashboard's "Payment terms" label without this prefix.
+    payment_terms: booking.paymentType ? `Paying by ${booking.paymentType}` : undefined,
   };
 }
 
