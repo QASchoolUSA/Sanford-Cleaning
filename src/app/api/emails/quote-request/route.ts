@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import type { SentMessageInfo } from 'nodemailer';
 import { quoteRequestAdminHtml, quoteRequestCustomerHtml } from '@/lib/emailTemplates';
+import { forwardQuoteRequestToBookingBroom } from '@/lib/booking-broom';
 
 type QuoteRequest = {
   name: string;
@@ -18,6 +19,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing required fields: name, email' }, { status: 400 });
     }
 
+    // Forward before the SMTP checks below: a lead should reach the dashboard
+    // even when email delivery is misconfigured.
+    const broom = await forwardQuoteRequestToBookingBroom(body);
+    if (broom.error) {
+      console.error('Failed to forward quote request to Booking Broom:', broom.error);
+    }
+
     const EMAIL_FROM = process.env.EMAIL_FROM || 'no-reply@sanfordcleaning.com';
     const EMAIL_TO = process.env.EMAIL_TO || 'info@sanfordcleaning.com';
     const SMTP_HOST = process.env.SMTP_HOST;
@@ -28,6 +36,11 @@ export async function POST(req: Request) {
 
     if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
       console.error('Email disabled: SMTP not fully configured');
+      // Telling the customer it failed invites a retry, which would duplicate
+      // the row we just created upstream.
+      if (broom.forwarded) {
+        return NextResponse.json({ ok: true, provider: 'booking-broom' }, { status: 200 });
+      }
       return NextResponse.json({ error: 'SMTP not configured' }, { status: 500 });
     }
 
@@ -84,7 +97,7 @@ Message: ${body.message || 'N/A'}
     }
 
     const anySuccess = results.some(r => r.ok);
-    if (!anySuccess) {
+    if (!anySuccess && !broom.forwarded) {
       return NextResponse.json({ error: 'Failed to send emails', results }, { status: 502 });
     }
 

@@ -327,7 +327,17 @@ const PriceCalculator = ({
       bedrooms: Number(formData.bedrooms),
       bathrooms: Number(formData.bathrooms),
       paymentType: formData.paymentType || '',
-      paymentComment: formData.customerNote || undefined,
+      customerNote: formData.customerNote || undefined,
+      houseCondition: formData.houseCondition || undefined,
+      peopleCount: formData.peopleCount || undefined,
+      lastCleaning: formData.lastCleaning
+        ? formData.lastCleaning.toISOString().split('T')[0]
+        : undefined,
+      wasProfessional: formData.lastCleaning ? formData.wasProfessional : undefined,
+      excludedAreas:
+        formData.excludeAreas && formData.excludedAreas.length
+          ? formData.excludedAreas
+          : undefined,
       maintenancePrice: typeof maintenancePrice === 'number' && maintenancePrice > 0 ? maintenancePrice : undefined,
       scheduledDate: scheduledDateIso,
       scheduledTime: formData.scheduledTime || undefined,
@@ -335,7 +345,9 @@ const PriceCalculator = ({
       frequency: formData.frequency || undefined,
       extras: formData.extras?.length
         ? formData.extras.map((extra) => ({
-            name: extra.quantity ? `${extra.name} x${extra.quantity}` : extra.name,
+            name: extra.name,
+            price: extraOptions.find((option) => option.name === extra.name)?.price,
+            quantity: extra.quantity,
           }))
         : undefined,
     };

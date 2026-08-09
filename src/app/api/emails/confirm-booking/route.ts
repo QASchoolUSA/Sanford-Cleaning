@@ -54,7 +54,7 @@ Bedrooms: ${bookingData.bedrooms ?? 'N/A'}
 Bathrooms: ${bookingData.bathrooms ?? 'N/A'}
 
 Payment Method: ${bookingData.paymentType}
-Payment Comment: ${bookingData.paymentComment || 'N/A'}
+Customer Note: ${bookingData.customerNote || bookingData.paymentComment || 'N/A'}
 Estimated Price: ${typeof bookingData.estimatedPrice === 'number' ? `$${bookingData.estimatedPrice}` : 'N/A'}
 Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${bookingData.maintenancePrice}` : 'N/A'}
 `;

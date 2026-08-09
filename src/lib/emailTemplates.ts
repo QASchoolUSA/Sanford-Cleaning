@@ -69,7 +69,8 @@ export function bookingConfirmationHtml(data: {
   firstName: string; lastName: string; email: string; phone: string;
   address: string; aptUnit?: string; keyInfo: string; service: string;
   squareFootage?: string; bedrooms?: number; bathrooms?: number;
-  paymentType: string; paymentComment?: string; maintenancePrice?: number;
+  paymentType: string; customerNote?: string; paymentComment?: string;
+  maintenancePrice?: number;
 }, bookingId?: string) {
   const title = `Booking Confirmed ${bookingId ? `#${bookingId}` : ''}`.trim();
   const header = sectionHeading('Your Booking Is Confirmed');
@@ -88,7 +89,7 @@ export function bookingConfirmationHtml(data: {
       ${keyValue('Bedrooms', typeof data.bedrooms === 'number' ? String(data.bedrooms) : 'N/A')}
       ${keyValue('Bathrooms', typeof data.bathrooms === 'number' ? String(data.bathrooms) : 'N/A')}
       ${keyValue('Payment Method', data.paymentType)}
-      ${keyValue('Payment Comment', data.paymentComment || 'N/A')}
+      ${keyValue('Customer Note', data.customerNote || data.paymentComment || 'N/A')}
       ${keyValue('Maintenance Price', typeof data.maintenancePrice === 'number' ? `$${data.maintenancePrice}` : 'N/A')}
     </table>
   `;
@@ -115,7 +116,7 @@ export function adminBookingHtml(data: Parameters<typeof bookingConfirmationHtml
       ${keyValue('Bedrooms', typeof data.bedrooms === 'number' ? String(data.bedrooms) : 'N/A')}
       ${keyValue('Bathrooms', typeof data.bathrooms === 'number' ? String(data.bathrooms) : 'N/A')}
       ${keyValue('Payment Method', data.paymentType)}
-      ${keyValue('Payment Comment', data.paymentComment || 'N/A')}
+      ${keyValue('Customer Note', data.customerNote || data.paymentComment || 'N/A')}
       ${keyValue('Maintenance Price', typeof data.maintenancePrice === 'number' ? `$${data.maintenancePrice}` : 'N/A')}
     </table>
   `;
