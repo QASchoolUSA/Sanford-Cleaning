@@ -9,16 +9,16 @@ The Next.js application now lives at the repository root.
 
 ## Run Locally
 ```bash
-npm install
-npm run dev # http://localhost:3000
+pnpm install
+pnpm dev # http://localhost:3000
 ```
 
 ## Build & Start
 ```bash
-npm run build
-npm run start # defaults to http://localhost:3000
+pnpm build
+pnpm start # defaults to http://localhost:3000
 # or set a custom port
-PORT=3003 npm run start
+PORT=3003 pnpm start
 ```
 
 ## Notes

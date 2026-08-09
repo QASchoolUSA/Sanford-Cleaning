@@ -1,9 +1,9 @@
 /**
  * Local JSON-LD validation for key SEO pages.
  * Parses embedded application/ld+json blocks and checks required fields.
- * Run after `npm run build && npm run start` (or against a base URL).
+ * Run after `pnpm build && pnpm start` (or against a base URL).
  *
- * Usage: BASE_URL=http://localhost:3000 npx tsx scripts/validate-jsonld.ts
+ * Usage: BASE_URL=http://localhost:3000 pnpm validate:jsonld
  */
 const BASE = process.env.BASE_URL || 'http://localhost:3000';
 

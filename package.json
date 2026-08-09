@@ -2,15 +2,16 @@
   "name": "sanford-cleaning",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.5.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:booking": "npx --yes tsx --test tests/booking-single-creation.test.ts",
+    "test:booking": "tsx --test tests/booking-single-creation.test.ts",
     "test:links": "linkinator \"$BASE_URL\" --recurse --timeout 60000 --verbosity error --skip '.*instagram.com.*'",
     "validate:jsonld": "tsx scripts/validate-jsonld.ts",
-    "indexnow": "npx -y tsx scripts/submit-indexnow.ts"
+    "indexnow": "tsx scripts/submit-indexnow.ts"
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.1.15",
@@ -18,6 +19,7 @@
     "@stripe/stripe-js": "^8.3.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "leaflet": "^1.9.4",
     "lightningcss": "^1.26.0",
     "lucide-react": "^0.552.0",
@@ -46,6 +48,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwindcss": "^3.4.14",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

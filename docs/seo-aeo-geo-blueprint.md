@@ -383,7 +383,7 @@ Replace placeholders when profiles are verified:
 
 ### Post-merge JSON-LD / Rich Results checklist
 
-Local syntax validation: `BASE_URL=http://localhost:3000 npm run validate:jsonld` (PASS on 2026-07-10).
+Local syntax validation: `BASE_URL=http://localhost:3000 pnpm validate:jsonld` (PASS on 2026-07-10).
 
 After deploy, run Google Rich Results Test (no public unauthenticated API; URL mode requires a live public URL):
 
