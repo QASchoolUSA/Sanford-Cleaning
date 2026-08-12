@@ -1,7 +1,4 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-import type { SentMessageInfo } from 'nodemailer';
-import { adminBookingHtml, bookingConfirmationHtml } from '@/lib/emailTemplates';
 import {
   forwardToBookingBroom,
   type SanfordBookingPayload,
@@ -9,11 +6,16 @@ import {
 
 type BookingData = SanfordBookingPayload;
 
+/**
+ * Accepts a booking from the price calculator, forwards it to Booking Broom,
+ * and lets Booking Broom send customer + admin confirmation emails (SpaceMail
+ * or shared SMTP). Local SMTP/nodemailer is not used — Cloudflare Workers
+ * cannot reliably open outbound SMTP sockets.
+ */
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => null);
     const bookingData: BookingData | undefined = body?.bookingData;
-    // Prefer client bookingId; fall back so server-side forwards stay idempotent.
     const bookingId: string =
       typeof body?.bookingId === 'string' && body.bookingId.trim()
         ? body.bookingId.trim()
@@ -28,111 +30,22 @@ export async function POST(req: Request) {
       console.error('Booking Broom forward failed:', broom.error);
     }
 
-    const EMAIL_FROM = process.env.EMAIL_FROM || 'no-reply@sanfordcleaning.com';
-    const EMAIL_TO = process.env.EMAIL_TO || 'info@sanfordcleaning.com';
-    const SMTP_HOST = process.env.SMTP_HOST;
-    const SMTP_PORT = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : undefined;
-    const SMTP_USER = process.env.SMTP_USER;
-    const SMTP_PASS = process.env.SMTP_PASS;
-    const SMTP_SECURE = (process.env.SMTP_SECURE || 'false') === 'true';
-
-    const subject = `Booking Confirmation ${bookingId ? `#${bookingId}` : ''} - ${bookingData.firstName} ${bookingData.lastName}`.trim();
-
-    const plainText = `
-Booking Confirmed ${bookingId ? `#${bookingId}` : ''}
-
-Customer: ${bookingData.firstName} ${bookingData.lastName}
-Email: ${bookingData.email}
-Phone: ${bookingData.phone}
-Address: ${bookingData.address}${bookingData.aptUnit ? `, ${bookingData.aptUnit}` : ''}
-Key Info: ${bookingData.keyInfo}
-Scheduled: ${bookingData.scheduledDate || 'N/A'} ${bookingData.scheduledTime || ''}
-
-Service: ${bookingData.service}
-Square Footage: ${bookingData.squareFootage || 'N/A'}
-Bedrooms: ${bookingData.bedrooms ?? 'N/A'}
-Bathrooms: ${bookingData.bathrooms ?? 'N/A'}
-
-Payment: Due after cleaning is complete
-Customer Note: ${bookingData.customerNote || bookingData.paymentComment || 'N/A'}
-Estimated Price: ${typeof bookingData.estimatedPrice === 'number' ? `$${bookingData.estimatedPrice}` : 'N/A'}
-Maintenance Price: ${typeof bookingData.maintenancePrice === 'number' ? `$${bookingData.maintenancePrice}` : 'N/A'}
-`;
-
-    const smtpConfigured = Boolean(SMTP_HOST && SMTP_PORT && SMTP_USER && SMTP_PASS);
-
-    if (!smtpConfigured) {
-      if (broom.forwarded) {
-        console.warn('Email disabled: SMTP not fully configured — booking still forwarded to Booking Broom');
-        return NextResponse.json(
-          {
-            ok: true,
-            provider: 'booking-broom',
-            bookingBroom: true,
-            id: broom.id,
-            bookingId,
-            deduped: broom.deduped === true,
-          },
-          { status: 200 },
-        );
-      }
-      console.error('Email disabled: SMTP not fully configured');
-      return NextResponse.json({ error: 'SMTP not configured' }, { status: 500 });
-    }
-
-    const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: SMTP_PORT,
-      secure: SMTP_SECURE,
-      auth: { user: SMTP_USER, pass: SMTP_PASS },
-    });
-
-    const sendEmail = async (to: string, text: string, html?: string): Promise<SentMessageInfo> => {
-      const info: SentMessageInfo = await transporter.sendMail({
-        from: EMAIL_FROM,
-        to,
-        subject,
-        text,
-        html,
-        replyTo: EMAIL_TO,
-      });
-      return info;
-    };
-
-    const results: Array<{ to: string; ok: boolean; id?: string }> = [];
-
-    // Send to business
-    try {
-      const adminHtml = adminBookingHtml(bookingData, bookingId);
-      const r = await sendEmail(EMAIL_TO, plainText, adminHtml);
-      results.push({ to: EMAIL_TO, ok: true, id: r.messageId });
-    } catch (e) {
-      console.error('Failed to send admin booking email:', e);
-      results.push({ to: EMAIL_TO, ok: false });
-    }
-
-    // Send to customer
-    try {
-      const customerHtml = bookingConfirmationHtml(bookingData, bookingId);
-      const r = await sendEmail(bookingData.email, plainText, customerHtml);
-      results.push({ to: bookingData.email, ok: true, id: r.messageId });
-    } catch (e) {
-      console.error('Failed to send customer booking email:', e);
-      results.push({ to: bookingData.email, ok: false });
-    }
-
-    const anySuccess = results.some(r => r.ok);
-    if (!anySuccess && !broom.forwarded) {
-      return NextResponse.json({ error: 'Failed to send emails', results }, { status: 502 });
+    if (!broom.forwarded) {
+      return NextResponse.json(
+        {
+          error: broom.error || 'Failed to create booking',
+          bookingId,
+        },
+        { status: 502 },
+      );
     }
 
     return NextResponse.json(
       {
         ok: true,
-        provider: 'smtp',
-        results,
-        bookingBroom: broom.forwarded,
-        bookingBroomId: broom.id,
+        provider: 'booking-broom',
+        bookingBroom: true,
+        id: broom.id,
         bookingId,
         deduped: broom.deduped === true,
       },
