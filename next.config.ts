@@ -100,3 +100,5 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 export default withBundleAnalyzer(nextConfig);
+
+import("@opennextjs/cloudflare").then((m) => m.initOpenNextCloudflareForDev());

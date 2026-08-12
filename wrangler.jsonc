@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "sanford-cleaning",
+  "compatibility_date": "2026-08-12",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "sanford-cleaning"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "BOOKING_BROOM_URL": "https://bookings.kedrik.com",
+    "BOOKING_BROOM_SITE_SLUG": "sanford",
+    "BOOKING_BROOM_API_KEY": "bb_sanford_dev_key"
+  }
+}
