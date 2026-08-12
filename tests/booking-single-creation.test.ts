@@ -23,7 +23,6 @@ const DEMO_BOOKING: SanfordBookingPayload = {
   squareFootage: '1500',
   bedrooms: 3,
   bathrooms: 2,
-  paymentType: 'Cash',
   paymentComment: 'Automation demo text — booking validation',
   scheduledDate: '2026-07-17',
   scheduledTime: '10:00',
@@ -96,6 +95,8 @@ describe('booking single creation', () => {
     assert.equal(body.idempotency_key, bookingId);
     assert.equal(body.external_id, bookingId);
     assert.match(String(body.notes), /DEMO \/ TESTING BOOKING/);
+    const quote = body.quote as Record<string, unknown>;
+    assert.equal(quote.payment_terms, 'Due after cleaning is complete');
   });
 
   test('concurrent forwards with the same bookingId create only one record', async () => {

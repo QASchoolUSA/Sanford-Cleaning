@@ -108,15 +108,15 @@ export default function FAQPage() {
     },
     {
       q: "When do you charge for cleaning?",
-      a: "We charge only after the cleaning is completed. You can pay using Zelle, Cash, Check, or a Stripe invoice/payment link.",
+      a: "Payment is expected upon completion of service. No upfront payment is required to book.",
       aText:
-        "We charge only after the cleaning is completed. You can pay using Zelle, Cash, Check, or a Stripe invoice/payment link.",
+        "Payment is expected upon completion of service. No upfront payment is required to book.",
     },
     {
-      q: "What are the payment methods for cleaning?",
-      a: "We accept Zelle, Cash, Check, and Stripe — using credit/debit card or bank account and routing number (ACH).",
+      q: "Do I need to pay when I book?",
+      a: "No. You can book online with no payment. Payment is due after your cleaning is complete.",
       aText:
-        "We accept Zelle, Cash, Check, and Stripe — using credit/debit card or bank account and routing number (ACH).",
+        "No. You can book online with no payment. Payment is due after your cleaning is complete.",
     },
     {
       q: "What is your cancellation policy?",

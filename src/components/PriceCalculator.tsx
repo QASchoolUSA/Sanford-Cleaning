@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CreditCard, Check, Shield, Star, X, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Check, Loader2 } from 'lucide-react';
 import { DatePicker } from '@/components/ui/date-picker';
 import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
 import AddressAutocomplete from '@/components/ui/address-autocomplete';
@@ -46,7 +45,6 @@ interface FormData {
   aptUnit: string;
   keyInfo: string;
   customerNote: string;
-  paymentType: string;
 }
 
 const PriceCalculator = ({
@@ -91,7 +89,6 @@ const PriceCalculator = ({
     aptUnit: '',
     keyInfo: '',
     customerNote: '',
-    paymentType: ''
   });
 
   const serviceOptions = [
@@ -130,8 +127,6 @@ const PriceCalculator = ({
     'I will hide the keys',
     'Keep key with provider'
   ];
-
-  const paymentOptions = ['Zelle', 'Cash', 'Check', 'Credit Card'];
 
   // Phone number formatting and validation functions
   const formatPhoneNumber = (value: string): string => {
@@ -326,7 +321,6 @@ const PriceCalculator = ({
         : undefined,
       bedrooms: Number(formData.bedrooms),
       bathrooms: Number(formData.bathrooms),
-      paymentType: formData.paymentType || '',
       customerNote: formData.customerNote || undefined,
       houseCondition: formData.houseCondition || undefined,
       peopleCount: formData.peopleCount || undefined,
@@ -354,87 +348,15 @@ const PriceCalculator = ({
     // One id per submit attempt — retries of the same attempt stay idempotent upstream.
     const bookingId = `BK${Date.now()}`;
 
-    if (formData.paymentType === 'Credit Card') {
-      try {
-        await fetch('/api/emails/confirm-booking', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ bookingData, bookingId }),
-        });
-      } catch { }
-      // Persist latest payment details for fallback use on the Stripe page
-      try {
-        const lastStripePayment = {
-          amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
-          service: formData.service || 'Cleaning Service',
-          email: formData.email || undefined,
-          address: formData.address || '',
-          squareFootage: formData.squareFootage || '',
-        };
-        if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
-          localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
-        }
-      } catch {
-        // ignore storage errors
-      }
-
-      // Directly create Stripe Checkout session and redirect
-      (async () => {
-        try {
-          const resp = await fetch('/api/stripe/create-checkout-session', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
-              service: formData.service || 'Cleaning Service',
-              customerEmail: formData.email || undefined,
-              address: formData.address || '',
-              squareFootage: formData.squareFootage || '',
-            }),
-          });
-
-          if (!resp.ok) {
-            const data = await resp.json().catch(() => ({}));
-            throw new Error(data?.error || 'Failed to create checkout session.');
-          }
-
-          const { url } = await resp.json();
-          if (!url) throw new Error('No checkout URL returned.');
-          window.location.href = url;
-        } catch (err: unknown) {
-          const message = err instanceof Error ? err.message : String(err);
-          console.error('Stripe checkout error:', message);
-          alert('Unable to start Stripe checkout. Please try again or choose another payment method.');
-          isSubmittingRef.current = false;
-          setIsSubmitting(false);
-        }
-      })();
-    } else {
-      try {
-        await fetch('/api/emails/confirm-booking', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ bookingData, bookingId }),
-        });
-      } catch { }
-      // Persist latest booking details so user can still pay later from booking success
-      try {
-        const lastStripePayment = {
-          amount: typeof estimatedPrice === 'number' ? estimatedPrice : Number(estimatedPrice),
-          service: formData.service || 'Cleaning Service',
-          email: formData.email || undefined,
-          address: formData.address || '',
-          squareFootage: formData.squareFootage || '',
-        };
-        if (!isNaN(lastStripePayment.amount) && lastStripePayment.amount > 0) {
-          localStorage.setItem('lastStripePayment', JSON.stringify(lastStripePayment));
-        }
-      } catch {
-        // ignore storage errors
-      }
-      router.push('/booking-success');
-      // Keep submit locked while navigating away so a second click cannot create another booking.
-    }
+    try {
+      await fetch('/api/emails/confirm-booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bookingData, bookingId }),
+      });
+    } catch { }
+    router.push('/booking-success');
+    // Keep submit locked while navigating away so a second click cannot create another booking.
   };
 
   const renderStep1 = () => (
@@ -927,25 +849,9 @@ const PriceCalculator = ({
         />
       </div>
 
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">Payment Type</label>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {paymentOptions.map(option => (
-            <label key={option} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
-              <input
-                type="radio"
-                name="paymentType"
-                value={option}
-                checked={formData.paymentType === option}
-                onChange={(e) => updateFormData('paymentType', e.target.value)}
-                className="w-4 h-4 text-blue-600 mr-3"
-                data-cy={`payment-type-${option.toLowerCase().replace(/\s+/g, '-')}`}
-              />
-              <span className="text-gray-700">{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+      <p className="text-sm text-gray-600 text-center md:text-left">
+        No payment required to book · Pay when your clean is complete
+      </p>
     </div>
   );
 
@@ -994,7 +900,7 @@ const PriceCalculator = ({
                     Step {currentStep}: {
                       currentStep === 1 ? 'Service Selection' :
                         currentStep === 2 ? 'Home Details' :
-                          currentStep === 3 ? 'Schedule' : 'Contact & Payment'
+                          currentStep === 3 ? 'Schedule' : 'Contact'
                     }
                   </span>
                 </div>
@@ -1006,7 +912,7 @@ const PriceCalculator = ({
                   { number: 1, title: 'Service Selection', subtitle: 'Choose your service type' },
                   { number: 2, title: 'Home Details & Extras', subtitle: 'Size, rooms & add-ons' },
                   { number: 3, title: 'Schedule & Details', subtitle: 'When & house condition' },
-                  { number: 4, title: 'Contact & Payment', subtitle: 'Your info & payment method' }
+                  { number: 4, title: 'Contact', subtitle: 'Your info to confirm booking' }
                 ].map(step => (
                   <div key={step.number} className={`text-center p-3 rounded-lg transition-all duration-200 ${step.number === currentStep
                     ? 'bg-blue-600 text-white shadow-lg'
@@ -1143,17 +1049,10 @@ const PriceCalculator = ({
                         <span>Processing...</span>
                       </>
                     ) : (
-                      formData.paymentType === 'Credit Card' ? (
-                        <>
-                          <CreditCard className="w-4 h-4 hidden sm:block" />
-                          <span>Pay & Book</span>
-                        </>
-                      ) : (
-                        <>
-                          <Check className="w-4 h-4 hidden sm:block" />
-                          <span>Book Now</span>
-                        </>
-                      )
+                      <>
+                        <Check className="w-4 h-4 hidden sm:block" />
+                        <span>Book Now</span>
+                      </>
                     )}
                   </button>
                 )}

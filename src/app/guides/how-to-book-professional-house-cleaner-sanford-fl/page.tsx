@@ -126,7 +126,7 @@ export default function Page() {
                 <tr>
                   <td className="px-6 py-4 font-medium text-slate-900">Online Booking (Sanford Cleaning)</td>
                   <td className="px-6 py-4 text-green-600 font-bold">Instant</td>
-                  <td className="px-6 py-4 text-green-600 font-bold">Encrypted (Stripe)</td>
+                  <td className="px-6 py-4 text-green-600 font-bold">Secure booking (no payment online)</td>
                   <td className="px-6 py-4 text-green-600 font-bold">100% Upfront</td>
                 </tr>
                 <tr>

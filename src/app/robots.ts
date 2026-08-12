@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: '*',
                 allow: '/',
-                disallow: ['/api/', '/booking-success', '/get-hired-success', '/stripe-payment'],
+                disallow: ['/api/', '/booking-success', '/get-hired-success'],
             },
             {
                 userAgent: [

@@ -104,23 +104,13 @@ export default function TermsPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-green-800 mb-2">Payment Methods</h4>
-                  <ul className="list-disc list-inside text-green-700 text-sm space-y-1">
-                    <li>Credit cards (Visa, MasterCard, American Express, Discover)</li>
-                    <li>Debit cards</li>
-                    <li>Bank transfers (for commercial accounts)</li>
-                    <li>Cash payments (for one-time services only)</li>
-                  </ul>
-                </div>
-
                 <div className="bg-blue-50 p-4 rounded-lg">
                   <h4 className="font-semibold text-blue-800 mb-2">Payment Schedule</h4>
                   <ul className="list-disc list-inside text-blue-700 text-sm space-y-1">
+                    <li><strong>Online bookings:</strong> No payment required to book</li>
                     <li><strong>One-time services:</strong> Payment due upon completion of service</li>
-                    <li><strong>Recurring services:</strong> Payment processed automatically after each service</li>
+                    <li><strong>Recurring services:</strong> Payment due after each completed service</li>
                     <li><strong>Commercial contracts:</strong> Net 15 payment terms (payment due within 15 days)</li>
-                    <li><strong>Large projects:</strong> 50% deposit required, balance due upon completion</li>
                   </ul>
                 </div>
 

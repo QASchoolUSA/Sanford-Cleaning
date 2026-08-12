@@ -87,9 +87,9 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <div className="bg-green-50 p-4 rounded-lg mb-6">
-                <h4 className="font-semibold text-green-800 mb-2">Important: Payment Data Protection</h4>
+                <h4 className="font-semibold text-green-800 mb-2">Important: Payment Data</h4>
                 <p className="text-green-700">
-                  <strong>We do not store or retain any payment information.</strong> All payment processing is handled securely through third-party payment processors who maintain PCI DSS compliance. Credit card numbers, banking information, and other payment details are never stored on our systems.
+                  <strong>We do not collect or store payment information on this website.</strong> Booking does not require payment. Payment is arranged after your cleaning is complete, so credit card numbers, banking details, and other payment information are never entered or stored through our site.
                 </p>
               </div>
 
@@ -175,7 +175,7 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-700 mb-4">We may share your information with:</p>
               <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
                 <li>
-                  <strong>Service Providers:</strong> Third-party companies that help us operate our business (payment processors, scheduling software, background check services)
+                  <strong>Service Providers:</strong> Third-party companies that help us operate our business (scheduling software, background check services)
                 </li>
                 <li>
                   <strong>Cleaning Staff:</strong> Our vetted employees who need access to your information to provide services

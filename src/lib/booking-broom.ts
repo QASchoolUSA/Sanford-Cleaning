@@ -20,7 +20,6 @@ export type SanfordBookingPayload = {
   squareFootageLabel?: string;
   bedrooms?: number;
   bathrooms?: number;
-  paymentType: string;
   /** The customer's own message. */
   customerNote?: string;
   /** Older callers sent the customer's message under this name. */
@@ -124,9 +123,7 @@ function buildQuote(booking: SanfordBookingPayload) {
       price: extra.price,
       quantity: extra.quantity,
     })),
-    // The calculator collects a method ("Credit Card"), which reads as nonsense
-    // under the dashboard's "Payment terms" label without this prefix.
-    payment_terms: booking.paymentType ? `Paying by ${booking.paymentType}` : undefined,
+    payment_terms: "Due after cleaning is complete",
   };
 }
 
