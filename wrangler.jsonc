@@ -1,28 +1,46 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "main": ".open-next/worker.js",
-  "name": "sanford-cleaning",
-  "compatibility_date": "2026-08-12",
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
-  },
-  "services": [
-    {
-      "binding": "WORKER_SELF_REFERENCE",
-      "service": "sanford-cleaning"
-    }
-  ],
-  "images": {
-    "binding": "IMAGES"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "vars": {
-    "BOOKING_BROOM_URL": "https://bookings.kedrik.com",
-    "BOOKING_BROOM_SITE_SLUG": "sanford",
-    "BOOKING_BROOM_API_KEY": "bb_sanford_dev_key"
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": "worker.ts",
+	"name": "sanford-cleaning",
+	"compatibility_date": "2026-08-12",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "sanford-cleaning"
+		}
+	],
+	"images": {
+		"binding": "IMAGES"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"triggers": {
+		"crons": [
+			"*/5 * * * *"
+		]
+	},
+	"kv_namespaces": [
+		{
+			"binding": "BOOKING_OUTBOX",
+			"id": "REPLACE_WITH_BOOKING_OUTBOX_KV_ID",
+			"preview_id": "REPLACE_WITH_BOOKING_OUTBOX_KV_PREVIEW_ID"
+		},
+		{
+			"binding": "BOOKING_OUTBOX_SANFORD",
+			"id": "b9acedc7740443239e8eddb8da80835e",
+			"remote": true
+		}
+	],
+	"vars": {
+		"BOOKING_BROOM_SITE_SLUG": "sanford",
+		"BOOKING_BROOM_API_KEY": "bb_sanford_dev_key"
+	}
 }

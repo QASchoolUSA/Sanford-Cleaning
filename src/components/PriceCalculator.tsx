@@ -64,6 +64,7 @@ const PriceCalculator = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   /** Sync guard — React state alone can miss rapid double-clicks before re-render. */
   const isSubmittingRef = useRef(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [phoneError, setPhoneError] = useState('');
   const [formData, setFormData] = useState<FormData>({
     service: '',
@@ -302,6 +303,7 @@ const PriceCalculator = ({
     if (isSubmittingRef.current) return;
     isSubmittingRef.current = true;
     setIsSubmitting(true);
+    setSubmitError(null);
 
     const scheduledDateIso = formData.scheduledDate
       ? formData.scheduledDate.toISOString().split('T')[0]
@@ -349,13 +351,24 @@ const PriceCalculator = ({
     const bookingId = `BK${Date.now()}`;
 
     try {
-      await fetch('/api/emails/confirm-booking', {
+      const response = await fetch('/api/emails/confirm-booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ bookingData, bookingId }),
       });
-    } catch { }
-    router.push('/booking-success');
+      if (!response.ok) {
+        const data = (await response.json().catch(() => ({}))) as { error?: string };
+        setSubmitError(data.error || 'Could not submit booking. Please try again or call us.');
+        isSubmittingRef.current = false;
+        setIsSubmitting(false);
+        return;
+      }
+      router.push('/booking-success');
+    } catch {
+      setSubmitError('Could not submit booking. Please try again or call us.');
+      isSubmittingRef.current = false;
+      setIsSubmitting(false);
+    }
     // Keep submit locked while navigating away so a second click cannot create another booking.
   };
 
@@ -1006,7 +1019,13 @@ const PriceCalculator = ({
               )}
 
               {/* Navigation */}
-              <div className="p-3 md:p-6 flex justify-between items-center gap-3">
+              <div className="p-3 md:p-6 flex flex-col gap-3">
+                {submitError ? (
+                  <p className="text-sm text-red-600" role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
+                <div className="flex justify-between items-center gap-3">
                 <button
                   onClick={prevStep}
                   disabled={currentStep === 1}
@@ -1056,6 +1075,7 @@ const PriceCalculator = ({
                     )}
                   </button>
                 )}
+                </div>
               </div>
             </div>
           </div>

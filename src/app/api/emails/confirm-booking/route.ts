@@ -48,6 +48,8 @@ export async function POST(req: Request) {
         id: broom.id,
         bookingId,
         deduped: broom.deduped === true,
+        degraded: broom.degraded === true,
+        fallback: broom.fallback,
       },
       { status: 200 },
     );

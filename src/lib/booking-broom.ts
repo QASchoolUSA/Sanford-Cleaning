@@ -1,6 +1,6 @@
 /**
  * Forward a Sanford booking to Booking Broom (manager dashboard).
- * No-ops when BOOKING_BROOM_URL / BOOKING_BROOM_API_KEY are unset.
+ * No-ops when BOOKING_BROOM_API_KEY is unset. URL defaults to production.
  *
  * When a bookingId is provided, forwards are idempotent within this process:
  * concurrent or repeated calls with the same id share one upstream POST.
@@ -44,6 +44,10 @@ export interface BookingBroomResult {
   error?: string;
   /** True when this call reused a prior forward for the same bookingId. */
   deduped?: boolean;
+  /** True when lead was saved to KV outbox or Telegram instead of BB. */
+  degraded?: boolean;
+  /** Where a degraded capture landed. */
+  fallback?: "kv" | "telegram";
 }
 
 const IDEMPOTENCY_TTL_MS = 10 * 60 * 1000;
@@ -132,15 +136,35 @@ async function postPayload(
   payload: Record<string, unknown>,
   bookingId?: string,
 ): Promise<BookingBroomResult> {
-  const baseUrl = process.env.BOOKING_BROOM_URL?.replace(/\/$/, "");
+  const baseUrl = (process.env.BOOKING_BROOM_URL || "https://app.bookingbroom.com").replace(/\/$/, "");
   const apiKey = process.env.BOOKING_BROOM_API_KEY;
   const siteSlug = process.env.BOOKING_BROOM_SITE_SLUG || "sanford";
 
+  const wirePayload: Record<string, unknown> = {
+    ...payload,
+    ...(bookingId
+      ? { idempotency_key: bookingId, external_id: bookingId }
+      : {}),
+  };
+
   if (!baseUrl || !apiKey) {
     console.info(
-      "[booking-broom] BOOKING_BROOM_URL / BOOKING_BROOM_API_KEY not set — skip forward",
+      "[booking-broom] BOOKING_BROOM_API_KEY not set — try fallback",
     );
-    return { forwarded: false };
+    const { captureFailedBookingForward } = await import("@/lib/booking-outbox");
+    const fallback = await captureFailedBookingForward({
+      payload: wirePayload,
+      idempotencyKey: bookingId,
+      lastError: "Booking service is not configured",
+    });
+    if (fallback.captured) {
+      return {
+        forwarded: true,
+        degraded: true,
+        fallback: fallback.via,
+      };
+    }
+    return { forwarded: false, error: fallback.error || "Booking service is not configured" };
   }
 
   try {
@@ -157,11 +181,7 @@ async function postPayload(
       body: JSON.stringify({
         site_slug: siteSlug,
         api_key: apiKey,
-        ...payload,
-        // Hint for Booking Broom / Convex to treat retries as the same booking.
-        ...(bookingId
-          ? { idempotency_key: bookingId, external_id: bookingId }
-          : {}),
+        ...wirePayload,
       }),
     });
 
@@ -169,7 +189,20 @@ async function postPayload(
       const data = (await response.json().catch(() => ({}))) as { error?: string };
       const error = data.error ?? `HTTP ${response.status}`;
       console.error("[booking-broom] forward failed:", error);
-      return { forwarded: false, error };
+      const { captureFailedBookingForward } = await import("@/lib/booking-outbox");
+      const fallback = await captureFailedBookingForward({
+        payload: wirePayload,
+        idempotencyKey: bookingId,
+        lastError: error,
+      });
+      if (fallback.captured) {
+        return {
+          forwarded: true,
+          degraded: true,
+          fallback: fallback.via,
+        };
+      }
+      return { forwarded: false, error: fallback.error || error };
     }
 
     const data = (await response.json()) as { id?: string };
@@ -177,7 +210,20 @@ async function postPayload(
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     console.error("[booking-broom] forward error:", message);
-    return { forwarded: false, error: message };
+    const { captureFailedBookingForward } = await import("@/lib/booking-outbox");
+    const fallback = await captureFailedBookingForward({
+      payload: wirePayload,
+      idempotencyKey: bookingId,
+      lastError: message,
+    });
+    if (fallback.captured) {
+      return {
+        forwarded: true,
+        degraded: true,
+        fallback: fallback.via,
+      };
+    }
+    return { forwarded: false, error: fallback.error || message };
   }
 }
 
@@ -222,14 +268,18 @@ export type SanfordQuoteRequest = {
 export async function forwardQuoteRequestToBookingBroom(
   request: SanfordQuoteRequest,
 ): Promise<BookingBroomResult> {
-  return postPayload({
-    customer_name: request.name.trim(),
-    email: request.email.trim(),
-    phone: request.phone?.trim() || undefined,
-    service_type: request.service?.trim() || "Quote request",
-    notes: request.message?.trim() || undefined,
-    intent: "quote",
-  });
+  const quoteId = `QT${Date.now()}`;
+  return postPayload(
+    {
+      customer_name: request.name.trim(),
+      email: request.email.trim(),
+      phone: request.phone?.trim() || undefined,
+      service_type: request.service?.trim() || "Quote request",
+      notes: request.message?.trim() || undefined,
+      intent: "quote",
+    },
+    quoteId,
+  );
 }
 
 export async function forwardToBookingBroom(

@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json(
-      { ok: true, provider: 'booking-broom', id: broom.id },
+      { ok: true, provider: 'booking-broom', id: broom.id, degraded: broom.degraded === true, fallback: broom.fallback },
       { status: 200 },
     );
   } catch (err: unknown) {
