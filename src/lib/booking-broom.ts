@@ -138,7 +138,7 @@ async function postPayload(
 ): Promise<BookingBroomResult> {
   const baseUrl = (process.env.BOOKING_BROOM_URL || "https://app.bookingbroom.com").replace(/\/$/, "");
   const apiKey = process.env.BOOKING_BROOM_API_KEY;
-  const siteSlug = process.env.BOOKING_BROOM_SITE_SLUG || "sanford";
+  const siteSlug = "sanford";
 
   const wirePayload: Record<string, unknown> = {
     ...payload,

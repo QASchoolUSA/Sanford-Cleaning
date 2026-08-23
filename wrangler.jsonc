@@ -40,7 +40,6 @@
 		}
 	],
 	"vars": {
-		"BOOKING_BROOM_SITE_SLUG": "sanford",
 		"BOOKING_BROOM_API_KEY": "bb_sanford_dev_key"
 	}
 }

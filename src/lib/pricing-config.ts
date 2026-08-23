@@ -22,7 +22,7 @@ export async function getPricingConfig(): Promise<PricingConfig> {
   try {
     const res = await fetch(`${baseUrl}/api/pricing`, {
       headers: {
-        "X-Site-Slug": process.env.BOOKING_BROOM_SITE_SLUG || "sanford",
+        "X-Site-Slug": "sanford",
         "X-Api-Key": apiKey,
       },
       next: { revalidate: REVALIDATE_SECONDS },
