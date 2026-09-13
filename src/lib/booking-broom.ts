@@ -36,6 +36,8 @@ export type SanfordBookingPayload = {
   estimatedPrice?: number;
   frequency?: string;
   extras?: Array<{ name: string; price?: number; quantity?: number }>;
+  /** Soft-lead session key from the price calculator. */
+  sessionKey?: string;
 };
 
 export interface BookingBroomResult {
@@ -248,6 +250,9 @@ async function postToBookingBroom(
       intent: "book",
       property: buildProperty(booking),
       quote: buildQuote(booking),
+      ...(booking.sessionKey
+        ? { session_key: booking.sessionKey }
+        : {}),
     },
     bookingId,
   );

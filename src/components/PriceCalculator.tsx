@@ -10,6 +10,7 @@ import {
   calculateQuote,
   type PricingConfig,
 } from '@/lib/pricing';
+import { createSoftLeadTracker } from '@/lib/soft-lead';
 
 interface FormData {
   // Step 1: Service Selection
@@ -64,6 +65,10 @@ const PriceCalculator = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   /** Sync guard — React state alone can miss rapid double-clicks before re-render. */
   const isSubmittingRef = useRef(false);
+  const softLead = useRef<ReturnType<typeof createSoftLeadTracker> | null>(null);
+  if (!softLead.current) {
+    softLead.current = createSoftLeadTracker();
+  }
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [phoneError, setPhoneError] = useState('');
   const [formData, setFormData] = useState<FormData>({
@@ -209,6 +214,56 @@ const PriceCalculator = ({
     [formData, config]
   );
 
+  useEffect(() => {
+    const tracker = softLead.current;
+    return () => tracker?.dispose();
+  }, []);
+
+  useEffect(() => {
+    const name = `${formData.firstName} ${formData.lastName}`.trim();
+    const address = formData.aptUnit
+      ? `${formData.address}, ${formData.aptUnit}`
+      : formData.address;
+    softLead.current?.schedule({
+      customer_name: name || undefined,
+      email: formData.email,
+      phone: formData.phone,
+      address: address || undefined,
+      service_type: formData.service || undefined,
+      preferred_date: formData.scheduledDate
+        ? formData.scheduledDate.toISOString().split('T')[0]
+        : undefined,
+      preferred_time: formData.scheduledTime || undefined,
+      intent: 'book',
+      last_step: String(currentStep),
+      property: {
+        bedrooms: formData.bedrooms ? Number(formData.bedrooms) : undefined,
+        bathrooms: formData.bathrooms ? Number(formData.bathrooms) : undefined,
+        size_label: formData.squareFootageBand
+          ? `${formData.squareFootageBand} sq ft`
+          : undefined,
+        square_feet: formData.squareFootage
+          ? Number(formData.squareFootage.replace(/[^0-9]/g, '')) || undefined
+          : undefined,
+        condition: formData.houseCondition || undefined,
+        occupants: formData.peopleCount
+          ? Number(formData.peopleCount) || undefined
+          : undefined,
+        excluded_areas:
+          formData.excludeAreas && formData.excludedAreas.length
+            ? formData.excludedAreas
+            : undefined,
+      },
+      quote: {
+        estimate: estimatedPrice > 0 ? estimatedPrice : undefined,
+        recurring_estimate:
+          maintenancePrice > 0 ? maintenancePrice : undefined,
+        currency: 'USD',
+        frequency: formData.frequency || undefined,
+      },
+    });
+  }, [formData, currentStep, estimatedPrice, maintenancePrice]);
+
   const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -346,6 +401,7 @@ const PriceCalculator = ({
             quantity: extra.quantity,
           }))
         : undefined,
+      sessionKey: softLead.current?.sessionKey,
     };
     // One id per submit attempt — retries of the same attempt stay idempotent upstream.
     const bookingId = `BK${Date.now()}`;
