@@ -30,11 +30,6 @@
 	"kv_namespaces": [
 		{
 			"binding": "BOOKING_OUTBOX",
-			"id": "REPLACE_WITH_BOOKING_OUTBOX_KV_ID",
-			"preview_id": "REPLACE_WITH_BOOKING_OUTBOX_KV_PREVIEW_ID"
-		},
-		{
-			"binding": "BOOKING_OUTBOX_SANFORD",
 			"id": "b9acedc7740443239e8eddb8da80835e",
 			"remote": true
 		}
