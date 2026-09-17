@@ -6,6 +6,14 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
+	"workers_dev": false,
+	"preview_urls": false,
+	"routes": [
+		{
+			"pattern": "sanfordcleaning.com",
+			"custom_domain": true
+		}
+	],
 	"assets": {
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
@@ -27,15 +35,12 @@
 			"*/5 * * * *"
 		]
 	},
-	"kv_namespaces": [
-		{
-			// CF namespace title: BOOKING_OUTBOX_SANFORD
-			// Must exist in Workers Builds account 5c25eb28647814ac2579fac5b34d9945
-			"binding": "BOOKING_OUTBOX",
-			"id": "b9acedc7740443239e8eddb8da80835e"
-		}
-	],
+	// BOOKING_OUTBOX soft-fallback disabled until a KV namespace exists in this
+	// account (5c25eb28647814ac2579fac5b34d9945). Create BOOKING_OUTBOX_SANFORD
+	// in the dashboard, then add:
+	// "kv_namespaces": [{ "binding": "BOOKING_OUTBOX", "id": "<new-id>" }]
 	"vars": {
-		"BOOKING_BROOM_API_KEY": "bb_sanford_dev_key"
+		"BOOKING_BROOM_API_KEY": "bb_sanford_dev_key",
+		"BOOKING_BROOM_URL": "https://app.bookingbroom.com"
 	}
 }
