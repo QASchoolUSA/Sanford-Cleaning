@@ -29,9 +29,10 @@
 	},
 	"kv_namespaces": [
 		{
+			// CF namespace title: BOOKING_OUTBOX_SANFORD
+			// Must exist in Workers Builds account 5c25eb28647814ac2579fac5b34d9945
 			"binding": "BOOKING_OUTBOX",
-			"id": "b9acedc7740443239e8eddb8da80835e",
-			"remote": true
+			"id": "b9acedc7740443239e8eddb8da80835e"
 		}
 	],
 	"vars": {
