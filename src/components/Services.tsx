@@ -7,7 +7,7 @@ const Services = () => {
     {
       icon: Home,
       title: 'House Cleaning',
-      description: 'Complete house cleaning and maid service including kitchens, bathrooms, bedrooms, and living areas.',
+      description: 'Kitchens, bathrooms, bedrooms, and living areas — weekly, biweekly, or one-time.',
       features: ['Weekly/Bi-weekly service', 'Deep cleaning', 'Move-in/out cleaning', 'Post-construction cleanup'],
       price: siteFacts.pricing.messages.entryAndTypical,
       link: '/house-cleaning'
@@ -15,7 +15,7 @@ const Services = () => {
     {
       icon: Building,
       title: 'Commercial Cleaning',
-      description: 'Professional office and commercial space cleaning to maintain a pristine work environment.',
+      description: 'Offices and commercial spaces kept tidy on a schedule that fits your hours.',
       features: ['Daily/weekly service', 'Floor maintenance', 'Restroom sanitization', 'Trash removal'],
       price: 'Custom pricing',
       link: '/commercial-cleaning'
@@ -23,7 +23,7 @@ const Services = () => {
     {
       icon: Sparkles,
       title: 'Deep Cleaning',
-      description: 'Comprehensive deep cleaning service for those hard-to-reach areas and seasonal maintenance.',
+      description: 'Baseboards, appliances, and the corners that get skipped between regular cleans.',
       features: ['Cabinet interiors', 'Baseboards & trim', 'Light fixtures', 'Appliance deep clean'],
       price: `Typical ${siteFacts.pricing.typicalDeep}`,
       link: '/deep-cleaning'
@@ -31,7 +31,7 @@ const Services = () => {
     {
       icon: Calendar,
       title: 'Maintenance Cleaning',
-      description: 'Recurring weekly, bi-weekly, or monthly cleaning to keep your home consistently spotless.',
+      description: 'Weekly, biweekly, or monthly visits so kitchens and baths do not pile up.',
       features: ['Flexible schedules', 'Same cleaner when possible', 'Custom checklists', 'Starting at $70'],
       price: 'Starting at $70',
       link: '/maintenance-cleaning'
@@ -39,7 +39,7 @@ const Services = () => {
     {
       icon: Key,
       title: 'Airbnb Cleaning',
-      description: 'Fast short-term rental turnover cleaning for Airbnb and vacation rental hosts in Sanford, FL.',
+      description: 'Same-day turnovers for Sanford short-term rentals — linen refresh and restocking available.',
       features: ['Same-day turnovers', 'Linen refresh', 'Restocking options', 'Photo confirmation'],
       price: 'Custom pricing',
       link: '/airbnb-cleaning'
@@ -47,7 +47,7 @@ const Services = () => {
     {
       icon: Car,
       title: 'Carpet Cleaning',
-      description: 'Professional carpet cleaning in Sanford, FL including pet stain and odor treatment.',
+      description: 'Hot-water extraction for Sanford carpets, including pet stains and odors.',
       features: ['Hot water extraction', 'Pet stain treatment', 'Odor removal', 'Fast drying'],
       price: 'Custom pricing',
       link: '/carpet-cleaning'
@@ -55,7 +55,7 @@ const Services = () => {
     {
       icon: Truck,
       title: 'Pressure Washing',
-      description: 'Professional exterior washing for siding, driveways, patios, and more in Sanford, FL.',
+      description: 'Siding, driveways, patios, and other exterior surfaces around Sanford homes.',
       features: ['Soft-wash options', 'Concrete & paver cleaning', 'Gutters & soffits', 'Fences & decks'],
       price: 'Custom pricing',
       link: '/pressure-washing'
@@ -63,7 +63,7 @@ const Services = () => {
     {
       icon: Sparkles,
       title: 'Window Cleaning',
-      description: 'Outside and inside window cleaning for residential and commercial in Sanford, FL.',
+      description: 'Interior and exterior glass, tracks, and screens for homes and businesses.',
       features: ['Exterior glass', 'Interior glass', 'Tracks & sills', 'Screens'],
       price: 'Custom pricing',
       link: '/window-cleaning'
@@ -71,7 +71,7 @@ const Services = () => {
     {
       icon: Truck,
       title: 'Move In/Move Out',
-      description: 'Comprehensive cleaning services for moving transitions, perfect for tenants and property owners.',
+      description: 'Empty-home cleans for move-ins, move-outs, and rental turnovers.',
       features: ['Deep sanitization', 'Deposit protection', 'Property turnover', 'Rental ready cleaning'],
       price: 'Starting at $120',
       link: '/move-in-move-out-cleaning'
@@ -79,7 +79,7 @@ const Services = () => {
     {
       icon: Wrench,
       title: 'Post-Construction',
-      description: 'Specialized cleaning for newly constructed or renovated spaces to remove construction debris.',
+      description: 'Dust, paint residue, and fine debris after construction or renovation.',
       features: ['Dust removal', 'Paint splatter cleanup', 'Fixture cleaning', 'Final inspection'],
       price: 'Custom pricing',
       link: '/post-construction-cleaning'
@@ -95,9 +95,8 @@ const Services = () => {
             House Cleaning Services in Sanford FL
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Sanford Cleaning is your local cleaning company for house cleaning, maid service, deep cleaning,
-            and commercial cleaning across Sanford, Lake Mary, Longwood, and Seminole County. Every service
-            is performed by bonded, insured professionals — book online in 60 seconds or request a custom quote.
+            House cleaning, deep cleans, move-outs, and commercial work across Sanford, Lake Mary, Longwood,
+            and Seminole County. Licensed, bonded, and insured — get a quote online or call us.
           </p>
         </div>
 
@@ -129,7 +128,7 @@ const Services = () => {
                   <> {' '}Property managers also use our <span className="text-blue-700 underline hover:text-blue-900 font-medium">Move In/Move Out</span> service.</>
                 )}
                 {service.title === 'Pressure Washing' && (
-                  <> {' '}Pair with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Window Cleaning</span> for spotless glass.</>
+                  <> {' '}Pair with <span className="text-blue-700 underline hover:text-blue-900 font-medium">Window Cleaning</span> for clearer glass.</>
                 )}
                 {service.title === 'Window Cleaning' && (
                   <> {' '}After exterior washes, consider <span className="text-blue-700 underline hover:text-blue-900 font-medium">Pressure Washing</span>.</>

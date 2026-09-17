@@ -63,7 +63,7 @@ export default function WindowCleaningPage() {
   const areas = ["Sanford, FL", "Lake Mary, FL", "Longwood, FL", "Altamonte Springs, FL", "Winter Springs, FL"];
 
   const benefits = [
-    "Outside and inside window cleaning for spotless results",
+    "Outside and inside window cleaning for homes and businesses",
     "Residential and commercial service with flexible scheduling",
     "Frame, sill, track, and screen cleaning available",
     "Streak-free techniques and water-fed pole options",
@@ -102,9 +102,9 @@ export default function WindowCleaningPage() {
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Outside & Inside Window Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Crystal-clear windows brighten your space and improve curb appeal. Sanford Cleaning offers professional window cleaning in Sanford FL—outside and inside service for
-                <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800"> residential</Link> and
-                <Link href="/commercial-cleaning" className="text-blue-600 underline hover:text-blue-800"> commercial</Link> properties. We detail tracks, sills, frames, and screens for a complete finish.
+                Interior and exterior window cleaning in Sanford, FL for
+                <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800"> homes</Link> and
+                <Link href="/commercial-cleaning" className="text-blue-600 underline hover:text-blue-800"> businesses</Link>. We clean glass plus tracks, sills, frames, and screens — useful when hard water and pollen leave spots.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-cy="windows-quote-button">
@@ -156,7 +156,7 @@ export default function WindowCleaningPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does window cleaning cost in Sanford, FL?</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg leading-relaxed mb-4">
-                <strong>Sanford Cleaning</strong> offers streak-free <strong>window cleaning in Sanford, FL</strong> starting at <strong>$150</strong> (based on pane count). We clean both interior and exterior glass using purified water technology that dries spotless. Our service includes track detailing and screen washing, critical for specialized Florida screen enclosures.
+                <strong>Sanford Cleaning</strong> offers streak-free <strong>window cleaning in Sanford, FL</strong> starting at <strong>$150</strong> (based on pane count). We clean interior and exterior glass with purified water that dries without mineral spots. Track detailing and screen washing are included — important for Florida screen enclosures.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Starting Price:</strong> $150 (approx. 15-20 panes)</li>
@@ -177,7 +177,7 @@ export default function WindowCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Glass Care</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Glass care in Florida humidity</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -218,39 +218,33 @@ export default function WindowCleaningPage() {
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Window Cleaning in Sanford FL: What to Expect</h2>
         <div className="prose max-w-none text-gray-800">
           <p>
-            For homeowners and businesses seeking window cleaning in Sanford FL, the goal is more than spotless glass. Our professional window cleaners ensure proper outside and inside window washing to remove pollen, construction dust, and water spots, while detailing tracks and sills to prevent sticking and grime buildup. Sanford Cleaning uses streak-free methods and surface-safe tools that respect your materials.
+            Window cleaning in Sanford, FL covers more than the glass. We wash inside and outside panes, clear pollen and water spots, and detail tracks and sills so windows open smoothly. Methods are streak-free and safe for the frame materials we see on local homes.
           </p>
           <p>
-            Residential and commercial properties have different needs. <strong>For homeowners</strong>, clean windows instantly boost curb appeal, let in more natural light, and protect the glass from long-term hard water etching. <strong>For businesses and storefronts</strong>, routine exterior glass cleaning maintains visibility and a pristine brand image for passing foot traffic. Homes often pair our window washing service with seasonal
-            <Link href="/pressure-washing" className="text-blue-600 underline hover:text-blue-800"> pressure washing</Link> and interior detailing. If you’ve recently completed
-            <Link href="/pressure-washing" className="text-blue-600 underline hover:text-blue-800"> pressure washing</Link>, we recommend scheduling your window cleaning right after to eliminate any residue and ensure a consistent shine throughout the property.
+            <strong>Homes</strong> usually want brighter rooms and less hard-water etching on the glass. <strong>Storefronts</strong> need clear exterior glass for foot traffic. Many homeowners book windows after
+            <Link href="/pressure-washing" className="text-blue-600 underline hover:text-blue-800"> pressure washing</Link> so rinse residue is gone the same day.
           </p>
           <p>
-            Our team provides flexible scheduling and clear pricing. Call <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a> to discuss your Sanford FL property, or
-            <Link href="/custom-quote" className="text-blue-600 underline hover:text-blue-800"> request a custom quote</Link>. We can bundle pressure washing and window cleaning for a seamless, full-service experience.
+            Call <a href="tel:321-236-0618" className="text-blue-600 underline hover:text-blue-800">(321) 236-0618</a> or
+            <Link href="/custom-quote" className="text-blue-600 underline hover:text-blue-800"> request a custom quote</Link>. Pressure washing and window cleaning can be booked together.
           </p>
         </div>
       </section>
 
-      {/* Popular Searches Near You */}
+      
       <section className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl p-6 border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>window cleaning near me</strong> – local residential and commercial service.</span></li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>sanford window cleaning</strong> – streak‑free outside and inside cleaning.</span></li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>window screen cleaning</strong> – remove, wash, and reinstall screens.</span></li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>window track cleaning</strong> – detail tracks and sills to prevent sticking.</span></li>
-            </ul>
-          </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Where we clean</h3>
+                <p className="text-gray-700 leading-relaxed">Window cleaning for Sanford homes and storefronts, including glass, tracks, sills, and screens when requested.</p>
+              </div>
           <div className="bg-white rounded-xl p-6 border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why book with us</h3>
             <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Licensed and insured window technicians</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Licensed and insured for window work</li>
               <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Pure‑water and surface‑safe methods</li>
               <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Flexible scheduling for homes and storefronts</li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Transparent pricing and clear communication</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Clear pricing and straightforward communication</li>
             </ul>
             <div className="mt-4 flex flex-col sm:flex-row gap-3">
               <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -316,7 +310,7 @@ export default function WindowCleaningPage() {
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Commercial Storefronts</h3>
                 <p className="text-gray-600 mb-4">
-                  We service storefronts along <strong>1st Street</strong> and <strong>French Ave</strong>, ensuring display windows are spotless for foot traffic.
+                  We clean storefronts along <strong>1st Street</strong> and <strong>French Ave</strong> so display windows stay clear for walk-by traffic.
                 </p>
                 <ul className="space-y-1 text-gray-700">
                   <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic Downtown</li>

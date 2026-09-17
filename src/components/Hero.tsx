@@ -29,9 +29,8 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Sanford&apos;s trusted maid service and house cleaners — bonded, insured, and ready to help.
-              Get instant pricing and book your cleaning service in under 60 seconds.
-              Professional, reliable, and affordable cleaning for your home or business.
+              Family-owned house and office cleaning in Sanford. Licensed, bonded, and insured.
+              Get a price online in a few minutes, or call us if you&apos;d rather talk it through.
             </p>
           </div>
 
@@ -78,8 +77,8 @@ const Hero = () => {
                   <HeroCalculator className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-center">
-                  <h2 className="text-2xl lg:text-3xl font-bold text-white">Get Your Instant Quote</h2>
-                  <p className="text-blue-100 text-lg">Professional pricing in 3 easy steps</p>
+                  <h2 className="text-2xl lg:text-3xl font-bold text-white">Get a free quote</h2>
+                  <p className="text-blue-100 text-lg">Tell us about the space — pricing takes about three steps</p>
                 </div>
               </div>
             </div>

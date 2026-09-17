@@ -88,7 +88,7 @@ export default function ResidentialCleaningPage() {
   const services = [
     {
       name: 'Regular House Cleaning',
-      description: 'Weekly or bi-weekly cleaning to maintain your house',
+      description: 'Weekly or bi-weekly cleaning to keep up with kitchens, baths, and floors',
       price: siteFacts.pricing.messages.entryAndTypical,
       duration: '2-4 hours',
       includes: [
@@ -102,7 +102,7 @@ export default function ResidentialCleaningPage() {
     },
     {
       name: 'One-Time Cleaning',
-      description: 'Perfect for special occasions or seasonal cleaning',
+      description: 'Single visit for seasonal resets or before guests',
       price: 'Starting at $120',
       duration: '3-5 hours',
       includes: [
@@ -116,7 +116,7 @@ export default function ResidentialCleaningPage() {
     },
     {
       name: 'Move-In/Move-Out',
-      description: 'Comprehensive cleaning for moving transitions',
+      description: 'Empty-home clean for moving day or deposit checklists',
       price: 'Starting at $200',
       duration: '4-6 hours',
       includes: [
@@ -156,7 +156,7 @@ export default function ResidentialCleaningPage() {
         "name": "Are your cleaners insured and background-checked?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. For your peace of mind, every member of our team is fully vetted, background-checked, bonded, and insured."
+          "text": "Yes. Every member of our team is background-checked, bonded, and insured."
         }
       },
       {
@@ -194,7 +194,7 @@ export default function ResidentialCleaningPage() {
                 <span className="text-blue-600 font-semibold">House Cleaning</span>
               </div>
               <h1 data-cy="residential-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">House Cleaning Services in Sanford, FL</h1>
-              <p className="text-lg text-gray-600 leading-relaxed">Transform your house into a spotless sanctuary with our comprehensive residential cleaning services. From regular maintenance to deep cleaning, we handle it all so you can focus on what matters most.</p>
+              <p className="text-lg text-gray-600 leading-relaxed">House cleaning for Sanford, FL homes — weekly, bi-weekly, or one-time. We clean kitchens, bathrooms, floors, and living areas on a clear checklist so you know what&apos;s covered.</p>
               <div className="flex justify-start">
                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block">Get Free Quote and Book</Link>
               </div>
@@ -217,10 +217,10 @@ export default function ResidentialCleaningPage() {
       <section className="bg-white py-8 border-b border-gray-100">
         <div className="container mx-auto px-4">
           <div className="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does house cleaning help cost in Sanford, FL?</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does house cleaning cost in Sanford, FL?</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg leading-relaxed mb-4">
-                <strong>{siteFacts.brandName}</strong> provides professional <strong>house cleaning in Sanford, FL</strong>. <strong>{siteFacts.pricing.messages.entryAndTypical}</strong> Final pricing depends on the home&apos;s size, condition, scope, and add-ons.
+                <strong>{siteFacts.brandName}</strong> offers house cleaning in Sanford, FL. <strong>{siteFacts.pricing.messages.entryAndTypical}</strong> Final pricing depends on home size, condition, scope, and add-ons.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Pricing:</strong>&nbsp;{siteFacts.pricing.messages.entryAndTypical}</li>
@@ -239,7 +239,7 @@ export default function ResidentialCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Sanford Cleaning Insights</h2>
+              <h2 className="text-2xl font-bold text-gray-900">What we notice in Sanford homes</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -293,8 +293,8 @@ export default function ResidentialCleaningPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 data-cy="residential-services-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">House Cleaning Services</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Choose from our flexible cleaning packages designed to fit your lifestyle and budget.</p>
-            <p className="text-md text-gray-600 max-w-3xl mx-auto mt-4">Looking for a professional house cleaning service near me? Our local Sanford team provides reliable, thorough cleaning services right in your neighborhood, ensuring your house stays pristine without the hassle.</p>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Pick a package that matches how often you want us there — weekly, one-time, or move-related.</p>
+            <p className="text-md text-gray-600 max-w-3xl mx-auto mt-4">Looking for house cleaning near you? Our Sanford team handles recurring and one-time jobs with a written checklist and flexible scheduling.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -413,15 +413,15 @@ export default function ResidentialCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">House Cleaning Guide</h2>
             <p className="text-gray-700 mb-4">
-              Searching for <strong>house cleaning near me</strong>? Our local team delivers professional, reliable results with flexible scheduling and clear checklists. We provide <strong>house cleaning services near me</strong> across Seminole County, tailored to your home&apos;s layout and priorities.
+              Searching for <strong>house cleaning near me</strong>? We clean homes across Seminole County on weekly, bi-weekly, or one-time schedules with a clear checklist for each visit.
             </p>
             <p className="text-gray-700 mb-4">
-              For homeowners looking for <strong>house cleaning services in sanford fl</strong>, our <strong>sanford house cleaning</strong> covers kitchens, bathrooms, living areas, and bedrooms—plus add‑ons like appliance interiors and window sills. We also work with property managers and realtors who need consistent <strong>house cleaners in sanford fl</strong> for turn‑key results.
+              For <strong>house cleaning services in Sanford, FL</strong>, we cover kitchens, bathrooms, living areas, and bedrooms — plus add-ons like appliance interiors and window sills. Property managers and realtors book us for empty-home turnovers too.
             </p>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">House Cleaning in Sanford, FL</h3>
               <p className="text-gray-700 mb-3">
-                Our <strong>house cleaning sanford fl</strong> programs include weekly, bi‑weekly, monthly, and one‑time options. If you need dependable <strong>house cleaning services sanford</strong>, we can maintain your home on a schedule or complete a single deep refresh.
+                Choose weekly, bi-weekly, monthly, or one-time <strong>house cleaning in Sanford, FL</strong>. Recurring plans usually cost less per visit than a one-off booking.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -436,12 +436,8 @@ export default function ResidentialCleaningPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning near me</strong> – recurring or one‑time appointments.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning services near me</strong> – customized checklists and reliable scheduling.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house cleaning services in sanford fl</strong> – local, insured professionals.</span></li>
-                </ul>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Where we clean</h3>
+                <p className="text-gray-700 leading-relaxed">We clean houses across Sanford zip codes, plus Lake Mary and Longwood when the schedule allows. Recurring and one-time visits both use a written checklist.</p>
               </div>
               <div className="bg-white rounded-xl p-6 border">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Ways to Book</h3>
@@ -481,7 +477,7 @@ export default function ResidentialCleaningPage() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic & Downtown</h3>
                   <p className="text-gray-600 mb-4">
-                    Our team provides meticulous <strong>house cleaning in the Sanford Historic District</strong>, respecting the unique needs of older homes and Victorians. We also serve the downtown area near <strong>Lake Monroe</strong> and the <strong>Sanford Riverwalk</strong>.
+                    We clean homes in the <strong>Sanford Historic District</strong>, including older Victorians with original trim and wood floors. We also work downtown near <strong>Lake Monroe</strong> and the <strong>Sanford Riverwalk</strong>.
                   </p>
                   <ul className="space-y-1 text-gray-700">
                     <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Historic District</li>

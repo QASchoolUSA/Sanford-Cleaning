@@ -14,30 +14,30 @@ const About = ({ asPage = false }: AboutProps) => {
   const values = [
     {
       icon: Shield,
-      title: 'Trusted & Insured',
-      description: 'Fully licensed, bonded, and insured for your peace of mind.'
+      title: 'Licensed & insured',
+      description: 'Licensed, bonded, and insured for homes and workplaces in Sanford.',
     },
     {
       icon: Leaf,
-      title: 'Eco-Friendly',
-      description: 'We use environmentally safe cleaning products and methods.'
+      title: 'Safer products',
+      description: 'We use pet- and family-friendly cleaners unless you ask for something specific.',
     },
     {
       icon: Clock,
-      title: 'Reliable Service',
-      description: 'Consistent, punctual service you can count on every time.'
+      title: 'On-time crews',
+      description: 'We confirm the window before arrival and stick to the schedule we give you.',
     },
     {
       icon: Award,
-      title: 'Quality Guaranteed',
-      description: '100% satisfaction guarantee on all our cleaning services.'
-    }
+      title: 'We fix misses',
+      description: 'If something on the checklist was skipped, tell us and we will come back.',
+    },
   ];
 
   const processSteps = [
     {
       title: 'Request a quote or book online',
-      text: 'Share the service type and property details. Typical 3-bedroom packages and deep-clean ranges are published on this site so expectations stay grounded.',
+      text: 'Share the service type and property details. Typical 3-bedroom packages and deep-clean ranges are published on this site so you know the ballpark before you book.',
     },
     {
       title: 'Confirm access and priorities',
@@ -45,11 +45,11 @@ const About = ({ asPage = false }: AboutProps) => {
     },
     {
       title: 'We clean to the checklist',
-      text: 'Trained professionals use modern techniques and eco-friendly products tailored to homes, apartments, offices, and specialty jobs.',
+      text: 'The crew follows a written checklist for kitchens, baths, floors, and living areas — adjusted for homes, apartments, offices, or specialty jobs.',
     },
     {
       title: 'You review the result',
-      text: 'If something needs a touch-up, tell us. Our satisfaction guarantee means we stand behind the work.',
+      text: 'If something needs a touch-up, tell us. We stand behind the work and will make it right.',
     },
   ];
 
@@ -66,19 +66,19 @@ const About = ({ asPage = false }: AboutProps) => {
                 Family-owned cleaning for Sanford homes and workplaces
               </TitleTag>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                {siteFacts.experienceStatement} We&apos;re your partners in creating healthier, more comfortable living and working spaces.
+                {siteFacts.experienceStatement}
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Our team of trained professionals uses the latest cleaning techniques and eco-friendly products to deliver exceptional results. We understand that every space is unique, which is why we customize our services to meet your specific needs and budget.
+                We clean homes, apartments, and workplaces across Sanford with the same checklist every visit — kitchens, baths, floors, and the rooms you care about most. Tell us about pets, hard water, or rooms that need extra time and we plan around that.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Legally operating as {siteFacts.legalName}, we provide house, apartment, residential, commercial, deep, move, post-construction, and specialty cleaning across Sanford. {siteFacts.pricing.messages.full} Contact us at{' '}
+                Legally operating as {siteFacts.legalName}. {siteFacts.pricing.messages.full} Call{' '}
                 <a href={siteFacts.phone.href} className="text-blue-600 font-medium hover:underline">{siteFacts.phone.display}</a>
-                {' '}or{' '}
+                {' '}or email{' '}
                 <a href={`mailto:${siteFacts.email}`} className="text-blue-600 font-medium hover:underline">{siteFacts.email}</a>.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mt-6">
-                Being family-owned shapes how we schedule and communicate. You work with a local business that answers the phone, publishes real pricing ranges, and stands behind licensed, bonded, and insured work—rather than a distant call center rotating gig workers through your home.
+                You deal with a local family business that answers the phone and publishes real price ranges — not a call center sending rotating gig workers through your house.
               </p>
               {!asPage && (
                 <p className="text-lg mt-6">
@@ -105,7 +105,7 @@ const About = ({ asPage = false }: AboutProps) => {
         <div className="mt-20 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">How we work</h2>
           <p className="text-gray-600 mb-8">
-            Experience is easier to trust when the steps are clear—from first quote to finished checklist.
+            From the first quote to the finished checklist, here is what to expect.
           </p>
           <ol className="space-y-6">
             {processSteps.map((step, index) => (

@@ -173,9 +173,9 @@ export default function Page() {
 
         {/* CTA */}
         <section className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center text-white mb-16">
-          <h2 className="text-3xl font-bold mb-4">Experience 5-Star Service</h2>
+          <h2 className="text-3xl font-bold mb-4">Book with our Sanford team</h2>
           <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-            Ready to see why your neighbors love us? Book your first clean with confidence.
+            Flat-rate pricing online. Call (321) 236-0618 if you want a custom quote first.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-100 transition-colors">

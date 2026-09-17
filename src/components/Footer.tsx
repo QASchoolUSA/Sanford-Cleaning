@@ -38,7 +38,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-gray-600 leading-relaxed">
-              Professional cleaning services you can trust. We&apos;re committed to providing exceptional cleaning solutions for your home and business. Explore our <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 underline hover:text-blue-800">Window Cleaning</Link> services.
+              Local house and office cleaning in Sanford, FL. See <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link> and <Link href="/window-cleaning" className="text-blue-600 underline hover:text-blue-800">Window Cleaning</Link> for details.
             </p>
             <div className="flex space-x-4">
               <a href={siteFacts.sameAs[0]} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors" data-cy="footer-facebook-link" aria-label="Visit our Facebook page">

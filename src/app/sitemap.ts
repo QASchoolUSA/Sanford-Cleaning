@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routes = [
         { url: '', priority: 1.0, changeFrequency: 'weekly' as const },
         { url: '/house-cleaning', priority: 0.9, changeFrequency: 'monthly' as const },
+        { url: '/residential-cleaning', priority: 0.9, changeFrequency: 'monthly' as const },
         { url: '/commercial-cleaning', priority: 0.9, changeFrequency: 'monthly' as const },
         { url: '/deep-cleaning', priority: 0.8, changeFrequency: 'monthly' as const },
         { url: '/move-in-move-out-cleaning', priority: 0.8, changeFrequency: 'monthly' as const },

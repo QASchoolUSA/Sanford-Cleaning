@@ -35,7 +35,7 @@ export default function Gallery() {
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Work in Action</h2>
                     <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                        See the difference our professional cleaning services make. We take pride in every detail, from sparkling windows to spotless floors.
+                        Real jobs around Sanford — fridge interiors, dusting, floors, carpets, and windows.
                     </p>
                 </div>
 

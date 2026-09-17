@@ -10,9 +10,9 @@ interface AuthorBioProps {
 
 export default function AuthorBio({
     name = "Sanford Cleaning Team",
-    role = "Cleaning Experts & Local Residents",
+    role = "Local cleaners in Sanford, FL",
     image = "/sanford-cleaning-logo.png", // Fallback to logo if no personal headshot
-    description = "The Sanford Cleaning team consists of local cleaning professionals dedicated to maintaining high standards of hygiene and customer service in Sanford, FL.",
+    description = "We're a family-owned cleaning crew based in Sanford, FL. We write from the jobs we actually do — hard water, humidity, and the checklists that keep homes and rentals ready.",
     linkedin,
 }: AuthorBioProps) {
     const personSchema = {

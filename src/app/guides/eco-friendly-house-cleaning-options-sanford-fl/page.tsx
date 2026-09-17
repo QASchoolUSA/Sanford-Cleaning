@@ -165,7 +165,7 @@ export default function Page() {
         <section className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center text-white mb-16">
           <h2 className="text-3xl font-bold mb-4">Go Green Today</h2>
           <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-            Get the same spotless shine without the chemical smell.
+            Get a clean that lasts without the strong chemical smell.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-green-600 bg-white rounded-lg hover:bg-slate-100 transition-colors">

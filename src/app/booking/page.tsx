@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Book Cleaning Service Online | Instant Price & Booking',
   description:
-    'Book house cleaning or maid service online in Sanford, FL. Get instant quotes, choose services, and schedule your appointment in 60 seconds.',
+    'Book house cleaning or maid service online in Sanford, FL. Get a quote, pick a service, and schedule your visit.',
   alternates: { canonical: 'https://sanfordcleaning.com/booking' },
   openGraph: {
     title: 'Book Cleaning Service Online',

@@ -17,10 +17,10 @@ export default function SpecialOffers() {
                         Limited Time Offers
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Sanford's Best Cleaning Deals
+                        Current cleaning offers
                     </h2>
                     <p className="text-blue-200 text-lg max-w-2xl mx-auto">
-                        Save big on your first professional cleaning or lock in long-term savings with our recurring plans.
+                        $20 off your first deep or move clean, or save more when you book weekly or biweekly.
                     </p>
                 </div>
 

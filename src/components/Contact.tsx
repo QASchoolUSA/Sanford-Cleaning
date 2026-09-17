@@ -63,7 +63,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ready to experience professional cleaning services? Contact us today for a free quote and let us transform your space.
+            Tell us about the job and we will send a free quote — usually within a day. Prefer the phone? Call anytime during business hours.
           </p>
         </div>
 
@@ -124,17 +124,17 @@ const Contact = () => {
             </div>
 
             <div className="bg-blue-50 p-6 rounded-xl">
-              <h4 className="font-bold text-gray-900 mb-3">Free Estimates</h4>
+              <h4 className="font-bold text-gray-900 mb-3">Free quotes</h4>
               <p className="text-gray-700 mb-4">
-                We provide free, no-obligation estimates for all our services. Contact us today to schedule your consultation.
+                Quotes are free and no-obligation. Entry-level jobs start around $80; typical 3-bedroom packages run $140–$200.
               </p>
               <div className="flex items-center space-x-2 text-sm text-blue-600">
                 <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                <span>No hidden fees</span>
+                <span>Clear pricing before you book</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-blue-600">
                 <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                <span>Competitive pricing</span>
+                <span>Pay after the cleaning</span>
               </div>
             </div>
           </div>

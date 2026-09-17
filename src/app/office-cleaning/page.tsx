@@ -7,14 +7,14 @@ import { Building2, Sparkles, CheckCircle, MapPin, Shield, Clock, ArrowRight, Li
 export const metadata = {
   title: "Office Cleaning in Sanford, FL | Sanford Cleaning",
   description:
-    "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
+    "Office and commercial cleaning in Sanford, FL. Daily, weekly, or custom schedules for lobbies, desks, restrooms, and break rooms. Request a quote.",
   keywords:
     "office cleaning service near me, office cleaning service, sanford office cleaning, office furniture cleaning sanford, fl, office cleaning sanford, fl",
   alternates: { canonical: "https://sanfordcleaning.com/office-cleaning" },
   openGraph: {
     title: "Office Cleaning in Sanford, FL | Sanford Cleaning",
     description:
-      "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
+      "Office and commercial cleaning in Sanford, FL. Daily, weekly, or custom schedules for lobbies, desks, restrooms, and break rooms. Request a quote.",
     type: "website",
     url: "https://sanfordcleaning.com/office-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
@@ -23,7 +23,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Office Cleaning in Sanford, FL | Sanford Cleaning",
     description:
-      "Dependable commercial and office cleaning services in Sanford, FL. Keep your workplace spotless and professional. Request a free custom quote today!",
+      "Office and commercial cleaning in Sanford, FL. Daily, weekly, or custom schedules for lobbies, desks, restrooms, and break rooms. Request a quote.",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
 };
@@ -44,7 +44,7 @@ export default function OfficeCleaningPage() {
     { title: "Breakroom & Kitchen", description: "Appliance exteriors, counters, cabinets, sinks, and floors cleaned and sanitized." },
     { title: "Restrooms & Sanitization", description: "High‑touch disinfection, fixture cleaning, trash removal, mirror/glass polishing, and supplies restock." },
     { title: "Floors & Finishes", description: "Vacuuming, mopping, and material‑appropriate care for hard surfaces and carpet." },
-    { title: "Windows & Glass", description: "Interior glass and touch‑point detailing for a spotless look in meeting rooms and lobby areas." },
+    { title: "Windows & Glass", description: "Interior glass and touch-point wipe-downs for meeting rooms and lobby areas." },
   ];
 
   const benefits = [
@@ -94,7 +94,7 @@ export default function OfficeCleaningPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Office & Commercial Cleaning Services in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Keep your workplace spotless, healthy, and client‑ready with the leading <strong>commercial cleaning services Sanford FL</strong> has to offer. We provide reliable <strong>office cleaning service</strong> on daily, weekly, and custom schedules for businesses of all sizes—covering lobbies, workstations, conference rooms, restrooms, and breakrooms. Our team delivers consistent quality, detailed checklists, and high‑touch disinfection.
+                <strong>Office cleaning in Sanford, FL</strong> on daily, weekly, or custom schedules — lobbies, workstations, conference rooms, restrooms, and break rooms. Written checklists, high-touch wipe-downs, and after-hours options when your team is off-site.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -184,18 +184,18 @@ export default function OfficeCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Office Cleaning Guide</h2>
             <p className="text-gray-700 mb-4">
-              Searching for a trustworthy <strong>office cleaning service near me</strong>? We provide a comprehensive <strong>office cleaning service</strong> for professional spaces in Seminole County. From reception areas to conference rooms and restrooms, we maintain a consistent standard so your team and clients always arrive to a clean environment.
+              Looking for an <strong>office cleaning service near me</strong>? We clean Seminole County offices — reception, conference rooms, restrooms, and desks — on a schedule that matches your traffic.
             </p>
             <p className="text-gray-700 mb-4">
-              Our <strong>sanford office cleaning</strong> includes scheduled maintenance and periodic deep cleaning tailored to your building and traffic levels. We also offer <strong>office furniture cleaning sanford, fl</strong> for chairs, desks, tables, and partitions—removing dust, fingerprints, and smudges to keep everything looking polished.
+              <strong>Sanford office cleaning</strong> covers recurring maintenance plus periodic deeper cleans. Furniture wipe-downs for chairs, desks, tables, and partitions are available when you need dust and fingerprints cleared between full visits.
             </p>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Why Businesses Choose Us</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">What local businesses get</h3>
               <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Consistent results with checklists and inspections</li>
-                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Flexible scheduling—daytime or after hours</li>
-                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> High‑touch disinfection and supply restocking</li>
-                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Clear communication and reliable service</li>
+                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Checklists and a walkthrough on recurring accounts</li>
+                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Daytime or after-hours scheduling</li>
+                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> High-touch disinfection and supply restocking</li>
+                <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Direct local contact — call (321) 236-0618</li>
               </ul>
               <div className="mt-4 flex flex-col sm:flex-row gap-3">
                 <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -209,13 +209,8 @@ export default function OfficeCleaningPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>office cleaning service near me</strong> – routine maintenance and deep cleaning for offices.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>office cleaning service</strong> – tailored schedules, reliable checklists, and disinfection.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>sanford office cleaning</strong> – local, insured professionals serving Sanford and nearby areas.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>office cleaning sanford, fl</strong> – trusted cleaning programs for small offices and large buildings.</span></li>
-                </ul>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Where we clean</h3>
+                <p className="text-gray-700 leading-relaxed">Office cleaning for Sanford workplaces on a schedule that fits your hours, with a clear checklist for desks, floors, and restrooms.</p>
               </div>
               <div className="bg-white rounded-xl p-6 border">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Additional Services</h3>

@@ -155,7 +155,7 @@ export default function PostConstructionCleaningPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Detailed Post-Construction Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Renovation complete? We’ll handle the cleanup. Our <strong>post-construction cleaning</strong> service removes debris, fine dust, and residue so your space is ready for move‑in. We clean windows, fixtures, floors, cabinets, and more using professional methods to ensure a spotless finish.
+                Renovation finished? We remove construction debris, fine drywall dust, and residue so the space is ready to occupy. Windows, fixtures, floors, cabinets, and high-touch surfaces get a staged cleanup suited to Sanford remodels and new builds.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -224,7 +224,7 @@ export default function PostConstructionCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Construction Cleanup</h2>
+              <h2 className="text-2xl font-bold text-gray-900">After construction dust settles</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -307,15 +307,15 @@ export default function PostConstructionCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Post-Construction Cleaning Guide</h2>
             <p className="text-gray-700 mb-4">
-              When a renovation or build wraps up, dust, debris, and residue can linger in every corner. Our professional <strong>post construction cleaning</strong> service prepares your space for move‑in with detailed attention to windows, fixtures, cabinets, floors, and high‑touch surfaces. Whether you need a comprehensive <strong>post construction clean up service</strong> for a single room or an entire property, we tailor the checklist to the unique challenges of construction dust and contractor leftovers.
+              After a remodel or new build, fine dust and residue settle on windows, fixtures, cabinets, floors, and vents. Our <strong>post-construction cleaning</strong> follows a staged checklist — rough debris first, then detail work — sized for a single room or a full Sanford property.
             </p>
             <p className="text-gray-700 mb-4">
-              We provide end‑to‑end <strong>post construction cleaning services</strong>, including debris removal, fine dust capture, glass detailing, baseboard and vent cleaning, and sanitation of kitchens and bathrooms. For new builds, our <strong>new construction cleaning service</strong> follows a multi‑stage approach that ensures surfaces are safe, clean, and camera‑ready for turnover or listing photos.
+              Scope typically includes debris removal, HEPA dust capture, glass detailing, baseboards, vents, and kitchen/bath wipe-downs. For new construction we often run multiple passes so surfaces are ready for move-in or listing photos.
             </p>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">How Much Does Post‑Construction Cleaning Cost?</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">How much does post-construction cleaning cost?</h3>
               <p className="text-gray-700 mb-3">
-                If you&apos;re wondering <strong>how much does post construction cleaning cost</strong>, pricing depends on several factors: property size, number of rooms and windows, floor type and condition, the density of dust, paint or adhesive residue, and turnaround timeline. We offer transparent quotes and can accommodate phased cleaning for multi‑stage projects.
+                Price depends on square footage, room and window count, floor type, how heavy the dust and adhesive residue are, and how fast you need the turnaround. We quote before work starts and can phase rough + final cleans.
               </p>
               <ul className="list-disc pl-5 text-gray-700 space-y-2">
                 <li>Scope and complexity (final clean vs. rough + final)</li>
@@ -335,22 +335,16 @@ export default function PostConstructionCleaningPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>post construction cleaning near me</strong> – fast, thorough service for residential and commercial spaces.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>post construction clean up service</strong> – debris removal, dust capture, and final detailing.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>post construction cleaning services</strong> – tailored checklists for new builds and remodels.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>after construction cleaning</strong> – rough and final cleaning phases for new builds.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>post renovation cleaning near me</strong> – safe methods for delicate finishes and materials.</span></li>
-                </ul>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Where we clean</h3>
+                <p className="text-gray-700 leading-relaxed">Post-construction cleanup for Sanford remodels and new builds — dust capture, debris removal, and a final walkthrough.</p>
               </div>
               <div className="bg-white rounded-xl p-6 border">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why book with us</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Specialized methods for construction dust and residue</li>
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Insured, reliable team with flexible scheduling</li>
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Final walkthrough to ensure a move‑in ready finish</li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Transparent estimates and clear communication</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Clear estimates and straightforward communication</li>
                 </ul>
               </div>
             </div>

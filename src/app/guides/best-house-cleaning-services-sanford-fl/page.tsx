@@ -184,7 +184,7 @@ export default function Page() {
           <h3 className="text-xl font-bold text-slate-900 mt-6">2. Verify Insurance & vetting</h3>
           <p>
             Allowing someone into your home requires trust. Ensure the company you hire conducts background checks and carries liability insurance.
-            At Sanford Cleaning, every cleaner is vetted and insured for your peace of mind.
+            At Sanford Cleaning, every cleaner is background-checked and insured.
           </p>
 
           <h3 className="text-xl font-bold text-slate-900 mt-6">3. Check the "Fine Print"</h3>
@@ -196,9 +196,9 @@ export default function Page() {
 
         {/* CTA Section */}
         <section className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center text-white mb-16">
-          <h2 className="text-3xl font-bold mb-4">Ready for a Sparkling Home?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to book a clean?</h2>
           <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-            Join hundreds of happy Sanford neighbors. Book your top-rated cleaning service today in under 60 seconds.
+            Book online in under a minute, or call (321) 236-0618 if you want to talk through the checklist first.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-100 transition-colors">
@@ -213,7 +213,7 @@ export default function Page() {
         <AuthorBio
           name="Sanford Cleaning Team"
           role="Local Cleaning Experts"
-          description="We are a dedicated team of cleaning professionals based right here in Sanford, FL. Our goal is to provide reliable, top-tier cleaning services that give you back your free time."
+          description="We clean homes in Sanford, FL. Flat-rate quotes, a written checklist, and a local number you can actually reach."
         />
       </article>
     </main>

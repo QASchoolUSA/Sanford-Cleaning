@@ -215,7 +215,7 @@ export default function Page() {
 
         <section className="mb-12">
           <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
-            Guest-Ready Checklist Built for 5-Star Reviews
+            Guest-ready checklist for Sanford hosts
           </h3>
           <ul className="list-disc pl-6 space-y-2 text-slate-700">
             <li>

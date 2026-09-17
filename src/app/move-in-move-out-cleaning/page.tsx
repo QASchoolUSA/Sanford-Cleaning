@@ -10,12 +10,12 @@ import { Home, CheckCircle, Users, Building, Clock, Shield, Star, ArrowRight, Sp
 export const metadata = {
   title: "Move-In & Move-Out Cleaning in Sanford, FL",
   description:
-    "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
+    "Move-in and move-out cleaning in Sanford, FL starting at $200. Detailed checklist for deposit returns and empty-home handoffs. Book online.",
   alternates: { canonical: "https://sanfordcleaning.com/move-in-move-out-cleaning" },
   openGraph: {
     title: "Move-In & Move-Out Cleaning in Sanford, FL",
     description:
-      "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
+      "Move-in and move-out cleaning in Sanford, FL starting at $200. Detailed checklist for deposit returns and empty-home handoffs. Book online.",
     type: "website",
     url: "https://sanfordcleaning.com/move-in-move-out-cleaning",
     images: [{ url: "https://sanfordcleaning.com/sanford-residential-cleaning-2.webp", width: 1200, height: 630 }],
@@ -24,7 +24,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Move-In & Move-Out Cleaning in Sanford, FL",
     description:
-      "Looking for move-out cleaning services near you? Sanford Cleaning offers reliable, 5-star move-in and move-out cleaning to maximize deposit returns. Book now!",
+      "Move-in and move-out cleaning in Sanford, FL starting at $200. Detailed checklist for deposit returns and empty-home handoffs. Book online.",
   },
 };
 
@@ -106,11 +106,11 @@ export default function MoveInMoveOutPage() {
   ];
 
   const residentBenefits = [
-    "Stress-free moving experience with professional cleaning",
-    "Maximize security deposit return with thorough move-out cleaning",
-    "Start fresh in a sanitized, spotless new home",
-    "Save time and energy during your busy moving process",
-    "Flexible scheduling to accommodate your moving timeline",
+    "Empty-home cleaning timed around your move",
+    "Detailed move-out checklist aimed at deposit returns",
+    "Cabinets, appliances, and floors cleaned before you move in",
+    "One less chore during packing and unpacking",
+    "Scheduling that works around movers and key handoffs",
   ];
 
   return (
@@ -118,7 +118,7 @@ export default function MoveInMoveOutPage() {
       <ServiceSchema
         name="Move In & Move Out Cleaning Services"
         serviceType="Move Out Cleaning"
-        description="Reliable, 5-star move-in and move-out cleaning to maximize deposit returns in Sanford, FL."
+        description="Move-in and move-out cleaning in Sanford, FL with a detailed deposit checklist."
         url="https://sanfordcleaning.com/move-in-move-out-cleaning"
         offers={[
           { name: "Move Out Cleaning", price: "200.00" },
@@ -179,7 +179,7 @@ export default function MoveInMoveOutPage() {
               Professional Move In & Move Out Cleaning Services in Sanford, FL
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Stress-free transitions with our expert moving house cleaning service. Fast, comprehensive solutions for property owners and residents in Sanford and surrounding areas.
+              Move-in and move-out cleaning for Sanford rentals and homes. We work from a written checklist — cabinets, appliances, floors, and the spots landlords usually check.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center">
@@ -200,7 +200,7 @@ export default function MoveInMoveOutPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does move-out cleaning cost in Sanford, FL?</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg leading-relaxed mb-4">
-                <strong>Sanford Cleaning</strong> provides 5-star <strong>move-out cleaning in Sanford, FL</strong> starting at <strong>$200</strong>. We work directly with Sanford property managers to ensure full deposit returns, targeting commonly missed areas like sticky cabinet tops and appliance interiors. Our 6+ hour checklist is guaranteed for inspection approval.
+                <strong>Sanford Cleaning</strong> provides <strong>move-out cleaning in Sanford, FL</strong> starting at <strong>$200</strong>. We work with local property managers on deposit checklists, including sticky cabinet tops and appliance interiors. Most jobs run 6+ hours with a walkthrough against the checklist.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Apartments:</strong> Starting at $200 (ideal for apartment move out cleaning)</li>
@@ -219,7 +219,7 @@ export default function MoveInMoveOutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Sanford Move-Out Inspections</h2>
+              <h2 className="text-2xl font-bold text-gray-900">What landlords check on move-out</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -277,12 +277,12 @@ export default function MoveInMoveOutPage() {
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <Shield className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                 <h4 className="font-bold text-gray-900 mb-2">Fully Insured</h4>
-                <p className="text-gray-600">Licensed and insured for your peace of mind</p>
+                <p className="text-gray-600">Licensed, bonded, and insured</p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <Star className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
-                <h4 className="font-bold text-gray-900 mb-2">5-Star Rated</h4>
-                <p className="text-gray-600">Consistently rated 5 stars by satisfied customers</p>
+                <h4 className="font-bold text-gray-900 mb-2">Local team</h4>
+                <p className="text-gray-600">Family-owned cleaners serving Sanford, FL</p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <Clock className="w-12 h-12 text-green-600 mx-auto mb-4" />
@@ -354,7 +354,7 @@ export default function MoveInMoveOutPage() {
               Comprehensive Cleaning Solutions for Rental Properties & Home Movers
             </h2>
             <p className="text-lg text-gray-600">
-              Whether you&apos;re a property owner preparing units for new tenants or a resident moving to a new home, our professional move in cleaning Sanford FL and move out cleaning Sanford FL services ensure a spotless transition every time.
+              Cleaning for landlords turning units and households moving in or out in Sanford, FL. Same thorough checklist either way — empty cabinets, appliances, bathrooms, and floors.
             </p>
           </div>
 
@@ -471,7 +471,7 @@ export default function MoveInMoveOutPage() {
 
             <div className="mt-10 bg-blue-50 border border-blue-200 rounded-xl p-6">
               <p className="text-gray-700">
-                Ready to book move out cleaning in Sanford, FL? Click below to schedule your appointment in minutes.
+                Book move-out cleaning in Sanford, FL online, or call (321) 236-0618 to line up timing with your key handoff.
               </p>
               <div className="mt-4 flex flex-col sm:flex-row gap-4">
                 <Link href="/booking" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-flex items-center">Book Move Cleaning <ArrowRight className="w-5 h-5 ml-2" /></Link>
@@ -497,7 +497,7 @@ export default function MoveInMoveOutPage() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Home Sales & Closings</h3>
                   <p className="text-gray-600 mb-4">
-                    Selling a home in <strong>Mayfair</strong> or the <strong>Historic District</strong>? Our move-out cleans ensure your property shines for open houses and passes the final walkthrough inspection seamlessly.
+                    Selling in <strong>Mayfair</strong> or the <strong>Historic District</strong>? We clean empty homes for open houses and final walkthroughs — cabinets, appliances, and floors included.
                   </p>
                   <ul className="space-y-1 text-gray-700">
                     <li className="flex items-start"><CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Pre-Listing Clean</li>

@@ -51,8 +51,8 @@ export default function FAQPage() {
     },
     {
       q: "Do you have insurance?",
-      a: "Yes, we are fully licensed, bonded, and insured for your peace of mind.",
-      aText: "Yes, we are fully licensed, bonded, and insured for your peace of mind.",
+      a: "Yes. We are licensed, bonded, and insured for homes and workplaces in Sanford.",
+      aText: "Yes. We are licensed, bonded, and insured for homes and workplaces in Sanford.",
     },
     {
       q: "What types of cleaning do you provide?",

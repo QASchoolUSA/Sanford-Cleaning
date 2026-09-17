@@ -63,26 +63,26 @@ export default function ExitIntentPopup() {
 
                 <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-8 text-center text-white">
                     <Gift className="w-12 h-12 mx-auto mb-4 text-yellow-300" />
-                    <h2 className="text-3xl font-bold mb-2">Wait! Don't leave your house dirty.</h2>
-                    <p className="text-blue-100 text-lg">Get <span className="font-bold text-yellow-300">$20 OFF</span> your first cleaning if you book today.</p>
+                    <h2 className="text-3xl font-bold mb-2">$20 off your first cleaning</h2>
+                    <p className="text-blue-100 text-lg">New customers: use the code below when you book.</p>
                 </div>
 
                 <div className="p-8 text-center bg-gray-50 text-gray-900">
-                    <p className="mb-6 font-medium">Use code <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-md text-lg font-bold border border-blue-200">CLEAN20</span> at checkout.</p>
+                    <p className="mb-6 font-medium">Use code <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-md text-lg font-bold border border-blue-200">WELCOME20</span> at checkout.</p>
 
                     <Link
                         href="/booking"
                         onClick={() => setShowPopup(false)}
                         className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl flex items-center justify-center shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all mb-3 text-lg"
                     >
-                        Claim My $20 Off Now
+                        Book with $20 off
                     </Link>
 
                     <button
                         onClick={() => setShowPopup(false)}
                         className="text-gray-500 hover:text-gray-800 text-sm font-medium underline"
                     >
-                        No thanks, I prefer a dirty house
+                        No thanks
                     </button>
                 </div>
             </div>

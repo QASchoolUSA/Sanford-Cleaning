@@ -113,7 +113,7 @@ export default function PressureWashingPage() {
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Professional Pressure Washing & Exterior Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Restore curb appeal with exterior washing that’s safe, effective, and tailored to your home. Sanford Cleaning provides professional pressure washing in Sanford, Florida—removing mold, mildew, algae, and tough stains from siding, driveways, patios, gutters, and more.
+                Pressure washing and soft washing for Sanford homes — mold, mildew, algae, and stains off siding, driveways, patios, and gutters. We match pressure to the surface so vinyl and stucco are not damaged.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/free-custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-cy="pressure-quote-button">
@@ -174,7 +174,7 @@ export default function PressureWashingPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Exterior Care</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Exterior washing around Sanford</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -218,30 +218,25 @@ export default function PressureWashingPage() {
             In Sanford Florida, humidity and shade can create ideal conditions for algae, mold, and mildew. Over time, buildup dulls your home’s appearance and can even damage certain materials. Professional pressure washing and exterior washing tackles these contaminants safely. At Sanford Cleaning, we match water pressure, nozzles, and detergents to each surface to protect stucco, vinyl, brick, and painted siding.
           </p>
           <p className="mt-4">
-            Driveways and walkways in shaded areas can also accumulate slippery growth. With proper treatment, we lift stains and improve traction. We also offer soft-wash for delicate materials, plus window cleaning follow-ups so everything shines.
+            Driveways and walkways in shaded areas can grow slippery algae. We treat and rinse those surfaces, soft-wash delicate materials, and can follow up with window cleaning when you want the glass done the same day.
           </p>
         </div>
       </section>
 
-      {/* Popular Searches Near You */}
+      
       <section className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl p-6 border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>pressure washing near me</strong> – house siding, driveways, patios.</span></li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>pressure washing sanford fl</strong> – local exterior washing with soft‑wash options.</span></li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>house pressure washing</strong> – safe methods for stucco, vinyl, brick, and paint.</span></li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>exterior washing near me</strong> – gutters, soffits, fences, and pool decks.</span></li>
-            </ul>
-          </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Where we clean</h3>
+                <p className="text-gray-700 leading-relaxed">Pressure and soft washing for Sanford siding, driveways, patios, gutters, and pool decks — methods matched to the surface.</p>
+              </div>
           <div className="bg-white rounded-xl p-6 border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why book with us</h3>
             <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Licensed and insured exterior cleaning specialists</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Licensed and insured for exterior work</li>
               <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Eco‑conscious detergents and managed runoff</li>
               <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Soft‑wash options for delicate surfaces</li>
-              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Transparent quotes and flexible scheduling</li>
+              <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Clear quotes and flexible scheduling</li>
             </ul>
             <div className="mt-4 flex flex-col sm:flex-row gap-3">
               <Link href="/free-custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">

@@ -36,7 +36,7 @@ export default function ApartmentCleaningPage() {
         },
         {
             question: "Can you clean while I'm at work?",
-            answer: "Absolutely. We can arrange key pickup or lockbox access. All our cleaners are background-checked and insured for your peace of mind."
+            answer: "Yes. We can arrange key pickup or lockbox access. All cleaners are background-checked and insured."
         }
     ];
 
@@ -74,7 +74,7 @@ export default function ApartmentCleaningPage() {
                                 Reliable Apartment Cleaning in Sanford, FL
                             </h1>
                             <p className="text-lg text-gray-600">
-                                From studio apartments to luxury condos, our local team specializes in small-space cleaning. Searching for apartment cleaning services near me? We handle the unique needs of apartment living, including elevator access and move-in/out checklists.
+                                Apartment and condo cleaning in Sanford, FL — studios through larger units. We handle elevator access, parking rules, and move-in/out checklists common in local complexes.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center">
@@ -126,7 +126,7 @@ export default function ApartmentCleaningPage() {
                     <div className="max-w-4xl mx-auto">
                         <div className="flex items-center mb-6">
                             <Shield className="w-8 h-8 text-blue-600 mr-3" />
-                            <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Apartment Living</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">Cleaning apartments in Sanford</h2>
                         </div>
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">

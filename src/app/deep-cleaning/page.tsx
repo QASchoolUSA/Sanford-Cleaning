@@ -9,12 +9,12 @@ import { Sparkles, Clock, Shield, CheckCircle, Star, ArrowRight, Zap, ListChecks
 export const metadata = {
   title: "Deep Cleaning in Sanford, FL | Sanford Cleaning",
   description:
-    "Expert deep cleaning services near me in Sanford, FL. Thorough house and apartment deep cleaning for spring cleaning, move-outs, and more. Get a free quote!",
+    "Deep cleaning in Sanford, FL for spring cleans, move-outs, and detailed kitchen and bath work. Get a free quote.",
   alternates: { canonical: "https://sanfordcleaning.com/deep-cleaning" },
   openGraph: {
     title: "Deep Cleaning in Sanford, FL | Sanford Cleaning",
     description:
-      "Need deep cleaning near me? Our top-rated team handles spring cleaning, move-outs, and detailed house cleaning in Sanford, FL. Book online!",
+      "Deep cleaning in Sanford, FL for spring cleans, move-outs, and detailed kitchen and bath work. Book online or call for a quote.",
     type: "website",
     url: "https://sanfordcleaning.com/deep-cleaning",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
@@ -23,7 +23,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Deep Cleaning in Sanford, FL | Sanford Cleaning",
     description:
-      "Need deep cleaning near me? Our top-rated team handles spring cleaning, move-outs, and detailed house cleaning in Sanford, FL. Book online!",
+      "Deep cleaning in Sanford, FL for spring cleans, move-outs, and detailed kitchen and bath work. Book online or call for a quote.",
     images: ["https://sanfordcleaning.com/sanford-cleaning-homepage.webp"],
   },
 };
@@ -238,7 +238,7 @@ export default function DeepCleaningPage() {
                 Deep Cleaning Services in Sanford, FL
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Go beyond surface cleaning with our thorough deep cleaning services. Perfect for spring cleaning, special occasions, or when your home needs that extra level of care and attention.
+                Deep cleaning for Sanford homes when dust, grease, and bathroom buildup need more than a regular visit. Good for spring cleaning, move-outs, or a first clean after a long stretch without help.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center">
@@ -252,7 +252,7 @@ export default function DeepCleaningPage() {
               <div className="flex items-center space-x-6 text-sm text-gray-600">
                 <Shield className="w-4 h-4" /> Fully Insured
                 <Clock className="w-4 h-4" /> On-time
-                <Star className="w-4 h-4" /> 5-Star Rated
+                <Star className="w-4 h-4" /> Locally owned
               </div>
             </div>
             <div className="relative">
@@ -276,7 +276,7 @@ export default function DeepCleaningPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does a deep house cleaning cost in Sanford, FL?</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg leading-relaxed mb-4">
-                <strong>Sanford Cleaning</strong> provides professional <strong>deep cleaning in Sanford, FL</strong> starting at <strong>$150</strong>. Our 4–6 hour intensive service targets Florida-specific issues like humidity-trapped potential mold in grout, red clay dust on baseboards, and AC vent buildup. We serve the <strong>Historic District</strong> and all Seminole County zip codes.
+                <strong>Sanford Cleaning</strong> offers <strong>deep cleaning in Sanford, FL</strong> starting at <strong>$150</strong>. Our 4–6 hour intensive service targets Florida-specific issues like humidity-trapped potential mold in grout, red clay dust on baseboards, and AC vent buildup. We serve the <strong>Historic District</strong> and all Seminole County zip codes.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Standard Deep Clean:</strong> Starting at $150</li>
@@ -295,7 +295,7 @@ export default function DeepCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Sanford Deep Cleaning</h2>
+              <h2 className="text-2xl font-bold text-gray-900">What a deep clean covers in Sanford</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -492,15 +492,15 @@ export default function DeepCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Deep Cleaning Guide</h2>
             <p className="text-gray-700 mb-4">
-              Looking for <strong>deep cleaning near me</strong>? Our professional team provides thorough <strong>deep cleaning</strong> for houses and apartments in Sanford and surrounding areas. We focus on high‑touch surfaces, kitchens, bathrooms, baseboards, vents, and under‑furniture areas to remove built‑up grime and hidden dust.
+              Looking for <strong>deep cleaning near me</strong>? We deep clean houses and apartments in Sanford — kitchens, bathrooms, baseboards, vents, and under furniture where dust and grease build up.
             </p>
             <p className="text-gray-700 mb-4">
-              We offer flexible <strong>deep cleaning services near me</strong>—from routine refreshes to move‑out projects and seasonal resets. Whether it’s <strong>deep cleaning house</strong> or <strong>apartment deep cleaning</strong>, we tailor the checklist to your home’s materials and specific needs, ensuring a spotless, healthy environment.
+              Book a seasonal reset, a first deep clean, or a move-out deep clean. The checklist flexes for tile, hardwood, and the humidity-related buildup common in Central Florida homes.
             </p>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Deep Cleaning in Sanford, FL</h3>
               <p className="text-gray-700 mb-3">
-                Our <strong>deep cleaning sanford, fl</strong> program provides comprehensive detailing across kitchens, bathrooms, living spaces, and bedrooms. For local residents searching <strong>deep cleaning sanford</strong>, we deliver consistent results with clear checklists, reliable scheduling, and a final walkthrough.
+                <strong>Deep cleaning in Sanford, FL</strong> covers kitchens, bathrooms, living spaces, and bedrooms with a written checklist and a final walkthrough before we leave.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/custom-quote" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -515,21 +515,16 @@ export default function DeepCleaningPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Popular Searches Near You</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>deep cleaning near me</strong> – thorough cleaning for houses and apartments.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>deep cleaning services near me</strong> – flexible scheduling and detailed checklists.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>deep cleaning house</strong> – kitchens, bathrooms, floors, and hard‑to‑reach areas.</span></li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> <span><strong>apartment deep cleaning</strong> – studio to multi‑bedroom units, tailored to your layout.</span></li>
-                </ul>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Where we clean</h3>
+                <p className="text-gray-700 leading-relaxed">Deep cleans cover Sanford homes and apartments — kitchens, baths, baseboards, and the buildup Florida humidity leaves behind.</p>
               </div>
               <div className="bg-white rounded-xl p-6 border">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose Sanford Cleaning</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why book with us</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Insured team and reliable scheduling</li>
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Detailed checklists and final inspection</li>
                   <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Material‑appropriate methods for stone, tile, and wood</li>
-                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Clear communication and transparent estimates</li>
+                  <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-600 mr-2 mt-0.5" /> Straightforward communication and clear estimates</li>
                 </ul>
               </div>
             </div>
@@ -572,8 +567,8 @@ export default function DeepCleaningPage() {
       <section id="contact" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ready for a Deep Clean?</h2>
-            <p className="text-gray-600 mb-6">Get a free quote and book your deep cleaning in minutes.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Book a deep clean</h2>
+            <p className="text-gray-600 mb-6">Get a free quote and schedule online, or call (321) 236-0618.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 inline-flex items-center justify-center">
                 Get Free Quote

@@ -8,7 +8,7 @@ import { siteFacts } from '@/lib/siteFacts';
 export const metadata: Metadata = {
   title: 'About Us — Licensed House Cleaners in Sanford, FL',
   description:
-    'Meet Sanford Cleaning — bonded, insured house cleaners serving Sanford, Lake Mary, Longwood & Seminole County. 10+ years of trusted maid service and commercial cleaning.',
+    'Meet Sanford Cleaning — bonded, insured house cleaners serving Sanford, Lake Mary, Longwood & Seminole County. Family-owned for 2 years; our team brings about 5–7 years of cleaning experience.',
   alternates: { canonical: 'https://sanfordcleaning.com/about' },
   openGraph: {
     title: 'About Sanford Cleaning | Licensed House Cleaners in Sanford, FL',
@@ -31,23 +31,23 @@ export const metadata: Metadata = {
 const values = [
   {
     icon: Shield,
-    title: 'Trusted & Insured',
-    description: 'Fully licensed, bonded, and insured for your peace of mind.',
+    title: 'Licensed & insured',
+    description: 'Licensed, bonded, and insured for homes and workplaces in Sanford.',
   },
   {
     icon: Leaf,
-    title: 'Eco-Friendly',
-    description: 'We use environmentally safe cleaning products and methods.',
+    title: 'Safer products',
+    description: 'We use pet- and family-friendly cleaners unless you ask for something specific.',
   },
   {
     icon: Clock,
-    title: 'Reliable Service',
-    description: 'Consistent, punctual service you can count on every time.',
+    title: 'On-time crews',
+    description: 'We confirm the window before arrival and stick to the schedule we give you.',
   },
   {
     icon: Award,
-    title: 'Quality Guaranteed',
-    description: '100% satisfaction guarantee on all our cleaning services.',
+    title: 'We fix misses',
+    description: 'If something on the checklist was skipped, tell us and we will come back.',
   },
 ];
 
@@ -66,7 +66,7 @@ export default function AboutPage() {
       height: 300,
     },
     description:
-      'Professional house cleaning, maid service, and commercial cleaning company serving Sanford, FL and surrounding communities.',
+      'House cleaning, maid service, and commercial cleaning for Sanford, FL and nearby communities.',
     telephone: '(321) 236-0618',
     email: 'info@sanfordcleaning.com',
     address: {
@@ -221,10 +221,9 @@ export default function AboutPage() {
 
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className="text-3xl font-bold mb-4">Ready to Experience the Difference?</h2>
+          <h2 className="text-3xl font-bold mb-4">Book a cleaning</h2>
           <p className="text-blue-100 mb-8 text-lg">
-            Book your house cleaning or maid service online in under 60 seconds, or request a free custom quote for
-            commercial and specialty jobs.
+            Schedule house cleaning or maid service online in under a minute, or request a custom quote for commercial and specialty jobs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

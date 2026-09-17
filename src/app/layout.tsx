@@ -7,7 +7,7 @@ export const metadata = {
     template: "%s | Sanford Cleaning",
   },
   applicationName: siteFacts.brandName,
-  description: "Professional house cleaning, maid service, and commercial cleaning in Sanford, FL. Insured cleaners serving Lake Mary, Longwood & Central Florida. Book online in 60 seconds.",
+  description: "House cleaning, maid service, and commercial cleaning in Sanford, FL. Insured cleaners for Lake Mary, Longwood, and Central Florida. Get a free quote online.",
   alternates: {
     canonical: siteFacts.url,
   },

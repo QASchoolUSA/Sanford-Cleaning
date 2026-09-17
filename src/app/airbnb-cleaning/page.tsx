@@ -158,7 +158,7 @@ export default function AirbnbCleaningPage() {
                 Airbnb Cleaning in Sanford, FL
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
-                Fast, reliable short‑term rental cleaning for hosts and property managers. Guest‑ready turnovers with hotel‑standard care—fresh linens, restocking essentials, and spotless presentation to protect your ratings.
+                Short-term rental turnovers for Sanford hosts and property managers. Fresh linens, restocked essentials, and a guest-ready walkthrough timed to your check-in window.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center">
@@ -194,7 +194,7 @@ export default function AirbnbCleaningPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does Airbnb cleaning cost in Sanford, FL?</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg leading-relaxed mb-4">
-                <strong>Sanford Cleaning</strong> provides 5-star <strong>Airbnb cleaning in Sanford, FL</strong> starting at <strong>$95/turnover</strong>. Designed for Superhosts, our service includes same-day turnover, hotel-quality linen staging, restocking of essentials, and photo reporting. We integrate with your booking calendar to ensure your rental is guest-ready by 3 PM.
+                <strong>Sanford Cleaning</strong> provides <strong>Airbnb cleaning in Sanford, FL</strong> starting at <strong>$95/turnover</strong>. Same-day turnovers include linen staging, restocking essentials, and photo reporting. We sync with your booking calendar and aim to have the rental guest-ready by 3 PM.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Studio/1-Bed:</strong> Starting at $95</li>
@@ -215,7 +215,7 @@ export default function AirbnbCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Vacation Rental Ops</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Turnover tips for Sanford short-term rentals</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -292,44 +292,23 @@ export default function AirbnbCleaningPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Airbnb Cleaning Guide: Sanford, FL</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Looking for <strong>airbnb cleaning</strong> that protects your listings and delights guests? Our team provides reliable
-                <strong> airbnb cleaning in Sanford, FL</strong> for hosts, co‑hosts, and property managers. We specialize in fast,
-                detailed turnover cleanings so your place is spotless before the next check‑in. If you’re searching for <strong>airbnb cleaning near me</strong>, we
-                cover Sanford and nearby areas including Lake Mary, Heathrow, Longwood, Winter Springs, DeBary, and Deltona.
+                Looking for <strong>Airbnb cleaning in Sanford, FL</strong>? We handle turnovers for hosts, co-hosts, and property managers in Sanford, Lake Mary, Heathrow, Longwood, Winter Springs, DeBary, and Deltona — timed so the unit is ready before the next check-in.
               </p>
               <p>
-                Short‑term rental cleaning requires precision. We follow a host‑approved checklist to clean kitchens and bathrooms thoroughly,
-                sanitize high‑touch areas, make beds with fresh linens, and restock essentials when requested. We can stage spaces in line with your
-                listing photos, tidy decor, and quickly report maintenance or inventory issues. The result is a guest‑ready space that helps reduce
-                complaints, avoid re‑cleans, and maintain 5‑star reviews.
+                Each visit follows a host-approved checklist: kitchens and bathrooms, high-touch wipe-downs, fresh linens, and restocking when you ask for it. We can match your listing photos, note inventory issues, and flag maintenance before the next guest arrives.
               </p>
               <p>
-                Popular searches we serve include <strong>airbnb cleaning sanford fl</strong>, <strong>short‑term rental turnover cleaning</strong>,
-                <strong> vacation rental cleaning</strong>, <strong>STR cleaning</strong>, <strong>Vrbo cleaning</strong>, and <strong>rental property cleaning</strong>.
-                We offer same‑day turnover windows, mid‑stay refresh service, and extended‑stay cleanings for long bookings. Hosts choose us for
-                dependable scheduling, clear communication, and consistent results.
+                Same-day turnover windows, mid-stay refreshes, and extended-stay cleans are available. If you search for short-term rental, vacation rental, STR, or Vrbo cleaning near Sanford, this is the same service — calendar-synced turnovers with clear communication.
               </p>
               <p>
-                Want predictable pricing? Book online or request a custom quote for multi‑unit buildings, frequent turnovers, linen service,
-                and restocking. We can tailor the checklist to your property: pet‑friendly stays, family bookings, corporate travel, or weekend events.
-                Our goal is simple—fast turnover, a fresh look, and a welcoming presentation that keeps guests happy.
+                Pricing is quote-based for multi-unit buildings, frequent turnovers, linen service, and restocking. Tell us if the property is pet-friendly, family-heavy, or used for corporate stays and we&apos;ll adjust the checklist.
               </p>
             </div>
 
             <div className="mt-6 grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl border p-6">
-                <h3 className="font-semibold text-blue-700">Popular Searches Near You</h3>
-                <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                  <li>airbnb cleaning</li>
-                  <li>airbnb cleaning near me</li>
-                  <li>airbnb cleaning sanford fl</li>
-                  <li>airbnb cleaning in sanford, fl</li>
-                  <li>vacation rental cleaning</li>
-                  <li>short‑term rental turnover cleaning</li>
-                  <li>host cleaning service</li>
-                  <li>superhost cleaning sanford</li>
-                  <li>same‑day turnover cleaning</li>
-                </ul>
+                <h3 className="font-semibold text-blue-700">Where we clean</h3>
+                <p className="mt-3 text-sm text-gray-700 leading-relaxed">Same-day turnovers for Sanford short-term rentals — linen refresh, restocking options, and a guest-ready walkthrough.</p>
               </div>
               <div className="bg-white rounded-xl border p-6">
                 <h3 className="font-semibold text-blue-700">Ways to Book</h3>

@@ -99,7 +99,7 @@ export default function CarpetCleaningPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Professional Carpet & Rug Cleaning in Sanford, FL</h1>
               <p className="text-gray-700 mb-6">
-                Fresh, clean carpets improve your home’s comfort and air quality. We provide professional <strong>carpet cleaning in Sanford, FL</strong> using hot water extraction and fiber-safe treatments to remove dirt, allergens, and odors. From <strong>pet stain removal</strong> to <strong>high-traffic area restoration</strong>, we deliver reliable results for homes and businesses. For a full-home refresh, consider pairing carpet cleaning with <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">Deep Cleaning</Link> or routine <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">House Cleaning</Link>.
+                Carpet cleaning in Sanford, FL with hot water extraction and fiber-safe treatments. We remove dirt, allergens, and odors — including pet stains and high-traffic soil. Pair with <Link href="/deep-cleaning" className="text-blue-600 underline hover:text-blue-800">deep cleaning</Link> or regular <Link href="/house-cleaning" className="text-blue-600 underline hover:text-blue-800">house cleaning</Link> when you want the whole home done.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/booking" className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -144,7 +144,7 @@ export default function CarpetCleaningPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does carpet cleaning cost in Sanford, FL?</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg leading-relaxed mb-4">
-                <strong>Sanford Cleaning</strong> provides professional <strong>carpet cleaning in Sanford, FL</strong> starting at <strong>$50/room</strong> (min. applies). We use truck-mounted hot water extraction (steam cleaning) to remove embedded sand, pet dander, and allergens common in Florida homes. Our process includes enzymatic pet odor treatment and rapid-dry fans.
+                <strong>Sanford Cleaning</strong> offers <strong>carpet cleaning in Sanford, FL</strong> starting at <strong>$50/room</strong> (min. applies). We use truck-mounted hot water extraction (steam cleaning) to remove embedded sand, pet dander, and allergens common in Florida homes. Our process includes enzymatic pet odor treatment and rapid-dry fans.
               </p>
               <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Per Room:</strong> Starting at $50</li>
@@ -165,7 +165,7 @@ export default function CarpetCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Carpet Care</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Carpet care for Florida homes</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">

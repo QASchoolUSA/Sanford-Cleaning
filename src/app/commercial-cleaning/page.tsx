@@ -13,7 +13,7 @@ export const metadata = {
   openGraph: {
     title: 'Commercial Cleaning in Sanford, FL | Free Quote',
     description:
-      "Sanford&apos;s top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!",
+      "Commercial cleaning in Sanford, FL for offices, medical offices, and retail. Flexible schedules and custom quotes.",
     type: 'website',
     url: 'https://sanfordcleaning.com/commercial-cleaning',
     images: [{ url: 'https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp', width: 1200, height: 630 }],
@@ -22,7 +22,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Commercial Cleaning in Sanford, FL | Free Quote',
     description:
-      "Sanford's top-rated commercial cleaning for offices, medical, & retail. We keep your business pristine & professional. Get a free, no-obligation quote today!",
+      "Commercial cleaning in Sanford, FL for offices, medical offices, and retail. Flexible schedules and custom quotes.",
     images: ['https://sanfordcleaning.com/commercial-cleaning-sanford-florida.webp'],
   },
 };
@@ -77,7 +77,7 @@ export default function CommercialCleaningPage() {
     },
     {
       name: 'Retail Commercial Cleaning Sanford',
-      description: 'Customer-focused retail cleaning to enhance shopping experience',
+      description: 'Sales floor, fitting rooms, restrooms, and storefront cleaning',
       price: 'Custom Pricing',
       duration: '3-8 hours',
       includes: [
@@ -92,10 +92,10 @@ export default function CommercialCleaningPage() {
   ];
 
   const industries = [
-    { icon: Briefcase, name: 'Corporate Offices', description: 'Expert office cleaning services in Sanford for professional business environments' },
-    { icon: Users, name: 'Medical Facilities', description: 'Medical-grade commercial cleaning service Sanford with HIPAA compliance' },
-    { icon: Building, name: 'Retail Stores', description: 'Professional retail cleaning services to enhance customer experience' },
-    { icon: Shield, name: 'Educational Facilities', description: 'Comprehensive school and educational facility cleaning in Sanford' },
+    { icon: Briefcase, name: 'Corporate Offices', description: 'Office cleaning in Sanford with flexible daytime or after-hours schedules' },
+    { icon: Users, name: 'Medical Facilities', description: 'Medical facility cleaning in Sanford with HIPAA-aware protocols' },
+    { icon: Building, name: 'Retail Stores', description: 'Retail floor, restroom, and storefront cleaning for local shops' },
+    { icon: Shield, name: 'Educational Facilities', description: 'School and classroom cleaning in Sanford' },
   ];
 
 
@@ -162,7 +162,7 @@ export default function CommercialCleaningPage() {
                 <span className="text-blue-600 font-semibold">Commercial Cleaning</span>
               </div>
               <h1 data-cy="commercial-cleaning-title" className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Commercial Cleaning & Janitorial Services in Sanford, FL</h1>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose">Sanford&apos;s premier commercial cleaning service providing exceptional business cleaning solutions. Our professional commercial cleaning service in Sanford ensures your workplace maintains the highest standards of cleanliness and hygiene. From small offices to large commercial facilities, we deliver reliable, comprehensive janitorial services that enhance your business image and create healthier work environments.</p>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose">Commercial and janitorial cleaning for Sanford offices, medical spaces, and retail. We work after hours when you need us, follow a written scope, and can provide insurance docs on request.</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="/free-custom-quote" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block text-center">Get Custom Quote</a>
               </div>
@@ -209,7 +209,7 @@ export default function CommercialCleaningPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
               <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: Commercial Maintenance</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Keeping offices and shops tidy</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -233,7 +233,7 @@ export default function CommercialCleaningPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 data-cy="industries-served-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Our commercial cleaning service Sanford specializes in industry-specific cleaning solutions. We understand that different businesses have unique cleaning requirements, and our experienced team delivers customized commercial cleaning services tailored to your industry&apos;s standards and regulations.</p>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Different spaces need different checklists. We clean offices, medical facilities, retail floors, and schools with scope matched to your traffic and hours.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -254,7 +254,7 @@ export default function CommercialCleaningPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 data-cy="commercial-services-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Office Cleaning Service & Janitorial Services</h2>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Our commercial cleaning service in Sanford offers complete business cleaning solutions. From daily office maintenance to specialized facility cleaning, we provide reliable, professional services that keep your business running smoothly and looking its best.</p>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed md:leading-loose max-w-2xl mx-auto">Daily, weekly, or custom office cleaning in Sanford — trash, floors, restrooms, break rooms, and high-touch wipe-downs. Specialty facility work available by quote.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -296,7 +296,7 @@ export default function CommercialCleaningPage() {
           <div className="max-w-3xl mx-auto">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">What&apos;s the difference between office cleaning and janitorial services in Sanford, FL?</h3>
-              <p className="text-gray-600">Our comprehensive janitorial services in Sanford, FL go beyond basic office cleaning to include facility maintenance, supply management, and specialized cleaning protocols. While office cleaning focuses on daily tasks like dusting and vacuuming, our full janitorial services encompass everything from deep sanitization to maintenance coordination, ensuring your Sanford business operates in a pristine, professional environment.</p>
+              <p className="text-gray-600">Office cleaning covers the day-to-day: dusting, vacuuming, restrooms, and trash. Janitorial work adds facility upkeep — supplies, deeper sanitation, and coordinating maintenance tasks when you need a fuller scope for your Sanford space.</p>
             </div>
           </div>
         </div>
@@ -311,7 +311,7 @@ export default function CommercialCleaningPage() {
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Historic Downtown</h3>
                 <p className="text-gray-600 mb-4">
-                  We keep shops and offices on <strong>1st Street</strong> and <strong>Sanford Ave</strong> pristine for customers. We understand the specific trash and recycling needs of the downtown district.
+                  We clean shops and offices on <strong>1st Street</strong> and <strong>Sanford Ave</strong>. We know downtown trash and recycling pickup rules for that district.
                 </p>
                 <ul className="space-y-1 text-gray-700">
                   <li className="flex items-start"><MapPin className="w-4 h-4 text-blue-500 mr-2 mt-1" /> Downtown Sanford</li>

@@ -9,12 +9,12 @@ import { Home, CheckCircle, Calendar, Shield, Sparkles, ArrowRight, RotateCw, Pe
 export const metadata = {
     title: "Maintenance Cleaning in Sanford, FL | Weekly Options",
     description:
-        "Keep your home pristine with maintenance cleaning in Sanford, FL. Weekly, bi-weekly, and monthly plans starting at $70. Save time & money!",
+        "Weekly, bi-weekly, and monthly maintenance cleaning in Sanford, FL starting at $70. Recurring checklist cleaning, no long-term contract.",
     alternates: { canonical: "https://sanfordcleaning.com/maintenance-cleaning" },
     openGraph: {
         title: "Maintenance Cleaning in Sanford, FL | Weekly Options",
         description:
-            "Automate your chores! Maintenance cleaning plans in Sanford starting at $70. Weekly, bi-weekly, or monthly. No contracts. Book online.",
+            "Weekly, bi-weekly, or monthly maintenance cleaning in Sanford starting at $70. No long-term contracts. Book online.",
         type: "website",
         url: "https://sanfordcleaning.com/maintenance-cleaning",
         images: [{ url: "https://sanfordcleaning.com/sanford-residential-cleaning.webp", width: 1200, height: 630 }],
@@ -71,7 +71,7 @@ export default function MaintenanceCleaningPage() {
                                 Consistent Cleanliness on Your Schedule
                             </h1>
                             <p className="text-lg text-gray-600">
-                                Forget about spending weekends cleaning. Our maintenance plans (weekly, bi-weekly, or monthly) keep your Sanford home spotless year-round at our best value rates.
+                                Weekly, bi-weekly, or monthly cleaning for Sanford homes. Same checklist each visit, with a rotating deep-clean task so bathrooms and kitchens stay ahead of Florida humidity and hard water.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link href="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center">
@@ -103,7 +103,7 @@ export default function MaintenanceCleaningPage() {
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">How much does maintenance house cleaning cost in Sanford, FL?</h2>
                         <div className="prose max-w-none text-gray-700">
                             <p className="text-lg leading-relaxed mb-4">
-                                <strong>Sanford Cleaning</strong> offers discounted <strong>maintenance cleaning in Sanford, FL</strong> starting at <strong>$70/visit</strong> for weekly clients. Our recurring service is designed for busy homeowners who want a "hotel-ready" home. It includes a standard checklist plus a <strong>rotating deep clean</strong> task (like baseboards or blinds) each visit at no extra cost.
+                                <strong>Sanford Cleaning</strong> offers discounted <strong>maintenance cleaning in Sanford, FL</strong> starting at <strong>$70/visit</strong> for weekly clients. Recurring visits use a standard checklist plus a <strong>rotating deep clean</strong> task (like baseboards or blinds) each visit at no extra cost.
                             </p>
                             <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
                                 <li className="flex items-center"><CheckCircle className="w-5 h-5 text-blue-600 mr-2" /> <strong>Weekly:</strong> Starting at $70 (~20% Off)</li>
@@ -124,7 +124,7 @@ export default function MaintenanceCleaningPage() {
                     <div className="max-w-4xl mx-auto">
                         <div className="flex items-center mb-6">
                             <Shield className="w-8 h-8 text-blue-600 mr-3" />
-                            <h2 className="text-2xl font-bold text-gray-900">Expert Field Notes: The Value of Routine</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">Why recurring cleaning helps</h2>
                         </div>
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -153,7 +153,7 @@ export default function MaintenanceCleaningPage() {
                             <Calendar className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                             <h3 className="font-bold text-xl mb-2">Weekly Service</h3>
                             <p className="text-blue-600 font-bold text-2xl mb-4">Save 20%</p>
-                            <p className="text-gray-600 text-sm">Best for busy families, pets, and homes that need to stay "guest-ready" at all times.</p>
+                            <p className="text-gray-600 text-sm">Best for families, pets, and homes that get heavy weekly use.</p>
                         </div>
                         <div className="bg-blue-600 p-8 rounded-xl shadow-lg border border-blue-600 text-center text-white transform md:-translate-y-4">
                             <div className="inline-block bg-white text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3">MOST POPULAR</div>

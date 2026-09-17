@@ -82,19 +82,19 @@ export default function CustomQuotePage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Offices</h3>
-                    <p className="text-sm text-gray-600">Keep your workplace pristine</p>
+                    <p className="text-sm text-gray-600">Offices kept tidy between workdays</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Retail</h3>
-                    <p className="text-sm text-gray-600">Spotless spaces for customers</p>
+                    <p className="text-sm text-gray-600">Floors and bathrooms ready for customers</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Restaurants</h3>
-                    <p className="text-sm text-gray-600">Hygienic dining environments</p>
+                    <p className="text-sm text-gray-600">Front-of-house and restroom focus</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Homes</h3>
-                    <p className="text-sm text-gray-600">Perfect residential cleaning</p>
+                    <p className="text-sm text-gray-600">Kitchens, baths, and living areas</p>
                   </div>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function CustomQuotePage() {
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Request a Quote</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Ready to experience professional cleaning? Fill out the form below for a free, no-obligation quote.
+                Ready for a free quote? Fill out the form below — no obligation.
               </p>
             </div>
             <div className="max-w-2xl mx-auto">
