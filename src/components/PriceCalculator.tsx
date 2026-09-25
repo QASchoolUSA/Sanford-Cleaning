@@ -7,37 +7,51 @@ import { TimeSlotPicker } from '@/components/ui/time-slot-picker';
 import AddressAutocomplete from '@/components/ui/address-autocomplete';
 import {
   DEFAULT_PRICING_CONFIG,
-  calculateQuote,
+  calculatePrice,
+  formatUSD,
+  frequencyDiscountLabels,
+  frequencyLabels,
+  type AddonId,
+  type FrequencyId,
   type PricingConfig,
+  type ServiceTypeId,
 } from '@/lib/pricing';
 import { createSoftLeadTracker } from '@/lib/soft-lead';
 
-interface FormData {
-  // Step 1: Service Selection
-  service: string;
-  frequency?: string;
-  hours?: number;
-  minutes?: number;
+const SERVICE_OPTIONS: { id: ServiceTypeId; label: string }[] = [
+  { id: 'house', label: 'House Cleaning' },
+  { id: 'apartment', label: 'Apartment Cleaning' },
+  { id: 'maintenance', label: 'Maintenance Cleaning' },
+  { id: 'deep', label: 'Deep Cleaning' },
+  { id: 'move', label: 'Move In / Move Out Cleaning' },
+  { id: 'airbnb', label: 'Airbnb Turnover' },
+  { id: 'post-construction', label: 'Post-construction Cleaning' },
+];
 
-  // Step 2: Home Details
+const CONDITION_OPTIONS = [
+  'Very clean',
+  'Pretty clean',
+  'Average',
+  'Pretty dirty',
+  'Very dirty',
+];
+
+interface FormData {
+  serviceType: ServiceTypeId | '';
+  frequency: FrequencyId;
   squareFootage: string;
-  /** Set when the size came from a quick-pick band rather than an exact entry. */
   squareFootageBand: string;
   bedrooms: string;
   bathrooms: string;
   excludeAreas: boolean;
   excludedAreas: string[];
-  extras: { name: string; quantity?: number }[];
-  extraQuantities: { [key: string]: number };
-
-  // Step 3: Tell Us More
+  addons: AddonId[];
   houseCondition: string;
   peopleCount: string;
   lastCleaning: Date | undefined;
   wasProfessional: boolean;
   scheduledDate: Date | undefined;
   scheduledTime: string;
-
   firstName: string;
   lastName: string;
   email: string;
@@ -46,6 +60,10 @@ interface FormData {
   aptUnit: string;
   keyInfo: string;
   customerNote: string;
+}
+
+function serviceLabel(id: ServiceTypeId | ''): string {
+  return SERVICE_OPTIONS.find((s) => s.id === id)?.label ?? 'Cleaning Service';
 }
 
 const PriceCalculator = ({
@@ -72,15 +90,15 @@ const PriceCalculator = ({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [phoneError, setPhoneError] = useState('');
   const [formData, setFormData] = useState<FormData>({
-    service: '',
+    serviceType: '',
+    frequency: 'one-time',
     squareFootage: '',
     squareFootageBand: '',
-    bedrooms: '1',
-    bathrooms: '1',
+    bedrooms: '3',
+    bathrooms: '2',
     excludeAreas: false,
     excludedAreas: [],
-    extras: [],
-    extraQuantities: {},
+    addons: [],
     houseCondition: 'Very clean',
     peopleCount: '1',
     lastCleaning: undefined,
@@ -97,52 +115,27 @@ const PriceCalculator = ({
     customerNote: '',
   });
 
-  const serviceOptions = [
-    'Maintenance Cleaning',
-    'Deep Cleaning',
-    'Move In / Move Out Cleaning',
-    'Post-construction Cleaning',
-    'Hourly Cleaning'
-  ];
-
   const frequencyOptions = useMemo(
-    () => config.maintenance.byFrequency.map(row => row.key),
-    [config]
+    () => config.frequencyMultipliers.map((row) => row.key as FrequencyId),
+    [config],
   );
-
-  /** Quick picks for people who do not know their exact footage; value is the band midpoint. */
-  const SQFT_BANDS = config.sqftBands;
-
-  const bedroomOptions = ['1', '2', '3', '4', '5', '6'];
-
-  const bathroomOptions = ['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', '6', '6.5', '7', '7.5', '8', '8.5'];
-
+  const freqLabels = useMemo(() => frequencyLabels(config), [config]);
+  const freqDiscounts = useMemo(() => frequencyDiscountLabels(config), [config]);
+  const SQFT_BANDS = config.sqftPresets;
+  const bedroomOptions = ['1', '2', '3', '4', '5', '6', '7', '8'];
+  const bathroomOptions = ['1', '2', '3', '4', '5', '6', '7', '8'];
   const areaOptions = ['Bedroom', 'Full Bathroom', 'Kitchen', 'Living/Dining Room'];
-
-  const extraOptions = useMemo(() => config.extras, [config]);
-
-  const conditionOptions = useMemo(
-    () => config.conditionSurcharges.map(option => option.label),
-    [config]
-  );
-
+  const addonOptions = config.addOns;
   const peopleOptions = ['1', '2', '3', '4', '5+'];
-
   const keyInfoOptions = [
     'Someone will be at home',
     'I will hide the keys',
-    'Keep key with provider'
+    'Keep key with provider',
   ];
 
-  // Phone number formatting and validation functions
   const formatPhoneNumber = (value: string): string => {
-    // Remove all non-numeric characters
     const phoneNumber = value.replace(/\D/g, '');
-
-    // Limit to 10 digits
     const limitedPhoneNumber = phoneNumber.substring(0, 10);
-
-    // Format as (XXX) XXX-XXXX
     if (limitedPhoneNumber.length >= 6) {
       return `(${limitedPhoneNumber.substring(0, 3)}) ${limitedPhoneNumber.substring(3, 6)}-${limitedPhoneNumber.substring(6)}`;
     } else if (limitedPhoneNumber.length >= 3) {
@@ -154,21 +147,15 @@ const PriceCalculator = ({
   };
 
   const validatePhoneNumber = (phoneNumber: string): boolean => {
-    // Remove all non-numeric characters and check if it's exactly 10 digits
     const cleanPhone = phoneNumber.replace(/\D/g, '');
     return cleanPhone.length === 10;
   };
 
   const handlePhoneChange = (value: string, field: 'phone') => {
-    // Extract only numeric characters
     const numericValue = value.replace(/\D/g, '');
-
-    // Limit to 10 digits
     if (numericValue.length <= 10) {
       const formattedValue = formatPhoneNumber(numericValue);
       updateFormData(field, formattedValue);
-
-      // Validate and set error messages
       if (numericValue.length > 0 && !validatePhoneNumber(formattedValue)) {
         setPhoneError('Please enter a valid 10-digit phone number');
       } else {
@@ -180,24 +167,17 @@ const PriceCalculator = ({
   const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, field: 'phone') => {
     const target = e.target as HTMLInputElement;
     const currentValue = target.value;
-
-    // Handle backspace and delete keys
     if (e.key === 'Backspace' || e.key === 'Delete') {
       const cursorPosition = target.selectionStart || 0;
-
-      // If backspace is pressed and cursor is at a formatting character, move cursor back
       if (e.key === 'Backspace' && cursorPosition > 0) {
         const charBeforeCursor = currentValue[cursorPosition - 1];
         if (charBeforeCursor === '(' || charBeforeCursor === ')' || charBeforeCursor === ' ' || charBeforeCursor === '-') {
           e.preventDefault();
-          // Find the previous numeric character and remove it
           const numericValue = currentValue.replace(/\D/g, '');
           if (numericValue.length > 0) {
             const newNumericValue = numericValue.slice(0, -1);
             const newFormattedValue = formatPhoneNumber(newNumericValue);
             updateFormData(field, newFormattedValue);
-
-            // Update validation
             if (newNumericValue.length > 0 && !validatePhoneNumber(newFormattedValue)) {
               setPhoneError('Please enter a valid 10-digit phone number');
             } else {
@@ -209,10 +189,24 @@ const PriceCalculator = ({
     }
   };
 
-  const { price: estimatedPrice, maintenancePrice } = useMemo(
-    () => calculateQuote(formData, config),
-    [formData, config]
-  );
+  const breakdown = useMemo(() => {
+    if (!formData.serviceType || !formData.squareFootage) return null;
+    const sqft = Number(formData.squareFootage.replace(/[^0-9]/g, ''));
+    if (!Number.isFinite(sqft) || sqft <= 0) return null;
+    return calculatePrice(
+      {
+        serviceType: formData.serviceType,
+        sqft,
+        bedrooms: Number(formData.bedrooms) || 0,
+        bathrooms: Number(formData.bathrooms) || 1,
+        frequency: formData.frequency,
+        addons: formData.addons,
+      },
+      config,
+    );
+  }, [formData, config]);
+
+  const estimatedPrice = breakdown?.total ?? 0;
 
   useEffect(() => {
     const tracker = softLead.current;
@@ -229,7 +223,9 @@ const PriceCalculator = ({
       email: formData.email,
       phone: formData.phone,
       address: address || undefined,
-      service_type: formData.service || undefined,
+      service_type: formData.serviceType
+        ? serviceLabel(formData.serviceType)
+        : undefined,
       preferred_date: formData.scheduledDate
         ? formData.scheduledDate.toISOString().split('T')[0]
         : undefined,
@@ -239,9 +235,7 @@ const PriceCalculator = ({
       property: {
         bedrooms: formData.bedrooms ? Number(formData.bedrooms) : undefined,
         bathrooms: formData.bathrooms ? Number(formData.bathrooms) : undefined,
-        size_label: formData.squareFootageBand
-          ? `${formData.squareFootageBand} sq ft`
-          : undefined,
+        size_label: formData.squareFootageBand || undefined,
         square_feet: formData.squareFootage
           ? Number(formData.squareFootage.replace(/[^0-9]/g, '')) || undefined
           : undefined,
@@ -256,13 +250,11 @@ const PriceCalculator = ({
       },
       quote: {
         estimate: estimatedPrice > 0 ? estimatedPrice : undefined,
-        recurring_estimate:
-          maintenancePrice > 0 ? maintenancePrice : undefined,
         currency: 'USD',
-        frequency: formData.frequency || undefined,
+        frequency: freqLabels[formData.frequency] ?? formData.frequency,
       },
     });
-  }, [formData, currentStep, estimatedPrice, maintenancePrice]);
+  }, [formData, currentStep, estimatedPrice, freqLabels]);
 
   const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -277,45 +269,20 @@ const PriceCalculator = ({
     }));
   };
 
-  const handleExtraToggle = (extraName: string) => {
-    setFormData(prev => {
-      const existingExtra = prev.extras.find(extra => extra.name === extraName);
-      if (existingExtra) {
-        // Remove the extra
-        return {
-          ...prev,
-          extras: prev.extras.filter(extra => extra.name !== extraName)
-        };
-      } else {
-        // Add the extra
-        const extraOption = extraOptions.find(opt => opt.name === extraName);
-        const defaultQuantity = extraOption?.hasQuantity ? 1 : undefined;
-        return {
-          ...prev,
-          extras: [...prev.extras, { name: extraName, quantity: defaultQuantity }]
-        };
-      }
-    });
-  };
-
-  const updateExtraQuantity = (extraName: string, quantity: number) => {
+  const handleAddonToggle = (key: AddonId) => {
     setFormData(prev => ({
       ...prev,
-      extras: prev.extras.map(extra =>
-        extra.name === extraName ? { ...extra, quantity } : extra
-      )
+      addons: prev.addons.includes(key)
+        ? prev.addons.filter(id => id !== key)
+        : [...prev.addons, key],
     }));
   };
 
   const scrollToCalculatorTop = () => {
     if (calculatorRef.current) {
-      // Get the calculator container position
       const rect = calculatorRef.current.getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      // Calculate position to include some padding above the progress bar
-      const targetPosition = rect.top + scrollTop - 100; // 100px padding above
-
+      const targetPosition = rect.top + scrollTop - 100;
       window.scrollTo({
         top: Math.max(0, targetPosition),
         behavior: 'smooth'
@@ -323,7 +290,6 @@ const PriceCalculator = ({
     }
   };
 
-  // Handle return to specific step via query param and scroll position
   useEffect(() => {
     const returnToStep = searchParams.get('returnToStep');
     if (returnToStep) {
@@ -336,7 +302,6 @@ const PriceCalculator = ({
   const nextStep = () => {
     if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
-      // Scroll to top of calculator form after state update
       setTimeout(() => {
         scrollToCalculatorTop();
       }, 100);
@@ -346,7 +311,6 @@ const PriceCalculator = ({
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
-      // Scroll to top of calculator form after state update
       setTimeout(() => {
         scrollToCalculatorTop();
       }, 100);
@@ -354,7 +318,6 @@ const PriceCalculator = ({
   };
 
   const handleSubmit = async () => {
-    // Prevent duplicate bookings from double-clicks / repeated submits.
     if (isSubmittingRef.current) return;
     isSubmittingRef.current = true;
     setIsSubmitting(true);
@@ -371,11 +334,9 @@ const PriceCalculator = ({
       address: formData.address,
       aptUnit: formData.aptUnit || undefined,
       keyInfo: formData.keyInfo,
-      service: formData.service || 'Cleaning Service',
+      service: serviceLabel(formData.serviceType),
       squareFootage: formData.squareFootage || '',
-      squareFootageLabel: formData.squareFootageBand
-        ? `${formData.squareFootageBand} sq ft`
-        : undefined,
+      squareFootageLabel: formData.squareFootageBand || undefined,
       bedrooms: Number(formData.bedrooms),
       bathrooms: Number(formData.bathrooms),
       customerNote: formData.customerNote || undefined,
@@ -389,21 +350,18 @@ const PriceCalculator = ({
         formData.excludeAreas && formData.excludedAreas.length
           ? formData.excludedAreas
           : undefined,
-      maintenancePrice: typeof maintenancePrice === 'number' && maintenancePrice > 0 ? maintenancePrice : undefined,
       scheduledDate: scheduledDateIso,
       scheduledTime: formData.scheduledTime || undefined,
-      estimatedPrice: typeof estimatedPrice === 'number' && estimatedPrice > 0 ? estimatedPrice : undefined,
-      frequency: formData.frequency || undefined,
-      extras: formData.extras?.length
-        ? formData.extras.map((extra) => ({
-            name: extra.name,
-            price: extraOptions.find((option) => option.name === extra.name)?.price,
-            quantity: extra.quantity,
-          }))
+      estimatedPrice: estimatedPrice > 0 ? estimatedPrice : undefined,
+      frequency: freqLabels[formData.frequency] ?? formData.frequency,
+      extras: formData.addons.length
+        ? formData.addons.map((id) => {
+            const addon = addonOptions.find((a) => a.key === id);
+            return { name: addon?.label ?? id, price: addon?.price };
+          })
         : undefined,
       sessionKey: softLead.current?.sessionKey,
     };
-    // One id per submit attempt — retries of the same attempt stay idempotent upstream.
     const bookingId = `BK${Date.now()}`;
 
     try {
@@ -425,7 +383,6 @@ const PriceCalculator = ({
       isSubmittingRef.current = false;
       setIsSubmitting(false);
     }
-    // Keep submit locked while navigating away so a second click cannot create another booking.
   };
 
   const renderStep1 = () => (
@@ -433,23 +390,23 @@ const PriceCalculator = ({
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-4">Choose Your Service</label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" data-cy="service-select">
-          {serviceOptions.map(option => (
+          {SERVICE_OPTIONS.map(option => (
             <button
-              key={option}
+              key={option.id}
               type="button"
-              onClick={() => updateFormData('service', option)}
-              className={`p-4 rounded-xl text-left transition-all duration-200 border-2 ${formData.service === option
+              onClick={() => updateFormData('serviceType', option.id)}
+              className={`p-4 rounded-xl text-left transition-all duration-200 border-2 ${formData.serviceType === option.id
                 ? 'border-blue-600 bg-blue-50/50 shadow-md ring-1 ring-blue-600'
                 : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50'
                 }`}
             >
               <div className="flex items-center justify-between">
-                <span className={`font-semibold ${formData.service === option ? 'text-blue-900' : 'text-gray-700'}`}>
-                  {option}
+                <span className={`font-semibold ${formData.serviceType === option.id ? 'text-blue-900' : 'text-gray-700'}`}>
+                  {option.label}
                 </span>
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${formData.service === option ? 'border-blue-600 bg-blue-600' : 'border-gray-300'
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${formData.serviceType === option.id ? 'border-blue-600 bg-blue-600' : 'border-gray-300'
                   }`}>
-                  {formData.service === option && <Check className="w-3 h-3 text-white" />}
+                  {formData.serviceType === option.id && <Check className="w-3 h-3 text-white" />}
                 </div>
               </div>
             </button>
@@ -457,10 +414,10 @@ const PriceCalculator = ({
         </div>
       </div>
 
-      {formData.service === 'Maintenance Cleaning' && (
+      {formData.serviceType && (
         <div className="animate-in fade-in slide-in-from-top-4 duration-300">
           <label className="block text-sm font-semibold text-gray-700 mb-4">Frequency</label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" data-cy="frequency-select">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" data-cy="frequency-select">
             {frequencyOptions.map(option => (
               <button
                 key={option}
@@ -477,43 +434,14 @@ const PriceCalculator = ({
                     {formData.frequency === option && <Check className="w-3 h-3 text-white" />}
                   </div>
                   <span className={`font-semibold text-sm ${formData.frequency === option ? 'text-blue-900' : 'text-gray-700'}`}>
-                    {option}
+                    {freqLabels[option]}
                   </span>
+                  {freqDiscounts[option] ? (
+                    <span className="text-xs text-green-700">{freqDiscounts[option]}</span>
+                  ) : null}
                 </div>
               </button>
             ))}
-          </div>
-        </div>
-      )}
-
-      {formData.service === 'Hourly Cleaning' && (
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">Hours</label>
-            <input
-              type="number"
-              min="0"
-              max="12"
-              value={formData.hours || ''}
-              onChange={(e) => updateFormData('hours', parseInt(e.target.value) || 0)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="0"
-              data-cy="hours-input"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">Minutes</label>
-            <input
-              type="number"
-              min="0"
-              max="59"
-              step="15"
-              value={formData.minutes || ''}
-              onChange={(e) => updateFormData('minutes', parseInt(e.target.value) || 0)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="0"
-              data-cy="minutes-input"
-            />
           </div>
         </div>
       )}
@@ -592,7 +520,7 @@ const PriceCalculator = ({
                 key={option}
                 type="button"
                 onClick={() => updateFormData('bathrooms', option)}
-                className={`px-4 h-12 rounded-full font-semibold transition-all duration-200 border-2 flex items-center justify-center ${formData.bathrooms === option
+                className={`w-12 h-12 rounded-full font-semibold transition-all duration-200 border-2 flex items-center justify-center ${formData.bathrooms === option
                   ? 'border-blue-600 bg-blue-600 text-white shadow-md'
                   : 'border-gray-200 bg-white text-gray-700 hover:border-blue-300 hover:bg-blue-50'
                   }`}
@@ -640,8 +568,8 @@ const PriceCalculator = ({
       <div>
         <div className="flex items-center justify-between mb-3">
           <div>
-            <label className="block text-sm font-semibold text-gray-700">Select Extras</label>
-            <p className="text-sm text-gray-600 mt-1">✨ Enhance your cleaning with our premium extras</p>
+            <label className="block text-sm font-semibold text-gray-700">Select Add-ons</label>
+            <p className="text-sm text-gray-600 mt-1">Optional extras — only what you need</p>
           </div>
           <button
             type="button"
@@ -652,12 +580,12 @@ const PriceCalculator = ({
             {showExtras ? (
               <>
                 <ChevronUp className="w-4 h-4 mr-1" />
-                Hide Extras
+                Hide Add-ons
               </>
             ) : (
               <>
                 <ChevronDown className="w-4 h-4 mr-1" />
-                View Extras
+                View Add-ons
               </>
             )}
           </button>
@@ -665,44 +593,25 @@ const PriceCalculator = ({
 
         {showExtras && (
           <div className="space-y-3">
-            {extraOptions.map(extra => {
-              const isSelected = formData.extras.some(e => e.name === extra.name);
-              const selectedExtra = formData.extras.find(e => e.name === extra.name);
-
+            {addonOptions.map(addon => {
+              const isSelected = formData.addons.includes(addon.key as AddonId);
               return (
-                <div key={extra.name} className="border rounded-lg p-2.5 hover:border-blue-300 transition-colors">
+                <div key={addon.key} className="border rounded-lg p-2.5 hover:border-blue-300 transition-colors">
                   <div className="flex items-center justify-between">
                     <label className="flex items-center space-x-3 cursor-pointer flex-1">
                       <input
                         type="checkbox"
                         checked={isSelected}
-                        onChange={() => handleExtraToggle(extra.name)}
+                        onChange={() => handleAddonToggle(addon.key as AddonId)}
                         className="w-4 h-4 text-blue-600 rounded"
-                        data-cy={`extra-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
+                        data-cy={`extra-${addon.key}`}
                       />
-                      <span className="text-gray-700 text-sm">{extra.name}</span>
+                      <span className="text-gray-700 text-sm">{addon.label}</span>
                     </label>
                     <span className="text-blue-600 font-semibold text-sm">
-                      ${extra.price}{extra.hasQuantity ? ` per ${extra.unit}` : ''}
-                      {extra.price === 0 ? ' (Free)' : ''}
+                      {formatUSD(addon.price)}
                     </span>
                   </div>
-
-                  {isSelected && extra.hasQuantity && (
-                    <div className="mt-2 flex items-center space-x-2 pl-7">
-                      <label className="text-sm text-gray-600">Qty:</label>
-                      <input
-                        type="number"
-                        min="1"
-                        max="20"
-                        value={selectedExtra?.quantity || 1}
-                        onChange={(e) => updateExtraQuantity(extra.name, parseInt(e.target.value) || 1)}
-                        className="w-16 p-1.5 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        data-cy={`extra-quantity-${extra.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace(/\//g, '-')}`}
-                      />
-                      <span className="text-xs text-gray-500">{extra.unit}(s)</span>
-                    </div>
-                  )}
                 </div>
               );
             })}
@@ -726,7 +635,7 @@ const PriceCalculator = ({
             data-cy="house-condition-select"
             aria-label="Select house condition"
           >
-            {conditionOptions.map(option => (
+            {CONDITION_OPTIONS.map(option => (
               <option key={option} value={option}>{option}</option>
             ))}
           </select>
@@ -927,7 +836,7 @@ const PriceCalculator = ({
   const isStepValid = () => {
     switch (currentStep) {
       case 1:
-        return formData.service !== '';
+        return formData.serviceType !== '';
       case 2:
         return formData.squareFootage !== '';
       case 3:
@@ -943,12 +852,8 @@ const PriceCalculator = ({
     <section id="price-calculator" className="pt-0 md:pb-2 bg-gray-50 md:bg-transparent">
       <div className="container mx-auto px-0 md:px-4">
         <div className="max-w-4xl mx-auto w-full">
-          {/* Removed duplicate header; handled by parent section/card header */}
-
           <div ref={calculatorRef} className="bg-white md:rounded-xl md:shadow-lg overflow-hidden">
-            {/* Progress Bar */}
             <div className="bg-blue-50 p-4 md:p-6 shrink-0 z-10 shadow-sm md:shadow-none">
-              {/* Overall Progress Bar */}
               <div className="mb-0 md:mb-6">
                 <div className="hidden md:flex justify-between text-xs text-gray-600 mb-2">
                   <span>Step {currentStep} of 4</span>
@@ -962,7 +867,6 @@ const PriceCalculator = ({
                 </div>
               </div>
 
-              {/* Step Indicators - Mobile Compact Version (Replaces Header & Visual Steps) */}
               <div className="md:hidden flex flex-col gap-3">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-900 text-sm">
@@ -975,7 +879,6 @@ const PriceCalculator = ({
                 </div>
               </div>
 
-              {/* Step Indicators - Desktop Version */}
               <div className="hidden md:grid md:grid-cols-4 gap-4">
                 {[
                   { number: 1, title: 'Service Selection', subtitle: 'Choose your service type' },
@@ -1016,7 +919,6 @@ const PriceCalculator = ({
               </div>
             </div>
 
-            {/* Form Content */}
             <div className="p-4 md:p-8">
               {currentStep === 1 && renderStep1()}
               {currentStep === 2 && renderStep2()}
@@ -1024,57 +926,23 @@ const PriceCalculator = ({
               {currentStep === 4 && renderStep4()}
             </div>
 
-            {/* Bottom Container for Price & Navigation */}
             <div className="w-full bg-white md:shadow-[0_-8px_30px_rgba(0,0,0,0.12)] border-t border-gray-200 flex flex-col shrink-0 mt-4 rounded-b-2xl">
-
-              {/* Price Estimate - Only show after sufficient information is provided */}
-              {estimatedPrice > 0 && currentStep >= 2 && formData.service && formData.squareFootage && (
+              {estimatedPrice > 0 && currentStep >= 2 && formData.serviceType && formData.squareFootage && (
                 <div className="bg-blue-50/90 backdrop-blur-md py-2 px-4 md:p-6 border-b border-blue-100">
-                  {formData.service === 'Maintenance Cleaning' && maintenancePrice > 0 ? (
-                    <div className="space-y-1 md:space-y-4">
-                      <h3 className="hidden md:block text-lg font-semibold text-gray-900 text-center mb-4">Maintenance Pricing</h3>
-
-                      <div className="flex flex-row justify-between md:gap-4 items-center">
-                        {/* Initial Cleaning Price */}
-                        <div className="flex-1 md:bg-white md:p-4 md:rounded-lg md:border md:border-blue-200 flex flex-col justify-center items-start md:items-center">
-                          <div className="text-left md:text-center text-xs text-gray-600">
-                            <span className="font-semibold text-gray-900 md:font-normal md:text-gray-900">Initial Clean</span>
-                            <span className="hidden md:block">Establish baseline</span>
-                          </div>
-                          <div className="text-lg md:text-2xl font-bold text-blue-600">
-                            ${estimatedPrice.toFixed(2)}
-                          </div>
-                        </div>
-
-                        <div className="hidden md:block w-px h-12 bg-blue-200 mx-4"></div>
-
-                        {/* Recurring Maintenance Price */}
-                        <div className="flex-1 md:bg-white md:p-4 md:rounded-lg md:border md:border-green-200 flex flex-col justify-center items-end md:items-center">
-                          <div className="text-right md:text-center text-xs text-gray-600">
-                            <span className="font-semibold text-gray-900 md:font-normal md:text-gray-900">Ongoing <span className="md:hidden">({formData.frequency})</span></span>
-                            <span className="hidden md:block text-gray-600">{formData.frequency}</span>
-                          </div>
-                          <div className="text-lg md:text-2xl font-bold text-green-600">
-                            ${maintenancePrice.toFixed(2)}
-                          </div>
-                        </div>
-                      </div>
+                  <div className="flex flex-row justify-between items-center md:block md:text-center">
+                    <div className="flex flex-col">
+                      <span className="text-xs md:text-sm font-medium text-gray-600">Estimated Price</span>
+                      {breakdown && breakdown.frequencyDiscount > 0 ? (
+                        <span className="text-[10px] sm:text-xs text-green-700">
+                          Includes {freqDiscounts[formData.frequency]}
+                        </span>
+                      ) : null}
                     </div>
-                  ) : (
-                    <div className="flex flex-row justify-between items-center md:block md:text-center">
-                      <div className="flex flex-col">
-                        <span className="text-xs md:text-sm font-medium text-gray-600">Estimated Price</span>
-                        {formData.service === 'Maintenance Cleaning' && !formData.frequency && (
-                          <span className="text-[10px] sm:text-xs text-orange-600">*Select frequency</span>
-                        )}
-                      </div>
-                      <span className="text-xl md:text-3xl font-bold text-blue-600">${estimatedPrice.toFixed(2)}</span>
-                    </div>
-                  )}
+                    <span className="text-xl md:text-3xl font-bold text-blue-600">{formatUSD(estimatedPrice)}</span>
+                  </div>
                 </div>
               )}
 
-              {/* Navigation */}
               <div className="p-3 md:p-6 flex flex-col gap-3">
                 {submitError ? (
                   <p className="text-sm text-red-600" role="alert">
@@ -1136,9 +1004,6 @@ const PriceCalculator = ({
             </div>
           </div>
         </div>
-
-
-
       </div>
     </section>
   );
