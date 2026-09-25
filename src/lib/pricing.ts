@@ -1,264 +1,327 @@
 /**
- * Sanford's quote engine, lifted verbatim out of `PriceCalculator.tsx` so the
- * numbers can be edited in Booking Broom and the math can be tested.
- *
- * Behaviour is deliberately unchanged, including its quirks: "Deep Cleaning" and
- * "Post-construction Cleaning" price off the same standard base, the discount is
- * unconditional, and house condition only moves a move-in/move-out quote.
+ * Sanford's quote engine — Davenport `sqft-rate-min` pattern with STANDARD rates.
+ * Booking Broom is the source of truth; DEFAULT_PRICING_CONFIG is the offline fallback.
  */
 
-export interface Extra {
-  name: string;
-  price: number;
-  hasQuantity: boolean;
-  unit?: string;
+export type ServiceTypeId =
+  | "house"
+  | "apartment"
+  | "move"
+  | "airbnb"
+  | "post-construction"
+  | "maintenance"
+  | "deep";
+
+export type FrequencyId = "one-time" | "weekly" | "bi-weekly" | "monthly";
+
+export type AddonId =
+  | "kitchen-deep"
+  | "oven"
+  | "fridge"
+  | "windows-interior"
+  | "windows-exterior"
+  | "laundry"
+  | "cabinets"
+  | "garage"
+  | "balcony"
+  | "pets";
+
+export interface PricingInput {
+  serviceType: ServiceTypeId;
+  sqft: number;
+  bedrooms: number;
+  bathrooms: number;
+  frequency: FrequencyId;
+  addons: AddonId[];
 }
 
-export interface SelectedExtra {
-  name: string;
-  quantity?: number;
-}
-
-export interface SqftBand {
-  label: string;
-  value: number;
-}
-
-export interface PricingConfig {
-  kind: "inline-wizard";
-  /** Base for maintenance, deep and post-construction cleans. */
-  standardBase: number;
-  per1000SqFtOver: number;
-  perBedroomOver: number;
-  perBathroomOver: number;
-  /** Square footage, bedroom and bathroom count included in every base. */
-  includedSqFt: number;
-  moveOut: {
-    base: number;
-    per1000SqFtOver: number;
-    perBedroomOver: number;
-    perBathroomOver: number;
-  };
-  /** Only applied to move in / move out. */
-  conditionSurcharges: { key: string; label: string; price: number }[];
-  hourlyRate: number;
-  maintenance: {
-    byFrequency: { key: string; value: number }[];
-    per1000SqFt: number;
-    perBedroom: number;
-    perBathroom: number;
-  };
-  extras: Extra[];
-  /** Extras that also recur on a maintenance plan rather than just the first visit. */
-  maintenanceIncludedExtras: string[];
-  /** Applied to every quote, e.g. 0.85 for the standing 15% off. */
-  discountMultiplier: number;
-  sqftBands: SqftBand[];
-}
-
-export const DEFAULT_PRICING_CONFIG: PricingConfig = {
-  kind: "inline-wizard",
-  standardBase: 157,
-  per1000SqFtOver: 10,
-  perBedroomOver: 10,
-  perBathroomOver: 12,
-  includedSqFt: 1000,
-  moveOut: {
-    base: 277,
-    per1000SqFtOver: 10,
-    perBedroomOver: 10,
-    perBathroomOver: 6.5,
-  },
-  conditionSurcharges: [
-    { key: "Very clean", label: "Very clean", price: 0 },
-    { key: "Pretty clean", label: "Pretty clean", price: 25 },
-    { key: "Average", label: "Average", price: 55 },
-    { key: "Pretty dirty", label: "Pretty dirty", price: 115 },
-    { key: "Very dirty", label: "Very dirty", price: 195 },
-  ],
-  hourlyRate: 55,
-  maintenance: {
-    byFrequency: [
-      { key: "Weekly", value: 109.9 },
-      { key: "Every Other Week", value: 120.89 },
-      { key: "Every 4 Weeks", value: 141.3 },
-    ],
-    per1000SqFt: 7,
-    perBedroom: 7,
-    perBathroom: 8.2,
-  },
-  extras: [
-    { name: "Behind fridge", price: 20, hasQuantity: false },
-    { name: "Behind oven", price: 20, hasQuantity: false },
-    { name: "Inside oven", price: 35, hasQuantity: false },
-    { name: "Deep Cleaning", price: 40, hasQuantity: false },
-    { name: "Heavy Duty", price: 80, hasQuantity: false },
-    { name: "Inside fridge", price: 30, hasQuantity: false },
-    { name: "Patio windows in/out", price: 10, hasQuantity: true, unit: "window" },
-    {
-      name: "Interior windows (all, excludes patio)",
-      price: 30,
-      hasQuantity: false,
-    },
-    { name: "Wet wipe window blinds", price: 10, hasQuantity: true, unit: "blind" },
-    { name: "Organization (30 min)", price: 20, hasQuantity: false },
-    { name: "Green Cleaning", price: 0, hasQuantity: false },
-    { name: "Dishes", price: 10, hasQuantity: false },
-    { name: "Laundry & Folding", price: 20, hasQuantity: false },
-    { name: "Carpet Cleaning", price: 20, hasQuantity: true, unit: "area" },
-  ],
-  maintenanceIncludedExtras: ["Inside oven", "Dishes", "Laundry & Folding"],
-  discountMultiplier: 0.85,
-  sqftBands: [
-    { label: "Under 1,000", value: 900 },
-    { label: "1,000–1,500", value: 1250 },
-    { label: "1,500–2,500", value: 2000 },
-    { label: "2,500–4,000", value: 3200 },
-    { label: "4,000+", value: 4500 },
-  ],
-};
-
-export const HOURLY_SERVICE = "Hourly Cleaning";
-export const MOVE_SERVICE = "Move In / Move Out Cleaning";
-export const MAINTENANCE_SERVICE = "Maintenance Cleaning";
-
-export interface QuoteInput {
-  service: string;
-  frequency?: string;
-  hours?: number;
-  minutes?: number;
-  squareFootage: string;
-  bedrooms: string;
-  bathrooms: string;
-  houseCondition: string;
-  extras: SelectedExtra[];
-}
-
-export interface Quote {
-  /** What the first visit costs, after the standing discount. */
-  price: number;
-  /** What each recurring maintenance visit costs; 0 for one-off services. */
-  maintenancePrice: number;
+export interface PriceBreakdown {
+  base: number;
+  bedrooms: number;
+  bathrooms: number;
+  addons: number;
+  subtotal: number;
+  frequencyMultiplier: number;
+  frequencyDiscount: number;
+  total: number;
 }
 
 /**
- * Guards a config that arrived over the wire, checking only enough to know the
- * engine can run on it. A wrong-shaped payload must fall back to the compiled
- * prices rather than quote nonsense.
+ * Every number this site charges. Booking Broom is the source of truth; the
+ * values in `DEFAULT_PRICING_CONFIG` are what shipped and are used whenever the
+ * dashboard cannot be reached, so a quote is never blocked on it.
+ */
+export type PricingConfig = {
+  kind: "sqft-rate-min";
+  /** Per-sq-ft rate and the floor the base can never fall below. */
+  serviceRates: { key: string; perSqft: number; minBase: number }[];
+  bedroomRate: number;
+  bathroomRate: number;
+  frequencyMultipliers: { key: string; label: string; multiplier: number }[];
+  addOns: { key: string; label: string; price: number }[];
+  /** Square footage bands; `value` is the midpoint an estimate is built from. */
+  sqftPresets: { label: string; value: number }[];
+  minSqft: number;
+  maxSqft: number;
+};
+
+export const DEFAULT_PRICING_CONFIG: PricingConfig = {
+  kind: "sqft-rate-min",
+  serviceRates: [
+    { key: "house", perSqft: 0.15, minBase: 129 },
+    { key: "apartment", perSqft: 0.15, minBase: 99 },
+    { key: "move", perSqft: 0.23, minBase: 189 },
+    { key: "airbnb", perSqft: 0.12, minBase: 149 },
+    { key: "post-construction", perSqft: 0.39, minBase: 249 },
+    { key: "maintenance", perSqft: 0.15, minBase: 109 },
+    { key: "deep", perSqft: 0.2, minBase: 199 },
+  ],
+  bedroomRate: 18,
+  bathroomRate: 28,
+  frequencyMultipliers: [
+    { key: "one-time", label: "One-time", multiplier: 1 },
+    { key: "weekly", label: "Weekly", multiplier: 0.85 },
+    { key: "bi-weekly", label: "Bi-weekly", multiplier: 0.9 },
+    { key: "monthly", label: "Monthly", multiplier: 0.95 },
+  ],
+  addOns: [
+    { key: "kitchen-deep", label: "Kitchen deep clean", price: 45 },
+    { key: "oven", label: "Oven cleaning", price: 35 },
+    { key: "fridge", label: "Fridge cleaning", price: 35 },
+    { key: "windows-interior", label: "Windows (interior)", price: 40 },
+    { key: "windows-exterior", label: "Windows (exterior)", price: 55 },
+    { key: "laundry", label: "Laundry fold & put away", price: 25 },
+    { key: "cabinets", label: "Inside cabinets", price: 40 },
+    { key: "garage", label: "Garage sweep & wipe", price: 50 },
+    { key: "balcony", label: "Patio / balcony", price: 30 },
+    { key: "pets", label: "Pet-friendly detail", price: 20 },
+  ],
+  sqftPresets: [
+    { label: "Under 800 sq ft", value: 600 },
+    { label: "800\u20131,200 sq ft", value: 1000 },
+    { label: "1,200\u20132,000 sq ft", value: 1600 },
+    { label: "2,000\u20132,600 sq ft", value: 2200 },
+    { label: "2,600+ sq ft", value: 3000 },
+  ],
+  minSqft: 400,
+  maxSqft: 6000,
+};
+
+const SERVICE_TYPE_IDS: ServiceTypeId[] = [
+  "house",
+  "apartment",
+  "move",
+  "airbnb",
+  "post-construction",
+  "maintenance",
+  "deep",
+];
+
+const ADDON_IDS: AddonId[] = [
+  "kitchen-deep",
+  "oven",
+  "fridge",
+  "windows-interior",
+  "windows-exterior",
+  "laundry",
+  "cabinets",
+  "garage",
+  "balcony",
+  "pets",
+];
+
+const FREQUENCY_IDS: FrequencyId[] = [
+  "one-time",
+  "weekly",
+  "bi-weekly",
+  "monthly",
+];
+
+/**
+ * Guards against a remote config that parses as JSON but is missing a service,
+ * frequency or add-on the UI iterates over, which would otherwise quote $0 or
+ * render an empty picker.
  */
 export function isUsablePricingConfig(value: unknown): value is PricingConfig {
   if (!value || typeof value !== "object") return false;
   const config = value as Partial<PricingConfig>;
-  if (config.kind !== "inline-wizard") return false;
-  if (typeof config.standardBase !== "number") return false;
-  if (typeof config.hourlyRate !== "number") return false;
-  if (typeof config.discountMultiplier !== "number") return false;
-  if (typeof config.moveOut?.base !== "number") return false;
-  if (!Array.isArray(config.extras) || config.extras.length === 0) return false;
-  if (!Array.isArray(config.conditionSurcharges)) return false;
-  if (!Array.isArray(config.maintenance?.byFrequency)) return false;
-  if (!Array.isArray(config.sqftBands) || config.sqftBands.length === 0) {
+  if (config.kind !== "sqft-rate-min") return false;
+  if (typeof config.bedroomRate !== "number") return false;
+  if (typeof config.bathroomRate !== "number") return false;
+  if (typeof config.minSqft !== "number") return false;
+  if (typeof config.maxSqft !== "number") return false;
+  if (!Array.isArray(config.sqftPresets) || config.sqftPresets.length === 0) {
     return false;
   }
-  return true;
-}
+  if (!Array.isArray(config.serviceRates)) return false;
+  if (!Array.isArray(config.frequencyMultipliers)) return false;
+  if (!Array.isArray(config.addOns)) return false;
 
-function roundMoney(value: number): number {
-  return Math.round(value * 100) / 100;
-}
-
-/** Charged per whole 1,000 sq ft started above the included footage. */
-function sqftBlocks(sqft: number, includedSqFt: number): number {
-  if (sqft <= includedSqFt) return 0;
-  return Math.ceil((sqft - includedSqFt) / 1000);
-}
-
-function conditionSurcharge(condition: string, config: PricingConfig): number {
-  return config.conditionSurcharges.find((c) => c.key === condition)?.price ?? 0;
-}
-
-function maintenanceBase(frequency: string | undefined, config: PricingConfig): number {
-  const rows = config.maintenance.byFrequency;
-  const match = frequency ? rows.find((row) => row.key === frequency) : undefined;
-  return match?.value ?? rows[0]?.value ?? 0;
-}
-
-export function extrasTotal(
-  selected: SelectedExtra[],
-  config: PricingConfig = DEFAULT_PRICING_CONFIG,
-): number {
-  return selected.reduce((sum, choice) => {
-    const extra = config.extras.find((option) => option.name === choice.name);
-    if (!extra) return sum;
-    return sum + extra.price * (choice.quantity || 1);
-  }, 0);
-}
-
-/** Only the subset of extras that keep applying on a maintenance plan. */
-export function recurringExtrasTotal(
-  selected: SelectedExtra[],
-  config: PricingConfig = DEFAULT_PRICING_CONFIG,
-): number {
-  return extrasTotal(
-    selected.filter((choice) =>
-      config.maintenanceIncludedExtras.includes(choice.name),
-    ),
-    config,
+  return (
+    SERVICE_TYPE_IDS.every((id) =>
+      config.serviceRates!.some((rate) => rate.key === id),
+    ) &&
+    FREQUENCY_IDS.every((id) =>
+      config.frequencyMultipliers!.some((freq) => freq.key === id),
+    ) &&
+    ADDON_IDS.every((id) => config.addOns!.some((addOn) => addOn.key === id))
   );
 }
 
-export function calculateQuote(
-  input: QuoteInput,
+export function frequencyMultipliers(
   config: PricingConfig = DEFAULT_PRICING_CONFIG,
-): Quote {
-  const sqft = parseInt(input.squareFootage) || 0;
-  const bedrooms = parseInt(input.bedrooms) || 0;
-  const bathrooms = parseFloat(input.bathrooms) || 0;
-  const blocks = sqftBlocks(sqft, config.includedSqFt);
-  const extraBedrooms = Math.max(0, bedrooms - 1);
-  const extraBathrooms = Math.max(0, bathrooms - 1);
+): Record<FrequencyId, number> {
+  return Object.fromEntries(
+    config.frequencyMultipliers.map((freq) => [freq.key, freq.multiplier]),
+  ) as Record<FrequencyId, number>;
+}
 
-  let price = 0;
-  let maintenancePrice = 0;
+export function frequencyLabels(
+  config: PricingConfig = DEFAULT_PRICING_CONFIG,
+): Record<FrequencyId, string> {
+  return Object.fromEntries(
+    config.frequencyMultipliers.map((freq) => [freq.key, freq.label]),
+  ) as Record<FrequencyId, string>;
+}
 
-  if (input.service === HOURLY_SERVICE) {
-    const totalMinutes = (input.hours || 0) * 60 + (input.minutes || 0);
-    price = (totalMinutes / 60) * config.hourlyRate;
-  } else if (input.service === MOVE_SERVICE) {
-    const move = config.moveOut;
-    price =
-      move.base +
-      blocks * move.per1000SqFtOver +
-      extraBedrooms * move.perBedroomOver +
-      extraBathrooms * move.perBathroomOver +
-      conditionSurcharge(input.houseCondition, config);
-  } else {
-    price =
-      config.standardBase +
-      blocks * config.per1000SqFtOver +
-      extraBedrooms * config.perBedroomOver +
-      extraBathrooms * config.perBathroomOver;
+/** "15% off" for a 0.85 multiplier; null when there is nothing to advertise. */
+export function frequencyDiscountLabels(
+  config: PricingConfig = DEFAULT_PRICING_CONFIG,
+): Record<FrequencyId, string | null> {
+  return Object.fromEntries(
+    config.frequencyMultipliers.map((freq) => {
+      const off = Math.round((1 - freq.multiplier) * 100);
+      return [freq.key, off > 0 ? `${off}% off` : null];
+    }),
+  ) as Record<FrequencyId, string | null>;
+}
 
-    if (input.service === MAINTENANCE_SERVICE && input.frequency) {
-      const recurring = config.maintenance;
-      maintenancePrice =
-        maintenanceBase(input.frequency, config) +
-        blocks * recurring.per1000SqFt +
-        extraBedrooms * recurring.perBedroom +
-        extraBathrooms * recurring.perBathroom;
-    }
-  }
+export function addOnPrices(
+  config: PricingConfig = DEFAULT_PRICING_CONFIG,
+): Record<AddonId, number> {
+  return Object.fromEntries(
+    config.addOns.map((addOn) => [addOn.key, addOn.price]),
+  ) as Record<AddonId, number>;
+}
 
-  // Hourly is time-and-materials, so extras are not stacked on top of it.
-  if (input.service !== HOURLY_SERVICE) {
-    price += extrasTotal(input.extras, config);
-    if (input.service === MAINTENANCE_SERVICE) {
-      maintenancePrice += recurringExtrasTotal(input.extras, config);
-    }
-  }
+/** The published "from $X" floor for each service. */
+export function minimumBase(
+  config: PricingConfig = DEFAULT_PRICING_CONFIG,
+): Record<ServiceTypeId, number> {
+  return Object.fromEntries(
+    config.serviceRates.map((rate) => [rate.key, rate.minBase]),
+  ) as Record<ServiceTypeId, number>;
+}
+
+/** Labels stay local copy; only the prices come from the dashboard. */
+export const ADDON_META: Record<
+
+  AddonId,
+  { label: string; description: string }
+> = {
+  "kitchen-deep": {
+    label: "Kitchen deep clean",
+    description: "Counters, sinks, appliances exterior, backsplash detail",
+  },
+  oven: {
+    label: "Oven cleaning",
+    description: "Interior oven scrub and racks",
+  },
+  fridge: {
+    label: "Fridge cleaning",
+    description: "Interior shelves, drawers, and seals",
+  },
+  "windows-interior": {
+    label: "Windows (interior)",
+    description: "Glass and sills inside the home",
+  },
+  "windows-exterior": {
+    label: "Windows (exterior)",
+    description: "Outside glass (ground-accessible)",
+  },
+  laundry: {
+    label: "Laundry fold & put away",
+    description: "One load washed, folded, and put away",
+  },
+  cabinets: {
+    label: "Inside cabinets",
+    description: "Wipe interiors of kitchen cabinets",
+  },
+  garage: {
+    label: "Garage sweep & wipe",
+    description: "Floor sweep, cobwebs, and surface wipe-down",
+  },
+  balcony: {
+    label: "Patio / balcony",
+    description: "Sweep, wipe railings, and tidy outdoor seating",
+  },
+  pets: {
+    label: "Pet-friendly detail",
+    description: "Extra hair removal and pet-area refresh",
+  },
+};
+
+/**
+ * Square footage is picked as a band. `value` is the midpoint the estimate is
+ * built from; `label` is what the customer chose and what gets reported, since
+ * they never gave an exact figure.
+ */
+export function sqftPresets(config: PricingConfig = DEFAULT_PRICING_CONFIG) {
+  return config.sqftPresets;
+}
+
+export function sqftPresetLabel(
+  value: number,
+  config: PricingConfig = DEFAULT_PRICING_CONFIG,
+): string {
+  const closest = config.sqftPresets.reduce((best, preset) =>
+    Math.abs(preset.value - value) < Math.abs(best.value - value) ? preset : best,
+  );
+  return closest.label;
+}
+
+export function calculatePrice(
+  input: PricingInput,
+  config: PricingConfig = DEFAULT_PRICING_CONFIG,
+): PriceBreakdown {
+  const sqft = Math.max(config.minSqft, Math.min(config.maxSqft, input.sqft));
+  const bedrooms = Math.max(0, Math.min(8, input.bedrooms));
+  const bathrooms = Math.max(1, Math.min(8, input.bathrooms));
+
+  const rate = config.serviceRates.find((r) => r.key === input.serviceType);
+  const rawBase = sqft * (rate?.perSqft ?? 0);
+  const base = Math.max(rate?.minBase ?? 0, Math.round(rawBase));
+  const bedroomCost = bedrooms * config.bedroomRate;
+  const bathroomCost = bathrooms * config.bathroomRate;
+  const prices = addOnPrices(config);
+  const addonCost = input.addons.reduce(
+    (sum, id) => sum + (prices[id] ?? 0),
+    0,
+  );
+
+  const subtotal = base + bedroomCost + bathroomCost + addonCost;
+  const frequencyMultiplier =
+    config.frequencyMultipliers.find((f) => f.key === input.frequency)
+      ?.multiplier ?? 1;
+  const total = Math.round(subtotal * frequencyMultiplier);
+  const frequencyDiscount = Math.round(subtotal - total);
 
   return {
-    price: roundMoney(price * config.discountMultiplier),
-    maintenancePrice: roundMoney(maintenancePrice * config.discountMultiplier),
+    base,
+    bedrooms: bedroomCost,
+    bathrooms: bathroomCost,
+    addons: addonCost,
+    subtotal,
+    frequencyMultiplier,
+    frequencyDiscount,
+    total,
   };
+}
+
+export function formatUSD(amount: number): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(amount);
 }
