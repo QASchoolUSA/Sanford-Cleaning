@@ -503,6 +503,19 @@ export default function ResidentialCleaningPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Guides — internal links for indexing recovery */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Related Guides</h3>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/residential-cleaning" className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-800 hover:border-blue-300 hover:text-blue-700 transition-colors">Residential Cleaning</Link>
+            <Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl" className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-blue-800 hover:border-blue-400 hover:text-blue-900 transition-colors">How to Book a House Cleaner</Link>
+            <Link href="/guides/best-house-cleaning-deals-discounts-sanford-fl" className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-blue-800 hover:border-blue-400 hover:text-blue-900 transition-colors">Cleaning Deals &amp; Discounts</Link>
+            <Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl-customer-reviews" className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-blue-800 hover:border-blue-400 hover:text-blue-900 transition-colors">Booking Using Customer Reviews</Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

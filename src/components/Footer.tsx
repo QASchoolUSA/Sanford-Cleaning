@@ -54,6 +54,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
               <li><Link href="/house-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-house-cleaning-link">House Cleaning Services</Link></li>
+              <li><Link href="/residential-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-residential-cleaning-link">Residential Cleaning</Link></li>
               <li><Link href="/apartment-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-apartment-cleaning-link">Apartment Cleaning</Link></li>
               <li><Link href="/maintenance-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-maintenance-cleaning-link">Maintenance Cleaning</Link></li>
               <li><Link href="/commercial-cleaning" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-commercial-cleaning-link">Commercial Cleaning</Link></li>
@@ -74,10 +75,16 @@ const Footer = () => {
               <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-home-link">Home</Link></li>
               <li><Link href="/about" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-about-link">About Us</Link></li>
               <li><button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-services-button">Services</button></li>
-
               <li><button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-contact-button">Contact</button></li>
               <li><Link href="/faq" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-faq-link">FAQ</Link></li>
               <li><Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-privacy-policy-link">Privacy Policy</Link></li>
+            </ul>
+            <h3 className="text-lg font-semibold mb-4 mt-8">Guides</h3>
+            <ul className="space-y-3">
+              <li><Link href="/guides" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-guides-link">All Guides</Link></li>
+              <li><Link href="/guides/best-house-cleaning-deals-discounts-sanford-fl" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-guides-deals-link">Cleaning Deals &amp; Discounts</Link></li>
+              <li><Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-guides-book-cleaner-link">How to Book a House Cleaner</Link></li>
+              <li><Link href="/guides/how-to-book-professional-house-cleaner-sanford-fl-customer-reviews" className="text-gray-600 hover:text-blue-600 transition-colors" data-cy="footer-guides-customer-reviews-link">Booking Using Customer Reviews</Link></li>
             </ul>
           </div>
 
