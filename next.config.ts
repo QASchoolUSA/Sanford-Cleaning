@@ -84,6 +84,20 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/residential-cleaning',
+        destination: '/house-cleaning',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/#contact',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({

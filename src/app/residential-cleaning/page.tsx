@@ -310,7 +310,7 @@ export default function ResidentialCleaningPage() {
               <div className="flex gap-4">
                 <Link href="/booking" className="text-indigo-600 font-bold hover:underline">Book Online</Link>
                 <span className="text-gray-300">|</span>
-                <Link href="/contact" className="text-indigo-600 font-bold hover:underline">Contact Us</Link>
+                <Link href="/#contact" className="text-indigo-600 font-bold hover:underline">Contact Us</Link>
               </div>
             </div>
           </div>

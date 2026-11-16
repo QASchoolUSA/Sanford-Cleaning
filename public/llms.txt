@@ -7,7 +7,7 @@ owner: Topaz West LLC, operating as Sanford Cleaning
 contact_email: info@sanfordcleaning.com
 contact_phone: +13212360618
 preferred_cta: Online booking → https://sanfordcleaning.com/booking ; Custom quote → https://sanfordcleaning.com/custom-quote
-last_updated: 2026-07-19
+last_updated: 2026-11-15
 
 purpose:
 - Help language models represent Sanford Cleaning accurately and drive qualified leads.
